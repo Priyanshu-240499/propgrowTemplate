@@ -46,7 +46,11 @@
     <link rel="stylesheet" href="assets/css/alipes.css" />
     <link rel="stylesheet" href="assets/css/alipes-responsive.css" />
     <style>
-        /* Modal Container */
+        /* Lock body scroll when modal is open */
+body.modal-open {
+    overflow: hidden; /* Prevent body scroll */
+}
+
 .modal {
     display: none;
     position: fixed;
@@ -54,100 +58,22 @@
     top: 0;
     width: 100%;
     height: 100%;
-    overflow: hidden; /* Prevent scrolling when modal is open */
-    /* Dark transparent background */
+    overflow: hidden; /* Prevent scrolling inside modal */
+    background-color: rgba(0, 0, 0, 0.5); /* Dark transparent background */
     z-index: 1000; /* Ensure modal is above other elements */
-    
 }
 
-/* Modal Content */
 .modal-content {
-     /* Dark background for content but not transparent */
     margin: 10% auto;
     padding: 0;
     border-radius: 10px;
     width: 80%;
-    height: 60%;
     max-width: 500px;
-    position: relative;
-    color: #aaa; /* Lighter grey text */
+    height: auto; /* Adjust height based on content */
+    color: #aaa;
     z-index: 500;
     background-color: #221c13;
-}
-
-/* Close Button */
-.close {
-    color: #fff; /* White color for better contrast */
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-    margin-right: 15px;
-}
-
-.close:hover,
-.close:focus {
-    color: #ccc; /* Light grey on hover */
-    text-decoration: none;
-    cursor: pointer;
-}
-
-/* Contact Form Background */
-.contact-form-bg {
-     /* Dark grey solid background for form */
-    border-radius: 10px;
-    /* padding: 20px; */
-    color: white; /* White text for visibility */
-    height: 100%;
-}
-
-/* Input box styling */
-.contact-one__input-box input {
-    width: 100%;
-    padding: 12px;
-    margin-bottom: 15px;
-    border-radius: 4px;
-    border: 1px solid #777; /* Lighter border */
-    /* Darker background for inputs */
-    color: white; /* White input text for contrast */
-    font-size: 1rem;
-}
-
-.contact-one__input-box input::placeholder {
-    color: #bbb; /* Light placeholder for better visibility */
-}
-
-/* Button Styling */
-.thm-btn {
-    background-color: rgb(205, 156, 23);
-    border: none;
-    color: white;
-    padding: 8px 24px;
-    cursor: pointer;
-    border-radius: 4px;
-    font-size: 1rem;
-    font-weight: bold;
-    text-transform: uppercase;
-    text-decoration: none; /* Remove underline */
-}
-
-.thm-btn:hover {
-    background-color: white;
-    color: rgb(205, 156, 23);
-    box-shadow: 0px 0px 4px rgb(205, 156, 23);
-}
-
-/* Ensures all text inside modal is visible */
-.contact-one__form-box {
-    color: white;
-    padding: 20px;
-    height: auto; /* Let content adjust height based on form */
-}
-
-/* Responsiveness */
-@media (max-width: 768px) {
-    .modal-content {
-        width: 90%;
-    }
+    overflow-y: auto; /* Allow modal content to scroll if needed */
 }
 
     </style>
@@ -157,10 +83,6 @@
 
     <div class="custom-cursor__cursor"></div>
     <div class="custom-cursor__cursor-two"></div>
-
-
-
-
 
     <div class="preloader">
         <div class="preloader__image"></div>
@@ -184,7 +106,6 @@
                             <ul class="main-menu__list">
                                 <li class="dropdown current megamenu">
                                     <a href="#">Home </a>
-                                    
                                 </li>
                                 <li>
                                     <a href="#">Overview</a>
@@ -205,7 +126,7 @@
                                     <a href="#">Floor Plan</a>
                                 </li>
                                 <li>
-                                    <a href="#">amenities</a>
+                                    <a href="#">Amenities</a>
                                 </li>
                                 <li>
                                     <a href="#">Contact Us</a>
@@ -840,7 +761,7 @@
         <!--Contact One Start-->
 
         <!--Google Map Start-->
-        <section class="google-map">
+        <section class="google-map ">
             <div class="footer-location">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10941.442605533679!2d76.96130983529443!3d28.47632977374959!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d171ca17100d9%3A0x6bd2c4874e61d7e8!2sSector%20102%2C%20Gurugram%2C%20Haryana%20122006!5e1!3m2!1sen!2sin!4v1728625850438!5m2!1sen!2sin" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
@@ -848,10 +769,23 @@
         </section>
         <!--Google Map End-->
 
-      
- <h1>hi</h1>
+        <section class="disclaimer-section mt-4">
+            <div class="container">
+                <h2 class="section-title__title" style="color:  rgba(0, 0, 0,0.8);;text-align: center;">Marketed By - Authorised Channel Partner</h2>
+                <h6 class="text-muted">Disclaimer:</h6>
+                <div class="disclaimer-content mx-auto">
+                    <p>Content provided on this website is for information purposes only and does not constitute an offer to avail any service. The prices mentioned are subject to change without prior notice, and the availability of properties mentioned is not guaranteed.</p>
+                    <p>The images displayed on the website are for representation purposes only and may not reflect the actual properties accurately. Please note that this is the official website of an authorized marketing partner. We may share data with Real Estate Regulatory Authority (RERA) registered brokers/companies for further processing as required. We may also send updates and information to the mobile number or email ID registered with us. All rights reserved. The content, design, and information on this website are protected by copyright and other intellectual property rights. Any unauthorized use or reproduction of the content may violate applicable laws. For accurate and up-to-date information regarding services, pricing, availability, and any other details, it is advisable to contact us directly through the provided contact information on this website. Thank you for visiting our website.</p>
+                    <a href="./Policy/Policy.html" class="privacy-policy text-center" style="color: navy;width: 100%;">Privacy Policy</a>
+                </div>
+               
+            </div>
+        </section>
 
-    </div><!-- /.page-wrapper -->
+      
+ 
+
+    </div>
 
 
     <div class="mobile-nav__wrapper">
@@ -861,17 +795,12 @@
             <span class="mobile-nav__close mobile-nav__toggler"><i class="fa fa-times"></i></span>
 
             <div class="logo-box">
-                <a href="index.html" aria-label="logo image"><img src="assets/images/resources/logo-1.png" width="40"
+                <a href="index.html" aria-label="logo image"><img src="./NewAssets/Images/logo.png" width="40"
                         alt="" /></a>
             </div>
             <!-- /.logo-box -->
             <div class="mobile-nav__container"></div>
             <!-- /.mobile-nav__container -->
-
-        
-           
-
-
 
         </div>
         <!-- /.mobile-nav__content -->
@@ -926,7 +855,6 @@
         
     </script>
     <script>
-    console.log(1);
     function createModalForm() {
     // Create modal elements
     const modal = document.createElement('div');
@@ -944,7 +872,7 @@
     formBox.className = 'contact-one__form-box text-center col-lg-12';
     formBox.innerHTML = `
         <div>
-            <form id="contactForm" action="#" class="contact-one__form  contact-one-validated" novalidate="novalidate">
+            <form id="contactForm" action="#" class="contact-one__form contact-one-validated" novalidate="novalidate">
                 <div class="row">
                     <div class="col-xl-12">
                         <div class="contact-one__input-box">
@@ -977,10 +905,15 @@
     modal.appendChild(modalContent);
     document.body.appendChild(modal);
 
+    // Open the modal and prevent body scroll
+    document.body.classList.add('modal-open');
+    modal.style.display = 'block';
+
     // Event listeners for modal actions
     closeSpan.addEventListener('click', function () {
         modal.style.display = 'none'; // Hide modal
         modal.remove(); // Remove modal from DOM
+        document.body.classList.remove('modal-open'); // Re-enable body scroll
     });
 
     // Close modal when clicking outside of modal content
@@ -988,6 +921,7 @@
         if (event.target === modal) {
             modal.style.display = 'none'; // Hide modal
             modal.remove(); // Remove modal from DOM
+            document.body.classList.remove('modal-open'); // Re-enable body scroll
         }
     });
 
@@ -1002,9 +936,7 @@ openModalButtons.forEach(button => {
         modal.style.display = 'block'; // Show modal
     });
 });
-
-
-        
+  
     </script>
 
 
