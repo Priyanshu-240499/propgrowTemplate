@@ -287,7 +287,7 @@
 	//three-column-carousel
 	    if ($('.three-column-carousel').length) {
 			$('.three-column-carousel').owlCarousel({
-			loop:true,
+			loop:false,
 			margin:30,
 			nav:true,
 			smartSpeed: 3000,
@@ -333,47 +333,19 @@
 	    }
 
 
-	// sponsors-slider
-	if ($('.video-slider').length) {
-		$('.video-slider').owlCarousel({
-			loop:true,
-			margin:30,
-			nav:true,
-			smartSpeed: 3000,
-			autoplay: 4000,
-			navText: [ '<span class="fa fa-angle-left"></span>', '<span class="fa fa-angle-right"></span>' ],
-			responsive:{
-				0:{
-					items:1
-				},
-				400:{
-					items:1
-				},
-				600:{
-					items:1
-				},
-				800:{
-					items:1
-				},
-				1200:{
-					items:1
-				}
-			}
-		});    		
-	}
+	
 
 
 	//Main Slider Carousel
 	if ($('.main-slider-carousel').length) {
 		$('.main-slider-carousel').owlCarousel({
-			loop:true,
+			loop:false,
 			margin:0,
 			nav:true,
 			animateOut: 'slideOutDown',
     		animateIn: 'fadeIn',
     		active: true,
-			smartSpeed: 1000,
-			autoplay: 5000,
+			smartSpeed: 1,
 			navText: [ '<span class="fa fa-angle-left"></span>', '<span class="fa fa-angle-right"></span>' ],
 			responsive:{
 				0:{
