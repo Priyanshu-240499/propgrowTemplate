@@ -621,7 +621,6 @@ figure{
 
 .main-slider{
   position:relative;
-  height: 100vh;
 }
 
 .main-slider .slide{
@@ -780,9 +779,9 @@ figure{
   position: absolute;
   right: 50px;
 }
-/* .main-slider .owl-dots{
+.main-slider .owl-dots{
   display: none !important;
-} */
+}
 .main-slider .owl-theme .owl-controls{
   display: block;
 }
