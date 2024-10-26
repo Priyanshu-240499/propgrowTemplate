@@ -1,0 +1,1060 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 
+  <style>
+    *{
+        margin: 0;
+        padding: 0;
+       
+
+    }
+    builder-component {
+        max-width: none !important;
+    }
+    :root {
+  --primary-color: #58BF93;
+}
+ /* Marquee animation */
+ .marquee {
+        display: flex;
+        animation: marquee 10s linear infinite;
+    }
+
+    .marquee:hover {
+        animation-play-state: paused;
+    }
+
+    /* Marquee keyframes */
+    @keyframes marquee {
+        0% {
+            transform: translateX(100%);
+        }
+        100% {
+            transform: translateX(-100%);
+        }
+    }
+
+    /* Logo styling */
+    .partner-logo {
+        object-contain: contain;
+        width: 120px;
+        aspect-ratio: 2.18;
+    }
+
+    /* Pause marquee on hover */
+    .hover\:pause-animation:hover {
+        animation-play-state: paused;
+    }
+
+    /* styles.css */
+.my-container {
+    padding: 0 5% !important;
+    margin-top: 5%;
+}
+
+.scrollable-article {
+    min-width: 400px; /* Consistent width */
+    max-width: 400px;
+    overflow-y: auto; /* Enables vertical scrolling if content exceeds height */
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+.animate-scroll {
+    animation: scroll 20s linear infinite; /* Increase duration for smoother scrolling */
+    display: flex;
+}
+
+.relative {
+    max-width: 100vw; /* Ensure it fits within the viewport */
+    overflow-x: hidden;
+}
+
+/* FOR ARTICLES */
+   
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+.infinite-scroll {
+    display: flex;
+    gap: 1.25rem;
+    animation: scroll 20s linear infinite;
+    width: calc(100% * 5); /* Adjust based on the number of items */
+}
+
+.infinite-scroll article {
+    flex: 0 0 25%; /* Four articles per view */
+}
+
+/* Styling adjustments for small screens */
+@media (max-width: 768px) {
+    .infinite-scroll {
+        width: calc(100% * 1); /* Full width for small screens */
+    }
+    .infinite-scroll article {
+        flex: 0 0 100%; /* Full width for each article */
+    }
+}
+
+
+    /* More questions */
+
+    .accordion-icon {
+    font-size: 1.5rem;
+  }
+
+  /* Hide accordion content by default */
+  .accordion-content {
+    display: none;
+  }
+
+  /* Show accordion content when button is expanded */
+  .accordion-btn[aria-expanded="true"] + .accordion-content {
+    display: block;
+  }
+
+  /* Change icon when expanded */
+  .accordion-btn[aria-expanded="true"] .accordion-icon {
+    content: "-";
+  }
+    </style>
+     <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    
+    <!-- navbar -->
+    <header class="nav-container bg-white shadow-md p-4">
+        <nav class="nav-wrapper flex justify-between items-center">
+          <!-- Logo -->
+          <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/c54dc5567084ebc1a6f89df31c9782d599d3f297478e271912c985149f5ad0a1?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c" alt="Company Logo" class="logo w-32" />
+          
+          <!-- Hamburger Menu Button -->
+          <div class="block md:hidden">
+            <button id="menu-btn" class="text-gray-600 focus:outline-none">
+              <!-- Default hamburger icon -->
+              <svg id="hamburger-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+              </svg>
+              <!-- Close "X" icon (hidden initially) -->
+              <svg id="close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+              </svg>
+            </button>
+          </div>
+          
+          <!-- Navigation Links (hidden on mobile) -->
+          <div id="menu" class="nav-links hidden md:flex space-x-6">
+            <a href="#home" class="nav-link text-gray-600 hover:text-blue-500">Home</a>
+            <a href="#about" class="nav-link text-gray-600 hover:text-blue-500">About</a>
+            <a href="#properties" class="nav-link text-gray-600 hover:text-blue-500">Properties</a>
+            <a href="#blogs" class="nav-link text-gray-600 hover:text-blue-500">Blogs</a>
+            <a href="#contact" class="nav-link">Contact Us</a>
+          </div>
+          
+          <!-- Contact Button (hidden on mobile) -->
+          <button class="contact-button hidden md:block text-white px-4 py-2 rounded" style="background-color: var(--primary-color) !important;">Contact Us</button>
+        </nav>
+        
+        <!-- Mobile Menu (for screens 768px or less) -->
+        <div id="mobile-menu" class="hidden flex flex-col items-center mt-4 space-y-2 w-3/5 mx-auto" style="width: 100%;">
+            <a href="#home" class="nav-link text-gray-600 hover:text-blue-500">Home</a>
+            <a href="#about" class="nav-link text-gray-600 hover:text-blue-500">About</a>
+            <a href="#properties" class="nav-link text-gray-600 hover:text-blue-500">Properties</a>
+            <a href="#blogs" class="nav-link text-gray-600 hover:text-blue-500">Blogs</a>
+            <a href="#contact" class="nav-link text-gray-600 hover:text-blue-500">Contact Us</a>
+          
+          </div>
+          
+      </header>
+
+      <!-- banner -->
+    <section class="w-full">
+        <img 
+            loading="lazy" 
+            src="https://cdn.builder.io/api/v1/image/assets/TEMP/145e78cbd69d8a97d92bd82b0f3dba324108e9951e88890815bd2ece18a30bb4?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c" 
+            alt="Hero section background" 
+            class="object-contain w-full aspect-[1.78] shadow-[0px_4px_4px_rgba(0,0,0,0.25)]"
+        />
+    </section>
+
+    <!-- companies -->
+
+    <section class="flex flex-col items-center justify-center overflow-hidden my-container">
+        <h2 class="text-4xl font-medium text-center leading-[52px] text-zinc-900 max-md:max-w-full">
+            We Are Authorized Channel Partners
+        </h2>
+        <article class="flex flex-col items-center max-md:mt-10 w-full">
+            <p class="text-xl leading-loose text-center text-zinc-900 max-md:max-w-full">
+                Partnering with Industry Leaders for Your Success
+            </p>
+            <div class="relative w-full overflow-hidden mt-10">
+                <div class="flex gap-10 marquee hover:pause-animation">
+                    <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/df3ef12cc2568608d3d078b5a9d11bf706babff51e9f6fbe1d63cb628503a692?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c" alt="Partner Logo 1" class="object-contain w-24 filter grayscale hover:grayscale-0 transition duration-300 ease-in-out" />
+                    <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/1ee2d705111fe56f31fcaf5dd6587933a5119d8ddd3a51404ef05fc79319979a?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c" alt="Partner Logo 2" class="object-contain w-24 filter grayscale hover:grayscale-0 transition duration-300 ease-in-out" />
+                    <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/77ebfdec09b88b63d09b125820b3e4d48e9ae231d833c6506223c776c177a5ef?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c" alt="Partner Logo 3" class="object-contain w-24 filter grayscale hover:grayscale-0 transition duration-300 ease-in-out" />
+                    <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/08559cbd88deb5850ee3424c943f7cffc4176f96cafc58427b3a7a100584c331?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c" alt="Partner Logo 4" class="object-contain w-24 filter grayscale hover:grayscale-0 transition duration-300 ease-in-out" />
+                    <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/c322c3936e0379a5bb373f9f30c0107c4d64eeb51604297f2df62925c4b110ef?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c" alt="Partner Logo 5" class="object-contain w-24 filter grayscale hover:grayscale-0 transition duration-300 ease-in-out" />
+                    <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/46332db8102ca93cfc6bedd2f4fbc9301b3ec79dd949dac3ac4aa2c01d61263e?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c" alt="Partner Logo 6" class="object-contain w-24 filter grayscale hover:grayscale-0 transition duration-300 ease-in-out" />
+                    <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/59a0dff400c9b65fd480266934b7a209485f3946647a6fd2a46867a97b6f1349?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c" alt="Partner Logo 7" class="object-contain w-24 filter grayscale hover:grayscale-0 transition duration-300 ease-in-out" />
+                    <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/c9e6139c6823f2b2176d00e49200453800fb2e21cddec2c9e3abeb5bd2a6482d?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c" alt="Partner Logo 8" class="object-contain w-24 filter grayscale hover:grayscale-0 transition duration-300 ease-in-out" />
+                <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/df3ef12cc2568608d3d078b5a9d11bf706babff51e9f6fbe1d63cb628503a692?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c" alt="Partner Logo 1" class="object-contain w-24 filter grayscale hover:grayscale-0 transition duration-300 ease-in-out" />
+              <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/1ee2d705111fe56f31fcaf5dd6587933a5119d8ddd3a51404ef05fc79319979a?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c" alt="Partner Logo 2" class="object-contain w-24 filter grayscale hover:grayscale-0 transition duration-300 ease-in-out" />
+              <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/77ebfdec09b88b63d09b125820b3e4d48e9ae231d833c6506223c776c177a5ef?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c" alt="Partner Logo 3" class="object-contain w-24 filter grayscale hover:grayscale-0 transition duration-300 ease-in-out" />
+              <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/08559cbd88deb5850ee3424c943f7cffc4176f96cafc58427b3a7a100584c331?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c" alt="Partner Logo 4" class="object-contain w-24 filter grayscale hover:grayscale-0 transition duration-300 ease-in-out" />
+              <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/c322c3936e0379a5bb373f9f30c0107c4d64eeb51604297f2df62925c4b110ef?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c" alt="Partner Logo 5" class="object-contain w-24 filter grayscale hover:grayscale-0 transition duration-300 ease-in-out" />
+              <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/46332db8102ca93cfc6bedd2f4fbc9301b3ec79dd949dac3ac4aa2c01d61263e?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c" alt="Partner Logo 6" class="object-contain w-24 filter grayscale hover:grayscale-0 transition duration-300 ease-in-out" />
+              <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/59a0dff400c9b65fd480266934b7a209485f3946647a6fd2a46867a97b6f1349?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c" alt="Partner Logo 7" class="object-contain w-24 filter grayscale hover:grayscale-0 transition duration-300 ease-in-out" />
+              <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/c9e6139c6823f2b2176d00e49200453800fb2e21cddec2c9e3abeb5bd2a6482d?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c" alt="Partner Logo 8" class="object-contain w-24 filter grayscale hover:grayscale-0 transition duration-300 ease-in-out" />
+              <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/df3ef12cc2568608d3d078b5a9d11bf706babff51e9f6fbe1d63cb628503a692?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c" alt="Partner Logo 1" class="object-contain w-24 filter grayscale hover:grayscale-0 transition duration-300 ease-in-out" />
+              <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/1ee2d705111fe56f31fcaf5dd6587933a5119d8ddd3a51404ef05fc79319979a?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c" alt="Partner Logo 2" class="object-contain w-24 filter grayscale hover:grayscale-0 transition duration-300 ease-in-out" />
+              <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/77ebfdec09b88b63d09b125820b3e4d48e9ae231d833c6506223c776c177a5ef?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c" alt="Partner Logo 3" class="object-contain w-24 filter grayscale hover:grayscale-0 transition duration-300 ease-in-out" />
+              <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/08559cbd88deb5850ee3424c943f7cffc4176f96cafc58427b3a7a100584c331?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c" alt="Partner Logo 4" class="object-contain w-24 filter grayscale hover:grayscale-0 transition duration-300 ease-in-out" />
+              <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/c322c3936e0379a5bb373f9f30c0107c4d64eeb51604297f2df62925c4b110ef?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c" alt="Partner Logo 5" class="object-contain w-24 filter grayscale hover:grayscale-0 transition duration-300 ease-in-out" />
+              <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/46332db8102ca93cfc6bedd2f4fbc9301b3ec79dd949dac3ac4aa2c01d61263e?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c" alt="Partner Logo 6" class="object-contain w-24 filter grayscale hover:grayscale-0 transition duration-300 ease-in-out" />
+              <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/59a0dff400c9b65fd480266934b7a209485f3946647a6fd2a46867a97b6f1349?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c" alt="Partner Logo 7" class="object-contain w-24 filter grayscale hover:grayscale-0 transition duration-300 ease-in-out" />
+              <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/c9e6139c6823f2b2176d00e49200453800fb2e21cddec2c9e3abeb5bd2a6482d?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c" alt="Partner Logo 8" class="object-contain w-24 filter grayscale hover:grayscale-0 transition duration-300 ease-in-out" />
+          <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/df3ef12cc2568608d3d078b5a9d11bf706babff51e9f6fbe1d63cb628503a692?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c" alt="Partner Logo 1" class="object-contain w-24 filter grayscale hover:grayscale-0 transition duration-300 ease-in-out" />
+        <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/1ee2d705111fe56f31fcaf5dd6587933a5119d8ddd3a51404ef05fc79319979a?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c" alt="Partner Logo 2" class="object-contain w-24 filter grayscale hover:grayscale-0 transition duration-300 ease-in-out" />
+        <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/77ebfdec09b88b63d09b125820b3e4d48e9ae231d833c6506223c776c177a5ef?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c" alt="Partner Logo 3" class="object-contain w-24 filter grayscale hover:grayscale-0 transition duration-300 ease-in-out" />
+        <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/08559cbd88deb5850ee3424c943f7cffc4176f96cafc58427b3a7a100584c331?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c" alt="Partner Logo 4" class="object-contain w-24 filter grayscale hover:grayscale-0 transition duration-300 ease-in-out" />
+        <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/c322c3936e0379a5bb373f9f30c0107c4d64eeb51604297f2df62925c4b110ef?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c" alt="Partner Logo 5" class="object-contain w-24 filter grayscale hover:grayscale-0 transition duration-300 ease-in-out" />
+        <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/46332db8102ca93cfc6bedd2f4fbc9301b3ec79dd949dac3ac4aa2c01d61263e?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c" alt="Partner Logo 6" class="object-contain w-24 filter grayscale hover:grayscale-0 transition duration-300 ease-in-out" />
+        <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/59a0dff400c9b65fd480266934b7a209485f3946647a6fd2a46867a97b6f1349?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c" alt="Partner Logo 7" class="object-contain w-24 filter grayscale hover:grayscale-0 transition duration-300 ease-in-out" />
+        <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/c9e6139c6823f2b2176d00e49200453800fb2e21cddec2c9e3abeb5bd2a6482d?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c" alt="Partner Logo 8" class="object-contain w-24 filter grayscale hover:grayscale-0 transition duration-300 ease-in-out" />
+                </div>
+            </div>
+        </article>
+    </section>
+      
+
+    <!-- about -->
+    <section class="overflow-hidden my-container">
+        <div class="flex flex-col-reverse md:flex-row gap-5 max-md:flex-col-reverse">
+          <article class="flex flex-col w-full md:w-6/12">
+            <div class="flex flex-col w-full px-2 max-md:mt-10">
+                <h2 class="text-4xl font-medium text-center leading-[52px] text-zinc-900 max-md:max-w-full">
+                    We Are Authorized Channel Partners
+                </h2>
+                <p class="text-xl leading-loose text-center text-zinc-900 max-md:max-w-full">
+                    At PropGrow, we are more than just a real estate agency; we are your dedicated partners in navigating the complexities of property investment. With a strong foundation built on trust, transparency, and expertise, we have successfully guided thousands of clients in making informed decisions that align with their goals. Our mission is to empower you with the knowledge and support needed to secure your ideal property, ensuring a seamless and rewarding experience from start to finish.
+                </p>
+      
+              <section class="mt-16 max-md:mt-8 max-md:max-w-full">
+                <div class="flex justify-center flex-wrap gap-2">
+                    <article class="flex flex-col w-[28%] min-w-[180px] text-center">
+                        <div class="flex flex-col grow p-3 w-full rounded-lg border border-solid bg-slate-900 border-neutral-800 min-h-[90px] max-md:px-2 max-md:mt-4">
+                          <h3 class="text-xl font-semibold text-green-400">5000+</h3>
+                          <p class="text-sm text-white">Clients Served</p>
+                        </div>
+                      </article>
+                      <article class="flex flex-col w-[28%] min-w-[180px] text-center">
+                        <div class="flex flex-col grow p-3 w-full rounded-lg border border-solid bg-slate-900 border-neutral-800 min-h-[90px] max-md:px-2 max-md:mt-4">
+                          <h3 class="text-xl font-semibold text-green-400">1.2 M+</h3>
+                          <p class="text-sm text-white">Sq. Ft. Sold</p>
+                        </div>
+                      </article>
+                      <article class="flex flex-col w-[28%] min-w-[180px] text-center">
+                        <div class="flex flex-col grow p-3 w-full rounded-lg border border-solid bg-slate-900 border-neutral-800 min-h-[90px] max-md:px-2 max-md:mt-4">
+                          <h3 class="text-xl font-semibold text-green-400">5+</h3>
+                          <p class="text-sm text-white">Years Experience</p>
+                        </div>
+                      </article>
+                      <article class="flex flex-col w-[28%] min-w-[180px] text-center">
+                        <div class="flex flex-col grow p-3 w-full rounded-lg border border-solid bg-slate-900 border-neutral-800 min-h-[90px] max-md:px-2 max-md:mt-4">
+                          <h3 class="text-xl font-semibold text-green-400">100%</h3>
+                          <p class="text-sm text-white">Client Satisfaction</p>
+                        </div>
+                      </article>
+                      <article class="flex flex-col w-[28%] min-w-[180px] text-center">
+                        <div class="flex flex-col grow p-3 w-full rounded-lg border border-solid bg-slate-900 border-neutral-800 min-h-[90px] max-md:px-2 max-md:mt-4">
+                          <h3 class="text-xl font-semibold text-green-400">24/7</h3>
+                          <p class="text-sm text-white">Support Available</p>
+                        </div>
+                      </article>
+                      
+                </div>
+              </section>
+            </div>
+          </article>
+      
+          <aside class="flex flex-col w-full md:w-6/12 max-md:mt-0">
+            <figure class="flex overflow-hidden flex-col self-stretch my-auto w-full rounded-xl border border-solid border-neutral-800">
+              <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/ef058ec0353daae1a52e48cb587d93232e47db4395734a71f10dd9d5a6afe6a8?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c" alt="PropGrow real estate showcase" class="object-cover w-full rounded-xl aspect-[1.75]" />
+            </figure>
+          </aside>
+        </div>
+      </section>
+      
+
+      <!-- latest launch -->
+    <section class="overflow-hidden my-container">
+        <h2 class="text-4xl font-medium p-4 text-center leading-[52px] text-zinc-900 max-md:max-w-full">
+            Latest Launch Properties
+        </h2>
+        <p class="text-xl leading-loose p-4 text-center text-zinc-900 max-md:max-w-full">
+            Invest in Exceptional Living Spaces for Your Future
+        </p>
+
+        <div class="relative overflow-hidden max-w-full">
+            <div class="flex animate-scroll space-x-6">
+                <!-- First Article -->
+                <article class="scrollable-article flex flex-col bg-white rounded-lg shadow-lg overflow-hidden" style="min-width: 400px;">
+                    <!-- Image section -->
+                    <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/2fc6a5a28fbaac6db34aa014e8a29d34b7c00a17278db25a3aa254bc4f6b44ef?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c" alt="Building Image" class="w-full object-cover rounded-t-lg">
+                    <!-- Content section -->
+                    <div class="flex flex-col p-4">
+                        <div class="flex flex-col items-start">
+                            <h3 class="text-lg font-semibold text-gray-800 mb-2">DLF Privana South</h3>
+                            <p class="text-sm text-gray-600">Sector 77, Gurgaon</p>
+                        </div>
+                        <div class="flex justify-between items-center mt-4 w-full">
+                            <p class="text-base font-bold text-gray-700">Gurugram</p>
+                            <button class="bg-green-500 text-white font-semibold py-2 px-4 rounded-full">View Details</button>
+                        </div>
+                    </div>
+                </article>
+        
+                <!-- Repeat other articles similarly, maintaining the consistent width -->
+                <article class="scrollable-article flex flex-col bg-white rounded-lg shadow-lg overflow-hidden" style="min-width: 400px;">
+                    <!-- Image section -->
+                    <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/61a78214f410c5310c30ddb68f1ef29f4c92084523d28d736d4b5dd152936fdd?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c" alt="Building Image" class="w-full object-cover rounded-t-lg">
+                    <!-- Content section -->
+                    <div class="flex flex-col p-4">
+                        <div class="flex flex-col items-start">
+                            <h3 class="text-lg font-semibold text-gray-800 mb-2">DLF Privana South</h3>
+                            <p class="text-sm text-gray-600">Sector 77, Gurgaon</p>
+                        </div>
+                        <div class="flex justify-between items-center mt-4 w-full">
+                            <p class="text-base font-bold text-gray-700">Gurugram</p>
+                            <button class="bg-green-500 text-white font-semibold py-2 px-4 rounded-full">View Details</button>
+                        </div>
+                    </div>
+                </article>
+                <article class="scrollable-article flex flex-col bg-white rounded-lg shadow-lg overflow-hidden" style="min-width: 400px;">
+                    <!-- Image section -->
+                    <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/2fc6a5a28fbaac6db34aa014e8a29d34b7c00a17278db25a3aa254bc4f6b44ef?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c" alt="Building Image" class="w-full object-cover rounded-t-lg">
+                    <!-- Content section -->
+                    <div class="flex flex-col p-4">
+                        <div class="flex flex-col items-start">
+                            <h3 class="text-lg font-semibold text-gray-800 mb-2">DLF Privana South</h3>
+                            <p class="text-sm text-gray-600">Sector 77, Gurgaon</p>
+                        </div>
+                        <div class="flex justify-between items-center mt-4 w-full">
+                            <p class="text-base font-bold text-gray-700">Gurugram</p>
+                            <button class="bg-green-500 text-white font-semibold py-2 px-4 rounded-full">View Details</button>
+                        </div>
+                    </div>
+                </article>
+                <article class="scrollable-article flex flex-col bg-white rounded-lg shadow-lg overflow-hidden" style="min-width: 400px;">
+                    <!-- Image section -->
+                    <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/61a78214f410c5310c30ddb68f1ef29f4c92084523d28d736d4b5dd152936fdd?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c" alt="Building Image" class="w-full object-cover rounded-t-lg">
+                    <!-- Content section -->
+                    <div class="flex flex-col p-4">
+                        <div class="flex flex-col items-start">
+                            <h3 class="text-lg font-semibold text-gray-800 mb-2">DLF Privana South</h3>
+                            <p class="text-sm text-gray-600">Sector 77, Gurgaon</p>
+                        </div>
+                        <div class="flex justify-between items-center mt-4 w-full">
+                            <p class="text-base font-bold text-gray-700">Gurugram</p>
+                            <button class="bg-green-500 text-white font-semibold py-2 px-4 rounded-full">View Details</button>
+                        </div>
+                    </div>
+                </article>
+                <article class="scrollable-article flex flex-col bg-white rounded-lg shadow-lg overflow-hidden" style="min-width: 400px;">
+                    <!-- Image section -->
+                    <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/2fc6a5a28fbaac6db34aa014e8a29d34b7c00a17278db25a3aa254bc4f6b44ef?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c" alt="Building Image" class="w-full object-cover rounded-t-lg">
+                    <!-- Content section -->
+                    <div class="flex flex-col p-4">
+                        <div class="flex flex-col items-start">
+                            <h3 class="text-lg font-semibold text-gray-800 mb-2">DLF Privana South</h3>
+                            <p class="text-sm text-gray-600">Sector 77, Gurgaon</p>
+                        </div>
+                        <div class="flex justify-between items-center mt-4 w-full">
+                            <p class="text-base font-bold text-gray-700">Gurugram</p>
+                            <button class="bg-green-500 text-white font-semibold py-2 px-4 rounded-full">View Details</button>
+                        </div>
+                    </div>
+                </article>
+                <article class="scrollable-article flex flex-col bg-white rounded-lg shadow-lg overflow-hidden" style="min-width: 400px;">
+                    <!-- Image section -->
+                    <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/2fc6a5a28fbaac6db34aa014e8a29d34b7c00a17278db25a3aa254bc4f6b44ef?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c" alt="Building Image" class="w-full object-cover rounded-t-lg">
+                    <!-- Content section -->
+                    <div class="flex flex-col p-4">
+                        <div class="flex flex-col items-start">
+                            <h3 class="text-lg font-semibold text-gray-800 mb-2">DLF Privana South</h3>
+                            <p class="text-sm text-gray-600">Sector 77, Gurgaon</p>
+                        </div>
+                        <div class="flex justify-between items-center mt-4 w-full">
+                            <p class="text-base font-bold text-gray-700">Gurugram</p>
+                            <button class="bg-green-500 text-white font-semibold py-2 px-4 rounded-full">View Details</button>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    
+        <!-- Container with scrolling behavior -->
+      
+    </section>
+    
+      
+      
+      <!-- investment -->
+
+        <section class="flex overflow-hidden flex-col items-center my-container">
+            <h2 data-layername="findPropertiesInTheseCities" class="ml-4 text-5xl font-semibold leading-none text-zinc-900 max-md:max-w-full max-md:text-4xl">
+                Find Investment Gems in These Cities
+            </h2>
+            <p data-layername="exploreInvestmentOpportunitiesAcrossKeyLocations" class="mt-11 text-xl leading-loose text-zinc-900 max-md:mt-10 max-md:max-w-full">
+                Explore Investment Opportunities Across Key Locations
+            </p>
+            <section class="self-stretch mt-20 w-full max-md:mt-10 max-md:max-w-full">
+                <div class="flex gap-5 max-md:flex-col">
+                    <article class="flex flex-col w-[33%] max-md:ml-0 max-md:w-full">
+                        <div class="flex overflow-hidden relative flex-col grow px-8 pb-8 text-xl font-medium leading-tight text-white min-h-[668px] pt-[559px] max-md:px-5 max-md:pt-24 max-md:mt-10 max-md:max-w-full">
+                            <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/7f5303c4110693573b5cc57ca7d71a7f23c11fbebe41e7500467c27d68a098cb?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c" alt="New Delhi cityscape" class="object-cover absolute inset-0 size-full" />
+                            <h3 data-layername="divInner" class="relative px-8 py-8 rounded-2xl bg-green-400 bg-opacity-40 max-md:px-5">
+                                New Delhi
+                            </h3>
+                        </div>
+                    </article>
+                    <article class="flex flex-col ml-5 w-[33%] max-md:ml-0 max-md:w-full">
+                        <div class="flex overflow-hidden relative flex-col grow px-10 pb-8 text-xl font-medium leading-tight text-white whitespace-nowrap min-h-[668px] pt-[559px] max-md:px-5 max-md:pt-24 max-md:mt-10 max-md:max-w-full">
+                            <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/f2689a48960ba4d4674fab8fab919b6d6e8999710e47573a972bddcdf3c97788?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c" alt="Gurgaon cityscape" class="object-cover absolute inset-0 size-full" />
+                            <h3 data-layername="divInner" class="relative px-7 py-8 rounded-2xl bg-green-400 bg-opacity-40 max-md:px-5 max-md:max-w-full">
+                                Gurgaon
+                            </h3>
+                        </div>
+                    </article>
+                    <article class="flex flex-col ml-5 w-[33%] max-md:ml-0 max-md:w-full">
+                        <div class="flex overflow-hidden relative flex-col grow px-5 pt-80 pb-8 text-xl font-medium leading-tight text-white whitespace-nowrap min-h-[668px] max-md:pt-24 max-md:pr-5 max-md:mt-10 max-md:max-w-full">
+                            <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/bee3ee5cef1b831be4c1f441976048c056ab027f4ba8ee18ffaf16d3562dd24a?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c" alt="Mumbai cityscape" class="object-cover absolute inset-0 size-full" />
+                            <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/8360c8a84882d09576c1529d6e52c40f1035e88f0dc61d8432093c2df048c1a8?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c" alt="" class="object-contain self-center aspect-[7.81] w-[78px]" />
+                            <h3 data-layername="divInner" class="relative px-8 py-8 mt-60 rounded-2xl bg-green-400 bg-opacity-40 max-md:px-5 max-md:mt-10">
+                                Mumbai
+                            </h3>
+                        </div>
+                    </article>
+                </div>
+            </section>
+        </section>
+
+        <!-- customer review -->
+        <section class="flex overflow-hidden flex-col my-container">
+            <header class="flex flex-col flex-wrap gap-5 justify-between text-center w-full max-w-[1341px] text-zinc-900 max-md:max-w-full">
+                <h2 data-layername="findPropertiesInTheseCities" class="text-5xl font-semibold leading-none text-zinc-900 max-md:max-w-full max-md:text-4xl">
+                    Find Investment Gems in These Cities
+                </h2>
+                <div class="flex gap-10 self-center">
+                    <article class="flex flex-col self-start mt-1">
+                        <h3 class="self-start text-2xl font-medium leading-tight">5K+</h3>
+                        <p class="mt-5 text-base leading-3">Happy People</p>
+                    </article>
+                    <article class="flex flex-col">
+                        <h3 class="self-start text-2xl font-medium leading-tight">4.9</h3>
+                        <p class="mt-5 text-base leading-3">Overall rating</p>
+                        <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/801397f573fcaf9ed7a19b8d9f3c848330f9748d2bdf33ed06924f1a7fde4d74?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c" alt="Rating stars" class="object-contain mt-2.5 aspect-[7.81] w-[78px] max-md:mr-1.5" />
+                    </article>
+                </div>
+            </header>
+            <section class="mt-12 w-full max-md:mt-10 max-md:max-w-full">
+                <div class="flex flex-wrap gap-5 max-md:flex-col justify-center">
+                    <article class="flex-grow flex flex-col w-full max-w-[30%] max-md:max-w-full">
+                        <div class="flex flex-col h-full px-10 py-11 mx-auto w-full text-white rounded-2xl border-b-4 border-green-400 bg-slate-900 max-md:px-5 max-md:mt-8 max-md:max-w-full">
+                            <header class="flex gap-5 justify-between items-center">
+                                <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/772d0f82f5764b4830bf6834fae1dec65097baf19b2ceb4bd8b2a76f591a4f57?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c" alt="Cameron Williamson profile picture" class="object-contain shrink-0 aspect-square rounded-[45px] w-[90px]" />
+                                <div class="flex flex-col self-stretch my-auto">
+                                    <h3 class="text-xl font-medium leading-tight">Cameron Williamson</h3>
+                                    <p class="self-start mt-3.5 text-base leading-loose">Designer</p>
+                                </div>
+                                <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/ea232b61c196e93c25fab5219117ad8cefbf78f4ec2ccd69cd91a4e12da82fcc?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c" alt="" class="object-contain shrink-0 aspect-[1.02] w-[45px]" />
+                            </header>
+                            <p class="mt-10 text-lg leading-8 max-md:mr-1">
+                                Searches for multiplexes, property comparisons, and the loan estimator. Works great. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dores.
+                            </p>
+                        </div>
+                    </article>
+                    <article class="flex-grow flex flex-col w-full max-w-[30%] max-md:max-w-full">
+                        <div class="flex flex-col h-full p-10 mx-auto w-full text-white rounded-2xl border-b-4 border-green-400 bg-slate-900 max-md:px-5 max-md:mt-8 max-md:max-w-full">
+                            <header class="flex gap-5 justify-between w-full">
+                                <div class="flex gap-5">
+                                    <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/11b503f9008f1f1894efb0fa8c242b3fbc10abf3143cffd315ecc33b913609c7?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c" alt="Esther Howard profile picture" class="object-contain shrink-0 aspect-square rounded-[45px] w-[90px]" />
+                                    <div class="flex flex-col my-auto">
+                                        <h3 class="text-xl font-medium leading-tight">Esther Howard</h3>
+                                        <p class="self-start text-base leading-7">Marketing</p>
+                                    </div>
+                                </div>
+                                <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/cc9a0e27a675b9a50980ed03974c31f2d21eb28bf93c64c1bf545382d0cd0bd0?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c" alt="" class="object-contain shrink-0 my-auto aspect-[1.02] w-[45px]" />
+                            </header>
+                            <p class="mt-7 text-lg leading-8 max-md:mr-2.5">
+                                Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae.
+                            </p>
+                        </div>
+                    </article>
+                    <article class="flex-grow flex flex-col w-full max-w-[30%] max-md:max-w-full">
+                        <div class="flex flex-col h-full px-10 py-11 mx-auto w-full text-white rounded-2xl border-b-4 border-green-400 bg-slate-900 max-md:px-5 max-md:mt-8 max-md:max-w-full">
+                            <header class="flex gap-5 justify-between w-full">
+                                <div class="flex gap-5">
+                                    <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/dae92029ef1fa4c42fed09f0b4e604e06b53f66e149d2c588d25f930bdbf4baf?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c" alt="Devon Lane profile picture" class="object-contain shrink-0 aspect-square rounded-[45px] w-[90px]" />
+                                    <div class="flex flex-col my-auto">
+                                        <h3 class="text-xl font-medium leading-tight">Devon Lane</h3>
+                                        <p class="self-start mt-3.5 text-base leading-loose">Developer</p>
+                                    </div>
+                                </div>
+                                <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/afedf18d88bbff51e7835be4889411f9ec308bad0574f57265121228849a30e1?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c" alt="" class="object-contain shrink-0 my-auto aspect-[1.02] w-[45px]" />
+                            </header>
+                            <p class="mt-10 text-lg leading-8 max-md:mr-2.5">
+                                Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est.
+                            </p>
+                        </div>
+                    </article>
+                </div>
+            </section>
+        </section>
+        
+
+        <!-- testimonial -->
+
+        <div class="flex justify-center items-center my-container">
+            <section class="flex gap-4 pb-1.5 mx-auto overflow-hidden w-full sm:w-[70%] md:overflow-visible">
+                <div class="infinite-scroll">
+                    <!-- First article card -->
+                    <article class="flex flex-col gap-2.5 p-2 bg-white rounded-xl shadow-lg h-[340px]">
+                        <div class="relative flex justify-center items-center w-full h-[240px] rounded-md overflow-hidden">
+                            <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/04fb86c82f0b0d586032e39ff32071a4bea29f03fee47e1d75ba0da948971965?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c" alt="Profile photo" class="object-cover w-[240px] h-[240px] rounded-md" />
+                            <a href="#" class="absolute top-2 right-2 w-6 h-6 flex justify-center items-center bg-white shadow-sm rounded-full">
+                                <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/cee0bbc5f6c3e2b749948b8795937e34f6c8c217ab03ce7491b9eb143db718c0?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c" alt="" class="object-contain w-[18px]" />
+                            </a>
+                        </div>
+                        <header class="flex flex-col justify-center items-center pt-2 w-full">
+                            <h2 class="text-lg font-bold leading-6 text-slate-900">Manar Mahmassani</h2>
+                            <p class="mt-1 text-sm leading-5 text-gray-500">Co-Founder & Co-CEO</p>
+                        </header>
+                    </article>
+                    <!-- Repeat the article cards here -->
+                    <!-- Include the other article cards (2nd, 3rd, 4th, 5th) in the same way -->
+                    <article class="flex flex-col gap-2.5 p-2 bg-white rounded-xl shadow-lg h-[340px]">
+                        <div class="relative flex justify-center items-center w-full h-[240px] rounded-md overflow-hidden">
+                            <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/04fb86c82f0b0d586032e39ff32071a4bea29f03fee47e1d75ba0da948971965?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c" alt="Profile photo" class="object-cover w-[240px] h-[240px] rounded-md" />
+                            <a href="#" class="absolute top-2 right-2 w-6 h-6 flex justify-center items-center bg-white shadow-sm rounded-full">
+                                <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/cee0bbc5f6c3e2b749948b8795937e34f6c8c217ab03ce7491b9eb143db718c0?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c" alt="" class="object-contain w-[18px]" />
+                            </a>
+                        </div>
+                        <header class="flex flex-col justify-center items-center pt-2 w-full">
+                            <h2 class="text-lg font-bold leading-6 text-slate-900">Manar Mahmassani</h2>
+                            <p class="mt-1 text-sm leading-5 text-gray-500">Co-Founder & Co-CEO</p>
+                        </header>
+                    </article>
+                    <article class="flex flex-col gap-2.5 p-2 bg-white rounded-xl shadow-lg h-[340px]">
+                        <div class="relative flex justify-center items-center w-full h-[240px] rounded-md overflow-hidden">
+                            <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/04fb86c82f0b0d586032e39ff32071a4bea29f03fee47e1d75ba0da948971965?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c" alt="Profile photo" class="object-cover w-[240px] h-[240px] rounded-md" />
+                            <a href="#" class="absolute top-2 right-2 w-6 h-6 flex justify-center items-center bg-white shadow-sm rounded-full">
+                                <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/cee0bbc5f6c3e2b749948b8795937e34f6c8c217ab03ce7491b9eb143db718c0?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c" alt="" class="object-contain w-[18px]" />
+                            </a>
+                        </div>
+                        <header class="flex flex-col justify-center items-center pt-2 w-full">
+                            <h2 class="text-lg font-bold leading-6 text-slate-900">Manar Mahmassani</h2>
+                            <p class="mt-1 text-sm leading-5 text-gray-500">Co-Founder & Co-CEO</p>
+                        </header>
+                    </article>
+                    <article class="flex flex-col gap-2.5 p-2 bg-white rounded-xl shadow-lg h-[340px]">
+                        <div class="relative flex justify-center items-center w-full h-[240px] rounded-md overflow-hidden">
+                            <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/04fb86c82f0b0d586032e39ff32071a4bea29f03fee47e1d75ba0da948971965?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c" alt="Profile photo" class="object-cover w-[240px] h-[240px] rounded-md" />
+                            <a href="#" class="absolute top-2 right-2 w-6 h-6 flex justify-center items-center bg-white shadow-sm rounded-full">
+                                <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/cee0bbc5f6c3e2b749948b8795937e34f6c8c217ab03ce7491b9eb143db718c0?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c" alt="" class="object-contain w-[18px]" />
+                            </a>
+                        </div>
+                        <header class="flex flex-col justify-center items-center pt-2 w-full">
+                            <h2 class="text-lg font-bold leading-6 text-slate-900">Manar Mahmassani</h2>
+                            <p class="mt-1 text-sm leading-5 text-gray-500">Co-Founder & Co-CEO</p>
+                        </header>
+                    </article>
+                    <article class="flex flex-col gap-2.5 p-2 bg-white rounded-xl shadow-lg h-[340px]">
+                        <div class="relative flex justify-center items-center w-full h-[240px] rounded-md overflow-hidden">
+                            <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/04fb86c82f0b0d586032e39ff32071a4bea29f03fee47e1d75ba0da948971965?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c" alt="Profile photo" class="object-cover w-[240px] h-[240px] rounded-md" />
+                            <a href="#" class="absolute top-2 right-2 w-6 h-6 flex justify-center items-center bg-white shadow-sm rounded-full">
+                                <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/cee0bbc5f6c3e2b749948b8795937e34f6c8c217ab03ce7491b9eb143db718c0?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c" alt="" class="object-contain w-[18px]" />
+                            </a>
+                        </div>
+                        <header class="flex flex-col justify-center items-center pt-2 w-full">
+                            <h2 class="text-lg font-bold leading-6 text-slate-900">Manar Mahmassani</h2>
+                            <p class="mt-1 text-sm leading-5 text-gray-500">Co-Founder & Co-CEO</p>
+                        </header>
+                    </article>
+                    <article class="flex flex-col gap-2.5 p-2 bg-white rounded-xl shadow-lg h-[340px]">
+                        <div class="relative flex justify-center items-center w-full h-[240px] rounded-md overflow-hidden">
+                            <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/04fb86c82f0b0d586032e39ff32071a4bea29f03fee47e1d75ba0da948971965?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c" alt="Profile photo" class="object-cover w-[240px] h-[240px] rounded-md" />
+                            <a href="#" class="absolute top-2 right-2 w-6 h-6 flex justify-center items-center bg-white shadow-sm rounded-full">
+                                <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/cee0bbc5f6c3e2b749948b8795937e34f6c8c217ab03ce7491b9eb143db718c0?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c" alt="" class="object-contain w-[18px]" />
+                            </a>
+                        </div>
+                        <header class="flex flex-col justify-center items-center pt-2 w-full">
+                            <h2 class="text-lg font-bold leading-6 text-slate-900">Manar Mahmassani</h2>
+                            <p class="mt-1 text-sm leading-5 text-gray-500">Co-Founder & Co-CEO</p>
+                        </header>
+                    </article>
+                    <article class="flex flex-col gap-2.5 p-2 bg-white rounded-xl shadow-lg h-[340px]">
+                        <div class="relative flex justify-center items-center w-full h-[240px] rounded-md overflow-hidden">
+                            <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/04fb86c82f0b0d586032e39ff32071a4bea29f03fee47e1d75ba0da948971965?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c" alt="Profile photo" class="object-cover w-[240px] h-[240px] rounded-md" />
+                            <a href="#" class="absolute top-2 right-2 w-6 h-6 flex justify-center items-center bg-white shadow-sm rounded-full">
+                                <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/cee0bbc5f6c3e2b749948b8795937e34f6c8c217ab03ce7491b9eb143db718c0?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c" alt="" class="object-contain w-[18px]" />
+                            </a>
+                        </div>
+                        <header class="flex flex-col justify-center items-center pt-2 w-full">
+                            <h2 class="text-lg font-bold leading-6 text-slate-900">Manar Mahmassani</h2>
+                            <p class="mt-1 text-sm leading-5 text-gray-500">Co-Founder & Co-CEO</p>
+                        </header>
+                    </article>
+                    <article class="flex flex-col gap-2.5 p-2 bg-white rounded-xl shadow-lg h-[340px]">
+                        <div class="relative flex justify-center items-center w-full h-[240px] rounded-md overflow-hidden">
+                            <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/04fb86c82f0b0d586032e39ff32071a4bea29f03fee47e1d75ba0da948971965?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c" alt="Profile photo" class="object-cover w-[240px] h-[240px] rounded-md" />
+                            <a href="#" class="absolute top-2 right-2 w-6 h-6 flex justify-center items-center bg-white shadow-sm rounded-full">
+                                <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/cee0bbc5f6c3e2b749948b8795937e34f6c8c217ab03ce7491b9eb143db718c0?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c" alt="" class="object-contain w-[18px]" />
+                            </a>
+                        </div>
+                        <header class="flex flex-col justify-center items-center pt-2 w-full">
+                            <h2 class="text-lg font-bold leading-6 text-slate-900">Manar Mahmassani</h2>
+                            <p class="mt-1 text-sm leading-5 text-gray-500">Co-Founder & Co-CEO</p>
+                        </header>
+                    </article>
+                </div>
+            </section>
+        </div>
+        
+        <!-- <div class="flex justify-center items-center my-container">
+            <section class="flex flex-wrap gap-4 pb-1.5 mx-auto">
+                <article class="flex flex-col gap-2.5 p-2 bg-white rounded-xl shadow-lg h-[340px]">
+                    <div class="relative flex justify-center items-center w-full h-[240px] rounded-md overflow-hidden">
+                        <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/04fb86c82f0b0d586032e39ff32071a4bea29f03fee47e1d75ba0da948971965?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c" alt="Manar Mahmassani profile photo" class="object-cover w-[240px] h-[240px] rounded-md" />
+                        <a href="#" class="absolute top-2 right-2 w-6 h-6 flex justify-center items-center bg-white shadow-sm rounded-full">
+                            <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/cee0bbc5f6c3e2b749948b8795937e34f6c8c217ab03ce7491b9eb143db718c0?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c" alt="" class="object-contain w-[18px]" />
+                        </a>
+                    </div>
+                    <header class="flex flex-col justify-center items-center pt-2 w-full">
+                        <h2 class="text-lg font-bold leading-6 text-slate-900">Manar Mahmassani</h2>
+                        <p class="mt-1 text-sm leading-5 text-gray-500">Co-Founder & Co-CEO</p>
+                    </header>
+                </article>
+            
+                <article class="flex flex-col gap-2.5 p-2 bg-white rounded-xl shadow-lg h-[340px]">
+                    <div class="relative flex justify-center items-center w-full h-[240px] rounded-md overflow-hidden">
+                        <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/a71a5af4e3e129f088b11bf9262d7e9d85436f5dd49adefbcaec5d47ac7aefef?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c" alt="Ricardo Brizido profile photo" class="object-cover w-[240px] h-[240px] rounded-md" />
+                        <a href="#" class="absolute top-2 right-2 w-6 h-6 flex justify-center items-center bg-white shadow-sm rounded-full">
+                            <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/359756b9d541453129f3633fcc05c19c1c977a2b307eb4d24af352409a6a71df?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c" alt="" class="object-contain w-[18px]" />
+                        </a>
+                    </div>
+                    <header class="flex flex-col justify-center items-center pt-2 w-full">
+                        <h2 class="text-lg font-bold leading-6 text-slate-900">Ricardo Brizido</h2>
+                        <p class="mt-1 text-sm leading-5 text-gray-500">Co-Founder & CPTO</p>
+                    </header>
+                </article>
+            
+                <article class="flex flex-col gap-2.5 p-2 bg-white rounded-xl shadow-lg h-[340px]">
+                    <div class="relative flex justify-center items-center w-full h-[240px] rounded-md overflow-hidden">
+                        <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/2370642cff053d44062dcb1621ed9c30a4e7893ff02a5bfa778ed667fe5a5349?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c" alt="Ammar Al-Ghamian profile photo" class="object-cover w-[240px] h-[240px] rounded-md" />
+                        <a href="#" class="absolute top-2 right-2 w-6 h-6 flex justify-center items-center bg-white shadow-sm rounded-full">
+                            <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/359756b9d541453129f3633fcc05c19c1c977a2b307eb4d24af352409a6a71df?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c" alt="" class="object-contain w-[18px]" />
+                        </a>
+                    </div>
+                    <header class="flex flex-col justify-center items-center pt-2 w-full">
+                        <h2 class="text-lg font-bold leading-6 text-slate-900">Ammar Al-Ghamian</h2>
+                        <p class="mt-1 text-sm leading-5 text-gray-500">Director of Client Relations</p>
+                    </header>
+                </article>
+            
+                <article class="flex flex-col gap-2.5 p-2 bg-white rounded-xl shadow-lg h-[340px]">
+                    <div class="relative flex justify-center items-center w-full h-[240px] rounded-md overflow-hidden">
+                        <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/f83346437c8a25902248c696e76334188762df1fb86f83fa3a906114e0adf600?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c" alt="Sarah Hewerdine profile photo" class="object-cover w-[240px] h-[240px] rounded-md" />
+                        <a href="#" class="absolute top-2 right-2 w-6 h-6 flex justify-center items-center bg-white shadow-sm rounded-full">
+                            <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/359756b9d541453129f3633fcc05c19c1c977a2b307eb4d24af352409a6a71df?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c" alt="" class="object-contain w-[18px]" />
+                        </a>
+                    </div>
+                    <header class="flex flex-col justify-center items-center pt-2 w-full">
+                        <h2 class="text-lg font-bold leading-6 text-slate-900">Sarah Hewerdine</h2>
+                        <p class="mt-1 text-sm leading-5 text-gray-500">Head of Marketing & Partnerships</p>
+                    </header>
+                </article>
+            
+                <article class="flex flex-col gap-2.5 p-2 bg-white rounded-xl shadow-lg h-[340px]">
+                    <div class="relative flex justify-center items-center w-full h-[240px] rounded-md overflow-hidden">
+                        <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/86fb93f0de5c0cce3c6854154aff99fc438b3995ec2dda61e9fd2b298405972d?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c" alt="Jad Nachabe profile photo" class="object-cover w-[240px] h-[240px] rounded-md" />
+                        <a href="#" class="absolute top-2 right-2 w-6 h-6 flex justify-center items-center bg-white shadow-sm rounded-full">
+                            <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/359756b9d541453129f3633fcc05c19c1c977a2b307eb4d24af352409a6a71df?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c" alt="" class="object-contain w-[18px]" />
+                        </a>
+                    </div>
+                    <header class="flex flex-col justify-center items-center pt-2 w-full">
+                        <h2 class="text-lg font-bold leading-6 text-slate-900">Jad Nachabe</h2>
+                        <p class="mt-1 text-sm leading-5 text-gray-500">Product Manager</p>
+                    </header>
+                </article>
+            </section>
+            
+        </div> -->
+        
+        
+
+        <!-- Popular searched in gurgaon -->
+        <section class="flex flex-col items-center text-base font-medium leading-3 text-center text-zinc-900 my-container">
+            <h1 class="text-5xl font-semibold leading-[52px] max-md:max-w-full max-md:text-3xl max-md:leading-9">
+              Popular Searched In Gurgaon Real Estate Markets
+            </h1>
+            <p class="mt-8 text-lg leading-loose max-md:text-base max-md:leading-relaxed">
+              Discover the Most In-Demand Properties and Trends
+            </p>
+          
+            <!-- Container wrapping both rows -->
+            <div class="flex flex-wrap justify-center gap-5 self-stretch mt-24 w-full max-md:mt-10">
+          
+              <!-- First row of links -->
+              <nav class="flex flex-wrap justify-center gap-5 w-full text-white max-md:flex-col max-md:items-center">
+                <a href="#ready-to-move" class="px-16 py-5 border-b-2 border-green-400 bg-slate-900 rounded-[50px] max-md:px-5 max-md:text-sm">
+                  Ready To Move
+                </a>
+                <a href="#affordable-homes" class="px-10 py-5 border-b-2 border-green-400 bg-slate-900 rounded-[50px] max-md:px-5 max-md:text-sm">
+                  Affordable Homes
+                </a>
+                <a href="#builder-floor" class="px-16 py-5 border-b-2 border-green-400 bg-slate-900 rounded-[50px] max-md:px-5 max-md:text-sm">
+                  Builder Floor
+                </a>
+                <a href="#under-construction" class="px-10 py-5 border-b-2 border-green-400 bg-slate-900 rounded-[50px] max-md:px-5 max-md:text-sm">
+                  Under Construction
+                </a>
+                <a href="#new-projects" class="px-16 py-5 border-b-2 border-green-400 bg-slate-900 rounded-[50px] max-md:px-5 max-md:text-sm">
+                  New Projects
+                </a>
+                <a href="#luxury-projects" class="px-11 py-5 border-b-2 border-green-400 bg-slate-900 rounded-[50px] max-md:px-5 max-md:text-sm">
+                  Luxury Projects
+                </a>
+              </nav>
+          
+              <!-- Second row of links -->
+              <nav class="flex flex-wrap justify-center gap-5 w-full mt-5 text-white max-md:flex-col max-md:items-center">
+                <a href="#upcoming-projects" class="px-9 py-5 border-b-2 border-green-400 bg-slate-900 rounded-[50px] max-md:px-5 max-md:text-sm">
+                  Upcoming Projects
+                </a>
+                <a href="#dwarka-expressway" class="px-10 py-5 border-b-2 border-green-400 bg-slate-900 rounded-[50px] max-md:px-5 max-md:text-sm">
+                  Dwarka Expressway Property
+                </a>
+                <a href="#golf-course-road" class="px-7 py-5 border-b-2 border-green-400 bg-slate-900 rounded-[50px] max-md:px-5 max-md:text-sm">
+                  Golf Course Road Property
+                </a>
+              </nav>
+          
+            </div>
+          </section>
+          
+        
+
+        <!-- articles -->
+
+        <section class="flex overflow-hidden flex-col items-center my-container">
+            <h2 class="text-5xl font-semibold leading-none text-center text-zinc-900 max-md:max-w-full max-md:text-4xl">
+                Recent Articles & News
+            </h2>
+            <p class="mt-8 ml-3.5 text-xl leading-loose text-center text-zinc-900 max-md:max-w-full">
+                Stay Informed with the Latest Insights and Updates in Real Estate
+            </p>
+            <div class="self-stretch mt-16 w-full max-md:mt-10 max-md:max-w-full relative">
+                <div class="infinite-scroll flex gap-5">
+                    <!-- Repeat your article cards as needed -->
+                    <article class="flex flex-col w-3/12 max-md:ml-0 max-md:w-full">
+                        <div class="flex overflow-hidden flex-col items-center px-px pt-px pb-7 mx-auto w-full text-base font-medium leading-loose text-center bg-white rounded-2xl border border-gray-200 border-solid text-zinc-900 max-md:mt-8">
+                            <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/69ee73ddb1bfe9a85c27df720a49ec1d3c8cba95e5b6ba462140ffb01fe941e3?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c" alt="Housing market changes illustration" class="object-contain self-stretch w-full aspect-[1.49]" />
+                            <div class="flex gap-6 mt-7 max-w-full text-neutral-700 w-[198px]">
+                                <a href="#" class="hover:underline">Apartment</a>
+                                <time datetime="2024-03-19" class="grow shrink w-[88px]">March 19, 2024</time>
+                            </div>
+                            <h3 class="mt-6 w-60 text-lg leading-7">Housing Markets That Changed the Most This Week</h3>
+                            <a href="#" class="flex gap-2 mt-6 w-[93px] items-center hover:underline">
+                                <span>Read More</span>
+                                <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/9943b370bfa920c7bf73b202931cf5fc4d4ca6b6ccec84b67079097352ac04c5?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c" alt="" class="object-contain w-3.5 aspect-[1.17]" />
+                            </a>
+                        </div>
+                    </article>
+                    <article class="flex flex-col w-3/12 max-md:ml-0 max-md:w-full">
+                        <div class="flex overflow-hidden flex-col items-center px-px pt-px pb-7 mx-auto w-full text-base font-medium leading-loose text-center bg-white rounded-2xl border border-gray-200 border-solid text-zinc-900 max-md:mt-8">
+                            <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/9943b370bfa920c7bf73b202931cf5fc4d4ca6b6ccec84b67079097352ac04c5?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c" alt="Housing market changes illustration" class="object-contain self-stretch w-full aspect-[1.49]" />
+                            <div class="flex gap-6 mt-7 max-w-full text-neutral-700 w-[198px]">
+                                <a href="#" class="hover:underline">Apartment</a>
+                                <time datetime="2024-03-19" class="grow shrink w-[88px]">March 19, 2024</time>
+                            </div>
+                            <h3 class="mt-6 w-60 text-lg leading-7">Housing Markets That Changed the Most This Week</h3>
+                            <a href="#" class="flex gap-2 mt-6 w-[93px] items-center hover:underline">
+                                <span>Read More</span>
+                                <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/40af54f6a3ec4176ee5fe2b9d0205544c12bd57cc9febc08787eacbc1bc1b50d?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c" alt="" class="object-contain w-3.5 aspect-[1.17]" />
+                            </a>
+                        </div>
+                    </article>
+                    <article class="flex flex-col w-3/12 max-md:ml-0 max-md:w-full">
+                        <div class="flex overflow-hidden flex-col items-center px-px pt-px pb-7 mx-auto w-full text-base font-medium leading-loose text-center bg-white rounded-2xl border border-gray-200 border-solid text-zinc-900 max-md:mt-8">
+                            <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/bd5616d83364f64e5dc631a9c92bd20b8b7839bd5e05640cc689ec54c17f4a5d?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c" alt="Housing market changes illustration" class="object-contain self-stretch w-full aspect-[1.49]" />
+                            <div class="flex gap-6 mt-7 max-w-full text-neutral-700 w-[198px]">
+                                <a href="#" class="hover:underline">Apartment</a>
+                                <time datetime="2024-03-19" class="grow shrink w-[88px]">March 19, 2024</time>
+                            </div>
+                            <h3 class="mt-6 w-60 text-lg leading-7">Housing Markets That Changed the Most This Week</h3>
+                            <a href="#" class="flex gap-2 mt-6 w-[93px] items-center hover:underline">
+                                <span>Read More</span>
+                                <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/40af54f6a3ec4176ee5fe2b9d0205544c12bd57cc9febc08787eacbc1bc1b50d?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c" alt="" class="object-contain w-3.5 aspect-[1.17]" />
+                            </a>
+                        </div>
+                    </article>
+                    <article class="flex flex-col w-3/12 max-md:ml-0 max-md:w-full">
+                        <div class="flex overflow-hidden flex-col items-center px-px pt-px pb-7 mx-auto w-full text-base font-medium leading-loose text-center bg-white rounded-2xl border border-gray-200 border-solid text-zinc-900 max-md:mt-8">
+                            <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/e4d37ecf29eb8df04cd01a708258b5d9098d97d7f09b839110ab06989afa05a5?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c" alt="Housing market changes illustration" class="object-contain self-stretch w-full aspect-[1.49]" />
+                            <div class="flex gap-6 mt-7 max-w-full text-neutral-700 w-[198px]">
+                                <a href="#" class="hover:underline">Apartment</a>
+                                <time datetime="2024-03-19" class="grow shrink w-[88px]">March 19, 2024</time>
+                            </div>
+                            <h3 class="mt-6 w-60 text-lg leading-7">Housing Markets That Changed the Most This Week</h3>
+                            <a href="#" class="flex gap-2 mt-6 w-[93px] items-center hover:underline">
+                                <span>Read More</span>
+                                <img loading="lazy" src="" alt="" class="object-contain w-3.5 aspect-[1.17]" />
+                            </a>
+                        </div>
+                    </article>
+                    <!-- Repeat all article cards multiple times for infinite scroll -->
+                    <article class="flex flex-col w-3/12 max-md:ml-0 max-md:w-full">
+                        <div class="flex overflow-hidden flex-col items-center px-px pt-px pb-7 mx-auto w-full text-base font-medium leading-loose text-center bg-white rounded-2xl border border-gray-200 border-solid text-zinc-900 max-md:mt-8">
+                            <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/69ee73ddb1bfe9a85c27df720a49ec1d3c8cba95e5b6ba462140ffb01fe941e3?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c" alt="Housing market changes illustration" class="object-contain self-stretch w-full aspect-[1.49]" />
+                            <div class="flex gap-6 mt-7 max-w-full text-neutral-700 w-[198px]">
+                                <a href="#" class="hover:underline">Apartment</a>
+                                <time datetime="2024-03-19" class="grow shrink w-[88px]">March 19, 2024</time>
+                            </div>
+                            <h3 class="mt-6 w-60 text-lg leading-7">Housing Markets That Changed the Most This Week</h3>
+                            <a href="#" class="flex gap-2 mt-6 w-[93px] items-center hover:underline">
+                                <span>Read More</span>
+                                <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/9943b370bfa920c7bf73b202931cf5fc4d4ca6b6ccec84b67079097352ac04c5?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c" alt="" class="object-contain w-3.5 aspect-[1.17]" />
+                            </a>
+                        </div>
+                    </article>
+                    <article class="flex flex-col w-3/12 max-md:ml-0 max-md:w-full">
+                        <div class="flex overflow-hidden flex-col items-center px-px pt-px pb-7 mx-auto w-full text-base font-medium leading-loose text-center bg-white rounded-2xl border border-gray-200 border-solid text-zinc-900 max-md:mt-8">
+                            <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/9943b370bfa920c7bf73b202931cf5fc4d4ca6b6ccec84b67079097352ac04c5?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c" alt="Housing market changes illustration" class="object-contain self-stretch w-full aspect-[1.49]" />
+                            <div class="flex gap-6 mt-7 max-w-full text-neutral-700 w-[198px]">
+                                <a href="#" class="hover:underline">Apartment</a>
+                                <time datetime="2024-03-19" class="grow shrink w-[88px]">March 19, 2024</time>
+                            </div>
+                            <h3 class="mt-6 w-60 text-lg leading-7">Housing Markets That Changed the Most This Week</h3>
+                            <a href="#" class="flex gap-2 mt-6 w-[93px] items-center hover:underline">
+                                <span>Read More</span>
+                                <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/40af54f6a3ec4176ee5fe2b9d0205544c12bd57cc9febc08787eacbc1bc1b50d?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c" alt="" class="object-contain w-3.5 aspect-[1.17]" />
+                            </a>
+                        </div>
+                    </article>
+                    <article class="flex flex-col w-3/12 max-md:ml-0 max-md:w-full">
+                        <div class="flex overflow-hidden flex-col items-center px-px pt-px pb-7 mx-auto w-full text-base font-medium leading-loose text-center bg-white rounded-2xl border border-gray-200 border-solid text-zinc-900 max-md:mt-8">
+                            <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/bd5616d83364f64e5dc631a9c92bd20b8b7839bd5e05640cc689ec54c17f4a5d?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c" alt="Housing market changes illustration" class="object-contain self-stretch w-full aspect-[1.49]" />
+                            <div class="flex gap-6 mt-7 max-w-full text-neutral-700 w-[198px]">
+                                <a href="#" class="hover:underline">Apartment</a>
+                                <time datetime="2024-03-19" class="grow shrink w-[88px]">March 19, 2024</time>
+                            </div>
+                            <h3 class="mt-6 w-60 text-lg leading-7">Housing Markets That Changed the Most This Week</h3>
+                            <a href="#" class="flex gap-2 mt-6 w-[93px] items-center hover:underline">
+                                <span>Read More</span>
+                                <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/40af54f6a3ec4176ee5fe2b9d0205544c12bd57cc9febc08787eacbc1bc1b50d?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c" alt="" class="object-contain w-3.5 aspect-[1.17]" />
+                            </a>
+                        </div>
+                    </article>
+                    <article class="flex flex-col w-3/12 max-md:ml-0 max-md:w-full">
+                        <div class="flex overflow-hidden flex-col items-center px-px pt-px pb-7 mx-auto w-full text-base font-medium leading-loose text-center bg-white rounded-2xl border border-gray-200 border-solid text-zinc-900 max-md:mt-8">
+                            <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/e4d37ecf29eb8df04cd01a708258b5d9098d97d7f09b839110ab06989afa05a5?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c" alt="Housing market changes illustration" class="object-contain self-stretch w-full aspect-[1.49]" />
+                            <div class="flex gap-6 mt-7 max-w-full text-neutral-700 w-[198px]">
+                                <a href="#" class="hover:underline">Apartment</a>
+                                <time datetime="2024-03-19" class="grow shrink w-[88px]">March 19, 2024</time>
+                            </div>
+                            <h3 class="mt-6 w-60 text-lg leading-7">Housing Markets That Changed the Most This Week</h3>
+                            <a href="#" class="flex gap-2 mt-6 w-[93px] items-center hover:underline">
+                                <span>Read More</span>
+                                <img loading="lazy" src="" alt="" class="object-contain w-3.5 aspect-[1.17]" />
+                            </a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Have more questions -->
+        <section class="flex flex-col py-6 px-5 text-zinc-900 max-w-full md:px-20 lg:px-32 my-container">
+            <h2 class="text-5xl font-semibold leading-none text-center max-md:text-4xl">
+              Have More Questions?
+            </h2>
+            <p class="mt-4 text-lg leading-8 text-center">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            </p>
+          
+            <!-- Accordion Item -->
+            <article class="flex flex-col mt-4 w-full rounded">
+              <button class="flex justify-between items-center px-5 md:px-10 pt-11 pb-1 text-lg md:text-xl font-medium leading-none bg-stone-50 w-full text-left accordion-btn" aria-expanded="false">
+                <span class="w-11/12">How can I schedule a consultation?</span>
+                <span class="accordion-icon w-1/12 text-right">+</span>
+              </button>
+              <div role="region" aria-label="Consultation scheduling information" class="px-5 md:px-10 pt-7 pb-12 text-base md:text-lg leading-7 bg-stone-50 accordion-content hidden">
+                You can schedule a consultation by visiting our website and filling out the contact form, or by calling our office directly. Our team will get in touch with you to set up a convenient time for your appointment.
+              </div>
+            </article>
+          
+            <!-- Accordion Item -->
+            <article class="flex flex-col mt-4 w-full rounded">
+              <button class="flex justify-between items-center px-5 md:px-10 pt-10 pb-1 text-lg md:text-xl font-medium leading-none bg-stone-50 w-full text-left accordion-btn" aria-expanded="false">
+                <span class="w-11/12">What types of properties do you specialize in?</span>
+                <span class="accordion-icon w-1/12 text-right">+</span>
+              </button>
+              <div role="region" aria-label="Property specialization information" class="px-5 md:px-10 pt-7 pb-12 text-base md:text-lg leading-7 bg-stone-50 accordion-content hidden">
+                We specialize in residential, commercial, and industrial properties, helping clients buy, sell, and invest across a variety of real estate sectors.
+              </div>
+            </article>
+          
+            <!-- Accordion Item -->
+            <article class="flex flex-col mt-4 w-full rounded">
+              <button class="flex justify-between items-center px-5 md:px-10 pt-10 pb-1 text-lg md:text-xl font-medium leading-none bg-stone-50 w-full text-left accordion-btn" aria-expanded="false">
+                <span class="w-11/12">How do I know if a property is a good investment?</span>
+                <span class="accordion-icon w-1/12 text-right">+</span>
+              </button>
+              <div role="region" aria-label="Investment information" class="px-5 md:px-10 pt-7 pb-12 text-base md:text-lg leading-7 bg-stone-50 accordion-content hidden">
+                We provide market analysis and due diligence reports to help you assess the value and potential of any property you're interested in.
+              </div>
+            </article>
+          
+            <!-- Accordion Item -->
+            <article class="flex flex-col mt-4 w-full rounded">
+              <button class="flex justify-between items-center px-5 md:px-10 pt-10 pb-1 text-lg md:text-xl font-medium leading-none bg-stone-50 w-full text-left accordion-btn" aria-expanded="false">
+                <span class="w-11/12">Can you help with property financing options?</span>
+                <span class="accordion-icon w-1/12 text-right">+</span>
+              </button>
+              <div role="region" aria-label="Financing options information" class="px-5 md:px-10 pt-7 pb-12 text-base md:text-lg leading-7 bg-stone-50 accordion-content hidden">
+                Yes, we work with a network of lenders to help you find the best financing options for your property purchase.
+              </div>
+            </article>
+          
+            <!-- Accordion Item -->
+            <article class="flex flex-col mt-4 w-full rounded">
+              <button class="flex justify-between items-center px-5 md:px-10 pt-10 pb-1 text-lg md:text-xl font-medium leading-none bg-stone-50 w-full text-left accordion-btn" aria-expanded="false">
+                <span class="w-11/12">What services does PropGrow offer?</span>
+                <span class="accordion-icon w-1/12 text-right">+</span>
+              </button>
+              <div role="region" aria-label="PropGrow services information" class="px-5 md:px-10 pt-7 pb-12 text-base md:text-lg leading-7 bg-stone-50 accordion-content hidden">
+                We offer a range of services including property management, real estate consulting, and investment analysis, tailored to meet your needs.
+              </div>
+            </article>
+          </section>
+        
+        <!-- <footer class="flex flex-col items-center px-20 py-14 rounded-3xl bg-slate-900 max-md:px-5">
+            <section class="flex flex-wrap gap-5 justify-between self-start w-full text-base leading-none text-white max-w-[1688px] max-md:max-w-full">
+                <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/8cae640201dce524739941c095d8fa4abe11c996201ec72e722d7e70f7010997?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c" alt="PropGrow Logo" class="object-contain shrink-0 w-48 max-w-full aspect-[4.46]" />
+                <nav class="flex gap-8 my-auto">
+                    <h2 class="text-xl font-medium">Follow Us</h2>
+                    <a href="#" class="text-center" aria-label="Facebook"><span class="sr-only">Facebook</span></a>
+                    <a href="#" class="text-center" aria-label="Twitter"><span class="sr-only">Twitter</span></a>
+                    <a href="#" class="text-center" aria-label="Instagram"><span class="sr-only">Instagram</span></a>
+                    <a href="#" class="text-center" aria-label="LinkedIn"><span class="sr-only">LinkedIn</span></a>
+                </nav>
+            </section>
+            <hr class="flex shrink-0 mt-16 max-w-full h-px bg-white bg-opacity-10 w-[1680px] max-md:mt-10" />
+            <section class="flex gap-5 justify-between items-start self-start mt-24 ml-5 w-full max-w-[1565px] max-md:mt-10 max-md:max-w-full">
+                <section class="flex flex-col text-base text-white">
+                    <h2 class="self-start text-xl font-medium leading-none text-white text-opacity-50">Subscribe</h2>
+                    <form class="flex gap-5 justify-between items-start pt-px pb-3.5 mt-10 w-full border-b border-white border-opacity-10">
+                        <label for="email" class="sr-only">Your e-mail</label>
+                        <input type="email" id="email" placeholder="Your e-mail" class="my-auto bg-transparent text-white" aria-label="Your e-mail" />
+                        <button type="submit" class="flex gap-2.5 self-start px-6 py-3.5 font-medium leading-loose text-center whitespace-nowrap bg-white bg-opacity-10 rounded-[44px] max-md:px-5">
+                            Send
+                            <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/1895213eca1b01fba946db7c7f8fbccb0ff0246669d3b80edb4fe70bb0239ec1?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c" alt="" class="object-contain shrink-0 self-start w-3.5 aspect-[1.17]" />
+                        </button>
+                    </form>
+                    <p class="mt-12 leading-loose max-md:mt-10 max-md:mr-2.5">Subscribe to our newsletter to receive our weekly feed.</p>
+                </section>
+                <nav class="flex flex-col items-start text-base leading-loose text-white">
+                    <h2 class="text-xl font-medium leading-tight text-white text-opacity-50">Discover</h2>
+                    <a href="#" class="mt-11 max-md:mt-10">Golf Curse Road</a>
+                    <a href="#" class="self-stretch mt-7">Dwarka Expressway</a>
+                    <a href="#" class="mt-6">SPR Chowk</a>
+                    <a href="#" class="mt-7">Vatika Chowk</a>
+                    <a href="#" class="mt-7">Los Angeles</a>
+                    <a href="#" class="mt-6">San Diego</a>
+                </nav>
+                <nav class="flex flex-col items-start self-stretch text-base leading-loose text-white">
+                    <h2 class="text-xl font-medium leading-tight text-white text-opacity-50">Quick Links</h2>
+                    <a href="#" class="mt-10">About</a>
+                    <a href="#" class="mt-7">Contact</a>
+                    <a href="#" class="mt-7">FAQ's</a>
+                    <a href="#" class="mt-7">Blog</a>
+                    <a href="#" class="mt-6">Pricing Plans</a>
+                    <a href="#" class="mt-6">Privacy Policy</a>
+                    <a href="#" class="self-stretch mt-6">Terms & Conditions</a>
+                </nav>
+                <section class="flex flex-col">
+                    <h2 class="self-start text-xl font-medium leading-none text-white text-opacity-50">Contact Us</h2>
+                    <address class="mt-11 text-base leading-7 text-white max-md:mt-10 not-italic">
+                        <a href="mailto:hi@justhome.com">hi@justhome.com</a><br />
+                        <a href="tel:+1234567890">(123) 456-7890</a>
+                    </address>
+                </section>
+               
+            </section>
+            <hr class="flex shrink-0 mt-28 max-w-full h-px bg-white bg-opacity-10 w-[1680px] max-md:mt-10" />
+            <section class="flex flex-wrap gap-5 justify-between mt-10 ml-3 w-full text-base max-w-[1694px] text-stone-300 max-md:max-w-full">
+                <p>© Copyright 2024 PropGrow All Rights Reserved.</p>
+                <nav class="flex gap-6 self-start mt-1.5">
+                    <a href="#" class="grow">Privacy Policy</a>
+                    <a href="#" class="basis-auto">Terms & Condition</a>
+                </nav>
+            </section>
+        </footer> -->
+
+        <script>
+            const menuBtn = document.getElementById('menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const hamburgerIcon = document.getElementById('hamburger-icon');
+            const closeIcon = document.getElementById('close-icon');
+          
+            menuBtn.addEventListener('click', () => {
+              mobileMenu.classList.toggle('hidden');
+              
+              // Toggle between hamburger and close icon
+              hamburgerIcon.classList.toggle('hidden');
+              closeIcon.classList.toggle('hidden');
+            });
+            // Acoordian section
+            document.querySelectorAll('.accordion-btn').forEach(button => {
+  button.addEventListener('click', () => {
+    const content = button.nextElementSibling;
+    const isExpanded = button.getAttribute('aria-expanded') === 'true';
+
+    // Toggle aria-expanded
+    button.setAttribute('aria-expanded', !isExpanded);
+
+    // Toggle icon
+    const icon = button.querySelector('.accordion-icon');
+    icon.textContent = isExpanded ? '+' : '-';
+
+    // Show or hide the content
+    if (!isExpanded) {
+      content.style.display = 'block';  // Show content
+    } else {
+      content.style.display = 'none';  // Hide content
+    }
+  });
+});
+
+          </script>
+         
+
+</body>
+</html>
