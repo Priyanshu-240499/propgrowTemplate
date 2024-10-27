@@ -53,61 +53,33 @@
         margin-top: 5%;
       }
 
-      /* FOR ARTICLES */
+      /* for latest launch */
+      .property-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 16px;
+  }
 
-      @keyframes scroll {
-        0% {
-          transform: translateX(0);
-        }
-        100% {
-          transform: translateX(-100%);
-        }
-      }
+  .property-carousel-item {
+    min-width: calc(100% / 6 - 16px); /* Adjust width as per screen size */
+  }
 
-      .infinite-scroll {
-        display: flex;
-        gap: 1.25rem;
-        animation: scroll 20s linear infinite;
-        width: calc(100% * 1); /* Adjust based on the number of items */
-      }
+  /* Optional: Adjust the style of arrows */
+  #property-prev, #property-next {
+    cursor: pointer;
+    z-index: 100;
+    background-color: var(--primary-color);
+    width: 40px;
+    height: 40px;
+  }
 
-      .infinite-scroll article {
-        flex: 0 0 25%; /* Four articles per view */
-      }
+  
+      /* end latest launch */
 
-      /* Styling adjustments for small screens */
-      @media (max-width: 768px) {
-        .infinite-scroll {
-          width: calc(100% * 1); /* Full width for small screens */
-        }
-        .infinite-scroll article {
-          flex: 0 0 100%; /* Full width for each article */
-        }
-      }
+ 
+    
 
-      /* FOR ARTICLES end */
-
-      /* More questions */
-
-      .accordion-icon {
-        font-size: 1.5rem;
-      }
-
-      /* Hide accordion content by default */
-      .accordion-content {
-        display: none;
-      }
-
-      /* Show accordion content when button is expanded */
-      .accordion-btn[aria-expanded="true"] + .accordion-content {
-        display: block;
-      }
-
-      /* Change icon when expanded */
-      .accordion-btn[aria-expanded="true"] .accordion-icon {
-        content: "-";
-      }
-      /* More questions end*/
+ 
 
       /* rating */
       .review-carousel-container {
@@ -134,8 +106,8 @@
       }
 
       .carousel-button {
-        width: 12px;
-        height: 12px;
+        width: 6px;
+        height: 6px;
         background-color: #ccc;
         border-radius: 50%;
         cursor: pointer;
@@ -159,6 +131,38 @@
       }
 
       /* rating end */
+
+      
+
+
+
+     /* More questions */
+
+     .accordion-icon {
+        font-size: 1.5rem;
+      }
+
+      /* Hide accordion content by default */
+      .accordion-content {
+        display: none;
+      }
+
+      /* Show accordion content when button is expanded */
+      .accordion-btn[aria-expanded="true"] + .accordion-content {
+        display: block;
+      }
+
+      /* Change icon when expanded */
+      .accordion-btn[aria-expanded="true"] .accordion-icon {
+        content: "-";
+      }
+      /* More questions end*/
+
+
+
+
+
+    
     </style>
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
@@ -586,299 +590,139 @@
     <!-- latest launch -->
 
     <section class="overflow-hidden my-container">
-      <h2
-        class="text-4xl font-medium p-4 text-center leading-[52px] text-zinc-900 max-md:max-w-full"
-      >
-        Latest Launch Properties
-      </h2>
-      <p
-        class="text-xl leading-loose p-4 text-center text-zinc-900 max-md:max-w-full"
-      >
-        Invest in Exceptional Living Spaces for Your Future
-      </p>
-
-      <div class="relative max-w-full pb-4">
-        <!-- Carousel Container -->
-        <div
-          class="carousel flex transition-transform duration-500 ease-in-out space-x-4"
-        >
-          <article
-            class="carousel-item flex flex-col bg-white rounded-lg shadow-lg overflow-hidden flex-shrink-0 w-full sm:w-1/2 md:w-1/3 lg:w-1/4"
-          >
-            <!-- Image section -->
-            <img
-              src="https://propgrow.in/images/tn-dlf-the-camellias-project-flagship1.webp"
-              alt="Building Image"
-              class="w-full object-cover rounded-lg"
-              style="height: 280px"
-            />
-            <!-- Content section -->
-            <div class="flex flex-col p-4">
-              <div class="flex flex-col items-start">
-                <h3 class="text-lg md:text-xl font-semibold text-gray-800 mb-2">
-                  DLF Privana South
-                </h3>
-                <p class="text-sm md:text-base text-gray-600">
-                  Sector 77, Gurgaon
-                </p>
+        <h2 class="text-4xl font-medium p-4 text-center leading-[52px] text-zinc-900 max-md:max-w-full">
+          Latest Launch Properties
+        </h2>
+        <p class="text-xl leading-loose p-4 text-center text-zinc-900 max-md:max-w-full">
+          Invest in Exceptional Living Spaces for Your Future
+        </p>
+      
+        <div class="relative max-w-full pb-4">
+          <!-- Left Arrow Button -->
+          <button id="property-prev" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-700 text-white p-2 rounded-full">❮</button>
+      
+          <!-- Right Arrow Button -->
+          <button id="property-next" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-700 text-white p-2 rounded-full">❯</button>
+      
+          <!-- Carousel Container -->
+          <div class="property-carousel flex transition-transform duration-500 ease-in-out space-x-4">
+            <!-- Carousel Item 1 -->
+            <article class="property-carousel-item flex flex-col bg-white rounded-lg shadow-lg overflow-hidden flex-shrink-0 w-full sm:w-1/2 md:w-1/3 lg:w-1/4">
+              <img src="./Asset/launch-1.webp" alt="Building Image" class="w-full object-cover rounded-lg" style="height: 280px" />
+              <div class="flex flex-col p-4">
+                <h3 class="text-lg md:text-xl font-semibold text-gray-800 mb-2">DLF Privana South</h3>
+                <p class="text-sm md:text-base text-gray-600">Sector 77, Gurgaon</p>
+                <div class="flex justify-between items-center mt-4 w-full">
+                  <p class="text-base font-bold text-gray-700">Gurugram</p>
+                  <button class=" text-white font-semibold py-2 px-4 rounded-full" style="background-color:var(--primary-color);">View Details</button>
+                </div>
               </div>
-              <div class="flex justify-between items-center mt-4 w-full">
-                <p class="text-base font-bold text-gray-700">Gurugram</p>
-                <button
-                  class="bg-green-500 text-white font-semibold py-2 px-4 rounded-full"
-                >
-                  View Details
-                </button>
-              </div>
-            </div>
-          </article>
-          <article
-            class="carousel-item flex flex-col bg-white rounded-lg shadow-lg overflow-hidden flex-shrink-0 w-full sm:w-1/2 md:w-1/3 lg:w-1/4"
-          >
-            <!-- Image section -->
-            <img
-              src="https://propgrow.in/images/aspenimg.jpg"
-              alt="Building Image"
-              class="w-full object-cover rounded-lg"
-              style="height: 280px"
-            />
-            <!-- Content section -->
-            <div class="flex flex-col p-4">
-              <div class="flex flex-col items-start">
-                <h3 class="text-lg md:text-xl font-semibold text-gray-800 mb-2">
-                  DLF Privana South
-                </h3>
-                <p class="text-sm md:text-base text-gray-600">
-                  Sector 77, Gurgaon
-                </p>
-              </div>
-              <div class="flex justify-between items-center mt-4 w-full">
-                <p class="text-base font-bold text-gray-700">Gurugram</p>
-                <button
-                  class="bg-green-500 text-white font-semibold py-2 px-4 rounded-full"
-                >
-                  View Details
-                </button>
-              </div>
-            </div>
-          </article>
-          <article
-            class="carousel-item flex flex-col bg-white rounded-lg shadow-lg overflow-hidden flex-shrink-0 w-full sm:w-1/2 md:w-1/3 lg:w-1/4"
-          >
-            <!-- Image section -->
-            <img
-              src="https://propgrow.in/images/privanasouthimg.jpg"
-              alt="Building Image"
-              class="w-full object-cover rounded-lg"
-              style="height: 280px"
-            />
-            <!-- Content section -->
-            <div class="flex flex-col p-4">
-              <div class="flex flex-col items-start">
-                <h3 class="text-lg md:text-xl font-semibold text-gray-800 mb-2">
-                  DLF Privana South
-                </h3>
-                <p class="text-sm md:text-base text-gray-600">
-                  Sector 77, Gurgaon
-                </p>
-              </div>
-              <div class="flex justify-between items-center mt-4 w-full">
-                <p class="text-base font-bold text-gray-700">Gurugram</p>
-                <button
-                  class="bg-green-500 text-white font-semibold py-2 px-4 rounded-full"
-                >
-                  View Details
-                </button>
-              </div>
-            </div>
-          </article>
-          <article
-            class="carousel-item flex flex-col bg-white rounded-lg shadow-lg overflow-hidden flex-shrink-0 w-full sm:w-1/2 md:w-1/3 lg:w-1/4"
-          >
-            <!-- Image section -->
-            <img
-              src="https://propgrow.in/images/elanthepresi.jpg"
-              alt="Building Image"
-              class="w-full object-cover rounded-lg"
-              style="height: 280px"
-            />
-            <!-- Content section -->
-            <div class="flex flex-col p-4">
-              <div class="flex flex-col items-start">
-                <h3 class="text-lg md:text-xl font-semibold text-gray-800 mb-2">
-                  DLF Privana South
-                </h3>
-                <p class="text-sm md:text-base text-gray-600">
-                  Sector 77, Gurgaon
-                </p>
-              </div>
-              <div class="flex justify-between items-center mt-4 w-full">
-                <p class="text-base font-bold text-gray-700">Gurugram</p>
-                <button
-                  class="bg-green-500 text-white font-semibold py-2 px-4 rounded-full"
-                >
-                  View Details
-                </button>
-              </div>
-            </div>
-          </article>
-          <article
-            class="carousel-item flex flex-col bg-white rounded-lg shadow-lg overflow-hidden flex-shrink-0 w-full sm:w-1/2 md:w-1/3 lg:w-1/4"
-          >
-            <!-- Image section -->
-            <img
-              src="https://propgrow.in/images/crestimg.jpg"
-              alt="Building Image"
-              class="w-full object-cover rounded-lg"
-              style="height: 280px"
-            />
-            <!-- Content section -->
-            <div class="flex flex-col p-4">
-              <div class="flex flex-col items-start">
-                <h3 class="text-lg md:text-xl font-semibold text-gray-800 mb-2">
-                  DLF Privana South
-                </h3>
-                <p class="text-sm md:text-base text-gray-600">
-                  Sector 77, Gurgaon
-                </p>
-              </div>
-              <div class="flex justify-between items-center mt-4 w-full">
-                <p class="text-base font-bold text-gray-700">Gurugram</p>
-                <button
-                  class="bg-green-500 text-white font-semibold py-2 px-4 rounded-full"
-                >
-                  View Details
-                </button>
-              </div>
-            </div>
-          </article>
-          <article
-            class="carousel-item flex flex-col bg-white rounded-lg shadow-lg overflow-hidden flex-shrink-0 w-full sm:w-1/2 md:w-1/3 lg:w-1/4"
-          >
-            <!-- Image section -->
-            <img
-              src="https://propgrow.in/images/emardigi.jpg"
-              alt="Building Image"
-              class="w-full object-cover rounded-lg"
-              style="height: 280px"
-            />
-            <!-- Content section -->
-            <div class="flex flex-col p-4">
-              <div class="flex flex-col items-start">
-                <h3 class="text-lg md:text-xl font-semibold text-gray-800 mb-2">
-                  DLF Privana South
-                </h3>
-                <p class="text-sm md:text-base text-gray-600">
-                  Sector 77, Gurgaon
-                </p>
-              </div>
-              <div class="flex justify-between items-center mt-4 w-full">
-                <p class="text-base font-bold text-gray-700">Gurugram</p>
-                <button
-                  class="bg-green-500 text-white font-semibold py-2 px-4 rounded-full"
-                >
-                  View Details
-                </button>
-              </div>
-            </div>
-          </article>
+            </article>
+            <!-- Carousel Item 2 -->
+            <!-- Repeat similar structure for the remaining items -->
+            <article class="property-carousel-item flex flex-col bg-white rounded-lg shadow-lg overflow-hidden flex-shrink-0 w-full sm:w-1/2 md:w-1/3 lg:w-1/4">
+                <img src="./Asset/launch-2.jpg" alt="Building Image" class="w-full object-cover rounded-lg" style="height: 280px" />
+                <div class="flex flex-col p-4">
+                  <h3 class="text-lg md:text-xl font-semibold text-gray-800 mb-2">DLF Privana South</h3>
+                  <p class="text-sm md:text-base text-gray-600">Sector 77, Gurgaon</p>
+                  <div class="flex justify-between items-center mt-4 w-full">
+                    <p class="text-base font-bold text-gray-700">Gurugram</p>
+                    <button class=" text-white font-semibold py-2 px-4 rounded-full" style="background-color:var(--primary-color);">View Details</button>
+                  </div>
+                </div>
+              </article>
+              <article class="property-carousel-item flex flex-col bg-white rounded-lg shadow-lg overflow-hidden flex-shrink-0 w-full sm:w-1/2 md:w-1/3 lg:w-1/4">
+                <img src="./Asset/launch-3.jpg" alt="Building Image" class="w-full object-cover rounded-lg" style="height: 280px" />
+                <div class="flex flex-col p-4">
+                  <h3 class="text-lg md:text-xl font-semibold text-gray-800 mb-2">DLF Privana South</h3>
+                  <p class="text-sm md:text-base text-gray-600">Sector 77, Gurgaon</p>
+                  <div class="flex justify-between items-center mt-4 w-full">
+                    <p class="text-base font-bold text-gray-700">Gurugram</p>
+                    <button class=" text-white font-semibold py-2 px-4 rounded-full" style="background-color:var(--primary-color);">View Details</button>
+                  </div>
+                </div>
+              </article>
+              <article class="property-carousel-item flex flex-col bg-white rounded-lg shadow-lg overflow-hidden flex-shrink-0 w-full sm:w-1/2 md:w-1/3 lg:w-1/4">
+                <img src="./Asset/launch-4.jpg" alt="Building Image" class="w-full object-cover rounded-lg" style="height: 280px" />
+                <div class="flex flex-col p-4">
+                  <h3 class="text-lg md:text-xl font-semibold text-gray-800 mb-2">DLF Privana South</h3>
+                  <p class="text-sm md:text-base text-gray-600">Sector 77, Gurgaon</p>
+                  <div class="flex justify-between items-center mt-4 w-full">
+                    <p class="text-base font-bold text-gray-700">Gurugram</p>
+                    <button class=" text-white font-semibold py-2 px-4 rounded-full" style="background-color:var(--primary-color);">View Details</button>
+                  </div>
+                </div>
+              </article>
+              <article class="property-carousel-item flex flex-col bg-white rounded-lg shadow-lg overflow-hidden flex-shrink-0 w-full sm:w-1/2 md:w-1/3 lg:w-1/4">
+                <img src="./Asset/launch-5.jpg" alt="Building Image" class="w-full object-cover rounded-lg" style="height: 280px" />
+                <div class="flex flex-col p-4">
+                  <h3 class="text-lg md:text-xl font-semibold text-gray-800 mb-2">DLF Privana South</h3>
+                  <p class="text-sm md:text-base text-gray-600">Sector 77, Gurgaon</p>
+                  <div class="flex justify-between items-center mt-4 w-full">
+                    <p class="text-base font-bold text-gray-700">Gurugram</p>
+                    <button class=" text-white font-semibold py-2 px-4 rounded-full" style="background-color:var(--primary-color);">View Details</button>
+                  </div>
+                </div>
+              </article>
+              <article class="property-carousel-item flex flex-col bg-white rounded-lg shadow-lg overflow-hidden flex-shrink-0 w-full sm:w-1/2 md:w-1/3 lg:w-1/4">
+                <img src="./Asset/launch-6.jpg" alt="Building Image" class="w-full object-cover rounded-lg" style="height: 280px" />
+                <div class="flex flex-col p-4">
+                  <h3 class="text-lg md:text-xl font-semibold text-gray-800 mb-2">DLF Privana South</h3>
+                  <p class="text-sm md:text-base text-gray-600">Sector 77, Gurgaon</p>
+                  <div class="flex justify-between items-center mt-4 w-full">
+                    <p class="text-base font-bold text-gray-700">Gurugram</p>
+                    <button class=" text-white font-semibold py-2 px-4 rounded-full" style="background-color:var(--primary-color);">View Details</button>
+                  </div>
+                </div>
+              </article>
+              
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
 
     <!-- investment -->
 
-    <section
-      class="self-stretch mt-20 w-full max-md:mt-10 max-md:max-w-full my-container"
-    >
-      <h2
-        class="text-4xl font-medium p-4 text-center leading-[52px] text-zinc-900 max-md:max-w-full"
-      >
-        Explore Investment Opportunities Across Key Locations
-      </h2>
-      <p
-        class="text-xl leading-loose p-4 text-center text-zinc-900 max-md:max-w-full"
-      >
-        Invest in Exceptional Living Spaces for Your Future
-      </p>
-      <div class="flex gap-5 max-md:flex-col">
-        <!-- First Article (always visible) -->
-        <article class="flex flex-col w-[33%] max-md:ml-0 max-md:w-full">
-          <div
-            class="flex overflow-hidden relative flex-col grow px-8 pb-8 text-xl font-medium leading-tight text-white min-h-[668px] pt-[559px] max-md:px-5 max-md:pt-24 max-md:mt-10 max-md:max-w-full"
-          >
-            <img
-              loading="lazy"
-              src="https://cdn.builder.io/api/v1/image/assets/TEMP/7f5303c4110693573b5cc57ca7d71a7f23c11fbebe41e7500467c27d68a098cb?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c"
-              alt="New Delhi cityscape"
-              class="object-cover absolute inset-0 size-full"
-            />
-            <h3
-              data-layername="divInner"
-              class="absolute bottom-[10%] left-[0%] px-8 py-8 min-w-[60%] text-center bg-green-400 bg-opacity-80 max-md:px-5"
-            >
-              New Delhi
-            </h3>
+    <section class="cities-section mt-32 max-md:mt-10 my-container text-center">
+      <h2 class="text-5xl font-semibold leading-none text-zinc-900 max-md:text-4xl">Find Investment Gems in These Cities</h2>
+      <p class="mt-11 text-xl leading-loose text-zinc-900">Explore Investment Opportunities Across Key Locations</p>
+  
+      <!-- Carousel Wrapper with responsive behavior -->
+      <div class="cities-carousel relative mt-20 overflow-hidden flex flex-row md:flex-wrap md:gap-5">
+          <!-- Left button for carousel navigation (visible only on small screens) -->
+          <button onclick="prevSlide()" class="invest-carousel-button prev-button hidden max-md:block absolute left-0 top-1/2 transform -translate-y-1/2 z-10 text-white px-4 py-2 rounded-full" style="background-color: var(--primary-color);height: 40px;width: 40px;">‹</button>
+  
+          <!-- Carousel Items -->
+          <div  class="invest-carousel-items flex gap-2 w-full max-md:transition-transform max-md:duration-500" style="transform: translateX(0%);">
+              <!-- Article 1 -->
+              <article class="city-card relative w-full md:w-1/3 flex-shrink-0">
+                  <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/7f5303c4110693573b5cc57ca7d71a7f23c11fbebe41e7500467c27d68a098cb?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c" alt="New Delhi cityscape" class="object-cover w-full h-full absolute inset-0" />
+                  <div class="relative px-8 py-8 mt-[559px] text-xl font-medium text-white">
+                      <h3 class="absolute bottom-10 left-0 px-8 py-4 w-[60%] bg-green-400 bg-opacity-80">New Delhi</h3>
+                  </div>
+              </article>
+  
+              <!-- Article 2 -->
+              <article class="city-card relative w-full md:w-1/3 flex-shrink-0">
+                  <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/f2689a48960ba4d4674fab8fab919b6d6e8999710e47573a972bddcdf3c97788?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c" alt="Gurgaon cityscape" class="object-cover w-full h-full absolute inset-0" />
+                  <div class="relative px-10 py-8 mt-[559px] text-xl font-medium text-white">
+                      <h3 class="absolute bottom-10 left-0 px-7 py-4 w-[60%] bg-green-400 bg-opacity-80">Gurgaon</h3>
+                  </div>
+              </article>
+  
+              <!-- Article 3 -->
+              <article class="city-card relative w-full md:w-1/3 flex-shrink-0">
+                  <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/bee3ee5cef1b831be4c1f441976048c056ab027f4ba8ee18ffaf16d3562dd24a?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c" alt="Mumbai cityscape" class="object-cover w-full h-full absolute inset-0" />
+                  <div class="relative px-5 py-8 mt-[559px] text-xl font-medium text-white">
+                      <h3 class="absolute bottom-10 left-0 px-8 py-4 w-[60%] bg-green-400 bg-opacity-80">Mumbai</h3>
+                  </div>
+              </article>
           </div>
-        </article>
-        <!-- Second Article (visible on medium screens and larger) -->
-        <article
-          class="flex flex-col ml-5 w-[33%] max-md:ml-0 max-md:w-full hidden md:flex"
-        >
-          <div
-            class="flex overflow-hidden relative flex-col grow px-10 pb-8 text-xl font-medium leading-tight text-white whitespace-nowrap min-h-[668px] pt-[559px] max-md:px-5 max-md:pt-24 max-md:mt-10 max-md:max-w-full"
-          >
-            <img
-              loading="lazy"
-              src="https://cdn.builder.io/api/v1/image/assets/TEMP/f2689a48960ba4d4674fab8fab919b6d6e8999710e47573a972bddcdf3c97788?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c"
-              alt="Gurgaon cityscape"
-              class="object-cover absolute inset-0 size-full"
-            />
-            <h3
-              data-layername="divInner"
-              class="absolute bottom-[10%] left-[0%] px-8 py-8 min-w-[60%] text-center bg-green-400 bg-opacity-80 max-md:px-5"
-            >
-              Gurgaon
-            </h3>
-          </div>
-        </article>
-        <!-- Third Article (visible on medium screens and larger) -->
-        <article
-          class="flex flex-col ml-5 w-[33%] max-md:ml-0 max-md:w-full hidden md:flex"
-        >
-          <div
-            class="flex overflow-hidden relative flex-col grow px-5 pt-80 pb-8 text-xl font-medium leading-tight text-white whitespace-nowrap min-h-[668px] max-md:pt-24 max-md:pr-5 max-md:mt-10 max-md:max-w-full"
-          >
-            <img
-              loading="lazy"
-              src="https://cdn.builder.io/api/v1/image/assets/TEMP/bee3ee5cef1b831be4c1f441976048c056ab027f4ba8ee18ffaf16d3562dd24a?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c"
-              alt="Mumbai cityscape"
-              class="object-cover absolute inset-0 size-full"
-            />
-            <img
-              loading="lazy"
-              src="https://cdn.builder.io/api/v1/image/assets/TEMP/8360c8a84882d09576c1529d6e52c40f1035e88f0dc61d8432093c2df048c1a8?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c"
-              alt=""
-              class="object-contain self-center aspect-[7.81] w-[78px]"
-            />
-            <h3
-              data-layername="divInner"
-              class="absolute bottom-[10%] left-[0%] px-8 py-8 min-w-[60%] text-center bg-green-400 bg-opacity-80 max-md:px-5"
-            >
-              Mumbai
-            </h3>
-          </div>
-        </article>
+  
+          <!-- Right button for carousel navigation (visible only on small screens) -->
+          <button onclick="nextSlide()" class="invest-carousel-button next-button hidden max-md:block absolute right-0 top-1/2 transform -translate-y-1/2 z-10  text-white px-4 py-2 rounded-full" style="background-color: var(--primary-color);height: 40px;width: 40px;">›</button>
       </div>
-      <!-- Centered "View More" Button for Small Screens -->
-      <div class="flex justify-center mt-5">
-        <button
-          class="view-more-button hidden max-md:block text-center text-white bg-[--primary-color] py-2 px-4 rounded"
-        >
-          View More
-        </button>
-      </div>
-    </section>
+  </section>
+    
 
     <!-- customer review -->
     <section class="flex flex-col items-center my-container">
@@ -1086,579 +930,342 @@
     </section>
 
     <!-- testimonial -->
-<section class="flex flex-col items-center my-container">
-    <h2
-        class="text-4xl font-medium p-4 text-center leading-[52px] text-zinc-900 max-md:max-w-full"
-      >
-        A Team You Can Trust
-      </h2>
-      <p
-        class="text-xl leading-loose p-4 text-center text-zinc-900 max-md:max-w-full"
-      >
-      Committed Experts Focused on Your Success
-      </p>
-
-    <section class="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-4 pb-1.5 mx-auto " style="width: 100%;">
-          
-        <!-- Card 1 -->
-        <article class="flex flex-col gap-2 p-1 sm:p-2 bg-white rounded-lg shadow-md h-[260px] sm:h-[340px]">
-          <div class="relative flex justify-center items-center w-full h-[180px] sm:h-[240px] rounded-md overflow-hidden">
-            <img
-              loading="lazy"
-              src="./Asset/member-1.png"
-              alt="Manar Mahmassani profile photo"
-              class="object-cover w-[180px] h-[180px] sm:w-[240px] sm:h-[240px] rounded-md"
-            />
-            <a
-              href="#"
-              class="absolute top-1 right-1 w-5 h-5 sm:w-6 sm:h-6 flex justify-center items-center bg-white shadow-sm rounded-full"
-            >
-              <img
-                loading="lazy"
-                src="https://cdn.builder.io/api/v1/image/assets/TEMP/cee0bbc5f6c3e2b749948b8795937e34f6c8c217ab03ce7491b9eb143db718c0?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c"
-                alt=""
-                class="object-contain w-3 sm:w-[18px]"
-              />
-            </a>
-          </div>
-          <header class="flex flex-col justify-center items-center pt-1 sm:pt-2 w-full">
-            <h2 class="text-sm sm:text-lg font-bold leading-5 sm:leading-6 text-slate-900">Manar Mahmassani</h2>
-            <p class="mt-0.5 sm:mt-1 text-xs sm:text-sm leading-4 sm:leading-5 text-gray-500">Co-Founder & Co-CEO</p>
-          </header>
-        </article>
+    <section class="flex flex-col items-center my-container">
+        <h2 class="text-4xl font-medium p-4 text-center leading-[52px] text-zinc-900 max-md:max-w-full">
+            A Team You Can Trust
+        </h2>
+        <p class="text-xl leading-loose p-4 text-center text-zinc-900 max-md:max-w-full">
+            Committed Experts Focused on Your Success
+        </p>
+    
+        <section id="testimonial-cards" class="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-4 pb-1.5 mx-auto" style="width: 100%;">
+            <!-- Card items go here (1-6 as you had in your code) -->
+            <article class="flex flex-col gap-2 p-1 sm:p-2 bg-white rounded-lg shadow-md h-[260px] sm:h-[340px]">
+                <div class="relative flex justify-center items-center w-full h-[180px] sm:h-[240px] rounded-md overflow-hidden">
+                  <img
+                    loading="lazy"
+                    src="./Asset/member-1.png"
+                    alt="Manar Mahmassani profile photo"
+                    class="object-cover w-[180px] h-[180px] sm:w-[240px] sm:h-[240px] rounded-md"
+                  />
+                  <a
+                    href="#"
+                    class="absolute top-1 right-1 w-5 h-5 sm:w-6 sm:h-6 flex justify-center items-center bg-white shadow-sm rounded-full"
+                  >
+                    <img
+                      loading="lazy"
+                      src="https://cdn.builder.io/api/v1/image/assets/TEMP/cee0bbc5f6c3e2b749948b8795937e34f6c8c217ab03ce7491b9eb143db718c0?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c"
+                      alt=""
+                      class="object-contain w-3 sm:w-[18px]"
+                    />
+                  </a>
+                </div>
+                <header class="flex flex-col justify-center items-center pt-1 sm:pt-2 w-full">
+                  <h2 class="text-sm sm:text-lg font-bold leading-5 sm:leading-6 text-slate-900">Manar Mahmassani</h2>
+                  <p class="mt-0.5 sm:mt-1 text-xs sm:text-sm leading-4 sm:leading-5 text-gray-500">Co-Founder & Co-CEO</p>
+                </header>
+              </article>
+              <article class="flex flex-col gap-2 p-1 sm:p-2 bg-white rounded-lg shadow-md h-[260px] sm:h-[340px]">
+                <div class="relative flex justify-center items-center w-full h-[180px] sm:h-[240px] rounded-md overflow-hidden">
+                  <img
+                    loading="lazy"
+                    src="./Asset/member-2.png"
+                    alt="Manar Mahmassani profile photo"
+                    class="object-cover w-[180px] h-[180px] sm:w-[240px] sm:h-[240px] rounded-md"
+                  />
+                  <a
+                    href="#"
+                    class="absolute top-1 right-1 w-5 h-5 sm:w-6 sm:h-6 flex justify-center items-center bg-white shadow-sm rounded-full"
+                  >
+                    <img
+                      loading="lazy"
+                      src="https://cdn.builder.io/api/v1/image/assets/TEMP/cee0bbc5f6c3e2b749948b8795937e34f6c8c217ab03ce7491b9eb143db718c0?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c"
+                      alt=""
+                      class="object-contain w-3 sm:w-[18px]"
+                    />
+                  </a>
+                </div>
+                <header class="flex flex-col justify-center items-center pt-1 sm:pt-2 w-full">
+                  <h2 class="text-sm sm:text-lg font-bold leading-5 sm:leading-6 text-slate-900">Manar Mahmassani</h2>
+                  <p class="mt-0.5 sm:mt-1 text-xs sm:text-sm leading-4 sm:leading-5 text-gray-500">Co-Founder & Co-CEO</p>
+                </header>
+              </article>
+              <article class="flex flex-col gap-2 p-1 sm:p-2 bg-white rounded-lg shadow-md h-[260px] sm:h-[340px]">
+                <div class="relative flex justify-center items-center w-full h-[180px] sm:h-[240px] rounded-md overflow-hidden">
+                  <img
+                    loading="lazy"
+                    src="./Asset/member-3.png"
+                    alt="Manar Mahmassani profile photo"
+                    class="object-cover w-[180px] h-[180px] sm:w-[240px] sm:h-[240px] rounded-md"
+                  />
+                  <a
+                    href="#"
+                    class="absolute top-1 right-1 w-5 h-5 sm:w-6 sm:h-6 flex justify-center items-center bg-white shadow-sm rounded-full"
+                  >
+                    <img
+                      loading="lazy"
+                      src="https://cdn.builder.io/api/v1/image/assets/TEMP/cee0bbc5f6c3e2b749948b8795937e34f6c8c217ab03ce7491b9eb143db718c0?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c"
+                      alt=""
+                      class="object-contain w-3 sm:w-[18px]"
+                    />
+                  </a>
+                </div>
+                <header class="flex flex-col justify-center items-center pt-1 sm:pt-2 w-full">
+                  <h2 class="text-sm sm:text-lg font-bold leading-5 sm:leading-6 text-slate-900">Manar Mahmassani</h2>
+                  <p class="mt-0.5 sm:mt-1 text-xs sm:text-sm leading-4 sm:leading-5 text-gray-500">Co-Founder & Co-CEO</p>
+                </header>
+              </article>
+    
+            <!-- Additional cards can be hidden initially, controlled by JavaScript below -->
+            <article class="flex flex-col gap-2 p-1 sm:p-2 bg-white rounded-lg shadow-md h-[260px] sm:h-[340px]">
+                <div class="relative flex justify-center items-center w-full h-[180px] sm:h-[240px] rounded-md overflow-hidden">
+                  <img
+                    loading="lazy"
+                    src="./Asset/member-4.png"
+                    alt="Manar Mahmassani profile photo"
+                    class="object-cover w-[180px] h-[180px] sm:w-[240px] sm:h-[240px] rounded-md"
+                  />
+                  <a
+                    href="#"
+                    class="absolute top-1 right-1 w-5 h-5 sm:w-6 sm:h-6 flex justify-center items-center bg-white shadow-sm rounded-full"
+                  >
+                    <img
+                      loading="lazy"
+                      src="https://cdn.builder.io/api/v1/image/assets/TEMP/cee0bbc5f6c3e2b749948b8795937e34f6c8c217ab03ce7491b9eb143db718c0?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c"
+                      alt=""
+                      class="object-contain w-3 sm:w-[18px]"
+                    />
+                  </a>
+                </div>
+                <header class="flex flex-col justify-center items-center pt-1 sm:pt-2 w-full">
+                  <h2 class="text-sm sm:text-lg font-bold leading-5 sm:leading-6 text-slate-900">Manar Mahmassani</h2>
+                  <p class="mt-0.5 sm:mt-1 text-xs sm:text-sm leading-4 sm:leading-5 text-gray-500">Co-Founder & Co-CEO</p>
+                </header>
+              </article>
+              <article class="flex flex-col gap-2 p-1 sm:p-2 bg-white rounded-lg shadow-md h-[260px] sm:h-[340px]">
+                <div class="relative flex justify-center items-center w-full h-[180px] sm:h-[240px] rounded-md overflow-hidden">
+                  <img
+                    loading="lazy"
+                    src="./Asset/member-5.png"
+                    alt="Manar Mahmassani profile photo"
+                    class="object-cover w-[180px] h-[180px] sm:w-[240px] sm:h-[240px] rounded-md"
+                  />
+                  <a
+                    href="#"
+                    class="absolute top-1 right-1 w-5 h-5 sm:w-6 sm:h-6 flex justify-center items-center bg-white shadow-sm rounded-full"
+                  >
+                    <img
+                      loading="lazy"
+                      src="https://cdn.builder.io/api/v1/image/assets/TEMP/cee0bbc5f6c3e2b749948b8795937e34f6c8c217ab03ce7491b9eb143db718c0?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c"
+                      alt=""
+                      class="object-contain w-3 sm:w-[18px]"
+                    />
+                  </a>
+                </div>
+                <header class="flex flex-col justify-center items-center pt-1 sm:pt-2 w-full">
+                  <h2 class="text-sm sm:text-lg font-bold leading-5 sm:leading-6 text-slate-900">Manar Mahmassani</h2>
+                  <p class="mt-0.5 sm:mt-1 text-xs sm:text-sm leading-4 sm:leading-5 text-gray-500">Co-Founder & Co-CEO</p>
+                </header>
+              </article>
+              <article class="flex flex-col gap-2 p-1 sm:p-2 bg-white rounded-lg shadow-md h-[260px] sm:h-[340px]">
+                <div class="relative flex justify-center items-center w-full h-[180px] sm:h-[240px] rounded-md overflow-hidden">
+                  <img
+                    loading="lazy"
+                    src="./Asset/member-5.png"
+                    alt="Manar Mahmassani profile photo"
+                    class="object-cover w-[180px] h-[180px] sm:w-[240px] sm:h-[240px] rounded-md"
+                  />
+                  <a
+                    href="#"
+                    class="absolute top-1 right-1 w-5 h-5 sm:w-6 sm:h-6 flex justify-center items-center bg-white shadow-sm rounded-full"
+                  >
+                    <img
+                      loading="lazy"
+                      src="https://cdn.builder.io/api/v1/image/assets/TEMP/cee0bbc5f6c3e2b749948b8795937e34f6c8c217ab03ce7491b9eb143db718c0?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c"
+                      alt=""
+                      class="object-contain w-3 sm:w-[18px]"
+                    />
+                  </a>
+                </div>
+                <header class="flex flex-col justify-center items-center pt-1 sm:pt-2 w-full">
+                  <h2 class="text-sm sm:text-lg font-bold leading-5 sm:leading-6 text-slate-900">Manar Mahmassani</h2>
+                  <p class="mt-0.5 sm:mt-1 text-xs sm:text-sm leading-4 sm:leading-5 text-gray-500">Co-Founder & Co-CEO</p>
+                </header>
+              </article>
+        </section>
+    
+        <!-- Button for "View More" / "View Less" -->
+        <button id="view-more-btn" class="bg-green-500 text-white py-2 px-4 mt-4 rounded-md sm:hidden">
+            View More
+        </button>
         
-        <!-- Card 2 -->
-        <article class="flex flex-col gap-2 p-1 sm:p-2 bg-white rounded-lg shadow-md h-[260px] sm:h-[340px]">
-          <div class="relative flex justify-center items-center w-full h-[180px] sm:h-[240px] rounded-md overflow-hidden">
-            <img
-              loading="lazy"
-              src="./Asset/member-2.png"
-              alt="Ricardo Brizido profile photo"
-              class="object-cover w-[180px] h-[180px] sm:w-[240px] sm:h-[240px] rounded-md"
-            />
-            <a
-              href="#"
-              class="absolute top-1 right-1 w-5 h-5 sm:w-6 sm:h-6 flex justify-center items-center bg-white shadow-sm rounded-full"
-            >
-              <img
-                loading="lazy"
-                src="https://cdn.builder.io/api/v1/image/assets/TEMP/359756b9d541453129f3633fcc05c19c1c977a2b307eb4d24af352409a6a71df?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c"
-                alt=""
-                class="object-contain w-3 sm:w-[18px]"
-              />
-            </a>
-          </div>
-          <header class="flex flex-col justify-center items-center pt-1 sm:pt-2 w-full">
-            <h2 class="text-sm sm:text-lg font-bold leading-5 sm:leading-6 text-slate-900">Ricardo Brizido</h2>
-            <p class="mt-0.5 sm:mt-1 text-xs sm:text-sm leading-4 sm:leading-5 text-gray-500">Co-Founder & CPTO</p>
-          </header>
-        </article>
-
-        <article class="flex flex-col gap-2 p-1 sm:p-2 bg-white rounded-lg shadow-md h-[260px] sm:h-[340px]">
-          <div class="relative flex justify-center items-center w-full h-[180px] sm:h-[240px] rounded-md overflow-hidden">
-            <img
-              loading="lazy"
-              src="./Asset/member-3.png"
-              alt="Manar Mahmassani profile photo"
-              class="object-cover w-[180px] h-[180px] sm:w-[240px] sm:h-[240px] rounded-md"
-            />
-            <a
-              href="#"
-              class="absolute top-1 right-1 w-5 h-5 sm:w-6 sm:h-6 flex justify-center items-center bg-white shadow-sm rounded-full"
-            >
-              <img
-                loading="lazy"
-                src="https://cdn.builder.io/api/v1/image/assets/TEMP/cee0bbc5f6c3e2b749948b8795937e34f6c8c217ab03ce7491b9eb143db718c0?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c"
-                alt=""
-                class="object-contain w-3 sm:w-[18px]"
-              />
-            </a>
-          </div>
-          <header class="flex flex-col justify-center items-center pt-1 sm:pt-2 w-full">
-            <h2 class="text-sm sm:text-lg font-bold leading-5 sm:leading-6 text-slate-900">Manar Mahmassani</h2>
-            <p class="mt-0.5 sm:mt-1 text-xs sm:text-sm leading-4 sm:leading-5 text-gray-500">Co-Founder & Co-CEO</p>
-          </header>
-        </article>
+    </section>
+    
         
-        <!-- Card 2 -->
-        <article class="flex flex-col gap-2 p-1 sm:p-2 bg-white rounded-lg shadow-md h-[260px] sm:h-[340px]">
-          <div class="relative flex justify-center items-center w-full h-[180px] sm:h-[240px] rounded-md overflow-hidden">
-            <img
-              loading="lazy"
-              src="./Asset/member-4.png"
-              alt="Ricardo Brizido profile photo"
-              class="object-cover w-[180px] h-[180px] sm:w-[240px] sm:h-[240px] rounded-md"
-            />
-            <a
-              href="#"
-              class="absolute top-1 right-1 w-5 h-5 sm:w-6 sm:h-6 flex justify-center items-center bg-white shadow-sm rounded-full"
-            >
-              <img
-                loading="lazy"
-                src="https://cdn.builder.io/api/v1/image/assets/TEMP/359756b9d541453129f3633fcc05c19c1c977a2b307eb4d24af352409a6a71df?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c"
-                alt=""
-                class="object-contain w-3 sm:w-[18px]"
-              />
-            </a>
-          </div>
-          <header class="flex flex-col justify-center items-center pt-1 sm:pt-2 w-full">
-            <h2 class="text-sm sm:text-lg font-bold leading-5 sm:leading-6 text-slate-900">Ricardo Brizido</h2>
-            <p class="mt-0.5 sm:mt-1 text-xs sm:text-sm leading-4 sm:leading-5 text-gray-500">Co-Founder & CPTO</p>
-          </header>
-        </article>
-
-        <article class="flex flex-col gap-2 p-1 sm:p-2 bg-white rounded-lg shadow-md h-[260px] sm:h-[340px]">
-          <div class="relative flex justify-center items-center w-full h-[180px] sm:h-[240px] rounded-md overflow-hidden">
-            <img
-              loading="lazy"
-              src="./Asset/member-5.png"
-              alt="Manar Mahmassani profile photo"
-              class="object-cover w-[180px] h-[180px] sm:w-[240px] sm:h-[240px] rounded-md"
-            />
-            <a
-              href="#"
-              class="absolute top-1 right-1 w-5 h-5 sm:w-6 sm:h-6 flex justify-center items-center bg-white shadow-sm rounded-full"
-            >
-              <img
-                loading="lazy"
-                src="https://cdn.builder.io/api/v1/image/assets/TEMP/cee0bbc5f6c3e2b749948b8795937e34f6c8c217ab03ce7491b9eb143db718c0?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c"
-                alt=""
-                class="object-contain w-3 sm:w-[18px]"
-              />
-            </a>
-          </div>
-          <header class="flex flex-col justify-center items-center pt-1 sm:pt-2 w-full">
-            <h2 class="text-sm sm:text-lg font-bold leading-5 sm:leading-6 text-slate-900">Manar Mahmassani</h2>
-            <p class="mt-0.5 sm:mt-1 text-xs sm:text-sm leading-4 sm:leading-5 text-gray-500">Co-Founder & Co-CEO</p>
-          </header>
-        </article>
-        
-        <!-- Card 2 -->
-        <article class="flex flex-col gap-2 p-1 sm:p-2 bg-white rounded-lg shadow-md h-[260px] sm:h-[340px]">
-          <div class="relative flex justify-center items-center w-full h-[180px] sm:h-[240px] rounded-md overflow-hidden">
-            <img
-              loading="lazy"
-              src="./Asset/member-5.png"
-              alt="Ricardo Brizido profile photo"
-              class="object-cover w-[180px] h-[180px] sm:w-[240px] sm:h-[240px] rounded-md"
-            />
-            <a
-              href="#"
-              class="absolute top-1 right-1 w-5 h-5 sm:w-6 sm:h-6 flex justify-center items-center bg-white shadow-sm rounded-full"
-            >
-              <img
-                loading="lazy"
-                src="https://cdn.builder.io/api/v1/image/assets/TEMP/359756b9d541453129f3633fcc05c19c1c977a2b307eb4d24af352409a6a71df?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c"
-                alt=""
-                class="object-contain w-3 sm:w-[18px]"
-              />
-            </a>
-          </div>
-          <header class="flex flex-col justify-center items-center pt-1 sm:pt-2 w-full">
-            <h2 class="text-sm sm:text-lg font-bold leading-5 sm:leading-6 text-slate-900">Ricardo Brizido</h2>
-            <p class="mt-0.5 sm:mt-1 text-xs sm:text-sm leading-4 sm:leading-5 text-gray-500">Co-Founder & CPTO</p>
-          </header>
-        </article>
-        
-        <!-- Repeat similar structure for other cards (3 through 6) -->
-
-        
-      </section>
-</section>
-        
-      
-      
-      
-
     <!-- Popular searched in gurgaon -->
-    <section
-      class="flex flex-col items-center text-base font-medium leading-3 text-center text-zinc-900 my-container"
-    >
-      <h1
-        class="text-5xl font-semibold leading-[52px] max-md:max-w-full max-md:text-3xl max-md:leading-9"
-      >
-        Popular Searched In Gurgaon Real Estate Markets
-      </h1>
-      <p
-        class="mt-8 text-lg leading-loose max-md:text-base max-md:leading-relaxed"
-      >
-        Discover the Most In-Demand Properties and Trends
-      </p>
-
-      <!-- Container wrapping both rows -->
-      <div
-        class="flex flex-wrap justify-center gap-5 self-stretch mt-24 w-full max-md:mt-10"
-      >
-        <!-- First row of links -->
-        <nav
-          class="flex flex-wrap justify-center gap-5 w-full text-white max-md:flex-col max-md:items-center"
-        >
-          <a
-            href="#ready-to-move"
-            class="px-16 py-5 border-b-2 border-green-400 bg-slate-900 rounded-[50px] max-md:px-5 max-md:text-sm"
-          >
+    <section class="flex flex-col items-center text-xs font-medium leading-tight text-center text-zinc-900 my-container">
+        <h1 class="text-2xl font-semibold leading-tight max-md:max-w-full max-md:text-xl max-md:leading-7">
+          Popular Searched In Gurgaon Real Estate Markets
+        </h1>
+        <p class="mt-4 text-sm leading-snug max-md:text-xs max-md:leading-tight">
+          Discover the Most In-Demand Properties and Trends
+        </p>
+      
+        <!-- Container wrapping both rows as grid layout -->
+        <div class="grid grid-cols-5 gap-5 w-full mt-10 max-md:grid-cols-2 max-md:gap-2 max-md:mt-5">
+          <!-- Anchor tags for each popular category with hover, transition, and zoom effect -->
+          <a href="#ready-to-move" class="transform transition duration-300 ease-in-out hover:bg-green-400 hover:border-slate-900 hover:scale-105 px-8 py-3 border-b-2 border-green-400 bg-slate-900 text-white rounded-[50px] max-md:px-2 max-md:py-2 max-md:text-[10px] text-center">
             Ready To Move
           </a>
-          <a
-            href="#affordable-homes"
-            class="px-10 py-5 border-b-2 border-green-400 bg-slate-900 rounded-[50px] max-md:px-5 max-md:text-sm"
-          >
+          <a href="#affordable-homes" class="transform transition duration-300 ease-in-out hover:bg-green-400 hover:border-slate-900 hover:scale-105 px-8 py-3 border-b-2 border-green-400 bg-slate-900 text-white rounded-[50px] max-md:px-2 max-md:py-2 max-md:text-[10px] text-center">
             Affordable Homes
           </a>
-          <a
-            href="#builder-floor"
-            class="px-16 py-5 border-b-2 border-green-400 bg-slate-900 rounded-[50px] max-md:px-5 max-md:text-sm"
-          >
+          <a href="#builder-floor" class="transform transition duration-300 ease-in-out hover:bg-green-400 hover:border-slate-900 hover:scale-105 px-8 py-3 border-b-2 border-green-400 bg-slate-900 text-white rounded-[50px] max-md:px-2 max-md:py-2 max-md:text-[10px] text-center">
             Builder Floor
           </a>
-          <a
-            href="#under-construction"
-            class="px-10 py-5 border-b-2 border-green-400 bg-slate-900 rounded-[50px] max-md:px-5 max-md:text-sm"
-          >
+          <a href="#under-construction" class="transform transition duration-300 ease-in-out hover:bg-green-400 hover:border-slate-900 hover:scale-105 px-8 py-3 border-b-2 border-green-400 bg-slate-900 text-white rounded-[50px] max-md:px-2 max-md:py-2 max-md:text-[10px] text-center">
             Under Construction
           </a>
-          <a
-            href="#new-projects"
-            class="px-16 py-5 border-b-2 border-green-400 bg-slate-900 rounded-[50px] max-md:px-5 max-md:text-sm"
-          >
+          <a href="#new-projects" class="transform transition duration-300 ease-in-out hover:bg-green-400 hover:border-slate-900 hover:scale-105 px-8 py-3 border-b-2 border-green-400 bg-slate-900 text-white rounded-[50px] max-md:px-2 max-md:py-2 max-md:text-[10px] text-center">
             New Projects
           </a>
-          <a
-            href="#luxury-projects"
-            class="px-11 py-5 border-b-2 border-green-400 bg-slate-900 rounded-[50px] max-md:px-5 max-md:text-sm"
-          >
+          <a href="#luxury-projects" class="transform transition duration-300 ease-in-out hover:bg-green-400 hover:border-slate-900 hover:scale-105 px-8 py-3 border-b-2 border-green-400 bg-slate-900 text-white rounded-[50px] max-md:px-2 max-md:py-2 max-md:text-[10px] text-center">
             Luxury Projects
           </a>
-        </nav>
-
-        <!-- Second row of links -->
-        <nav
-          class="flex flex-wrap justify-center gap-5 w-full mt-5 text-white max-md:flex-col max-md:items-center"
-        >
-          <a
-            href="#upcoming-projects"
-            class="px-9 py-5 border-b-2 border-green-400 bg-slate-900 rounded-[50px] max-md:px-5 max-md:text-sm"
-          >
+          <a href="#upcoming-projects" class="transform transition duration-300 ease-in-out hover:bg-green-400 hover:border-slate-900 hover:scale-105 px-8 py-3 border-b-2 border-green-400 bg-slate-900 text-white rounded-[50px] max-md:px-2 max-md:py-2 max-md:text-[10px] text-center">
             Upcoming Projects
           </a>
-          <a
-            href="#dwarka-expressway"
-            class="px-10 py-5 border-b-2 border-green-400 bg-slate-900 rounded-[50px] max-md:px-5 max-md:text-sm"
-          >
+          <a href="#dwarka-expressway" class="transform transition duration-300 ease-in-out hover:bg-green-400 hover:border-slate-900 hover:scale-105 px-8 py-3 border-b-2 border-green-400 bg-slate-900 text-white rounded-[50px] max-md:px-2 max-md:py-2 max-md:text-[10px] text-center">
             Dwarka Expressway Property
           </a>
-          <a
-            href="#golf-course-road"
-            class="px-7 py-5 border-b-2 border-green-400 bg-slate-900 rounded-[50px] max-md:px-5 max-md:text-sm"
-          >
+          <a href="#golf-course-road" class="transform transition duration-300 ease-in-out hover:bg-green-400 hover:border-slate-900 hover:scale-105 px-8 py-3 border-b-2 border-green-400 bg-slate-900 text-white rounded-[50px] max-md:px-2 max-md:py-2 max-md:text-[10px] text-center">
             Golf Course Road Property
           </a>
-        </nav>
-      </div>
-    </section>
+          <a href="#golf-course-extension" class="transform transition duration-300 ease-in-out hover:bg-green-400 hover:border-slate-900 hover:scale-105 px-8 py-3 border-b-2 border-green-400 bg-slate-900 text-white rounded-[50px] max-md:px-2 max-md:py-2 max-md:text-[10px] text-center">
+            Golf Course Extension
+          </a>
+        </div>
+      </section>
+      
+        
 
-    <!-- articles -->
+    <!-- News -->
 
     <section class="flex overflow-hidden flex-col items-center my-container">
-      <h2
-        class="text-5xl font-semibold leading-none text-center text-zinc-900 max-md:max-w-full max-md:text-4xl"
-      >
-        Recent Articles & News
+      <h2 class="text-5xl font-semibold leading-none text-center text-zinc-900 max-md:max-w-full max-md:text-4xl">
+          Recent Articles & News
       </h2>
-      <p
-        class="mt-8 ml-3.5 text-xl leading-loose text-center text-zinc-900 max-md:max-w-full"
-      >
-        Stay Informed with the Latest Insights and Updates in Real Estate
+      <p class="mt-8 ml-3.5 text-xl leading-loose text-center text-zinc-900 max-md:max-w-full">
+          Stay Informed with the Latest Insights and Updates in Real Estate
       </p>
-      <div
-        class="self-stretch mt-16 w-full max-md:mt-10 max-md:max-w-full relative"
-      >
-        <div class="infinite-scroll flex gap-5">
-          <!-- Repeat your article cards as needed -->
-          <article class="flex flex-col w-3/12 max-md:ml-0 max-md:w-full">
-            <div
-              class="flex overflow-hidden flex-col items-center px-px pt-px pb-7 mx-auto w-full text-base font-medium leading-loose text-center bg-white rounded-2xl border border-gray-200 border-solid text-zinc-900 max-md:mt-8"
-            >
-              <img
-                loading="lazy"
-                src="https://cdn.builder.io/api/v1/image/assets/TEMP/69ee73ddb1bfe9a85c27df720a49ec1d3c8cba95e5b6ba462140ffb01fe941e3?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c"
-                alt="Housing market changes illustration"
-                class="object-contain self-stretch w-full aspect-[1.49]"
-              />
-              <div
-                class="flex gap-6 mt-7 max-w-full text-neutral-700 w-[198px]"
-              >
-                <a href="#" class="hover:underline">Apartment</a>
-                <time datetime="2024-03-19" class="grow shrink w-[88px]"
-                  >March 19, 2024</time
-                >
+  
+      <!-- Carousel Container -->
+      <div class="news-carousel-container relative mt-10 w-full max-w-full overflow-hidden">
+          <!-- Left Button -->
+          <button id="news-prev" class="news-carousel-button absolute left-0 top-1/2 transform -translate-y-1/2  text-white p-2 rounded-full" style="background-color: var(--primary-color);width: 40px;height: 40px; z-index: 99;">
+              &#10094;
+          </button>
+  
+          <div class="news-carousel-inner flex transition-transform duration-300 ease-in-out ">
+            <!-- Repeat article cards here -->
+            <article class="news-carousel-card flex flex-col w-full sm:w-1/2 md:min-w-[500px] md:w-1/3 p-4">
+                <div class="flex flex-col items-center text-center bg-white rounded-2xl border border-gray-200 p-5">
+                    <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/69ee73ddb1bfe9a85c27df720a49ec1d3c8cba95e5b6ba462140ffb01fe941e3?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c" alt="Housing market changes illustration" class="object-contain w-full h-60 rounded-lg">
+                    <div class="flex gap-6 mt-5 text-neutral-700">
+                        <a href="#" class="hover:underline">Apartment</a>
+                        <time datetime="2024-03-19" class="grow shrink w-[88px]">March 19, 2024</time>
+                    </div>
+                    <h3 class="mt-4 text-lg">Housing Markets That Changed the Most This Week</h3>
+                    <a href="#" class="flex items-center mt-4 hover:underline text-blue-600">
+                        <span>Read More</span>
+                    </a>
+                </div>
+            </article>
+        
+            <article class="news-carousel-card flex flex-col w-full sm:w-1/2 md:min-w-[500px] md:w-1/3 p-4">
+                <div class="flex flex-col items-center text-center bg-white rounded-2xl border border-gray-200 p-5">
+                    <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/69ee73ddb1bfe9a85c27df720a49ec1d3c8cba95e5b6ba462140ffb01fe941e3?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c" alt="Housing market changes illustration" class="object-contain w-full h-60 rounded-lg">
+                    <div class="flex gap-6 mt-5 text-neutral-700">
+                        <a href="#" class="hover:underline">Apartment</a>
+                        <time datetime="2024-03-19" class="grow shrink w-[88px]">March 19, 2024</time>
+                    </div>
+                    <h3 class="mt-4 text-lg">Housing Markets That Changed the Most This Week</h3>
+                    <a href="#" class="flex items-center mt-4 hover:underline text-blue-600">
+                        <span>Read More</span>
+                    </a>
+                </div>
+            </article>
+        
+            <article class="news-carousel-card flex flex-col w-full sm:w-1/2 md:min-w-[500px] md:w-1/3 p-4">
+                <div class="flex flex-col items-center text-center bg-white rounded-2xl border border-gray-200 p-5">
+                    <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/69ee73ddb1bfe9a85c27df720a49ec1d3c8cba95e5b6ba462140ffb01fe941e3?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c" alt="Housing market changes illustration" class="object-contain w-full h-60 rounded-lg">
+                    <div class="flex gap-6 mt-5 text-neutral-700">
+                        <a href="#" class="hover:underline">Apartment</a>
+                        <time datetime="2024-03-19" class="grow shrink w-[88px]">March 19, 2024</time>
+                    </div>
+                    <h3 class="mt-4 text-lg">Housing Markets That Changed the Most This Week</h3>
+                    <a href="#" class="flex items-center mt-4 hover:underline text-blue-600">
+                        <span>Read More</span>
+                    </a>
+                </div>
+            </article>
+
+            <article class="news-carousel-card flex flex-col w-full sm:w-1/2 md:min-w-[500px] md:w-1/3 p-4">
+              <div class="flex flex-col items-center text-center bg-white rounded-2xl border border-gray-200 p-5">
+                  <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/69ee73ddb1bfe9a85c27df720a49ec1d3c8cba95e5b6ba462140ffb01fe941e3?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c" alt="Housing market changes illustration" class="object-contain w-full h-60 rounded-lg">
+                  <div class="flex gap-6 mt-5 text-neutral-700">
+                      <a href="#" class="hover:underline">Apartment</a>
+                      <time datetime="2024-03-19" class="grow shrink w-[88px]">March 19, 2024</time>
+                  </div>
+                  <h3 class="mt-4 text-lg">Housing Markets That Changed the Most This Week</h3>
+                  <a href="#" class="flex items-center mt-4 hover:underline text-blue-600">
+                      <span>Read More</span>
+                  </a>
               </div>
-              <h3 class="mt-6 w-60 text-lg leading-7">
-                Housing Markets That Changed the Most This Week
-              </h3>
-              <a
-                href="#"
-                class="flex gap-2 mt-6 w-[93px] items-center hover:underline"
-              >
-                <span>Read More</span>
-                <img
-                  loading="lazy"
-                  src="https://cdn.builder.io/api/v1/image/assets/TEMP/9943b370bfa920c7bf73b202931cf5fc4d4ca6b6ccec84b67079097352ac04c5?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c"
-                  alt=""
-                  class="object-contain w-3.5 aspect-[1.17]"
-                />
-              </a>
-            </div>
           </article>
-          <article class="flex flex-col w-3/12 max-md:ml-0 max-md:w-full">
-            <div
-              class="flex overflow-hidden flex-col items-center px-px pt-px pb-7 mx-auto w-full text-base font-medium leading-loose text-center bg-white rounded-2xl border border-gray-200 border-solid text-zinc-900 max-md:mt-8"
-            >
-              <img
-                loading="lazy"
-                src="https://cdn.builder.io/api/v1/image/assets/TEMP/9943b370bfa920c7bf73b202931cf5fc4d4ca6b6ccec84b67079097352ac04c5?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c"
-                alt="Housing market changes illustration"
-                class="object-contain self-stretch w-full aspect-[1.49]"
-              />
-              <div
-                class="flex gap-6 mt-7 max-w-full text-neutral-700 w-[198px]"
-              >
-                <a href="#" class="hover:underline">Apartment</a>
-                <time datetime="2024-03-19" class="grow shrink w-[88px]"
-                  >March 19, 2024</time
-                >
+      
+          <article class="news-carousel-card flex flex-col w-full sm:w-1/2 md:min-w-[500px] md:w-1/3 p-4">
+              <div class="flex flex-col items-center text-center bg-white rounded-2xl border border-gray-200 p-5">
+                  <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/69ee73ddb1bfe9a85c27df720a49ec1d3c8cba95e5b6ba462140ffb01fe941e3?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c" alt="Housing market changes illustration" class="object-contain w-full h-60 rounded-lg">
+                  <div class="flex gap-6 mt-5 text-neutral-700">
+                      <a href="#" class="hover:underline">Apartment</a>
+                      <time datetime="2024-03-19" class="grow shrink w-[88px]">March 19, 2024</time>
+                  </div>
+                  <h3 class="mt-4 text-lg">Housing Markets That Changed the Most This Week</h3>
+                  <a href="#" class="flex items-center mt-4 hover:underline text-blue-600">
+                      <span>Read More</span>
+                  </a>
               </div>
-              <h3 class="mt-6 w-60 text-lg leading-7">
-                Housing Markets That Changed the Most This Week
-              </h3>
-              <a
-                href="#"
-                class="flex gap-2 mt-6 w-[93px] items-center hover:underline"
-              >
-                <span>Read More</span>
-                <img
-                  loading="lazy"
-                  src="https://cdn.builder.io/api/v1/image/assets/TEMP/40af54f6a3ec4176ee5fe2b9d0205544c12bd57cc9febc08787eacbc1bc1b50d?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c"
-                  alt=""
-                  class="object-contain w-3.5 aspect-[1.17]"
-                />
-              </a>
-            </div>
           </article>
-          <article class="flex flex-col w-3/12 max-md:ml-0 max-md:w-full">
-            <div
-              class="flex overflow-hidden flex-col items-center px-px pt-px pb-7 mx-auto w-full text-base font-medium leading-loose text-center bg-white rounded-2xl border border-gray-200 border-solid text-zinc-900 max-md:mt-8"
-            >
-              <img
-                loading="lazy"
-                src="https://cdn.builder.io/api/v1/image/assets/TEMP/bd5616d83364f64e5dc631a9c92bd20b8b7839bd5e05640cc689ec54c17f4a5d?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c"
-                alt="Housing market changes illustration"
-                class="object-contain self-stretch w-full aspect-[1.49]"
-              />
-              <div
-                class="flex gap-6 mt-7 max-w-full text-neutral-700 w-[198px]"
-              >
-                <a href="#" class="hover:underline">Apartment</a>
-                <time datetime="2024-03-19" class="grow shrink w-[88px]"
-                  >March 19, 2024</time
-                >
+      
+          <article class="news-carousel-card flex flex-col w-full sm:w-1/2 md:min-w-[500px] md:w-1/3 p-4">
+              <div class="flex flex-col items-center text-center bg-white rounded-2xl border border-gray-200 p-5">
+                  <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/69ee73ddb1bfe9a85c27df720a49ec1d3c8cba95e5b6ba462140ffb01fe941e3?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c" alt="Housing market changes illustration" class="object-contain w-full h-60 rounded-lg">
+                  <div class="flex gap-6 mt-5 text-neutral-700">
+                      <a href="#" class="hover:underline">Apartment</a>
+                      <time datetime="2024-03-19" class="grow shrink w-[88px]">March 19, 2024</time>
+                  </div>
+                  <h3 class="mt-4 text-lg">Housing Markets That Changed the Most This Week</h3>
+                  <a href="#" class="flex items-center mt-4 hover:underline text-blue-600">
+                      <span>Read More</span>
+                  </a>
               </div>
-              <h3 class="mt-6 w-60 text-lg leading-7">
-                Housing Markets That Changed the Most This Week
-              </h3>
-              <a
-                href="#"
-                class="flex gap-2 mt-6 w-[93px] items-center hover:underline"
-              >
-                <span>Read More</span>
-                <img
-                  loading="lazy"
-                  src="https://cdn.builder.io/api/v1/image/assets/TEMP/40af54f6a3ec4176ee5fe2b9d0205544c12bd57cc9febc08787eacbc1bc1b50d?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c"
-                  alt=""
-                  class="object-contain w-3.5 aspect-[1.17]"
-                />
-              </a>
-            </div>
           </article>
-          <article class="flex flex-col w-3/12 max-md:ml-0 max-md:w-full">
-            <div
-              class="flex overflow-hidden flex-col items-center px-px pt-px pb-7 mx-auto w-full text-base font-medium leading-loose text-center bg-white rounded-2xl border border-gray-200 border-solid text-zinc-900 max-md:mt-8"
-            >
-              <img
-                loading="lazy"
-                src="https://cdn.builder.io/api/v1/image/assets/TEMP/e4d37ecf29eb8df04cd01a708258b5d9098d97d7f09b839110ab06989afa05a5?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c"
-                alt="Housing market changes illustration"
-                class="object-contain self-stretch w-full aspect-[1.49]"
-              />
-              <div
-                class="flex gap-6 mt-7 max-w-full text-neutral-700 w-[198px]"
-              >
-                <a href="#" class="hover:underline">Apartment</a>
-                <time datetime="2024-03-19" class="grow shrink w-[88px]"
-                  >March 19, 2024</time
-                >
-              </div>
-              <h3 class="mt-6 w-60 text-lg leading-7">
-                Housing Markets That Changed the Most This Week
-              </h3>
-              <a
-                href="#"
-                class="flex gap-2 mt-6 w-[93px] items-center hover:underline"
-              >
-                <span>Read More</span>
-                <img
-                  loading="lazy"
-                  src=""
-                  alt=""
-                  class="object-contain w-3.5 aspect-[1.17]"
-                />
-              </a>
-            </div>
-          </article>
-          <!-- Repeat all article cards multiple times for infinite scroll -->
-          <article class="flex flex-col w-3/12 max-md:ml-0 max-md:w-full">
-            <div
-              class="flex overflow-hidden flex-col items-center px-px pt-px pb-7 mx-auto w-full text-base font-medium leading-loose text-center bg-white rounded-2xl border border-gray-200 border-solid text-zinc-900 max-md:mt-8"
-            >
-              <img
-                loading="lazy"
-                src="https://cdn.builder.io/api/v1/image/assets/TEMP/69ee73ddb1bfe9a85c27df720a49ec1d3c8cba95e5b6ba462140ffb01fe941e3?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c"
-                alt="Housing market changes illustration"
-                class="object-contain self-stretch w-full aspect-[1.49]"
-              />
-              <div
-                class="flex gap-6 mt-7 max-w-full text-neutral-700 w-[198px]"
-              >
-                <a href="#" class="hover:underline">Apartment</a>
-                <time datetime="2024-03-19" class="grow shrink w-[88px]"
-                  >March 19, 2024</time
-                >
-              </div>
-              <h3 class="mt-6 w-60 text-lg leading-7">
-                Housing Markets That Changed the Most This Week
-              </h3>
-              <a
-                href="#"
-                class="flex gap-2 mt-6 w-[93px] items-center hover:underline"
-              >
-                <span>Read More</span>
-                <img
-                  loading="lazy"
-                  src="https://cdn.builder.io/api/v1/image/assets/TEMP/9943b370bfa920c7bf73b202931cf5fc4d4ca6b6ccec84b67079097352ac04c5?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c"
-                  alt=""
-                  class="object-contain w-3.5 aspect-[1.17]"
-                />
-              </a>
-            </div>
-          </article>
-          <article class="flex flex-col w-3/12 max-md:ml-0 max-md:w-full">
-            <div
-              class="flex overflow-hidden flex-col items-center px-px pt-px pb-7 mx-auto w-full text-base font-medium leading-loose text-center bg-white rounded-2xl border border-gray-200 border-solid text-zinc-900 max-md:mt-8"
-            >
-              <img
-                loading="lazy"
-                src="https://cdn.builder.io/api/v1/image/assets/TEMP/9943b370bfa920c7bf73b202931cf5fc4d4ca6b6ccec84b67079097352ac04c5?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c"
-                alt="Housing market changes illustration"
-                class="object-contain self-stretch w-full aspect-[1.49]"
-              />
-              <div
-                class="flex gap-6 mt-7 max-w-full text-neutral-700 w-[198px]"
-              >
-                <a href="#" class="hover:underline">Apartment</a>
-                <time datetime="2024-03-19" class="grow shrink w-[88px]"
-                  >March 19, 2024</time
-                >
-              </div>
-              <h3 class="mt-6 w-60 text-lg leading-7">
-                Housing Markets That Changed the Most This Week
-              </h3>
-              <a
-                href="#"
-                class="flex gap-2 mt-6 w-[93px] items-center hover:underline"
-              >
-                <span>Read More</span>
-                <img
-                  loading="lazy"
-                  src="https://cdn.builder.io/api/v1/image/assets/TEMP/40af54f6a3ec4176ee5fe2b9d0205544c12bd57cc9febc08787eacbc1bc1b50d?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c"
-                  alt=""
-                  class="object-contain w-3.5 aspect-[1.17]"
-                />
-              </a>
-            </div>
-          </article>
-          <article class="flex flex-col w-3/12 max-md:ml-0 max-md:w-full">
-            <div
-              class="flex overflow-hidden flex-col items-center px-px pt-px pb-7 mx-auto w-full text-base font-medium leading-loose text-center bg-white rounded-2xl border border-gray-200 border-solid text-zinc-900 max-md:mt-8"
-            >
-              <img
-                loading="lazy"
-                src="https://cdn.builder.io/api/v1/image/assets/TEMP/bd5616d83364f64e5dc631a9c92bd20b8b7839bd5e05640cc689ec54c17f4a5d?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c"
-                alt="Housing market changes illustration"
-                class="object-contain self-stretch w-full aspect-[1.49]"
-              />
-              <div
-                class="flex gap-6 mt-7 max-w-full text-neutral-700 w-[198px]"
-              >
-                <a href="#" class="hover:underline">Apartment</a>
-                <time datetime="2024-03-19" class="grow shrink w-[88px]"
-                  >March 19, 2024</time
-                >
-              </div>
-              <h3 class="mt-6 w-60 text-lg leading-7">
-                Housing Markets That Changed the Most This Week
-              </h3>
-              <a
-                href="#"
-                class="flex gap-2 mt-6 w-[93px] items-center hover:underline"
-              >
-                <span>Read More</span>
-                <img
-                  loading="lazy"
-                  src="https://cdn.builder.io/api/v1/image/assets/TEMP/40af54f6a3ec4176ee5fe2b9d0205544c12bd57cc9febc08787eacbc1bc1b50d?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c"
-                  alt=""
-                  class="object-contain w-3.5 aspect-[1.17]"
-                />
-              </a>
-            </div>
-          </article>
-          <article class="flex flex-col w-3/12 max-md:ml-0 max-md:w-full">
-            <div
-              class="flex overflow-hidden flex-col items-center px-px pt-px pb-7 mx-auto w-full text-base font-medium leading-loose text-center bg-white rounded-2xl border border-gray-200 border-solid text-zinc-900 max-md:mt-8"
-            >
-              <img
-                loading="lazy"
-                src="https://cdn.builder.io/api/v1/image/assets/TEMP/e4d37ecf29eb8df04cd01a708258b5d9098d97d7f09b839110ab06989afa05a5?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c"
-                alt="Housing market changes illustration"
-                class="object-contain self-stretch w-full aspect-[1.49]"
-              />
-              <div
-                class="flex gap-6 mt-7 max-w-full text-neutral-700 w-[198px]"
-              >
-                <a href="#" class="hover:underline">Apartment</a>
-                <time datetime="2024-03-19" class="grow shrink w-[88px]"
-                  >March 19, 2024</time
-                >
-              </div>
-              <h3 class="mt-6 w-60 text-lg leading-7">
-                Housing Markets That Changed the Most This Week
-              </h3>
-              <a
-                href="#"
-                class="flex gap-2 mt-6 w-[93px] items-center hover:underline"
-              >
-                <span>Read More</span>
-                <img
-                  loading="lazy"
-                  src=""
-                  alt=""
-                  class="object-contain w-3.5 aspect-[1.17]"
-                />
-              </a>
-            </div>
-          </article>
+        
+            <!-- Add more articles as needed -->
+        
         </div>
+        
+        
+  
+          <!-- Right Button -->
+          <button id="news-next" class="news-carousel-button absolute right-0 top-1/2 transform -translate-y-1/2 text-white p-2 rounded-full" style="background-color: var(--primary-color);width: 40px;height: 40px; z-index: 99;">
+              &#10095;
+          </button>
       </div>
-    </section>
+  </section>
+  
+      
 
     <!-- Have more questions -->
     <section
@@ -1779,69 +1386,89 @@
       </article>
     </section>
 
-    <!-- <footer class="flex flex-col items-center px-20 py-14 rounded-3xl bg-slate-900 max-md:px-5">
-            <section class="flex flex-wrap gap-5 justify-between self-start w-full text-base leading-none text-white max-w-[1688px] max-md:max-w-full">
-                <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/8cae640201dce524739941c095d8fa4abe11c996201ec72e722d7e70f7010997?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c" alt="PropGrow Logo" class="object-contain shrink-0 w-48 max-w-full aspect-[4.46]" />
-                <nav class="flex gap-8 my-auto">
-                    <h2 class="text-xl font-medium">Follow Us</h2>
-                    <a href="#" class="text-center" aria-label="Facebook"><span class="sr-only">Facebook</span></a>
-                    <a href="#" class="text-center" aria-label="Twitter"><span class="sr-only">Twitter</span></a>
-                    <a href="#" class="text-center" aria-label="Instagram"><span class="sr-only">Instagram</span></a>
-                    <a href="#" class="text-center" aria-label="LinkedIn"><span class="sr-only">LinkedIn</span></a>
-                </nav>
-            </section>
-            <hr class="flex shrink-0 mt-16 max-w-full h-px bg-white bg-opacity-10 w-[1680px] max-md:mt-10" />
-            <section class="flex gap-5 justify-between items-start self-start mt-24 ml-5 w-full max-w-[1565px] max-md:mt-10 max-md:max-w-full">
-                <section class="flex flex-col text-base text-white">
-                    <h2 class="self-start text-xl font-medium leading-none text-white text-opacity-50">Subscribe</h2>
-                    <form class="flex gap-5 justify-between items-start pt-px pb-3.5 mt-10 w-full border-b border-white border-opacity-10">
-                        <label for="email" class="sr-only">Your e-mail</label>
-                        <input type="email" id="email" placeholder="Your e-mail" class="my-auto bg-transparent text-white" aria-label="Your e-mail" />
-                        <button type="submit" class="flex gap-2.5 self-start px-6 py-3.5 font-medium leading-loose text-center whitespace-nowrap bg-white bg-opacity-10 rounded-[44px] max-md:px-5">
-                            Send
-                            <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/1895213eca1b01fba946db7c7f8fbccb0ff0246669d3b80edb4fe70bb0239ec1?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c" alt="" class="object-contain shrink-0 self-start w-3.5 aspect-[1.17]" />
-                        </button>
-                    </form>
-                    <p class="mt-12 leading-loose max-md:mt-10 max-md:mr-2.5">Subscribe to our newsletter to receive our weekly feed.</p>
-                </section>
-                <nav class="flex flex-col items-start text-base leading-loose text-white">
-                    <h2 class="text-xl font-medium leading-tight text-white text-opacity-50">Discover</h2>
-                    <a href="#" class="mt-11 max-md:mt-10">Golf Curse Road</a>
-                    <a href="#" class="self-stretch mt-7">Dwarka Expressway</a>
-                    <a href="#" class="mt-6">SPR Chowk</a>
-                    <a href="#" class="mt-7">Vatika Chowk</a>
-                    <a href="#" class="mt-7">Los Angeles</a>
-                    <a href="#" class="mt-6">San Diego</a>
-                </nav>
-                <nav class="flex flex-col items-start self-stretch text-base leading-loose text-white">
-                    <h2 class="text-xl font-medium leading-tight text-white text-opacity-50">Quick Links</h2>
-                    <a href="#" class="mt-10">About</a>
-                    <a href="#" class="mt-7">Contact</a>
-                    <a href="#" class="mt-7">FAQ's</a>
-                    <a href="#" class="mt-7">Blog</a>
-                    <a href="#" class="mt-6">Pricing Plans</a>
-                    <a href="#" class="mt-6">Privacy Policy</a>
-                    <a href="#" class="self-stretch mt-6">Terms & Conditions</a>
-                </nav>
-                <section class="flex flex-col">
-                    <h2 class="self-start text-xl font-medium leading-none text-white text-opacity-50">Contact Us</h2>
-                    <address class="mt-11 text-base leading-7 text-white max-md:mt-10 not-italic">
-                        <a href="mailto:hi@justhome.com">hi@justhome.com</a><br />
-                        <a href="tel:+1234567890">(123) 456-7890</a>
-                    </address>
-                </section>
-               
-            </section>
-            <hr class="flex shrink-0 mt-28 max-w-full h-px bg-white bg-opacity-10 w-[1680px] max-md:mt-10" />
-            <section class="flex flex-wrap gap-5 justify-between mt-10 ml-3 w-full text-base max-w-[1694px] text-stone-300 max-md:max-w-full">
-                <p>© Copyright 2024 PropGrow All Rights Reserved.</p>
-                <nav class="flex gap-6 self-start mt-1.5">
-                    <a href="#" class="grow">Privacy Policy</a>
-                    <a href="#" class="basis-auto">Terms & Condition</a>
-                </nav>
-            </section>
-        </footer> -->
-
+        <footer class="flex flex-col items-center mt-10 px-10 py-8 rounded-t-3xl bg-slate-900 max-md:px-4 w-full ">
+          <!-- Top Section: Logo and Social Links -->
+          <section class="flex flex-wrap gap-4 justify-between w-full text-sm text-white mb-6">
+              <!-- Logo -->
+              <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/8cae640201dce524739941c095d8fa4abe11c996201ec72e722d7e70f7010997?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c" alt="PropGrow Logo" class="w-36 max-w-full object-contain shrink-0" />
+      
+              <!-- Social Media Links -->
+              <nav class="flex gap-3 items-center">
+                  <h2 class="text-base font-medium">Follow Us</h2>
+                  <a href="#" class="text-center" aria-label="Facebook">FB</a>
+                  <a href="#" class="text-center" aria-label="Twitter">TW</a>
+                  <a href="#" class="text-center" aria-label="Instagram">IG</a>
+                  <a href="#" class="text-center" aria-label="LinkedIn">IN</a>
+              </nav>
+          </section>
+      
+          <!-- Divider -->
+          <hr class="w-full h-px bg-white bg-opacity-10 my-6" />
+      
+          <!-- Main Content Section -->
+          <section class="flex flex-wrap gap-4 justify-between w-full text-white text-xs">
+              <!-- Subscribe Section -->
+              <section class="flex flex-col">
+                  <h2 class="text-base font-medium text-white text-opacity-50">Subscribe</h2>
+                  <form class="flex gap-3 mt-3 border-b border-white border-opacity-10">
+                      <input type="email" placeholder="Your e-mail" class="bg-transparent text-white placeholder-white focus:outline-none" />
+                      <button type="submit" class="px-3 py-1 bg-white bg-opacity-10 rounded-full">Send</button>
+                  </form>
+                  <p class="mt-3 text-xs">Subscribe to our newsletter to receive our weekly feed.</p>
+              </section>
+      
+              <!-- Discover Section -->
+              <nav class="flex flex-col">
+                  <h2 class="text-base font-medium text-white text-opacity-50">Discover</h2>
+                  <a href="#" class="mt-2">Golf Course Road</a>
+                  <a href="#" class="mt-2">Dwarka Expressway</a>
+                  <a href="#" class="mt-2">SPR Chowk</a>
+                  <a href="#" class="mt-2">Vatika Chowk</a>
+                  <a href="#" class="mt-2">Los Angeles</a>
+                  <a href="#" class="mt-2">San Diego</a>
+              </nav>
+      
+              <!-- Quick Links Section -->
+              <nav class="flex flex-col">
+                  <h2 class="text-base font-medium text-white text-opacity-50">Quick Links</h2>
+                  <a href="#" class="mt-2">About</a>
+                  <a href="#" class="mt-2">Contact</a>
+                  <a href="#" class="mt-2">FAQ's</a>
+                  <a href="#" class="mt-2">Blog</a>
+                  <a href="#" class="mt-2">Pricing Plans</a>
+                  <a href="#" class="mt-2">Privacy Policy</a>
+                  <a href="#" class="mt-2">Terms & Conditions</a>
+              </nav>
+      
+              <!-- Contact Us Section -->
+              <section class="flex flex-col">
+                  <h2 class="text-base font-medium text-white text-opacity-50">Contact Us</h2>
+                  <address class="mt-3 not-italic">
+                      <a href="mailto:hi@justhome.com">hi@justhome.com</a><br />
+                      <a href="tel:+1234567890">(123) 456-7890</a>
+                  </address>
+              </section>
+      
+              <!-- Address Section -->
+              <section class="flex flex-col">
+                  <h2 class="text-base font-medium text-white text-opacity-50">Our Address</h2>
+                  <p class="mt-3">99 Fifth Avenue, 3rd Floor<br />San Francisco, CA 1980</p>
+              </section>
+          </section>
+      
+          <!-- Divider -->
+          <hr class="w-full h-px bg-white bg-opacity-10 my-6" />
+      
+          <!-- Bottom Section: Copyright and Links -->
+          <section class="flex justify-between w-full text-xs text-stone-300">
+              <p>© 2024 PropGrow All Rights Reserved.</p>
+              <nav class="flex gap-3">
+                  <a href="#">Privacy Policy</a>
+                  <a href="#">Terms & Conditions</a>
+              </nav>
+          </section>
+      </footer>
+      
     <script>
       // -------------------------------------------------------------
       const menuBtn = document.getElementById("menu-btn");
@@ -1881,42 +1508,83 @@
       // ---------------------------------------------------------------------------------
       //   latest launch
       document.addEventListener("DOMContentLoaded", function () {
-        const carousel = document.querySelector(".carousel");
-        const items = document.querySelectorAll(".carousel-item");
-        let currentIndex = 0;
-        let totalItems = items.length;
+  const carousel = document.querySelector(".property-carousel");
+  const items = document.querySelectorAll(".property-carousel-item");
+  const totalItems = items.length;
+  const itemWidth = items[0].clientWidth + 16; // Width plus margin
+  let propcurrentIndex = 0;
 
-        function startCarousel() {
-          setInterval(() => {
-            currentIndex = (currentIndex + 1) % totalItems;
-            const itemWidth = items[0].clientWidth + 16; // Width plus margin
-            carousel.style.transform = `translateX(-${
-              itemWidth * currentIndex
-            }px)`;
-          }, 3000); // Adjust speed as needed
-        }
+  // Move to the next item
+  function showNext() {
+    propcurrentIndex = (propcurrentIndex + 1) % totalItems;
+    updatelatestCarousel();
+  }
 
-        startCarousel();
-      });
+  // Move to the previous item
+  function showPrev() {
+    propcurrentIndex = (propcurrentIndex - 1 + totalItems) % totalItems;
+    updatelatestCarousel();
+  }
 
-      // --------------------------------------------------------------------investment
+  // Update carousel position based on currentIndex
+  function updatelatestCarousel() {
+    if (propcurrentIndex === 0) {
+      carousel.style.transition = "none"; // Remove transition on reset
+    } else {
+      carousel.style.transition = "transform 0.5s ease"; // Smooth transition
+    }
+    carousel.style.transform = `translateX(-${itemWidth * propcurrentIndex}px)`;
+  }
+
+  // Automatic slide change every 3 seconds
+  let interval = setInterval(showNext, 3000);
+
+  // Event listeners for arrows
+  document.getElementById("property-next").addEventListener("click", function () {
+    clearInterval(interval); // Stop auto slide when clicked
+    showNext();
+    interval = setInterval(showNext, 3000); // Resume auto slide
+  });
+
+  document.getElementById("property-prev").addEventListener("click", function () {
+    clearInterval(interval);
+    showPrev();
+    interval = setInterval(showNext, 3000);
+  });
+});
+
+      // --------------------------------------------------------------------team
       document.addEventListener("DOMContentLoaded", () => {
-        const viewMoreButton = document.querySelector(".view-more-button");
-        const hiddenArticles = Array.from(
-          document.querySelectorAll("article.hidden")
-        );
-        let currentIndex = 0;
-
-        viewMoreButton.addEventListener("click", () => {
-          if (currentIndex < hiddenArticles.length) {
-            hiddenArticles[currentIndex].classList.remove("hidden");
-            currentIndex++;
-            if (currentIndex === hiddenArticles.length) {
-              viewMoreButton.classList.add("hidden"); // Hide button after last article is shown
-            }
+        const cardsContainer = document.getElementById("testimonial-cards");
+        const viewMoreBtn = document.getElementById("view-more-btn");
+        let isExpanded = false;
+    
+        const setVisibility = () => {
+          const cardElements = Array.from(cardsContainer.children);
+          const screenIsSmall = window.innerWidth < 640;
+    
+          if (screenIsSmall) {
+            cardElements.forEach((card, index) => {
+              card.style.display = index < 2 || isExpanded ? "block" : "none";
+            });
+            viewMoreBtn.classList.remove("hidden");
+            viewMoreBtn.textContent = isExpanded ? "View Less" : "View More";
+          } else {
+            cardElements.forEach(card => (card.style.display = "block"));
+            viewMoreBtn.classList.add("hidden");
           }
+        };
+    
+        viewMoreBtn.addEventListener("click", () => {
+          isExpanded = !isExpanded;
+          setVisibility();
         });
+    
+        window.addEventListener("resize", setVisibility);
+        setVisibility();
       });
+   
+      
       // -----------------------rating
       document.addEventListener("DOMContentLoaded", () => {
         const carousel = document.querySelector(".review-carousel");
@@ -1981,6 +1649,88 @@
           });
         });
       });
+    //   --------------------------------------------------------------news
+    document.addEventListener('DOMContentLoaded', () => {
+      const carouselInner = document.querySelector('.news-carousel-inner');
+const nextButton = document.getElementById('news-next');
+const prevButton = document.getElementById('news-prev');
+
+let newscurrentIndex = 0;
+let visibleItems = getVisibleItems();
+let itemWidth = carouselInner.firstElementChild.offsetWidth;
+const totalItems = carouselInner.children.length;
+
+function getVisibleItems() {
+    const screenWidth = window.innerWidth;
+    if (screenWidth <= 500) return 1;
+    if (screenWidth <= 900) return 2;
+    return 3;
+}
+
+function updateCarousel() {
+    itemWidth = carouselInner.firstElementChild.offsetWidth;
+    carouselInner.style.transform = `translateX(-${newscurrentIndex * itemWidth}px)`;
+}
+
+function slideNext() {
+    newscurrentIndex++;
+    
+    if (newscurrentIndex >= totalItems) {
+        newscurrentIndex = 0; // Loop back to the first item
+    }
+    
+    updateCarousel();
+}
+
+function slidePrev() {
+    newscurrentIndex--;
+
+    if (newscurrentIndex < 0) {
+        newscurrentIndex = totalItems - 1; // Loop back to the last item
+    }
+
+    updateCarousel();
+}
+
+function handleResize() {
+    visibleItems = getVisibleItems();
+    newscurrentIndex = 0; // Reset index on resize to start from the beginning
+    updateCarousel();
+}
+
+nextButton.addEventListener('click', slideNext);
+prevButton.addEventListener('click', slidePrev);
+window.addEventListener('resize', handleResize);
+
+document.addEventListener('DOMContentLoaded', () => {
+    handleResize();
+});
+
+});
+
+
+//  --------------------------------------------------------------------invest
+
+let investcurrentIndex = 0;
+    const totalSlides = 3; // Adjust according to the number of articles
+    const carouselItems = document.querySelector('.invest-carousel-items');
+
+    function updateCarousel() {
+        // Update the transform property to show the current slide
+        const offset = investcurrentIndex * -100;
+        carouselItems.style.transform = `translateX(${offset}%)`;
+    }
+
+    function nextSlide() {
+      investcurrentIndex = (investcurrentIndex + 1) % totalSlides;
+        updateCarousel();
+    }
+
+    function prevSlide() {
+      investcurrentIndex = (investcurrentIndex - 1 + totalSlides) % totalSlides;
+        updateCarousel();
+    }
+
     </script>
   </body>
 </html>
