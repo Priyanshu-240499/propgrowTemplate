@@ -1,150 +1,547 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <section class="flex overflow-hidden flex-col pt-2 bg-white">
-        <header class="flex flex-wrap gap-5 justify-between items-start px-16 py-5 text-base font-medium bg-white w-[1920px] max-md:px-5 max-md:max-w-full">
-            <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/c54dc5567084ebc1a6f89df31c9782d599d3f297478e271912c985149f5ad0a1?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c" alt="PropGrow Logo" class="object-contain shrink-0 self-stretch w-48 max-w-full aspect-[4.46]" />
-            <nav class="flex items-start text-zinc-800 max-md:max-w-full">
-                <a href="#" class="overflow-hidden gap-2.5 px-4 py-3.5 whitespace-nowrap rounded-[30px]">Home</a>
-                <a href="#" class="overflow-hidden gap-2.5 px-4 py-3.5 whitespace-nowrap rounded-md bg-green-400 bg-opacity-30">About</a>
-                <a href="#" class="overflow-hidden gap-2.5 px-4 py-3.5 whitespace-nowrap rounded-md bg-blue-600 bg-opacity-0">Properties</a>
-                <a href="#" class="overflow-hidden gap-2.5 px-4 py-3.5 whitespace-nowrap rounded-md bg-blue-600 bg-opacity-0">Blogs</a>
-                <a href="#" class="overflow-hidden gap-2.5 px-4 py-3.5 rounded-md bg-blue-600 bg-opacity-0">Contact Us</a>
-            </nav>
-            <button class="gap-2 self-stretch py-1 pr-5 pl-6 leading-6 bg-green-400 rounded-xl min-h-[34px] text-zinc-900 w-[86px] max-md:pl-5">Contact Us</button>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      builder-component {
+        max-width: none !important;
+      }
+      :root {
+        --primary-color: #58bf93;
+      } 
+      /* styles.css */
+      .my-container {
+        padding: 0 5% !important;
+        margin-top: 5%;
+      }   
+    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <!-- navbar -->
+    <header class="nav-container bg-white shadow-md p-4">
+      <nav class="nav-wrapper flex justify-between items-center">
+        <!-- Logo -->
+        <img
+          loading="lazy"
+          src="https://cdn.builder.io/api/v1/image/assets/TEMP/c54dc5567084ebc1a6f89df31c9782d599d3f297478e271912c985149f5ad0a1?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c"
+          alt="Company Logo"
+          class="logo w-32"
+        />
+
+        <!-- Hamburger Menu Button -->
+        <div class="block md:hidden">
+          <button id="menu-btn" class="text-gray-600 focus:outline-none">
+            <!-- Default hamburger icon -->
+            <svg
+              id="hamburger-icon"
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16m-7 6h7"
+              ></path>
+            </svg>
+            <!-- Close "X" icon (hidden initially) -->
+            <svg
+              id="close-icon"
+              class="w-6 h-6 hidden"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M6 18L18 6M6 6l12 12"
+              ></path>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Navigation Links (hidden on mobile) -->
+        <div id="menu" class="nav-links hidden md:flex space-x-6">
+          <a href="#home" class="nav-link text-gray-600 hover:text-blue-500"
+            >Home</a
+          >
+          <a href="#about" class="nav-link text-gray-600 hover:text-blue-500"
+            >About</a
+          >
+          <a
+            href="#properties"
+            class="nav-link text-gray-600 hover:text-blue-500"
+            >Properties</a
+          >
+          <a href="#blogs" class="nav-link text-gray-600 hover:text-blue-500"
+            >Blogs</a
+          >
+          <a href="#contact" class="nav-link">Contact Us</a>
+        </div>
+
+        <!-- Contact Button (hidden on mobile) -->
+        <button
+          class="contact-button hidden md:block text-white px-4 py-2 rounded"
+          style="background-color: var(--primary-color) !important"
+        >
+          Contact Us
+        </button>
+      </nav>
+
+      <!-- Mobile Menu (for screens 768px or less) -->
+      <div
+        id="mobile-menu"
+        class="hidden flex flex-col items-center mt-4 space-y-2 w-3/5 mx-auto"
+        style="width: 100%"
+      >
+        <a href="#home" class="nav-link text-gray-600 hover:text-blue-500"
+          >Home</a
+        >
+        <a href="#about" class="nav-link text-gray-600 hover:text-blue-500"
+          >About</a
+        >
+        <a href="#properties" class="nav-link text-gray-600 hover:text-blue-500"
+          >Properties</a
+        >
+        <a href="#blogs" class="nav-link text-gray-600 hover:text-blue-500"
+          >Blogs</a
+        >
+        <a href="#contact" class="nav-link text-gray-600 hover:text-blue-500"
+          >Contact Us</a
+        >
+      </div>
+    </header>
+
+    <!-- banner -->
+    <section class="w-full">
+      <img
+        loading="lazy"
+        src="./Asset/about-banner.png"
+        alt="Hero section background"
+        class="object-contain w-full aspect-[1.78] shadow-[0px_4px_4px_rgba(0,0,0,0.25)]"
+      />
+    </section>
+
+    <!-- about -->
+    <section class="overflow-hidden my-container">
+        <h2
+          class="text-4xl font-medium text-center leading-[52px] text-zinc-900 max-md:max-w-full"
+        >
+          About Prop Grow
+        </h2>
+        <div
+          class="flex flex-col-reverse md:flex-row gap-5 max-md:flex-col-reverse"
+        >
+          <article class="flex flex-col w-full mt-4 max-md:mt-2 md:w-6/12"  >
+            <div
+              class="flex flex-col justify-center items-center w-full px-2 max-md:mt-10"
+            >
+              <p
+                class="text-lg leading-loose text-left text-zinc-900 max-md:max-w-full"
+              >
+                At PropGrow, we are more than just a real estate agency; we are
+                your dedicated partners in navigating the complexities of property
+                investment. With a strong foundation built on trust, transparency,
+                and expertise, we have successfully guided thousands of clients in
+                making informed decisions that align with their goals. Our mission
+                is to empower you with the knowledge and support needed to secure
+                your ideal property, ensuring a seamless and rewarding experience
+                from start to finish.
+              </p>
+  
+              <section
+                class="mt-10 max-md:mt-8 max-md:max-w-full"
+                style="width: 100%"
+              >
+                <div
+                  class="grid grid-cols-3 gap-4 max-md:grid-cols-2 max-md:gap-2"
+                >
+                  <article class="flex flex-col text-center">
+                    <div
+                      class="flex flex-col py-3 w-full rounded-lg border border-solid bg-slate-900 border-neutral-800 min-h-[60px]"
+                    >
+                      <h3 class="text-xl font-semibold text-green-400">5000+</h3>
+                      <p class="text-sm text-white">Clients Served</p>
+                    </div>
+                  </article>
+                  <article class="flex flex-col text-center">
+                    <div
+                      class="flex flex-col py-3 w-full rounded-lg border border-solid bg-slate-900 border-neutral-800 min-h-[60px]"
+                    >
+                      <h3 class="text-xl font-semibold text-green-400">1.2 M+</h3>
+                      <p class="text-sm text-white">Sq. Ft. Sold</p>
+                    </div>
+                  </article>
+                  <article class="flex flex-col text-center">
+                    <div
+                      class="flex flex-col py-3 w-full rounded-lg border border-solid bg-slate-900 border-neutral-800 min-h-[60px]"
+                    >
+                      <h3 class="text-xl font-semibold text-green-400">5+</h3>
+                      <p class="text-sm text-white">Years Experience</p>
+                    </div>
+                  </article>
+                </div>
+              </section>
+            </div>
+          </article>
+  
+          <aside class="flex flex-col w-full md:w-6/12 max-md:mt-0">
+            <figure
+              class="flex overflow-hidden flex-col self-stretch my-auto w-full rounded-xl"
+            >
+              <img
+                loading="lazy"
+                src="./Asset/our journey.png"
+                alt="PropGrow real estate showcase"
+                class="object-cover w-full rounded-xl aspect-[1.50]"
+              />
+            </figure>
+          </aside>
+        </div>
+      </section>
+
+      <!-- founder -->
+
+      <section class="my-container">
+        <header class="text-center mb-8">
+          <h1 class="text-3xl md:text-4xl font-bold text-gray-800">Meet the Founders</h1>
         </header>
     
-        <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/9e092a65e1c685f696f1ee58d8b027e53cc3646d17ed7951be5e5a9f32a9ffab?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c" alt="PropGrow Office Building" class="object-contain mt-1.5 w-full aspect-[1.78] max-md:max-w-full" />
-    
-        <section class="flex flex-wrap gap-10 items-center self-center mt-7 ml-10 w-full max-w-[1590px] max-md:max-w-full">
-            <article class="flex flex-col flex-1 shrink justify-center self-stretch my-auto basis-0 min-w-[240px] max-md:max-w-full">
-                <div class="flex flex-col w-full max-md:max-w-full">
-                    <h1 class="text-5xl font-semibold text-black max-md:max-w-full max-md:text-4xl">Our Journey</h1>
-                    <p class="mt-3.5 text-lg leading-7 text-zinc-900 max-md:max-w-full">PropGrow began with a simple mission: to redefine real estate by offering transparent, data-driven guidance for buyers and investors. Over the years, we've transformed from a local startup into a trusted name in Gurgaon, helping over 15,000 clients navigate the complexities of property investment. With expertise, integrity, and a client-first approach, we continue to grow and evolve, making real estate transactions smoother and more rewarding for everyone.</p>
-                </div>
-    
-                <section class="flex flex-wrap gap-5 items-start mt-20 w-full max-md:mt-10 max-md:max-w-full">
-                    <article class="flex flex-col flex-1 shrink p-6 rounded-xl border border-teal-300 border-solid basis-0 bg-slate-900 max-md:px-5">
-                        <h2 class="text-4xl font-bold text-green-400">5000+</h2>
-                        <p class="text-lg font-medium text-white">Happy Customers</p>
-                    </article>
-                    <article class="flex flex-col flex-1 shrink p-6 rounded-xl border border-teal-300 border-solid basis-0 bg-slate-900 max-md:px-5">
-                        <h2 class="text-4xl font-bold text-green-400">1k+</h2>
-                        <p class="text-lg font-medium text-white">Properties For Clients</p>
-                    </article>
-                    <article class="flex flex-col flex-1 shrink p-6 rounded-xl border border-teal-300 border-solid basis-0 bg-slate-900 max-md:px-5">
-                        <h2 class="text-4xl font-bold text-green-400">4+</h2>
-                        <p class="text-lg font-medium text-white">Years of Experience</p>
-                    </article>
-                </section>
-            </article>
-            <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/1149e93f72cd76dad81c1e28ceb0787c41ed6396e2abd115387411e1253cfcb6?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c" alt="PropGrow Team" class="object-contain flex-1 shrink self-stretch my-auto w-full rounded-xl aspect-[1.38] basis-0 min-w-[240px] max-md:max-w-full" />
-        </section>
-    
-        <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/ae96ab5a372aee203fcb7baad2c5a4ad375e78c4f355c59772a5a1618e6d7d79?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c" alt="Property Investment Process" class="object-contain mt-28 w-full aspect-[1.8] max-md:mt-10 max-md:max-w-full" />
-        <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/0b9f08258f65541c18b91d14e82e32d71459ef3ec356515511f457c9573c7db4?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c" alt="Real Estate Portfolio" class="object-contain mt-1.5 w-full aspect-[2.6] max-md:max-w-full" />
-        <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/adee357138270dfe4b7421955280d2808a607d51b88f100d99bce53f9511ba07?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c" alt="Client Success Stories" class="object-contain mt-28 w-full aspect-[2.99] max-md:mt-10 max-md:max-w-full" />
-        <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/d7d64f599d667404e206a44eca9a253ef1fb0b1979bfd8eea549fe74b43fb408?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c" alt="PropGrow Services Overview" class="object-contain mt-6 w-full aspect-[3.13] max-md:max-w-full" />
-    
-        <section class="flex overflow-hidden flex-col">
-            <article class="flex flex-col w-full max-md:max-w-full">
-                <header class="flex flex-col pr-48 w-full text-zinc-900 max-md:pr-5 max-md:max-w-full">
-                    <h2 class="text-5xl font-semibold max-md:max-w-full max-md:text-4xl">
-                        Navigating the PropGrow Experience
-                    </h2>
-                    <p class="mt-3.5 text-lg max-md:max-w-full">
-                        At PropGrow, we believe in a seamless property journey guided by expertise and personalized support. Here's how we navigate the process together:
-                    </p>
-                </header>
-                <section class="flex flex-col mt-20 w-full border border-black border-solid max-md:mt-10 max-md:max-w-full">
-                    <div class="flex flex-wrap gap-8 items-start w-full max-md:max-w-full">
-                        <article class="flex flex-col flex-1 shrink basis-0 min-w-[240px] max-md:max-w-full">
-                            <header class="flex-1 shrink gap-2.5 self-stretch px-5 py-4 w-full text-xl font-medium border-l border-green-400 text-neutral-950 max-md:max-w-full">
-                                Step 01
-                            </header>
-                            <div class="flex flex-col p-12 w-full rounded-none border border-solid border-neutral-800 max-md:px-5 max-md:max-w-full">
-                                <h3 class="text-2xl font-semibold text-neutral-950">Define Your Goals</h3>
-                                <p class="mt-5 text-lg leading-7 text-zinc-900">
-                                    We start by understanding your unique investment needs and property preferences. Our expert consultations help clarify your objectives, ensuring we align our strategies with your vision.
-                                </p>
-                            </div>
-                        </article>
-                        <article class="flex flex-col flex-1 shrink basis-0 min-w-[240px] max-md:max-w-full">
-                            <header class="flex-1 shrink gap-2.5 self-stretch px-5 py-4 w-full text-xl font-medium border-l border-green-400 text-neutral-950 max-md:max-w-full">
-                                Step 02
-                            </header>
-                            <div class="flex flex-col p-12 w-full rounded-none border border-solid border-neutral-800 max-md:px-5 max-md:max-w-full">
-                                <h3 class="text-2xl font-semibold text-neutral-950">Research Market Trends</h3>
-                                <p class="mt-5 text-lg leading-7 text-zinc-900">
-                                    Stay informed with our comprehensive, data-driven insights into current market trends, property values, and emerging growth opportunities. We empower you to make informed decisions with confidence.
-                                </p>
-                            </div>
-                        </article>
-                        <article class="flex flex-col flex-1 shrink basis-0 min-w-[240px] max-md:max-w-full">
-                            <header class="flex-1 shrink gap-2.5 self-stretch px-5 py-4 w-full text-xl font-medium border-l border-green-400 text-neutral-950 max-md:max-w-full">
-                                Step 03
-                            </header>
-                            <div class="flex flex-col p-12 w-full rounded-none border border-solid border-neutral-800 max-md:px-5 max-md:max-w-full">
-                                <h3 class="text-2xl font-semibold text-neutral-950">Property Shortlisting</h3>
-                                <p class="mt-5 text-lg leading-7 text-zinc-900">
-                                    Our team curates a selection of properties tailored to your requirements, simplifying the decision-making process. We prioritize your preferences to help you find the perfect match.
-                                </p>
-                            </div>
-                        </article>
-                    </div>
-                    <div class="flex flex-wrap gap-8 items-start mt-12 w-full max-md:mt-10 max-md:max-w-full">
-                        <article class="flex flex-col min-w-[240px] w-[512px] max-md:max-w-full">
-                            <header class="flex-1 shrink gap-2.5 self-stretch px-5 py-4 max-w-full text-xl font-medium border-l border-green-400 text-neutral-950 w-[512px] max-md:max-w-full">
-                                Step 04
-                            </header>
-                            <div class="flex flex-col p-12 max-w-full rounded-none border border-solid border-neutral-800 w-[512px] max-md:px-5">
-                                <h3 class="text-2xl font-semibold text-neutral-950">Financial Planning</h3>
-                                <p class="mt-5 text-lg leading-7 text-zinc-900">
-                                    Our experts assist with budgeting & financing options to ensure you secure best deals possible. We provide guidance on mortgage options & investment strategies tailored to your financial situation.
-                                </p>
-                            </div>
-                        </article>
-                        <article class="flex flex-col flex-1 shrink basis-0 min-w-[240px] max-md:max-w-full">
-                            <header class="flex-1 shrink gap-2.5 self-stretch px-5 py-4 w-full text-xl font-medium border-l border-green-400 text-neutral-950 max-md:max-w-full">
-                                Step 05
-                            </header>
-                            <div class="flex flex-col p-12 w-full rounded-none border border-solid border-neutral-800 max-md:px-5 max-md:max-w-full">
-                                <h3 class="text-2xl font-semibold text-neutral-950">Site Visit & Evaluation</h3>
-                                <p class="mt-5 text-lg leading-7 text-zinc-900">
-                                    Experience properties firsthand with our knowledgeable team. We guide you through detailed evaluations, helping you assess each option's potential and suitability.
-                                </p>
-                            </div>
-                        </article>
-                        <article class="flex flex-col flex-1 shrink basis-0 min-w-[240px] max-md:max-w-full">
-                            <header class="flex-1 shrink gap-2.5 self-stretch px-5 py-4 w-full text-xl font-medium border-l border-green-400 text-neutral-950 max-md:max-w-full">
-                                Step 06
-                            </header>
-                            <div class="flex flex-col p-12 w-full rounded-none border border-solid border-neutral-800 max-md:px-5 max-md:max-w-full">
-                                <h3 class="text-2xl font-semibold text-neutral-950">Secure Your Investment</h3>
-                                <p class="mt-5 text-lg leading-7 text-zinc-900">
-                                    With our support, finalize your purchase confidently. We assist you with expert negotiation and legal guidance, ensuring a smooth closing process and peace of mind.
-                                </p>
-                            </div>
-                        </article>
-                    </div>
-                </section>
-            </article>
-        </section>
-    
-        <section class="flex flex-wrap gap-5 justify-between self-center mt-28 w-full max-w-[1597px] text-zinc-900 max-md:mt-10 max-md:max-w-full">
-            <div class="flex flex-col max-md:max-w-full">
-                <h2 class="text-5xl font-semibold max-md:max-w-full max-md:text-4xl">Start Your Real Estate Journey Today</h2>
-                <p class="mt-3.5 text-lg leading-7 max-md:max-w-full">Your dream property is just a click away. Whether you're looking for a new home, a strategic investment, or expert real estate advice, PropGrow is here to assist you every step of the way. Take the first step towards your real estate goals and explore our available properties or get in touch with our team for personalized assistance.</p>
+        <!-- Founder Section -->
+        <section class="grid gap-8">
+          <!-- Amit Maggu Section -->
+          <article class="grid md:grid-cols-2 items-center gap-6">
+            <!-- Image on Left for Amit -->
+            <img src="https://t4.ftcdn.net/jpg/06/34/71/07/360_F_634710747_OraPCNxZgIBOMCpLET70WI0dTIGUM6Xx.jpg" alt="Amit Maggu" class=" border-4 border-neutral-800 md:w-64 md:h-64 lg:w-96 lg:h-96 rounded-lg mx-auto">
+            
+            <!-- Text for Amit -->
+            <div class="text-center md:text-left">
+              <h2 class="text-2xl md:text-3xl font-semibold text-gray-900">Amit Maggu <span class="bg-blue-500 text-white text-xs md:text-sm px-2 py-1 rounded ml-2">in</span></h2>
+              <p class="text-gray-700 mt-2 text-sm md:text-base">
+                As a <a href="#" class="text-blue-500 underline">gazetted officer in the Prime Minister’s Office</a>, Amit brings a wealth of experience in governance and public service to PropGrow. His dedication to integrity and community building has been instrumental in shaping our company culture. Amit’s leadership ensures that PropGrow consistently upholds high standards of service and trust, making us a reliable partner in real estate investments.
+              </p>
+              <p class="mt-4 text-gray-800 font-signature text-lg md:text-xl">Kate Atkinson</p>
             </div>
-            <button class="gap-2 self-stretch px-6 py-5 my-auto text-lg font-medium bg-green-400 rounded-xl max-md:px-5">Explore Properties</button>
-        </section>
+          </article>
     
-        <section class="flex mt-36 w-full rounded-3xl bg-slate-900 min-h-[779px] max-md:mt-10 max-md:max-w-full"></section>
+          <!-- Ankit Maggu Section -->
+          <article class="grid md:grid-cols-2 items-center gap-6 md:gap-8">
+            <!-- Text for Ankit (on the Left in this row) -->
+            <div class="text-center md:text-left order-last md:order-first">
+              <h2 class="text-2xl md:text-3xl font-semibold text-gray-900">Ankit Maggu <span class="bg-blue-500 text-white text-xs md:text-sm px-2 py-1 rounded ml-2">in</span></h2>
+              <p class="text-gray-700 mt-2 text-sm md:text-base">
+                Ankit, a seasoned <a href="#" class="text-blue-500 underline">investment banker</a>, complements the team with his financial acumen and strategic mindset. His extensive experience in asset management and financial planning provides our clients with insights that maximize returns. Ankit’s approach is always client-centric, ensuring that PropGrow’s services align with the evolving needs of the real estate market.
+              </p>
+              <p class="mt-4 text-gray-800 font-signature text-lg md:text-xl">Kate Atkinson</p>
+            </div>
+            
+            <!-- Image on Right for Ankit -->
+            <img src="https://t4.ftcdn.net/jpg/06/34/71/07/360_F_634710747_OraPCNxZgIBOMCpLET70WI0dTIGUM6Xx.jpg" alt="Ankit Maggu" class="border border-4 border-neutral-800 lg:w-96 lg:h-96 md:w-64 md:h-64 rounded-lg mx-auto">
+          </article>
+        </section>
     </section>
-</body>
+
+    <!-- our values -->
+    <section class="flex flex-col md:flex-row overflow-hidden my-container gap-6 md:gap-10">
+        <!-- Left Section: Title and Description -->
+        <article class="flex flex-col justify-center self-stretch min-w-[240px] text-zinc-900 w-full md:w-[480px]">
+            <h2 class="text-4xl md:text-5xl font-semibold max-w-full">Our Values</h2>
+            <p class="mt-3.5 text-base md:text-lg leading-6 md:leading-7 max-w-full">
+                PropGrow stands on four pillars that shape our approach to real estate: Trust, Excellence, Client-Centricity, and Commitment. We prioritize building honest relationships, delivering top-quality services, and putting your needs at the heart of what we do. Our commitment is to go above and beyond, ensuring a seamless and successful real estate experience every step of the way.
+            </p>
+        </article>
+    
+        <!-- Right Section: 2x2 Grid for Values -->
+        <section class="rounded-xl shadow-sm bg-slate-900 w-full md:max-w-[800px]">
+            <div class="m-2 grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8 rounded-xl p-4 md:p-8 border border-teal-300">
+                <!-- Trust Block -->
+                <article class="flex flex-col items-center px-2 md:px-4 py-2 md:py-4 border-b border-r md:border-r">
+                    <div class="flex items-center justify-center mb-3 md:mb-4 bg-slate-900 h-12 w-12 md:h-16 md:w-16 rounded-full border border-green-400">
+                        <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/70443d6c0a99e42ea6f946e612758081448be173338911842eb435b708574b3a?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c" alt="Trust icon" class="object-contain w-6 h-6 md:w-8 md:h-8" />
+                    </div>
+                    <h3 class="text-xl md:text-2xl font-medium text-white">Trust</h3>
+                    <p class="mt-1 text-base md:text-lg text-white">Building transparent and honest relationships is our foundation.</p>
+                </article>
+    
+                <!-- Excellence Block -->
+                <article class="flex flex-col items-center px-2 md:px-4 py-2 md:py-4 border-b">
+                    <div class="flex items-center justify-center mb-3 md:mb-4 bg-slate-900 h-12 w-12 md:h-16 md:w-16 rounded-full border border-green-400">
+                        <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/cc54dd63b40fdac6c1c604aea2f6bd5d1f3deb4d6c56ac067be84fc0fa4c2a6e?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c" alt="Excellence icon" class="object-contain w-6 h-6 md:w-8 md:h-8" />
+                    </div>
+                    <h3 class="text-xl md:text-2xl font-medium text-white">Excellence</h3>
+                    <p class="mt-1 text-base md:text-lg text-white">We strive for top-quality service and continuous improvement.</p>
+                </article>
+    
+                <!-- Client-Centric Block -->
+                <article class="flex flex-col items-center px-2 md:px-4 py-2 md:py-4 border-r md:border-r">
+                    <div class="flex items-center justify-center mb-3 md:mb-4 bg-slate-900 h-12 w-12 md:h-16 md:w-16 rounded-full border border-green-400">
+                        <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/41932c495fc805814fa7781c6366979f45be1f5a44b3a6c02c0392857bbd58f8?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c" alt="Client-Centric icon" class="object-contain w-6 h-6 md:w-8 md:h-8" />
+                    </div>
+                    <h3 class="text-xl md:text-2xl font-medium text-white">Client-Centric</h3>
+                    <p class="mt-1 text-base md:text-lg text-white">Your needs come first, and we tailor our solutions accordingly.</p>
+                </article>
+    
+                <!-- Commitment Block -->
+                <article class="flex flex-col items-center px-2 md:px-4 py-2 md:py-4">
+                    <div class="flex items-center justify-center mb-3 md:mb-4 bg-slate-900 h-12 w-12 md:h-16 md:w-16 rounded-full border border-green-400">
+                        <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/0290e54e6553dac8b7ac1daccd948d4f5da2954f80ca6bc445c8ce06a71097cb?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c" alt="Commitment icon" class="object-contain w-6 h-6 md:w-8 md:h-8" />
+                    </div>
+                    <h3 class="text-xl md:text-2xl font-medium text-white">Our Commitment</h3>
+                    <p class="mt-1 text-base md:text-lg text-white">We are dedicated to making your real estate experience smooth and successful.</p>
+                </article>
+            </div>
+        </section>
+    </section>
+    
+
+    
+    <!-- Our achievements -->
+
+    <section class="flex overflow-hidden flex-col my-container" aria-labelledby="achievements-title">
+        <div class="flex flex-col w-full max-md:max-w-full">
+            <header class="flex flex-col w-full text-zinc-900 max-md:max-w-full">
+                <h2 id="achievements-title" class="text-5xl font-semibold max-md:max-w-full max-md:text-4xl">
+                    Our Achievements
+                </h2>
+                <p class="mt-3.5 w-full text-lg leading-7 max-md:max-w-full">
+                    PropGrow has proudly served over 5,000 clients and sold 1.2 million square feet of real estate. With a team that has over 5 years of combined experience, we are committed to delivering exceptional service and making a lasting impact in the industry.
+                </p>
+            </header>
+            <div class="flex flex-wrap gap-10 items-start mt-20 w-full max-md:mt-10 max-md:max-w-full">
+                <article class="flex overflow-hidden flex-col flex-1 shrink p-12 rounded-xl border border-teal-300 border-solid shadow-sm basis-0 bg-slate-900 min-w-[240px] max-md:px-5 max-md:max-w-full">
+                    <h3 class="text-3xl font-semibold text-green-400">
+                        4+ Years of Excellence
+                    </h3>
+                    <p class="mt-8 text-lg font-medium leading-7 text-white">
+                        With over 3 years in the industry, we've amassed a wealth of knowledge and experience, becoming a go-to resource for all things real estate.
+                    </p>
+                </article>
+                <article class="flex overflow-hidden flex-col flex-1 shrink p-12 rounded-xl border border-teal-300 border-solid shadow-sm basis-0 bg-slate-900 min-w-[240px] max-md:px-5 max-md:max-w-full">
+                    <h3 class="text-3xl font-semibold text-green-400">
+                        5000+ Client Served
+                    </h3>
+                    <p class="mt-8 text-lg font-medium leading-7 text-white">
+                        Our greatest achievement is the satisfaction of our clients. Their success stories fuel our passion for what we do.
+                    </p>
+                </article>
+                <article class="flex overflow-hidden flex-col flex-1 shrink p-12 rounded-xl border border-teal-300 border-solid shadow-sm basis-0 bg-slate-900 min-w-[240px] max-md:px-5 max-md:max-w-full">
+                    <h3 class="text-3xl font-semibold text-green-400">
+                        Industry Recognition
+                    </h3>
+                    <p class="mt-8 text-lg font-medium leading-7 text-white">
+                        We've earned the respect of our peers and industry leaders, with accolades and awards that reflect our commitment to excellence.
+                    </p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Navigation -->
+
+    <section class="flex overflow-hidden flex-col my-container">
+        <article class="flex flex-col w-full max-md:max-w-full">
+            <header class="flex flex-col pr-48 w-full text-zinc-900 max-md:pr-5 max-md:max-w-full">
+                <h2 class="text-5xl font-semibold max-md:max-w-full max-md:text-4xl">
+                    Navigating the PropGrow Experience
+                </h2>
+                <p class="mt-3.5 text-lg max-md:max-w-full">
+                    At PropGrow, we believe in a seamless property journey guided by expertise and personalized support. Here's how we navigate the process together:
+                </p>
+            </header>
+            <section class="flex flex-col mt-20 w-full border border-black border-solid max-md:mt-10 max-md:max-w-full">
+                <div class="flex flex-wrap gap-8 items-start w-full max-md:max-w-full">
+                    <article class="flex flex-col flex-1 shrink basis-0 min-w-[240px] max-md:max-w-full">
+                        <header class="flex-1 shrink gap-2.5 self-stretch px-5 py-4 w-full text-xl font-medium border-l border-green-400 text-neutral-950 max-md:max-w-full">
+                            Step 01
+                        </header>
+                        <div class="flex flex-col p-12 w-full rounded-none border border-solid border-neutral-800 max-md:px-5 max-md:max-w-full">
+                            <h3 class="text-2xl font-semibold text-neutral-950">Define Your Goals</h3>
+                            <p class="mt-5 text-lg leading-7 text-zinc-900">
+                                We start by understanding your unique investment needs and property preferences. Our expert consultations help clarify your objectives, ensuring we align our strategies with your vision.
+                            </p>
+                        </div>
+                    </article>
+                    <article class="flex flex-col flex-1 shrink basis-0 min-w-[240px] max-md:max-w-full">
+                        <header class="flex-1 shrink gap-2.5 self-stretch px-5 py-4 w-full text-xl font-medium border-l border-green-400 text-neutral-950 max-md:max-w-full">
+                            Step 02
+                        </header>
+                        <div class="flex flex-col p-12 w-full rounded-none border border-solid border-neutral-800 max-md:px-5 max-md:max-w-full">
+                            <h3 class="text-2xl font-semibold text-neutral-950">Research Market Trends</h3>
+                            <p class="mt-5 text-lg leading-7 text-zinc-900">
+                                Stay informed with our comprehensive, data-driven insights into current market trends, property values, and emerging growth opportunities. We empower you to make informed decisions with confidence.
+                            </p>
+                        </div>
+                    </article>
+                    <article class="flex flex-col flex-1 shrink basis-0 min-w-[240px] max-md:max-w-full">
+                        <header class="flex-1 shrink gap-2.5 self-stretch px-5 py-4 w-full text-xl font-medium border-l border-green-400 text-neutral-950 max-md:max-w-full">
+                            Step 03
+                        </header>
+                        <div class="flex flex-col p-12 w-full rounded-none border border-solid border-neutral-800 max-md:px-5 max-md:max-w-full">
+                            <h3 class="text-2xl font-semibold text-neutral-950">Property Shortlisting</h3>
+                            <p class="mt-5 text-lg leading-7 text-zinc-900">
+                                Our team curates a selection of properties tailored to your requirements, simplifying the decision-making process. We prioritize your preferences to help you find the perfect match.
+                            </p>
+                        </div>
+                    </article>
+                </div>
+                <div class="flex flex-wrap gap-8 items-start mt-12 w-full max-md:mt-10 max-md:max-w-full">
+                    <article class="flex flex-col min-w-[240px] w-[512px] max-md:max-w-full">
+                        <header class="flex-1 shrink gap-2.5 self-stretch px-5 py-4 max-w-full text-xl font-medium border-l border-green-400 text-neutral-950 w-[512px] max-md:max-w-full">
+                            Step 04
+                        </header>
+                        <div class="flex flex-col p-12 max-w-full rounded-none border border-solid border-neutral-800 w-[512px] max-md:px-5">
+                            <h3 class="text-2xl font-semibold text-neutral-950">Financial Planning</h3>
+                            <p class="mt-5 text-lg leading-7 text-zinc-900">
+                                Our experts assist with budgeting & financing options to ensure you secure best deals possible. We provide guidance on mortgage options & investment strategies tailored to your financial situation.
+                            </p>
+                        </div>
+                    </article>
+                    <article class="flex flex-col flex-1 shrink basis-0 min-w-[240px] max-md:max-w-full">
+                        <header class="flex-1 shrink gap-2.5 self-stretch px-5 py-4 w-full text-xl font-medium border-l border-green-400 text-neutral-950 max-md:max-w-full">
+                            Step 05
+                        </header>
+                        <div class="flex flex-col p-12 w-full rounded-none border border-solid border-neutral-800 max-md:px-5 max-md:max-w-full">
+                            <h3 class="text-2xl font-semibold text-neutral-950">Site Visit & Evaluation</h3>
+                            <p class="mt-5 text-lg leading-7 text-zinc-900">
+                                Experience properties firsthand with our knowledgeable team. We guide you through detailed evaluations, helping you assess each option's potential and suitability.
+                            </p>
+                        </div>
+                    </article>
+                    <article class="flex flex-col flex-1 shrink basis-0 min-w-[240px] max-md:max-w-full">
+                        <header class="flex-1 shrink gap-2.5 self-stretch px-5 py-4 w-full text-xl font-medium border-l border-green-400 text-neutral-950 max-md:max-w-full">
+                            Step 06
+                        </header>
+                        <div class="flex flex-col p-12 w-full rounded-none border border-solid border-neutral-800 max-md:px-5 max-md:max-w-full">
+                            <h3 class="text-2xl font-semibold text-neutral-950">Secure Your Investment</h3>
+                            <p class="mt-5 text-lg leading-7 text-zinc-900">
+                                With our support, finalize your purchase confidently. We assist you with expert negotiation and legal guidance, ensuring a smooth closing process and peace of mind.
+                            </p>
+                        </div>
+                    </article>
+                </div>
+            </section>
+        </article>
+    </section>
+
+
+    
+    
+    
+
+
+
+        <footer class="flex flex-col items-center mt-10 px-10 py-8 rounded-t-3xl bg-slate-900 max-md:px-4 w-full ">
+          <!-- Top Section: Logo and Social Links -->
+          <section class="flex flex-wrap gap-4 justify-between w-full text-sm text-white mb-6">
+              <!-- Logo -->
+              <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/8cae640201dce524739941c095d8fa4abe11c996201ec72e722d7e70f7010997?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c" alt="PropGrow Logo" class="w-36 max-w-full object-contain shrink-0" />
+      
+              <!-- Social Media Links -->
+              <nav class="flex gap-3 items-center">
+                  <h2 class="text-base font-medium">Follow Us</h2>
+                  <a href="#" class="text-center" aria-label="Facebook">FB</a>
+                  <a href="#" class="text-center" aria-label="Twitter">TW</a>
+                  <a href="#" class="text-center" aria-label="Instagram">IG</a>
+                  <a href="#" class="text-center" aria-label="LinkedIn">IN</a>
+              </nav>
+          </section>
+      
+          <!-- Divider -->
+          <hr class="w-full h-px bg-white bg-opacity-10 my-6" />
+      
+          <!-- Main Content Section -->
+          <section class="flex flex-wrap gap-4 justify-between w-full text-white text-xs">
+              <!-- Subscribe Section -->
+              <section class="flex flex-col">
+                  <h2 class="text-base font-medium text-white text-opacity-50">Subscribe</h2>
+                  <form class="flex gap-3 mt-3 border-b border-white border-opacity-10">
+                      <input type="email" placeholder="Your e-mail" class="bg-transparent text-white placeholder-white focus:outline-none" />
+                      <button type="submit" class="px-3 py-1 bg-white bg-opacity-10 rounded-full">Send</button>
+                  </form>
+                  <p class="mt-3 text-xs">Subscribe to our newsletter to receive our weekly feed.</p>
+              </section>
+      
+              <!-- Discover Section -->
+              <nav class="flex flex-col">
+                  <h2 class="text-base font-medium text-white text-opacity-50">Discover</h2>
+                  <a href="#" class="mt-2">Golf Course Road</a>
+                  <a href="#" class="mt-2">Dwarka Expressway</a>
+                  <a href="#" class="mt-2">SPR Chowk</a>
+                  <a href="#" class="mt-2">Vatika Chowk</a>
+                  <a href="#" class="mt-2">Los Angeles</a>
+                  <a href="#" class="mt-2">San Diego</a>
+              </nav>
+      
+              <!-- Quick Links Section -->
+              <nav class="flex flex-col">
+                  <h2 class="text-base font-medium text-white text-opacity-50">Quick Links</h2>
+                  <a href="#" class="mt-2">About</a>
+                  <a href="#" class="mt-2">Contact</a>
+                  <a href="#" class="mt-2">FAQ's</a>
+                  <a href="#" class="mt-2">Blog</a>
+                  <a href="#" class="mt-2">Pricing Plans</a>
+                  <a href="#" class="mt-2">Privacy Policy</a>
+                  <a href="#" class="mt-2">Terms & Conditions</a>
+              </nav>
+      
+              <!-- Contact Us Section -->
+              <section class="flex flex-col">
+                  <h2 class="text-base font-medium text-white text-opacity-50">Contact Us</h2>
+                  <address class="mt-3 not-italic">
+                      <a href="mailto:hi@justhome.com">hi@justhome.com</a><br />
+                      <a href="tel:+1234567890">(123) 456-7890</a>
+                  </address>
+              </section>
+      
+              <!-- Address Section -->
+              <section class="flex flex-col">
+                  <h2 class="text-base font-medium text-white text-opacity-50">Our Address</h2>
+                  <p class="mt-3">99 Fifth Avenue, 3rd Floor<br />San Francisco, CA 1980</p>
+              </section>
+          </section>
+      
+          <!-- Divider -->
+          <hr class="w-full h-px bg-white bg-opacity-10 my-6" />
+      
+          <!-- Bottom Section: Copyright and Links -->
+          <section class="flex justify-between w-full text-xs text-stone-300">
+              <p>© 2024 PropGrow All Rights Reserved.</p>
+              <nav class="flex gap-3">
+                  <a href="#">Privacy Policy</a>
+                  <a href="#">Terms & Conditions</a>
+              </nav>
+          </section>
+      </footer>
+      
+    <script>
+      // -------------------------------------------------------------
+      const menuBtn = document.getElementById("menu-btn");
+      const mobileMenu = document.getElementById("mobile-menu");
+      const hamburgerIcon = document.getElementById("hamburger-icon");
+      const closeIcon = document.getElementById("close-icon");
+
+      menuBtn.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+
+        // Toggle between hamburger and close icon
+        hamburgerIcon.classList.toggle("hidden");
+        closeIcon.classList.toggle("hidden");
+      });
+
+
+    </script>
+  </body>
 </html>
