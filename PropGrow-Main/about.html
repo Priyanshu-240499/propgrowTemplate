@@ -3,11 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap" rel="stylesheet">
 
     <style>
       * {
         margin: 0;
         padding: 0;
+        font-family: "Roboto Flex", sans-serif;
         /* border: 1px solid black !important; */
       }
       builder-component {
@@ -44,87 +47,88 @@
   </head>
   <body>
     <!-- navbar -->
-    <header class="nav-container bg-white shadow-md p-4 sticky top-0 z-10 transition-transform duration-300 ease-in-out">
-      <nav class="nav-wrapper flex justify-between items-center">
-        <!-- Logo -->
-        <img
-          loading="lazy"
-          src="https://cdn.builder.io/api/v1/image/assets/TEMP/c54dc5567084ebc1a6f89df31c9782d599d3f297478e271912c985149f5ad0a1?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c"
-          alt="Company Logo"
-          class="logo w-32"
-        />
-    
-        <!-- Hamburger Menu Button -->
-        <div class="block md:hidden">
-          <button id="menu-btn" class="text-gray-600 focus:outline-none">
-            <!-- Default hamburger icon -->
-            <svg
-              id="hamburger-icon"
-              class="w-6 h-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M4 6h16M4 12h16m-7 6h7"
-              ></path>
-            </svg>
-            <!-- Close "X" icon (hidden initially) -->
-            <svg
-              id="close-icon"
-              class="w-6 h-6 hidden"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M6 18L18 6M6 6l12 12"
-              ></path>
-            </svg>
-          </button>
-        </div>
-    
-        <!-- Navigation Links (hidden on mobile) -->
-        <div id="menu" class="nav-links hidden md:flex space-x-6">
-          <a href="#home" class="nav-link text-gray-600 hover:text-blue-500">Home</a>
-          <a href="#about" class="nav-link text-gray-600 hover:text-blue-500">About</a>
-          <a href="#properties" class="nav-link text-gray-600 hover:text-blue-500">Properties</a>
-          <a href="#blogs" class="nav-link text-gray-600 hover:text-blue-500">Blogs</a>
-          <a href="#contact" class="nav-link">Contact Us</a>
-        </div>
-    
-        <!-- Contact Button (hidden on mobile) -->
-        <button
-          class="contact-button hidden md:block text-white px-4 py-2 rounded"
-          style="background-color: var(--primary-color) !important"
-        >
-          Custom
+   <!--  -->
+
+   <header class="nav-container bg-white shadow-md p-4 sticky top-0 z-10 transition-transform duration-300 ease-in-out">
+    <nav class="nav-wrapper flex justify-between items-center">
+      <!-- Logo -->
+      <img
+        loading="lazy"
+        src="./Asset/PropGrow.png"
+        alt="Company Logo"
+        class="logo w-36"
+      />
+  
+      <!-- Hamburger Menu Button -->
+      <div class="block md:hidden">
+        <button id="menu-btn" class="text-gray-600 focus:outline-none">
+          <!-- Default hamburger icon -->
+          <svg
+            id="hamburger-icon"
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16m-7 6h7"
+            ></path>
+          </svg>
+          <!-- Close "X" icon (hidden initially) -->
+          <svg
+            id="close-icon"
+            class="w-6 h-6 hidden"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"
+            ></path>
+          </svg>
         </button>
-      </nav>
-    
-      <!-- Mobile Menu (for screens 768px or less) -->
-      <div
-        id="mobile-menu"
-        class="hidden flex flex-col items-center mt-4 space-y-2 w-3/5 mx-auto transition-all duration-300 ease-in-out"
-        style="width: 70%;"
-      >
+      </div>
+  
+      <!-- Navigation Links (hidden on mobile) -->
+      <div id="menu" class="nav-links hidden md:flex space-x-6">
         <a href="#home" class="nav-link text-gray-600 hover:text-blue-500">Home</a>
         <a href="#about" class="nav-link text-gray-600 hover:text-blue-500">About</a>
         <a href="#properties" class="nav-link text-gray-600 hover:text-blue-500">Properties</a>
         <a href="#blogs" class="nav-link text-gray-600 hover:text-blue-500">Blogs</a>
-        <a href="#contact" class="nav-link text-gray-600 hover:text-blue-500">Contact Us</a>
+        <a href="#contact" class="nav-link">Contact Us</a>
       </div>
-    </header>
+  
+      <!-- Contact Button (hidden on mobile) -->
+      <button
+        class="contact-button hidden md:block text-white px-4 py-2 rounded"
+        style="background-color: var(--primary-color) !important"
+      >
+        Custom
+      </button>
+    </nav>
+  
+    <!-- Mobile Menu (for screens 768px or less) -->
+    <div
+      id="mobile-menu"
+      class="hidden flex flex-col items-center mt-4 space-y-2 w-3/5 mx-auto transition-all duration-300 ease-in-out"
+      style="width: 70%;"
+    >
+      <a href="#home" class="nav-link text-gray-600 hover:text-blue-500">Home</a>
+      <a href="#about" class="nav-link text-gray-600 hover:text-blue-500">About</a>
+      <a href="#properties" class="nav-link text-gray-600 hover:text-blue-500">Properties</a>
+      <a href="#blogs" class="nav-link text-gray-600 hover:text-blue-500">Blogs</a>
+      <a href="#contact" class="nav-link text-gray-600 hover:text-blue-500">Contact Us</a>
+    </div>
+  </header>
     
-
     <!-- banner -->
     <section class="w-full overflow-hidden h-[100vh] " >
       <img
@@ -262,7 +266,7 @@
     
 
     <!-- our team -->
-    <h2
+  <h2
     class="text-5xl font-medium text-center leading-[52px] text-zinc-900 max-md:max-w-full my-title"
   >
     Our Team
@@ -379,9 +383,6 @@
         </section>
     </section>
 
-    
-    
-    
     
     <!-- Our achievements -->
 
@@ -527,7 +528,7 @@
       </article>
     </section> -->
     
-    <div class="flex flex-col md:flex-row items-center justify-between w-full mx-auto my-container px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-col md:flex-row items-center justify-between w-full mx-auto my-container px-4 sm:px-6 lg:px-8 ">
       <div class="max-w-lg mb-4 md:mb-0"> <!-- Added margin bottom for small screens -->
         <h2 class="text-4xl md:text-5xl font-medium text-center leading-[52px] text-zinc-900 my-title">
           Start Your Real Estate Journey Today
@@ -709,6 +710,33 @@ document.addEventListener("DOMContentLoaded", function () {
 
   observer.observe(bannerImage);
 });
+// -----------------------------------------------------section animation
+document.addEventListener("DOMContentLoaded", function () {
+  const sections = document.querySelectorAll(".section");
+
+  const observer = new IntersectionObserver(
+    (entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.remove("opacity-0", "translate-y-10");
+          entry.target.classList.add("opacity-100", "translate-y-0");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    {
+      root: null,
+      threshold: 0.1,
+    }
+  );
+
+  if (window.innerWidth >= 768) {
+    sections.forEach((section) => {
+      observer.observe(section);
+    });
+  }
+});
+
 
 
 
