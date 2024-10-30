@@ -3,15 +3,27 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap"
+      rel="stylesheet" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <!-- Owl Carousel CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" />
 
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
       * {
         margin: 0;
         padding: 0;
         font-family: "Roboto Flex", sans-serif;
+        /* border: 1px solid black !important; */
       }
       builder-component {
         max-width: none !important;
@@ -56,34 +68,38 @@
       .my-container {
         padding: 0 5% !important;
       }
-      .my-title{
-        margin: 4% 0px 2% 0% !important;
-       
-
+      .my-title {
+        margin: 80px 0px 0px 0px !important;
       }
-      .my-sub-title{
-        margin:0% 0% 2% 0%;
+      .my-sub-title {
+        margin: 30px 0 0px 0px;
       }
 
       /* for latest launch */
       .property-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 16px;
-  }
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 16px;
+      }
 
-  .property-carousel-item {
-    min-width: calc(100% / 6 - 16px); /* Adjust width as per screen size */
-  }
+      /* Remove min-width and let Owl Carousel manage item width */
+      .property-carousel-item {
+        padding: 8px; /* Add padding if needed around each item */
+      }
 
-  /* Optional: Adjust the style of arrows */
-  #property-prev, #property-next {
-    cursor: pointer;
-    z-index: 100;
-    background-color: var(--primary-color);
-    width: 40px;
-    height: 40px;
-  }
+      /* Style for the navigation arrows */
+      #property-prev,
+      #property-next {
+        cursor: pointer;
+        z-index: 5;
+        background-color: rgba(1, 1, 1, 0.5);
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+      }
 
       /* end latest launch */
 
@@ -121,8 +137,25 @@
       }
 
       .carousel-button.active {
-        background-color: #58bf93; /* Green color for the active button */
+        background-color: rgba(1, 1, 1, 0.5); /* Green color for the active button */
       }
+      .news-carousel-card {
+    width: auto; /* Allows items to have equal width */
+}
+
+/* Optional: Add a max width to prevent items from being too wide on larger screens */
+.news-carousel-container {
+    max-width: 1200px; /* Set maximum width for the carousel */
+    margin: 0 auto; /* Center the carousel */
+}
+
+/* Optional: Adjust the image height for consistency */
+.news-carousel-card img {
+    height: 240px; /* Set a fixed height for all images to maintain uniformity */
+    object-fit: cover; /* Ensures images cover the area without distortion */
+
+}
+
 
       @media (min-width: 950px) {
         .review-carousel-container {
@@ -138,9 +171,17 @@
 
       /* rating end */
 
-     /* More questions */
+      /* New carousel */
+      .news-carousel-container {
+    position: relative; /* Ensure the container has relative positioning */
+}
 
-     .accordion-icon {
+    
+      /* New carousel end */
+
+      /* More questions */
+
+      .accordion-icon {
         font-size: 1.5rem;
       }
 
@@ -159,28 +200,20 @@
         content: "-";
       }
       /* More questions end*/
-
-
-
-
-
-    
     </style>
-    
-    <script src="https://cdn.tailwindcss.com"></script>
   </head>
   <body>
     <!-- navbar -->
-    <header class="nav-container bg-white shadow-md p-4 sticky top-0 z-10 transition-transform duration-300 ease-in-out">
+    <header
+      class="nav-container bg-white shadow-md p-4 sticky top-0 z-10 transition-transform duration-300 ease-in-out">
       <nav class="nav-wrapper flex justify-between items-center">
         <!-- Logo -->
         <img
           loading="lazy"
-          src="./Asset/PropGrow.png"
+          src="./Asset/PropGrow (1).png"
           alt="Company Logo"
-          class="logo w-36 "
-        />
-    
+          class="logo w-36" />
+
         <!-- Hamburger Menu Button -->
         <div class="block md:hidden">
           <button id="menu-btn" class="text-gray-600 focus:outline-none">
@@ -191,14 +224,12 @@
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
+              xmlns="http://www.w3.org/2000/svg">
               <path
                 stroke-linecap="round"
                 stroke-linejoin="round"
                 stroke-width="2"
-                d="M4 6h16M4 12h16m-7 6h7"
-              ></path>
+                d="M4 6h16M4 12h16m-7 6h7"></path>
             </svg>
             <!-- Close "X" icon (hidden initially) -->
             <svg
@@ -207,47 +238,65 @@
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
+              xmlns="http://www.w3.org/2000/svg">
               <path
                 stroke-linecap="round"
                 stroke-linejoin="round"
                 stroke-width="2"
-                d="M6 18L18 6M6 6l12 12"
-              ></path>
+                d="M6 18L18 6M6 6l12 12"></path>
             </svg>
           </button>
         </div>
-    
+
         <!-- Navigation Links (hidden on mobile) -->
         <div id="menu" class="nav-links hidden md:flex space-x-6">
-          <a href="#home" class="nav-link text-gray-600 hover:text-blue-500">Home</a>
-          <a href="#about" class="nav-link text-gray-600 hover:text-blue-500">About</a>
-          <a href="#properties" class="nav-link text-gray-600 hover:text-blue-500">Properties</a>
-          <a href="#blogs" class="nav-link text-gray-600 hover:text-blue-500">Blogs</a>
-          <a href="#contact" class="nav-link text-gray-600 hover:text-blue-500">Contact Us</a>
+          <a href="#home" class="nav-link text-gray-600 hover:text-blue-500"
+            >Home</a
+          >
+          <a href="#about" class="nav-link text-gray-600 hover:text-blue-500"
+            >About</a
+          >
+          <a
+            href="#properties"
+            class="nav-link text-gray-600 hover:text-blue-500"
+            >Properties</a
+          >
+          <a href="#blogs" class="nav-link text-gray-600 hover:text-blue-500"
+            >Blogs</a
+          >
+          <a href="#contact" class="nav-link text-gray-600 hover:text-blue-500"
+            >Contact Us</a
+          >
         </div>
-    
+
         <!-- Contact Button (hidden on mobile) -->
         <button
           class="contact-button hidden md:block text-white px-4 py-2 rounded"
-          style="background-color: var(--primary-color) !important"
-        >
+          style="background-color: var(--primary-color) !important">
           Custom
         </button>
       </nav>
-    
+
       <!-- Mobile Menu (for screens 768px or less) -->
       <div
         id="mobile-menu"
         class="hidden flex flex-col items-center mt-4 space-y-2 w-3/5 mx-auto transition-all duration-300 ease-in-out"
-        style="width: 70%;"
-      >
-        <a href="#home" class="nav-link text-gray-600 hover:text-blue-500">Home</a>
-        <a href="#about" class="nav-link text-gray-600 hover:text-blue-500">About</a>
-        <a href="#properties" class="nav-link text-gray-600 hover:text-blue-500">Properties</a>
-        <a href="#blogs" class="nav-link text-gray-600 hover:text-blue-500">Blogs</a>
-        <a href="#contact" class="nav-link text-gray-600 hover:text-blue-500">Contact Us</a>
+        style="width: 70%">
+        <a href="#home" class="nav-link text-gray-600 hover:text-blue-500"
+          >Home</a
+        >
+        <a href="#about" class="nav-link text-gray-600 hover:text-blue-500"
+          >About</a
+        >
+        <a href="#properties" class="nav-link text-gray-600 hover:text-blue-500"
+          >Properties</a
+        >
+        <a href="#blogs" class="nav-link text-gray-600 hover:text-blue-500"
+          >Blogs</a
+        >
+        <a href="#contact" class="nav-link text-gray-600 hover:text-blue-500"
+          >Contact Us</a
+        >
       </div>
     </header>
 
@@ -257,251 +306,212 @@
         loading="lazy"
         src="https://cdn.builder.io/api/v1/image/assets/TEMP/145e78cbd69d8a97d92bd82b0f3dba324108e9951e88890815bd2ece18a30bb4?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c"
         alt="Hero section background"
-        class="object-contain w-full aspect-[1.78] shadow-[0px_4px_4px_rgba(0,0,0,0.25)]"
-      />
-      <h3 class="absolute inset-0 flex flex-col items-center justify-center text-white text-5xl font-semibold">
+        class="object-contain w-full aspect-[1.78] shadow-[0px_4px_4px_rgba(0,0,0,0.25)]" />
+      <h3
+        class="absolute inset-0 flex flex-col items-center justify-center text-white text-center text-5xl font-semibold">
         Turning Property investments Into Growth
-        <div class="mt-2 flex flex-col items-center gap-2">
-          <span class="block w-96 h-[2px] bg-white"></span>
+        <div class="mt-2 flex flex-col items-center gap-2 my-container w-full">
+          <span class="block w-72 h-[2px] bg-white"></span>
           <span class="block w-64 h-[1px] bg-white"></span>
           <span class="block w-48 h-[1px] bg-white"></span>
         </div>
       </h3>
     </section>
-    
+
     <!-- companies -->
 
     <section
-      class="flex flex-col items-center justify-center overflow-hidden my-container "
-    >
+      class="flex flex-col items-center justify-center overflow-hidden my-container">
       <h2
-        class="text-5xl font-semibold leading-none text-zinc-900 max-md:max-w-full max-md:text-4xl my-title"
-      >
-        We are authorized channel partners
+        class="text-5xl font-semibold leading-none text-zinc-900 max-md:max-w-full max-md:text-4xl my-title">
+        We Are Authorized Channel Partners
       </h2>
       <p
-          class="text-xl leading-loose text-center text-zinc-900 max-md:max-w-full my-sub-title"
-        >
-          Partnering with industry leaders for your success
-        </p>
-      <article class="flex flex-col items-center w-full">
-        <div class="relative w-full overflow-hidden ">
+        class="text-xl leading-loose text-center text-zinc-900 max-md:max-w-full">
+        Partnering with industry leaders for your success
+      </p>
+      <article class="flex flex-col items-center w-full my-sub-title">
+        <div class="relative w-full overflow-hidden">
           <div class="flex gap-10 marquee hover:pause-animation">
             <img
               loading="lazy"
               src="https://cdn.builder.io/api/v1/image/assets/TEMP/df3ef12cc2568608d3d078b5a9d11bf706babff51e9f6fbe1d63cb628503a692?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c"
               alt="Partner Logo 1"
-              class="object-contain w-24 filter grayscale hover:grayscale-0 transition duration-300 ease-in-out"
-            />
+              class="object-contain w-24 filter grayscale hover:grayscale-0 transition duration-300 ease-in-out" />
             <img
               loading="lazy"
               src="https://cdn.builder.io/api/v1/image/assets/TEMP/1ee2d705111fe56f31fcaf5dd6587933a5119d8ddd3a51404ef05fc79319979a?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c"
               alt="Partner Logo 2"
-              class="object-contain w-24 filter grayscale hover:grayscale-0 transition duration-300 ease-in-out"
-            />
+              class="object-contain w-24 filter grayscale hover:grayscale-0 transition duration-300 ease-in-out" />
             <img
               loading="lazy"
               src="https://cdn.builder.io/api/v1/image/assets/TEMP/77ebfdec09b88b63d09b125820b3e4d48e9ae231d833c6506223c776c177a5ef?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c"
               alt="Partner Logo 3"
-              class="object-contain w-24 filter grayscale hover:grayscale-0 transition duration-300 ease-in-out"
-            />
+              class="object-contain w-24 filter grayscale hover:grayscale-0 transition duration-300 ease-in-out" />
             <img
               loading="lazy"
               src="https://cdn.builder.io/api/v1/image/assets/TEMP/08559cbd88deb5850ee3424c943f7cffc4176f96cafc58427b3a7a100584c331?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c"
               alt="Partner Logo 4"
-              class="object-contain w-24 filter grayscale hover:grayscale-0 transition duration-300 ease-in-out"
-            />
+              class="object-contain w-24 filter grayscale hover:grayscale-0 transition duration-300 ease-in-out" />
             <img
               loading="lazy"
               src="https://cdn.builder.io/api/v1/image/assets/TEMP/c322c3936e0379a5bb373f9f30c0107c4d64eeb51604297f2df62925c4b110ef?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c"
               alt="Partner Logo 5"
-              class="object-contain w-24 filter grayscale hover:grayscale-0 transition duration-300 ease-in-out"
-            />
+              class="object-contain w-24 filter grayscale hover:grayscale-0 transition duration-300 ease-in-out" />
             <img
               loading="lazy"
               src="https://cdn.builder.io/api/v1/image/assets/TEMP/46332db8102ca93cfc6bedd2f4fbc9301b3ec79dd949dac3ac4aa2c01d61263e?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c"
               alt="Partner Logo 6"
-              class="object-contain w-24 filter grayscale hover:grayscale-0 transition duration-300 ease-in-out"
-            />
+              class="object-contain w-24 filter grayscale hover:grayscale-0 transition duration-300 ease-in-out" />
             <img
               loading="lazy"
               src="https://cdn.builder.io/api/v1/image/assets/TEMP/59a0dff400c9b65fd480266934b7a209485f3946647a6fd2a46867a97b6f1349?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c"
               alt="Partner Logo 7"
-              class="object-contain w-24 filter grayscale hover:grayscale-0 transition duration-300 ease-in-out"
-            />
+              class="object-contain w-24 filter grayscale hover:grayscale-0 transition duration-300 ease-in-out" />
             <img
               loading="lazy"
               src="https://cdn.builder.io/api/v1/image/assets/TEMP/c9e6139c6823f2b2176d00e49200453800fb2e21cddec2c9e3abeb5bd2a6482d?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c"
               alt="Partner Logo 8"
-              class="object-contain w-24 filter grayscale hover:grayscale-0 transition duration-300 ease-in-out"
-            />
+              class="object-contain w-24 filter grayscale hover:grayscale-0 transition duration-300 ease-in-out" />
             <img
               loading="lazy"
               src="https://cdn.builder.io/api/v1/image/assets/TEMP/df3ef12cc2568608d3d078b5a9d11bf706babff51e9f6fbe1d63cb628503a692?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c"
               alt="Partner Logo 1"
-              class="object-contain w-24 filter grayscale hover:grayscale-0 transition duration-300 ease-in-out"
-            />
+              class="object-contain w-24 filter grayscale hover:grayscale-0 transition duration-300 ease-in-out" />
             <img
               loading="lazy"
               src="https://cdn.builder.io/api/v1/image/assets/TEMP/1ee2d705111fe56f31fcaf5dd6587933a5119d8ddd3a51404ef05fc79319979a?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c"
               alt="Partner Logo 2"
-              class="object-contain w-24 filter grayscale hover:grayscale-0 transition duration-300 ease-in-out"
-            />
+              class="object-contain w-24 filter grayscale hover:grayscale-0 transition duration-300 ease-in-out" />
             <img
               loading="lazy"
               src="https://cdn.builder.io/api/v1/image/assets/TEMP/77ebfdec09b88b63d09b125820b3e4d48e9ae231d833c6506223c776c177a5ef?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c"
               alt="Partner Logo 3"
-              class="object-contain w-24 filter grayscale hover:grayscale-0 transition duration-300 ease-in-out"
-            />
+              class="object-contain w-24 filter grayscale hover:grayscale-0 transition duration-300 ease-in-out" />
             <img
               loading="lazy"
               src="https://cdn.builder.io/api/v1/image/assets/TEMP/08559cbd88deb5850ee3424c943f7cffc4176f96cafc58427b3a7a100584c331?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c"
               alt="Partner Logo 4"
-              class="object-contain w-24 filter grayscale hover:grayscale-0 transition duration-300 ease-in-out"
-            />
+              class="object-contain w-24 filter grayscale hover:grayscale-0 transition duration-300 ease-in-out" />
             <img
               loading="lazy"
               src="https://cdn.builder.io/api/v1/image/assets/TEMP/c322c3936e0379a5bb373f9f30c0107c4d64eeb51604297f2df62925c4b110ef?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c"
               alt="Partner Logo 5"
-              class="object-contain w-24 filter grayscale hover:grayscale-0 transition duration-300 ease-in-out"
-            />
+              class="object-contain w-24 filter grayscale hover:grayscale-0 transition duration-300 ease-in-out" />
             <img
               loading="lazy"
               src="https://cdn.builder.io/api/v1/image/assets/TEMP/46332db8102ca93cfc6bedd2f4fbc9301b3ec79dd949dac3ac4aa2c01d61263e?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c"
               alt="Partner Logo 6"
-              class="object-contain w-24 filter grayscale hover:grayscale-0 transition duration-300 ease-in-out"
-            />
+              class="object-contain w-24 filter grayscale hover:grayscale-0 transition duration-300 ease-in-out" />
             <img
               loading="lazy"
               src="https://cdn.builder.io/api/v1/image/assets/TEMP/59a0dff400c9b65fd480266934b7a209485f3946647a6fd2a46867a97b6f1349?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c"
               alt="Partner Logo 7"
-              class="object-contain w-24 filter grayscale hover:grayscale-0 transition duration-300 ease-in-out"
-            />
+              class="object-contain w-24 filter grayscale hover:grayscale-0 transition duration-300 ease-in-out" />
             <img
               loading="lazy"
               src="https://cdn.builder.io/api/v1/image/assets/TEMP/c9e6139c6823f2b2176d00e49200453800fb2e21cddec2c9e3abeb5bd2a6482d?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c"
               alt="Partner Logo 8"
-              class="object-contain w-24 filter grayscale hover:grayscale-0 transition duration-300 ease-in-out"
-            />
+              class="object-contain w-24 filter grayscale hover:grayscale-0 transition duration-300 ease-in-out" />
             <img
               loading="lazy"
               src="https://cdn.builder.io/api/v1/image/assets/TEMP/df3ef12cc2568608d3d078b5a9d11bf706babff51e9f6fbe1d63cb628503a692?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c"
               alt="Partner Logo 1"
-              class="object-contain w-24 filter grayscale hover:grayscale-0 transition duration-300 ease-in-out"
-            />
+              class="object-contain w-24 filter grayscale hover:grayscale-0 transition duration-300 ease-in-out" />
             <img
               loading="lazy"
               src="https://cdn.builder.io/api/v1/image/assets/TEMP/1ee2d705111fe56f31fcaf5dd6587933a5119d8ddd3a51404ef05fc79319979a?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c"
               alt="Partner Logo 2"
-              class="object-contain w-24 filter grayscale hover:grayscale-0 transition duration-300 ease-in-out"
-            />
+              class="object-contain w-24 filter grayscale hover:grayscale-0 transition duration-300 ease-in-out" />
             <img
               loading="lazy"
               src="https://cdn.builder.io/api/v1/image/assets/TEMP/77ebfdec09b88b63d09b125820b3e4d48e9ae231d833c6506223c776c177a5ef?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c"
               alt="Partner Logo 3"
-              class="object-contain w-24 filter grayscale hover:grayscale-0 transition duration-300 ease-in-out"
-            />
+              class="object-contain w-24 filter grayscale hover:grayscale-0 transition duration-300 ease-in-out" />
             <img
               loading="lazy"
               src="https://cdn.builder.io/api/v1/image/assets/TEMP/08559cbd88deb5850ee3424c943f7cffc4176f96cafc58427b3a7a100584c331?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c"
               alt="Partner Logo 4"
-              class="object-contain w-24 filter grayscale hover:grayscale-0 transition duration-300 ease-in-out"
-            />
+              class="object-contain w-24 filter grayscale hover:grayscale-0 transition duration-300 ease-in-out" />
             <img
               loading="lazy"
               src="https://cdn.builder.io/api/v1/image/assets/TEMP/c322c3936e0379a5bb373f9f30c0107c4d64eeb51604297f2df62925c4b110ef?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c"
               alt="Partner Logo 5"
-              class="object-contain w-24 filter grayscale hover:grayscale-0 transition duration-300 ease-in-out"
-            />
+              class="object-contain w-24 filter grayscale hover:grayscale-0 transition duration-300 ease-in-out" />
             <img
               loading="lazy"
               src="https://cdn.builder.io/api/v1/image/assets/TEMP/46332db8102ca93cfc6bedd2f4fbc9301b3ec79dd949dac3ac4aa2c01d61263e?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c"
               alt="Partner Logo 6"
-              class="object-contain w-24 filter grayscale hover:grayscale-0 transition duration-300 ease-in-out"
-            />
+              class="object-contain w-24 filter grayscale hover:grayscale-0 transition duration-300 ease-in-out" />
             <img
               loading="lazy"
               src="https://cdn.builder.io/api/v1/image/assets/TEMP/59a0dff400c9b65fd480266934b7a209485f3946647a6fd2a46867a97b6f1349?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c"
               alt="Partner Logo 7"
-              class="object-contain w-24 filter grayscale hover:grayscale-0 transition duration-300 ease-in-out"
-            />
+              class="object-contain w-24 filter grayscale hover:grayscale-0 transition duration-300 ease-in-out" />
             <img
               loading="lazy"
               src="https://cdn.builder.io/api/v1/image/assets/TEMP/c9e6139c6823f2b2176d00e49200453800fb2e21cddec2c9e3abeb5bd2a6482d?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c"
               alt="Partner Logo 8"
-              class="object-contain w-24 filter grayscale hover:grayscale-0 transition duration-300 ease-in-out"
-            />
+              class="object-contain w-24 filter grayscale hover:grayscale-0 transition duration-300 ease-in-out" />
             <img
               loading="lazy"
               src="https://cdn.builder.io/api/v1/image/assets/TEMP/df3ef12cc2568608d3d078b5a9d11bf706babff51e9f6fbe1d63cb628503a692?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c"
               alt="Partner Logo 1"
-              class="object-contain w-24 filter grayscale hover:grayscale-0 transition duration-300 ease-in-out"
-            />
+              class="object-contain w-24 filter grayscale hover:grayscale-0 transition duration-300 ease-in-out" />
             <img
               loading="lazy"
               src="https://cdn.builder.io/api/v1/image/assets/TEMP/1ee2d705111fe56f31fcaf5dd6587933a5119d8ddd3a51404ef05fc79319979a?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c"
               alt="Partner Logo 2"
-              class="object-contain w-24 filter grayscale hover:grayscale-0 transition duration-300 ease-in-out"
-            />
+              class="object-contain w-24 filter grayscale hover:grayscale-0 transition duration-300 ease-in-out" />
             <img
               loading="lazy"
               src="https://cdn.builder.io/api/v1/image/assets/TEMP/77ebfdec09b88b63d09b125820b3e4d48e9ae231d833c6506223c776c177a5ef?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c"
               alt="Partner Logo 3"
-              class="object-contain w-24 filter grayscale hover:grayscale-0 transition duration-300 ease-in-out"
-            />
+              class="object-contain w-24 filter grayscale hover:grayscale-0 transition duration-300 ease-in-out" />
             <img
               loading="lazy"
               src="https://cdn.builder.io/api/v1/image/assets/TEMP/08559cbd88deb5850ee3424c943f7cffc4176f96cafc58427b3a7a100584c331?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c"
               alt="Partner Logo 4"
-              class="object-contain w-24 filter grayscale hover:grayscale-0 transition duration-300 ease-in-out"
-            />
+              class="object-contain w-24 filter grayscale hover:grayscale-0 transition duration-300 ease-in-out" />
             <img
               loading="lazy"
               src="https://cdn.builder.io/api/v1/image/assets/TEMP/c322c3936e0379a5bb373f9f30c0107c4d64eeb51604297f2df62925c4b110ef?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c"
               alt="Partner Logo 5"
-              class="object-contain w-24 filter grayscale hover:grayscale-0 transition duration-300 ease-in-out"
-            />
+              class="object-contain w-24 filter grayscale hover:grayscale-0 transition duration-300 ease-in-out" />
             <img
               loading="lazy"
               src="https://cdn.builder.io/api/v1/image/assets/TEMP/46332db8102ca93cfc6bedd2f4fbc9301b3ec79dd949dac3ac4aa2c01d61263e?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c"
               alt="Partner Logo 6"
-              class="object-contain w-24 filter grayscale hover:grayscale-0 transition duration-300 ease-in-out"
-            />
+              class="object-contain w-24 filter grayscale hover:grayscale-0 transition duration-300 ease-in-out" />
             <img
               loading="lazy"
               src="https://cdn.builder.io/api/v1/image/assets/TEMP/59a0dff400c9b65fd480266934b7a209485f3946647a6fd2a46867a97b6f1349?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c"
               alt="Partner Logo 7"
-              class="object-contain w-24 filter grayscale hover:grayscale-0 transition duration-300 ease-in-out"
-            />
+              class="object-contain w-24 filter grayscale hover:grayscale-0 transition duration-300 ease-in-out" />
             <img
               loading="lazy"
               src="https://cdn.builder.io/api/v1/image/assets/TEMP/c9e6139c6823f2b2176d00e49200453800fb2e21cddec2c9e3abeb5bd2a6482d?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c"
               alt="Partner Logo 8"
-              class="object-contain w-24 filter grayscale hover:grayscale-0 transition duration-300 ease-in-out"
-            />
+              class="object-contain w-24 filter grayscale hover:grayscale-0 transition duration-300 ease-in-out" />
           </div>
         </div>
       </article>
     </section>
 
     <!-- about -->
-    <section class="overflow-hidden my-container ">
+    <section class="overflow-hidden my-container" data-aos="fade-up">
       <h2
-      class="text-5xl font-semibold text-center leading-none text-zinc-900 max-md:max-w-full max-md:text-4xl my-title"
-    >
-      About PropGrow
-    </h2>
-    
+        class="text-5xl font-semibold text-center leading-none text-zinc-900 max-md:max-w-full max-md:text-4xl my-title">
+        About PropGrow
+      </h2>
+
       <div
-        class="flex flex-col-reverse md:flex-row gap-5 max-md:flex-col-reverse"
-      >
+        class="flex flex-col-reverse md:flex-row gap-5 max-md:flex-col-reverse my-sub-title">
         <article class="flex flex-col w-full md:w-6/12">
           <div
-            class="flex flex-col justify-center items-center w-full px-2 max-md:mt-10"
-          >
+            class="flex flex-col justify-center items-center w-full px-2 max-md:mt-10">
             <p
-              class="text-lg leading-loose text-left text-zinc-900 max-md:max-w-full"
-            >
+              class="text-lg leading-loose text-left text-zinc-900 max-md:max-w-full">
               At PropGrow, we are more than just a real estate agency; we are
               your dedicated partners in navigating the complexities of property
               investment. With a strong foundation built on trust, transparency,
@@ -514,47 +524,40 @@
 
             <section
               class="mt-10 max-md:mt-8 max-md:max-w-full"
-              style="width: 100%"
-            >
+              style="width: 100%">
               <div
-                class="grid grid-cols-3 gap-4 max-md:grid-cols-2 max-md:gap-2"
-              >
-                <article class="flex flex-col text-center">
+                class="grid grid-cols-3 gap-4 max-md:grid-cols-2 max-md:gap-2">
+                <article class="flex flex-col text-center" data-aos="flip-left">
                   <div
-                    class="flex flex-col py-3 w-full rounded-lg border border-solid bg-slate-900 border-neutral-800 min-h-[60px]"
-                  >
+                    class="flex flex-col py-3 w-full rounded-lg border border-solid bg-slate-900 border-neutral-800 min-h-[60px]">
                     <h3 class="text-xl font-semibold text-green-400">5000+</h3>
                     <p class="text-sm text-white">Clients Served</p>
                   </div>
                 </article>
-                <article class="flex flex-col text-center">
+                <article class="flex flex-col text-center" data-aos="flip-left">
                   <div
-                    class="flex flex-col py-3 w-full rounded-lg border border-solid bg-slate-900 border-neutral-800 min-h-[60px]"
-                  >
+                    class="flex flex-col py-3 w-full rounded-lg border border-solid bg-slate-900 border-neutral-800 min-h-[60px]">
                     <h3 class="text-xl font-semibold text-green-400">1.2 M+</h3>
                     <p class="text-sm text-white">Sq. Ft. Sold</p>
                   </div>
                 </article>
-                <article class="flex flex-col text-center">
+                <article class="flex flex-col text-center" data-aos="flip-left">
                   <div
-                    class="flex flex-col py-3 w-full rounded-lg border border-solid bg-slate-900 border-neutral-800 min-h-[60px]"
-                  >
+                    class="flex flex-col py-3 w-full rounded-lg border border-solid bg-slate-900 border-neutral-800 min-h-[60px]">
                     <h3 class="text-xl font-semibold text-green-400">5+</h3>
                     <p class="text-sm text-white">Years Experience</p>
                   </div>
                 </article>
-                <article class="flex flex-col text-center">
+                <article class="flex flex-col text-center" data-aos="flip-left">
                   <div
-                    class="flex flex-col py-3 w-full rounded-lg border border-solid bg-slate-900 border-neutral-800 min-h-[60px]"
-                  >
+                    class="flex flex-col py-3 w-full rounded-lg border border-solid bg-slate-900 border-neutral-800 min-h-[60px]">
                     <h3 class="text-xl font-semibold text-green-400">100%</h3>
                     <p class="text-sm text-white">Client Satisfaction</p>
                   </div>
                 </article>
-                <article class="flex flex-col text-center">
+                <article class="flex flex-col text-center" data-aos="flip-left">
                   <div
-                    class="flex flex-col py-3 w-full rounded-lg border border-solid bg-slate-900 border-neutral-800 min-h-[60px]"
-                  >
+                    class="flex flex-col py-3 w-full rounded-lg border border-solid bg-slate-900 border-neutral-800 min-h-[60px]">
                     <h3 class="text-xl font-semibold text-green-400">24/7</h3>
                     <p class="text-sm text-white">Support Available</p>
                   </div>
@@ -567,13 +570,13 @@
         <aside class="flex flex-col w-full md:w-6/12 max-md:mt-0">
           <figure
             class="flex overflow-hidden flex-col self-stretch my-auto w-full rounded-xl"
-          >
+            data-aos="zoom-in"
+            data-aos-delay="100">
             <img
               loading="lazy"
               src="https://cdn.builder.io/api/v1/image/assets/TEMP/ef058ec0353daae1a52e48cb587d93232e47db4395734a71f10dd9d5a6afe6a8?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c"
               alt="PropGrow real estate showcase"
-              class="object-cover w-full rounded-xl aspect-[1.75]"
-            />
+              class="object-cover w-full rounded-xl aspect-[1.75]" />
           </figure>
         </aside>
       </div>
@@ -581,172 +584,300 @@
 
     <!-- latest launch -->
 
-    <section class="overflow-hidden my-container">
+    <section class="my-container" data-aos="fade-up">
       <h2
-      class="text-5xl font-semibold leading-none text-center text-zinc-900 max-md:max-w-full max-md:text-4xl my-title"
-    >
-      Latest launch properties
-    </h2>
-    <p
-        class="text-xl leading-loose text-center text-zinc-900 max-md:max-w-full my-sub-title"
-      >
-      Invest in exceptional living spaces for your future
+        class="text-5xl font-semibold leading-none text-center text-zinc-900 max-md:max-w-full max-md:text-4xl my-title">
+        Latest launch properties
+      </h2>
+      <p
+        class="text-xl leading-loose text-center text-zinc-900 max-md:max-w-full">
+        Invest in exceptional living spaces for your future
       </p>
-      
-        <div class="relative max-w-full pb-4">
-          <!-- Left Arrow Button -->
-          <button id="property-prev" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-700 text-white p-2 rounded-full">❮</button>
-      
-          <!-- Right Arrow Button -->
-          <button id="property-next" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-700 text-white p-2 rounded-full">❯</button>
-      
-          <!-- Carousel Container -->
-          <div class="property-carousel flex transition-transform duration-500 ease-in-out space-x-4">
-            <!-- Carousel Item 1 -->
-            <article class="property-carousel-item flex flex-col bg-white rounded-lg shadow-lg overflow-hidden flex-shrink-0 w-full sm:w-1/2 md:w-1/3 lg:w-1/4">
-              <img src="./Asset/launch-1.webp" alt="Building Image" class="w-full object-cover rounded-lg" style="height: 280px" />
-              <div class="flex flex-col p-4">
-                <h3 class="text-lg md:text-xl font-semibold text-gray-800 mb-2">DLF Privana South</h3>
-                <p class="text-sm md:text-base text-gray-600">Sector 77, Gurgaon</p>
-                <div class="flex justify-between items-center mt-4 w-full">
-                  <p class="text-base font-bold text-gray-700">Gurugram</p>
-                  <button class=" text-white font-semibold py-2 px-4 rounded-md" style="background-color:var(--primary-color);">View Details</button>
-                </div>
+
+      <div class="relative max-w-full my-sub-title">
+        <!-- Left Arrow Button -->
+        <button
+          id="property-prev"
+          class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-700 text-white p-2 rounded-full">
+          ❮
+        </button>
+
+        <!-- Right Arrow Button -->
+        <button
+          id="property-next"
+          class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-700 text-white p-2 rounded-full">
+          ❯
+        </button>
+
+        <!-- Carousel Container with Owl Carousel class -->
+        <div class="property-carousel owl-carousel">
+          <!-- Carousel Items -->
+          <article
+            class="property-carousel-item flex flex-col bg-white rounded-lg shadow-lg overflow-hidden w-full">
+            <img
+              src="./Asset/launch-1.webp"
+              alt="Building Image"
+              class="w-full object-cover rounded-lg"
+              style="height: 280px" />
+            <div class="flex flex-col p-4">
+              <h3 class="text-lg md:text-xl font-semibold text-gray-800 mb-2">
+                DLF Privana South
+              </h3>
+              <p class="text-sm md:text-base text-gray-600">
+                Sector 77, Gurgaon
+              </p>
+              <div class="flex justify-between items-center mt-4 w-full">
+                <p class="text-base font-bold text-gray-700">Gurugram</p>
+                <button
+                  class="text-white font-semibold py-2 px-4 rounded-md"
+                  style="background-color: var(--primary-color)">
+                  View Details
+                </button>
               </div>
-            </article>
-            <!-- Carousel Item 2 -->
-            <!-- Repeat similar structure for the remaining items -->
-            <article class="property-carousel-item flex flex-col bg-white rounded-lg shadow-lg overflow-hidden flex-shrink-0 w-full sm:w-1/2 md:w-1/3 lg:w-1/4">
-                <img src="./Asset/launch-2.jpg" alt="Building Image" class="w-full object-cover rounded-lg" style="height: 280px" />
-                <div class="flex flex-col p-4">
-                  <h3 class="text-lg md:text-xl font-semibold text-gray-800 mb-2">DLF Privana South</h3>
-                  <p class="text-sm md:text-base text-gray-600">Sector 77, Gurgaon</p>
-                  <div class="flex justify-between items-center mt-4 w-full">
-                    <p class="text-base font-bold text-gray-700">Gurugram</p>
-                    <button class=" text-white font-semibold py-2 px-4 rounded-md" style="background-color:var(--primary-color);">View Details</button>
-                  </div>
-                </div>
-              </article>
-              <article class="property-carousel-item flex flex-col bg-white rounded-lg shadow-lg overflow-hidden flex-shrink-0 w-full sm:w-1/2 md:w-1/3 lg:w-1/4">
-                <img src="./Asset/launch-3.jpg" alt="Building Image" class="w-full object-cover rounded-lg" style="height: 280px" />
-                <div class="flex flex-col p-4">
-                  <h3 class="text-lg md:text-xl font-semibold text-gray-800 mb-2">DLF Privana South</h3>
-                  <p class="text-sm md:text-base text-gray-600">Sector 77, Gurgaon</p>
-                  <div class="flex justify-between items-center mt-4 w-full">
-                    <p class="text-base font-bold text-gray-700">Gurugram</p>
-                    <button class=" text-white font-semibold py-2 px-4 rounded-md" style="background-color:var(--primary-color);">View Details</button>
-                  </div>
-                </div>
-              </article>
-              <article class="property-carousel-item flex flex-col bg-white rounded-lg shadow-lg overflow-hidden flex-shrink-0 w-full sm:w-1/2 md:w-1/3 lg:w-1/4">
-                <img src="./Asset/launch-4.jpg" alt="Building Image" class="w-full object-cover rounded-lg" style="height: 280px" />
-                <div class="flex flex-col p-4">
-                  <h3 class="text-lg md:text-xl font-semibold text-gray-800 mb-2">DLF Privana South</h3>
-                  <p class="text-sm md:text-base text-gray-600">Sector 77, Gurgaon</p>
-                  <div class="flex justify-between items-center mt-4 w-full">
-                    <p class="text-base font-bold text-gray-700">Gurugram</p>
-                    <button class=" text-white font-semibold py-2 px-4 rounded-md" style="background-color:var(--primary-color);">View Details</button>
-                  </div>
-                </div>
-              </article>
-              <article class="property-carousel-item flex flex-col bg-white rounded-lg shadow-lg overflow-hidden flex-shrink-0 w-full sm:w-1/2 md:w-1/3 lg:w-1/4">
-                <img src="./Asset/launch-5.jpg" alt="Building Image" class="w-full object-cover rounded-lg" style="height: 280px" />
-                <div class="flex flex-col p-4">
-                  <h3 class="text-lg md:text-xl font-semibold text-gray-800 mb-2">DLF Privana South</h3>
-                  <p class="text-sm md:text-base text-gray-600">Sector 77, Gurgaon</p>
-                  <div class="flex justify-between items-center mt-4 w-full">
-                    <p class="text-base font-bold text-gray-700">Gurugram</p>
-                    <button class=" text-white font-semibold py-2 px-4 rounded-md" style="background-color:var(--primary-color);">View Details</button>
-                  </div>
-                </div>
-              </article>
-              <article class="property-carousel-item flex flex-col bg-white rounded-lg shadow-lg overflow-hidden flex-shrink-0 w-full sm:w-1/2 md:w-1/3 lg:w-1/4">
-                <img src="./Asset/launch-6.jpg" alt="Building Image" class="w-full object-cover rounded-lg" style="height: 280px" />
-                <div class="flex flex-col p-4">
-                  <h3 class="text-lg md:text-xl font-semibold text-gray-800 mb-2">DLF Privana South</h3>
-                  <p class="text-sm md:text-base text-gray-600">Sector 77, Gurgaon</p>
-                  <div class="flex justify-between items-center mt-4 w-full">
-                    <p class="text-base font-bold text-gray-700">Gurugram</p>
-                    <button class=" text-white font-semibold py-2 px-4 rounded-md" style="background-color:var(--primary-color);">View Details</button>
-                  </div>
-                </div>
-              </article>
-              
-          </div>
+            </div>
+          </article>
+          <!-- Repeat similar structure for other items -->
+          <article
+            class="property-carousel-item flex flex-col bg-white rounded-lg shadow-lg overflow-hidden w-full">
+            <img
+              src="./Asset/launch-2.jpg"
+              alt="Building Image"
+              class="w-full object-cover rounded-lg"
+              style="height: 280px" />
+            <div class="flex flex-col p-4">
+              <h3 class="text-lg md:text-xl font-semibold text-gray-800 mb-2">
+                DLF Privana South
+              </h3>
+              <p class="text-sm md:text-base text-gray-600">
+                Sector 77, Gurgaon
+              </p>
+              <div class="flex justify-between items-center mt-4 w-full">
+                <p class="text-base font-bold text-gray-700">Gurugram</p>
+                <button
+                  class="text-white font-semibold py-2 px-4 rounded-md"
+                  style="background-color: var(--primary-color)">
+                  View Details
+                </button>
+              </div>
+            </div>
+          </article>
+          <article
+            class="property-carousel-item flex flex-col bg-white rounded-lg shadow-lg overflow-hidden w-full">
+            <img
+              src="./Asset/launch-3.jpg"
+              alt="Building Image"
+              class="w-full object-cover rounded-lg"
+              style="height: 280px" />
+            <div class="flex flex-col p-4">
+              <h3 class="text-lg md:text-xl font-semibold text-gray-800 mb-2">
+                DLF Privana South
+              </h3>
+              <p class="text-sm md:text-base text-gray-600">
+                Sector 77, Gurgaon
+              </p>
+              <div class="flex justify-between items-center mt-4 w-full">
+                <p class="text-base font-bold text-gray-700">Gurugram</p>
+                <button
+                  class="text-white font-semibold py-2 px-4 rounded-md"
+                  style="background-color: var(--primary-color)">
+                  View Details
+                </button>
+              </div>
+            </div>
+          </article>
+          <article
+            class="property-carousel-item flex flex-col bg-white rounded-lg shadow-lg overflow-hidden w-full">
+            <img
+              src="./Asset/launch-4.jpg"
+              alt="Building Image"
+              class="w-full object-cover rounded-lg"
+              style="height: 280px" />
+            <div class="flex flex-col p-4">
+              <h3 class="text-lg md:text-xl font-semibold text-gray-800 mb-2">
+                DLF Privana South
+              </h3>
+              <p class="text-sm md:text-base text-gray-600">
+                Sector 77, Gurgaon
+              </p>
+              <div class="flex justify-between items-center mt-4 w-full">
+                <p class="text-base font-bold text-gray-700">Gurugram</p>
+                <button
+                  class="text-white font-semibold py-2 px-4 rounded-md"
+                  style="background-color: var(--primary-color)">
+                  View Details
+                </button>
+              </div>
+            </div>
+          </article>
+          <article
+            class="property-carousel-item flex flex-col bg-white rounded-lg shadow-lg overflow-hidden w-full">
+            <img
+              src="./Asset/launch-5.jpg"
+              alt="Building Image"
+              class="w-full object-cover rounded-lg"
+              style="height: 280px" />
+            <div class="flex flex-col p-4">
+              <h3 class="text-lg md:text-xl font-semibold text-gray-800 mb-2">
+                DLF Privana South
+              </h3>
+              <p class="text-sm md:text-base text-gray-600">
+                Sector 77, Gurgaon
+              </p>
+              <div class="flex justify-between items-center mt-4 w-full">
+                <p class="text-base font-bold text-gray-700">Gurugram</p>
+                <button
+                  class="text-white font-semibold py-2 px-4 rounded-md"
+                  style="background-color: var(--primary-color)">
+                  View Details
+                </button>
+              </div>
+            </div>
+          </article>
+          <article
+            class="property-carousel-item flex flex-col bg-white rounded-lg shadow-lg overflow-hidden w-full">
+            <img
+              src="./Asset/launch-6.jpg"
+              alt="Building Image"
+              class="w-full object-cover rounded-lg"
+              style="height: 280px" />
+            <div class="flex flex-col p-4">
+              <h3 class="text-lg md:text-xl font-semibold text-gray-800 mb-2">
+                DLF Privana South
+              </h3>
+              <p class="text-sm md:text-base text-gray-600">
+                Sector 77, Gurgaon
+              </p>
+              <div class="flex justify-between items-center mt-4 w-full">
+                <p class="text-base font-bold text-gray-700">Gurugram</p>
+                <button
+                  class="text-white font-semibold py-2 px-4 rounded-md"
+                  style="background-color: var(--primary-color)">
+                  View Details
+                </button>
+              </div>
+            </div>
+          </article>
+          <!-- ... -->
         </div>
-      </section>
+      </div>
+    </section>
 
     <!-- investment -->
 
-    <section class="cities-section max-md:mt-10 my-container text-center ">
+    <section
+      class="cities-section max-md:mt-10 my-container text-center"
+      data-aos="fade-up">
       <h2
-      class="text-5xl font-semibold text-center leading-none text-zinc-900 max-md:max-w-full max-md:text-4xl my-title"
-    >
-      Find investnment gems in these cities
-    </h2>
-    <p
-        class="text-xl leading-loose text-center text-zinc-900 max-md:max-w-full my-sub-title"
-      >
-      Explore investment opportunities across key locations
+        class="text-5xl font-semibold text-center leading-none text-zinc-900 max-md:max-w-full max-md:text-4xl my-title">
+        Find investnment gems in these cities
+      </h2>
+      <p
+        class="text-xl leading-loose text-center text-zinc-900 max-md:max-w-full">
+        Explore investment opportunities across key locations
       </p>
-  
+
       <!-- Carousel Wrapper with responsive behavior -->
-      <div class="cities-carousel relative  overflow-hidden flex flex-row md:flex-wrap md:gap-5">
-          <!-- Left button for carousel navigation (visible only on small screens) -->
-          <button onclick="prevSlide()" class="invest-carousel-button prev-button hidden max-md:block absolute left-0 top-1/2 transform -translate-y-1/2 z-10 text-white px-4 py-2 rounded-full" style="background-color: var(--primary-color);height: 40px;width: 40px;">‹</button>
-  
-          <!-- Carousel Items -->
-          <div  class="invest-carousel-items flex gap-2 w-full max-md:transition-transform max-md:duration-500" style="transform: translateX(0%);">
-              <!-- Article 1 -->
-              <article class="city-card relative w-full md:w-1/3 flex-shrink-0">
-                  <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/7f5303c4110693573b5cc57ca7d71a7f23c11fbebe41e7500467c27d68a098cb?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c" alt="New Delhi cityscape" class="object-cover w-full h-full absolute inset-0" />
-                  <div class="relative px-8 py-8 mt-[559px] text-xl font-medium text-white">
-                    <h3 class="absolute bottom-10 left-1/2 transform -translate-x-1/2 px-8 py-4 w-[60%] backdrop-blur-xl rounded-lg text-white font-semibold text-center" style="background-color: var(--primary-color); opacity: 0.9;">
-                      New Delhi
-                  </h3>
-                  
+      <div
+        class="cities-carousel relative overflow-hidden flex flex-row md:flex-wrap md:gap-5 my-sub-title">
+        <!-- Left button for carousel navigation (visible only on small screens) -->
+        <button
+          onclick="prevSlide()"
+          class="invest-carousel-button prev-button hidden max-md:block absolute left-0 top-1/2 transform -translate-y-1/2 z-10 text-white px-4 py-2 rounded-full"
+          style="
+            background-color: var(--primary-color);
+            height: 40px;
+            width: 40px;
+          ">
+          ‹
+        </button>
 
+        <!-- Carousel Items -->
+        <div
+          class="invest-carousel-items flex gap-2 w-full max-md:transition-transform max-md:duration-500"
+          style="transform: translateX(0%)">
+          <!-- Article 1 -->
+          <article
+            class="city-card relative w-full md:w-1/3 flex-shrink-0"
+            data-aos="zoom-in">
+            <img
+              loading="lazy"
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/7f5303c4110693573b5cc57ca7d71a7f23c11fbebe41e7500467c27d68a098cb?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c"
+              alt="New Delhi cityscape"
+              class="object-cover w-full h-full absolute inset-0" />
+            <div
+              class="relative px-8 py-8 mt-[559px] text-xl font-medium text-white">
+              <h3
+                class="absolute bottom-10 left-1/2 transform -translate-x-1/2 px-8 py-4 w-[60%] backdrop-blur-xl rounded-lg text-white font-semibold text-center"
+                style="background-color: var(--primary-color); opacity: 0.9">
+                New Delhi
+              </h3>
+            </div>
+          </article>
 
+          <!-- Article 2 -->
+          <article
+            class="city-card relative w-full md:w-1/3 flex-shrink-0"
+            data-aos="zoom-in"
+            data-aos-delay="200">
+            <img
+              loading="lazy"
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/f2689a48960ba4d4674fab8fab919b6d6e8999710e47573a972bddcdf3c97788?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c"
+              alt="Gurgaon cityscape"
+              class="object-cover w-full h-full absolute inset-0" />
+            <div
+              class="relative px-10 py-8 mt-[559px] text-xl font-medium text-white">
+              <h3
+                class="absolute bottom-10 left-1/2 transform -translate-x-1/2 px-8 py-4 w-[60%] backdrop-blur-xl rounded-lg text-white font-semibold text-center"
+                style="background-color: var(--primary-color); opacity: 0.9">
+                Gurgaon
+              </h3>
+            </div>
+          </article>
 
-                  </div>
-              </article>
-  
-              <!-- Article 2 -->
-              <article class="city-card relative w-full md:w-1/3 flex-shrink-0">
-                  <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/f2689a48960ba4d4674fab8fab919b6d6e8999710e47573a972bddcdf3c97788?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c" alt="Gurgaon cityscape" class="object-cover w-full h-full absolute inset-0" />
-                  <div class="relative px-10 py-8 mt-[559px] text-xl font-medium text-white">
-                    <h3 class="absolute bottom-10 left-1/2 transform -translate-x-1/2 px-8 py-4 w-[60%] backdrop-blur-xl rounded-lg text-white font-semibold text-center" style="background-color: var(--primary-color); opacity: 0.9;">
-                      Gurgaon
-                  </h3>
-                  </div>
-              </article>
-  
-              <!-- Article 3 -->
-              <article class="city-card relative w-full md:w-1/3 flex-shrink-0">
-                  <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/bee3ee5cef1b831be4c1f441976048c056ab027f4ba8ee18ffaf16d3562dd24a?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c" alt="Mumbai cityscape" class="object-cover w-full h-full absolute inset-0" />
-                  <div class="relative px-5 py-8 mt-[559px] text-xl font-medium text-white">
-                    <h3 class="absolute bottom-10 left-1/2 transform -translate-x-1/2 px-8 py-4 w-[60%] backdrop-blur-xl rounded-lg text-white font-semibold text-center" style="background-color: var(--primary-color); opacity: 0.9;">
-                      Mumbai
-                  </h3>
-                  </div>
-              </article>
-          </div>
-  
-          <!-- Right button for carousel navigation (visible only on small screens) -->
-          <button onclick="nextSlide()" class="invest-carousel-button next-button hidden max-md:block absolute right-0 top-1/2 transform -translate-y-1/2 z-10  text-white px-4 py-2 rounded-full" style="background-color: var(--primary-color);height: 40px;width: 40px;">›</button>
+          <!-- Article 3 -->
+          <article
+            class="city-card relative w-full md:w-1/3 flex-shrink-0"
+            data-aos="zoom-in"
+            data-aos-delay="400">
+            <img
+              loading="lazy"
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/bee3ee5cef1b831be4c1f441976048c056ab027f4ba8ee18ffaf16d3562dd24a?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c"
+              alt="Mumbai cityscape"
+              class="object-cover w-full h-full absolute inset-0" />
+            <div
+              class="relative px-5 py-8 mt-[559px] text-xl font-medium text-white">
+              <h3
+                class="absolute bottom-10 left-1/2 transform -translate-x-1/2 px-8 py-4 w-[60%] backdrop-blur-xl rounded-lg text-white font-semibold text-center"
+                style="background-color: var(--primary-color); opacity: 0.9">
+                Mumbai
+              </h3>
+            </div>
+          </article>
+        </div>
+
+        <!-- Right button for carousel navigation (visible only on small screens) -->
+        <button
+          onclick="nextSlide()"
+          class="invest-carousel-button next-button hidden max-md:block absolute right-0 top-1/2 transform -translate-y-1/2 z-10 text-white px-4 py-2 rounded-full"
+          style="
+            background-color: var(--primary-color);
+            height: 40px;
+            width: 40px;
+          ">
+          ›
+        </button>
       </div>
-  </section>
-    
+    </section>
 
     <!-- customer review -->
-    <section class="flex flex-col items-center my-container my-title">
+    <section
+      class="flex flex-col items-center my-container my-title"
+      data-aos="fade-up">
       <header
-        class="flex flex-col flex-wrap gap-5 mb-3 justify-between text-center w-full max-w-[1341px] text-zinc-900"
-      >
+        class="flex flex-col flex-wrap gap-5 mb-3 justify-between text-center w-full max-w-[1341px] text-zinc-900">
         <h2
           data-layername="findPropertiesInTheseCities"
-          class="text-5xl font-semibold leading-none text-zinc-900 max-md:max-w-full max-md:text-4xl"
-        >
+          class="text-5xl font-semibold leading-none text-zinc-900 max-md:max-w-full max-md:text-4xl">
           What our customers are saying?
         </h2>
         <div class="flex gap-10 self-center">
@@ -761,8 +892,7 @@
               loading="lazy"
               src="./Asset/stars.png.png"
               alt="Five-star rating"
-              class="object-contain mt-2.5 h-full w-[78px] max-md:mr-1.5"
-            />
+              class="object-contain mt-2.5 h-full w-[78px] max-md:mr-1.5" />
           </article>
         </div>
       </header>
@@ -774,14 +904,14 @@
             <!-- Article 1 -->
             <div
               class="flex flex-col h-full px-10 py-11 mx-auto w-full text-white rounded-2xl border-b-4 border-green-400 bg-slate-900"
-            >
+              data-aos="fade-up"
+              data-aos-delay="100">
               <header class="flex gap-2 items-center">
                 <img
                   loading="lazy"
-                  src="./Asset/test1.png.png"
+                  src="./Asset/Raing-1.png"
                   alt="Profile picture of Cameron Williamson"
-                  class="object-contain shrink-0 aspect-square rounded-[45px] w-[90px]"
-                />
+                  class="object-contain shrink-0 aspect-square rounded-[45px] w-[90px]" />
                 <div class="flex flex-col self-stretch my-auto">
                   <h3 class="text-xl font-medium leading-tight">
                     Cameron Williamson
@@ -792,24 +922,27 @@
                 </div>
               </header>
               <p class="mt-10 text-lg leading-8">
-                Searches for multiplexes, property comparisons, and the loan
-                estimator. Works great. Lorem ipsum dolor sit amet, consectetur
-                adipiscing elit.
+                Working with PropGrow has been a game-changer for my investment
+                portfolio. Their team provided invaluable insights into market
+                trends and helped me identify properties with strong growth
+                potential. My returns have exceeded expectations, and I feel
+                confident about every decision thanks to their expertise.
               </p>
             </div>
           </div>
-          <div class="review-carousel-item">
+          <div
+            class="review-carousel-item"
+            data-aos="fade-up"
+            data-aos-delay="200">
             <!-- Article 2 -->
             <div
-              class="flex flex-col h-full px-10 py-11 mx-auto w-full text-white rounded-2xl border-b-4 border-green-400 bg-slate-900"
-            >
+              class="flex flex-col h-full px-10 py-11 mx-auto w-full text-white rounded-2xl border-b-4 border-green-400 bg-slate-900">
               <header class="flex gap-2 items-center">
                 <img
                   loading="lazy"
-                  src="./Asset/5.jpg.png"
+                  src="./Asset/rating-2.png"
                   alt="Profile picture of Esther Howard"
-                  class="object-contain shrink-0 aspect-square rounded-[45px] w-[90px]"
-                />
+                  class="object-contain shrink-0 aspect-square rounded-[45px] w-[90px]" />
                 <div class="flex flex-col self-stretch my-auto">
                   <h3 class="text-xl font-medium leading-tight">
                     Esther Howard
@@ -825,18 +958,19 @@
               </p>
             </div>
           </div>
-          <div class="review-carousel-item">
+          <div
+            class="review-carousel-item"
+            data-aos="fade-up"
+            data-aos-delay="400">
             <!-- Article 3 -->
             <div
-              class="flex flex-col h-full px-10 py-11 mx-auto w-full text-white rounded-2xl border-b-4 border-green-400 bg-slate-900"
-            >
+              class="flex flex-col h-full px-10 py-11 mx-auto w-full text-white rounded-2xl border-b-4 border-green-400 bg-slate-900">
               <header class="flex gap-2 items-center">
                 <img
                   loading="lazy"
-                  src="./Asset/6.jpg.png"
+                  src="./Asset/rating-3.png"
                   alt="Profile picture of Devon Lane"
-                  class="object-contain shrink-0 aspect-square rounded-[45px] w-[90px]"
-                />
+                  class="object-contain shrink-0 aspect-square rounded-[45px] w-[90px]" />
                 <div class="flex flex-col self-stretch my-auto">
                   <h3 class="text-xl font-medium leading-tight">Devon Lane</h3>
                   <p class="self-start mt-3.5 text-base leading-loose">
@@ -862,17 +996,18 @@
       <!-- Static Review Section for Larger Screens -->
       <section class="mt-12 w-full max-md:mt-10">
         <div class="flex flex-wrap gap-5 justify-center">
-          <article class="flex-grow flex flex-col w-full max-w-[30%]">
+          <article
+            class="flex-grow flex flex-col w-full max-w-[30%]"
+            data-aos="fade-up"
+            data-aos-delay="100">
             <div
-              class="flex flex-col h-full px-10 py-11 mx-auto w-full text-white rounded-2xl border-b-4 border-green-400 bg-slate-900"
-            >
+              class="flex flex-col h-full px-10 py-11 mx-auto w-full text-white rounded-2xl border-b-4 border-green-400 bg-slate-900">
               <header class="flex gap-2 items-center">
                 <img
                   loading="lazy"
-                  src="./Asset/test1.png.png"
+                  src="./Asset/Raing-1.png"
                   alt="Profile picture of Cameron Williamson"
-                  class="object-contain shrink-0 aspect-square rounded-[45px] w-[90px]"
-                />
+                  class="object-contain shrink-0 aspect-square rounded-[45px] w-[90px]" />
                 <div class="flex flex-col self-stretch my-auto">
                   <h3 class="text-xl font-medium leading-tight">
                     Cameron Williamson
@@ -889,17 +1024,18 @@
               </p>
             </div>
           </article>
-          <article class="flex-grow flex flex-col w-full max-w-[30%]">
+          <article
+            class="flex-grow flex flex-col w-full max-w-[30%]"
+            data-aos="fade-up"
+            data-aos-delay="200">
             <div
-              class="flex flex-col h-full px-10 py-11 mx-auto w-full text-white rounded-2xl border-b-4 border-green-400 bg-slate-900"
-            >
+              class="flex flex-col h-full px-10 py-11 mx-auto w-full text-white rounded-2xl border-b-4 border-green-400 bg-slate-900">
               <header class="flex gap-2 items-center">
                 <img
                   loading="lazy"
-                  src="./Asset/5.jpg.png"
+                  src="./Asset/rating-2.png"
                   alt="Profile picture of Esther Howard"
-                  class="object-contain shrink-0 aspect-square rounded-[45px] w-[90px]"
-                />
+                  class="object-contain shrink-0 aspect-square rounded-[45px] w-[90px]" />
                 <div class="flex flex-col self-stretch my-auto">
                   <h3 class="text-xl font-medium leading-tight">
                     Esther Howard
@@ -915,17 +1051,18 @@
               </p>
             </div>
           </article>
-          <article class="flex-grow flex flex-col w-full max-w-[30%]">
+          <article
+            class="flex-grow flex flex-col w-full max-w-[30%]"
+            data-aos="fade-up"
+            data-aos-delay="300">
             <div
-              class="flex flex-col h-full px-10 py-11 mx-auto w-full text-white rounded-2xl border-b-4 border-green-400 bg-slate-900"
-            >
+              class="flex flex-col h-full px-10 py-11 mx-auto w-full text-white rounded-2xl border-b-4 border-green-400 bg-slate-900">
               <header class="flex gap-2 items-center">
                 <img
                   loading="lazy"
-                  src="./Asset/6.jpg.png"
+                  src="./Asset/rating-3.png"
                   alt="Profile picture of Devon Lane"
-                  class="object-contain shrink-0 aspect-square rounded-[45px] w-[90px]"
-                />
+                  class="object-contain shrink-0 aspect-square rounded-[45px] w-[90px]" />
                 <div class="flex flex-col self-stretch my-auto">
                   <h3 class="text-xl font-medium leading-tight">Devon Lane</h3>
                   <p class="self-start mt-3.5 text-base leading-loose">
@@ -944,189 +1081,211 @@
     </section>
 
     <!-- team -->
-    <h2
-      class="text-5xl font-semibold text-center leading-none text-zinc-900 max-md:max-w-full max-md:text-4xl my-title"
-    >
-      A team you can trust on
-    </h2>
-    <p
-        class="text-xl leading-loose text-center text-zinc-900 max-md:max-w-full my-sub-title"
-      >
-      Invest in exceptional living spaces for your future
+    <div data-aos="fade-up">
+      <h2
+        class="text-5xl font-semibold text-center leading-none text-zinc-900 max-md:max-w-full max-md:text-4xl my-title">
+        A team you can trust on
+      </h2>
+      <p
+        class="text-xl leading-loose text-center text-zinc-900 max-md:max-w-full">
+        Invest in exceptional living spaces for your future
       </p>
-    <section id="testimonial-cards" class="grid grid-cols-2 gap-4 sm:grid-cols-5 w-full my-container">
-      <!-- Card items go here (1-5 as examples) -->
-      
-      <article class="flex flex-col gap-2 p-1 bg-white rounded-lg shadow-md">
-        <div class="relative flex justify-center items-center rounded-md overflow-hidden">
-          <img src="./Asset/member-1.png" alt="Profile" class="object-cover w-[180px] h-[180px] sm:w-[240px] sm:h-[240px] rounded-md" />
-        </div>
-        <header class="flex flex-col justify-center items-center">
-          <h2 class="text-sm font-bold">Name 1</h2>
-          <p class="text-xs text-gray-500">Position 1</p>
-        </header>
-      </article>
-      <!-- Repeat the article block for each card -->
-      <article class="flex flex-col gap-2 p-1 bg-white rounded-lg shadow-md">
-        <div class="relative flex justify-center items-center rounded-md overflow-hidden">
-          <img src="./Asset/member-2.png" alt="Profile" class="object-cover w-[180px] h-[180px] sm:w-[240px] sm:h-[240px] rounded-md" />
-        </div>
-        <header class="flex flex-col justify-center items-center">
-          <h2 class="text-sm font-bold">Name 2</h2>
-          <p class="text-xs text-gray-500">Position 2</p>
-        </header>
-      </article>
-      <article class="flex flex-col gap-2 p-1 bg-white rounded-lg shadow-md">
-        <div class="relative flex justify-center items-center rounded-md overflow-hidden">
-          <img src="./Asset/member-3.png" alt="Profile" class="object-cover w-[180px] h-[180px] sm:w-[240px] sm:h-[240px] rounded-md" />
-        </div>
-        <header class="flex flex-col justify-center items-center">
-          <h2 class="text-sm font-bold">Name 3</h2>
-          <p class="text-xs text-gray-500">Position 3</p>
-        </header>
-      </article>
-      <article class="flex flex-col gap-2 p-1 bg-white rounded-lg shadow-md">
-        <div class="relative flex justify-center items-center rounded-md overflow-hidden">
-          <img src="./Asset/member-4.png" alt="Profile" class="object-cover w-[180px] h-[180px] sm:w-[240px] sm:h-[240px] rounded-md" />
-        </div>
-        <header class="flex flex-col justify-center items-center">
-          <h2 class="text-sm font-bold">Name 4</h2>
-          <p class="text-xs text-gray-500">Position 4</p>
-        </header>
-      </article>
-      <article class="flex flex-col gap-2 p-1 bg-white rounded-lg shadow-md">
-        <div class="relative flex justify-center items-center rounded-md overflow-hidden">
-          <img src="./Asset/member-5.png" alt="Profile" class="object-cover w-[180px] h-[180px] sm:w-[240px] sm:h-[240px] rounded-md" />
-        </div>
-        <header class="flex flex-col justify-center items-center">
-          <h2 class="text-sm font-bold">Name 5</h2>
-          <p class="text-xs text-gray-500">Position 5</p>
-        </header>
-      </article>
-    </section>
+      <section
+        id="testimonial-cards"
+        class="grid grid-cols-2 gap-4 sm:grid-cols-5 w-full my-container my-sub-title">
+        <!-- Card items go here (1-5 as examples) -->
+
+        <article class="flex flex-col gap-2 p-1 bg-white rounded-lg shadow-md">
+          <div
+            class="relative flex justify-center items-center rounded-md overflow-hidden">
+            <!-- Main Profile Image -->
+            <img
+              src="./Asset/member-1.png"
+              alt="Profile"
+              class="object-cover w-[180px] h-[180px] sm:w-[240px] sm:h-[240px] rounded-md" />
+
+            <!-- Small Positioned Image -->
+            <img
+              src="./Asset/Link.png"
+              alt="Small Icon"
+              class="absolute top-[7px] right-[14px] w-[30px] h-[30px]" />
+          </div>
+
+          <header class="flex flex-col justify-center items-center">
+            <h2 class="text-sm font-bold">Name 1</h2>
+            <p class="text-xs text-gray-500">Position 1</p>
+          </header>
+        </article>
+        <article class="flex flex-col gap-2 p-1 bg-white rounded-lg shadow-md">
+          <div
+            class="relative flex justify-center items-center rounded-md overflow-hidden">
+            <!-- Main Profile Image -->
+            <img
+              src="./Asset/member-2.png"
+              alt="Profile"
+              class="object-cover w-[180px] h-[180px] sm:w-[240px] sm:h-[240px] rounded-md" />
+
+            <!-- Small Positioned Image -->
+            <img
+              src="./Asset/Link.png"
+              alt="Small Icon"
+              class="absolute top-[7px] right-[14px] w-[30px] h-[30px]" />
+          </div>
+
+          <header class="flex flex-col justify-center items-center">
+            <h2 class="text-sm font-bold">Name 1</h2>
+            <p class="text-xs text-gray-500">Position 1</p>
+          </header>
+        </article>
+        <article class="flex flex-col gap-2 p-1 bg-white rounded-lg shadow-md">
+          <div
+            class="relative flex justify-center items-center rounded-md overflow-hidden">
+            <!-- Main Profile Image -->
+            <img
+              src="./Asset/member-3.png"
+              alt="Profile"
+              class="object-cover w-[180px] h-[180px] sm:w-[240px] sm:h-[240px] rounded-md" />
+
+            <!-- Small Positioned Image -->
+            <img
+              src="./Asset/Link.png"
+              alt="Small Icon"
+              class="absolute top-[7px] right-[14px] w-[30px] h-[30px]" />
+          </div>
+
+          <header class="flex flex-col justify-center items-center">
+            <h2 class="text-sm font-bold">Name 1</h2>
+            <p class="text-xs text-gray-500">Position 1</p>
+          </header>
+        </article>
+        <article class="flex flex-col gap-2 p-1 bg-white rounded-lg shadow-md">
+          <div
+            class="relative flex justify-center items-center rounded-md overflow-hidden">
+            <!-- Main Profile Image -->
+            <img
+              src="./Asset/member-4.png"
+              alt="Profile"
+              class="object-cover w-[180px] h-[180px] sm:w-[240px] sm:h-[240px] rounded-md" />
+
+            <!-- Small Positioned Image -->
+            <img
+              src="./Asset/Link.png"
+              alt="Small Icon"
+              class="absolute top-[7px] right-[14px] w-[30px] h-[30px]" />
+          </div>
+
+          <header class="flex flex-col justify-center items-center">
+            <h2 class="text-sm font-bold">Name 1</h2>
+            <p class="text-xs text-gray-500">Position 1</p>
+          </header>
+        </article>
+        <article class="flex flex-col gap-2 p-1 bg-white rounded-lg shadow-md">
+          <div
+            class="relative flex justify-center items-center rounded-md overflow-hidden">
+            <!-- Main Profile Image -->
+            <img
+              src="./Asset/member-5.png"
+              alt="Profile"
+              class="object-cover w-[180px] h-[180px] sm:w-[240px] sm:h-[240px] rounded-md" />
+
+            <!-- Small Positioned Image -->
+            <img
+              src="./Asset/Link.png"
+              alt="Small Icon"
+              class="absolute top-[7px] right-[14px] w-[30px] h-[30px]" />
+          </div>
+
+          <header class="flex flex-col justify-center items-center">
+            <h2 class="text-sm font-bold">Name 1</h2>
+            <p class="text-xs text-gray-500">Position 1</p>
+          </header>
+        </article>
+      </section>
+    </div>
 
     <!-- Button for "View More" -->
-    <div class="flex justify-center mt-4">
-      <button id="view-more-btn" class="bg-green-500 text-white py-2 px-4 rounded-md hidden">
+    <div class="flex justify-center mt-4" data-aos="fade-up">
+      <button
+        id="view-more-btn"
+        class="bg-green-500 text-white py-2 px-4 rounded-md hidden">
         View More
       </button>
     </div>
-    
-        
+
     <!-- Popular searched in gurgaon -->
-    <section class="flex flex-col items-center text-xs font-medium leading-tight text-center text-zinc-900 my-container ">
+    <section
+      class="flex flex-col items-center text-xs font-medium leading-tight text-center text-zinc-900 my-container"
+      data-aos="fade-up">
       <h2
-      class="text-5xl font-semibold text-center leading-none text-zinc-900 max-md:max-w-full max-md:text-4xl my-title"
-    >
-    Popular searched in gurgaon real estate markets
-    </h2>
-    <p
-        class="text-xl leading-loose text-center text-zinc-900 max-md:max-w-full my-sub-title"
-      >
-      Discover the most in-demand properties and trends
+        class="text-5xl font-semibold text-center leading-none text-zinc-900 max-md:max-w-full max-md:text-4xl my-title">
+        Popular searched in gurgaon real estate markets
+      </h2>
+      <p
+        class="text-xl leading-loose text-center text-zinc-900 max-md:max-w-full">
+        Discover the most in-demand properties and trends
       </p>
-      
-        <!-- Container wrapping both rows as grid layout -->
-        <div class="grid grid-cols-5 gap-5 w-full max-md:grid-cols-2 max-md:gap-2 ">
-          <!-- Anchor tags for each popular category with hover, transition, and zoom effect -->
-          <a href="#ready-to-move" class="transform transition duration-300 ease-in-out hover:bg-green-400 hover:border-slate-900 hover:scale-105 px-8 py-3 border-b-2 border-green-400 bg-slate-900 text-white rounded-[50px] max-md:px-2 max-md:py-2 max-md:text-[10px] text-center">
-            Ready To Move
-          </a>
-          <a href="#affordable-homes" class="transform transition duration-300 ease-in-out hover:bg-green-400 hover:border-slate-900 hover:scale-105 px-8 py-3 border-b-2 border-green-400 bg-slate-900 text-white rounded-[50px] max-md:px-2 max-md:py-2 max-md:text-[10px] text-center">
-            Affordable Homes
-          </a>
-          <a href="#builder-floor" class="transform transition duration-300 ease-in-out hover:bg-green-400 hover:border-slate-900 hover:scale-105 px-8 py-3 border-b-2 border-green-400 bg-slate-900 text-white rounded-[50px] max-md:px-2 max-md:py-2 max-md:text-[10px] text-center">
-            Builder Floor
-          </a>
-          <a href="#under-construction" class="transform transition duration-300 ease-in-out hover:bg-green-400 hover:border-slate-900 hover:scale-105 px-8 py-3 border-b-2 border-green-400 bg-slate-900 text-white rounded-[50px] max-md:px-2 max-md:py-2 max-md:text-[10px] text-center">
-            Under Construction
-          </a>
-          <a href="#new-projects" class="transform transition duration-300 ease-in-out hover:bg-green-400 hover:border-slate-900 hover:scale-105 px-8 py-3 border-b-2 border-green-400 bg-slate-900 text-white rounded-[50px] max-md:px-2 max-md:py-2 max-md:text-[10px] text-center">
-            New Projects
-          </a>
-          <a href="#luxury-projects" class="transform transition duration-300 ease-in-out hover:bg-green-400 hover:border-slate-900 hover:scale-105 px-8 py-3 border-b-2 border-green-400 bg-slate-900 text-white rounded-[50px] max-md:px-2 max-md:py-2 max-md:text-[10px] text-center">
-            Luxury Projects
-          </a>
-          <a href="#upcoming-projects" class="transform transition duration-300 ease-in-out hover:bg-green-400 hover:border-slate-900 hover:scale-105 px-8 py-3 border-b-2 border-green-400 bg-slate-900 text-white rounded-[50px] max-md:px-2 max-md:py-2 max-md:text-[10px] text-center">
-            Upcoming Projects
-          </a>
-          <a href="#dwarka-expressway" class="transform transition duration-300 ease-in-out hover:bg-green-400 hover:border-slate-900 hover:scale-105 px-8 py-3 border-b-2 border-green-400 bg-slate-900 text-white rounded-[50px] max-md:px-2 max-md:py-2 max-md:text-[10px] text-center">
-            Dwarka Expressway Property
-          </a>
-          <a href="#golf-course-road" class="transform transition duration-300 ease-in-out hover:bg-green-400 hover:border-slate-900 hover:scale-105 px-8 py-3 border-b-2 border-green-400 bg-slate-900 text-white rounded-[50px] max-md:px-2 max-md:py-2 max-md:text-[10px] text-center">
-            Golf Course Road Property
-          </a>
-          <a href="#golf-course-extension" class="transform transition duration-300 ease-in-out hover:bg-green-400 hover:border-slate-900 hover:scale-105 px-8 py-3 border-b-2 border-green-400 bg-slate-900 text-white rounded-[50px] max-md:px-2 max-md:py-2 max-md:text-[10px] text-center">
-            Golf Course Extension
-          </a>
-        </div>
-      </section>
-        
+
+      <!-- Container wrapping both rows as grid layout -->
+      <div
+        class="grid grid-cols-4 gap-5 w-full max-md:grid-cols-2 max-md:gap-2 my-sub-title">
+        <!-- Anchor tags for each popular category with hover, transition, and zoom effect -->
+        <a
+          href="#ready-to-move"
+          class="transform transition duration-300 ease-in-out hover:bg-[--primary-color] hover:border-slate-900 hover:scale-105 px-8 py-3 border-b-2 border-green-400 bg-slate-900 text-white rounded-[50px] max-md:px-2 max-md:py-2 max-md:text-[10px] text-center">
+          Ready To Move
+        </a>
+        <a
+          href="#affordable-homes"
+          class="transform transition duration-300 ease-in-out hover:bg-[--primary-color] hover:border-slate-900 hover:scale-105 px-8 py-3 border-b-2 border-green-400 bg-slate-900 text-white rounded-[50px] max-md:px-2 max-md:py-2 max-md:text-[10px] text-center">
+          Affordable Homes
+        </a>
+        <a
+          href="#builder-floor"
+          class="transform transition duration-300 ease-in-out hover:bg-[--primary-color] hover:border-slate-900 hover:scale-105 px-8 py-3 border-b-2 border-green-400 bg-slate-900 text-white rounded-[50px] max-md:px-2 max-md:py-2 max-md:text-[10px] text-center">
+          Builder Floor
+        </a>
+        <a
+          href="#under-construction"
+          class="transform transition duration-300 ease-in-out hover:bg-[--primary-color] hover:border-slate-900 hover:scale-105 px-8 py-3 border-b-2 border-green-400 bg-slate-900 text-white rounded-[50px] max-md:px-2 max-md:py-2 max-md:text-[10px] text-center">
+          Under Construction
+        </a>
+        <a
+          href="#new-projects"
+          class="transform transition duration-300 ease-in-out hover:bg-[--primary-color] hover:border-slate-900 hover:scale-105 px-8 py-3 border-b-2 border-green-400 bg-slate-900 text-white rounded-[50px] max-md:px-2 max-md:py-2 max-md:text-[10px] text-center">
+          New Projects
+        </a>
+        <a
+          href="#luxury-projects"
+          class="transform transition duration-300 ease-in-out hover:bg-[--primary-color] hover:border-slate-900 hover:scale-105 px-8 py-3 border-b-2 border-green-400 bg-slate-900 text-white rounded-[50px] max-md:px-2 max-md:py-2 max-md:text-[10px] text-center">
+          Luxury Projects
+        </a>
+        <a
+          href="#upcoming-projects"
+          class="transform transition duration-300 ease-in-out hover:bg-[--primary-color] hover:border-slate-900 hover:scale-105 px-8 py-3 border-b-2 border-green-400 bg-slate-900 text-white rounded-[50px] max-md:px-2 max-md:py-2 max-md:text-[10px] text-center">
+          Upcoming Projects
+        </a>
+        <a
+          href="#dwarka-expressway"
+          class="transform transition duration-300 ease-in-out hover:bg-[--primary-color] hover:border-slate-900 hover:scale-105 px-8 py-3 border-b-2 border-green-400 bg-slate-900 text-white rounded-[50px] max-md:px-2 max-md:py-2 max-md:text-[10px] text-center">
+          Dwarka Expressway Property
+        </a>
+      </div>
+    </section>
 
     <!-- News -->
 
-    <section class="flex overflow-hidden flex-col items-center my-container">
+    <section class="flex flex-col items-center my-container" data-aos="fade-up">
       <h2 class="text-5xl font-semibold leading-none text-center text-zinc-900 max-md:max-w-full max-md:text-4xl my-title">
           Recent articles & news
       </h2>
-      <p class=" ml-3.5 text-xl leading-loose text-center text-zinc-900 max-md:max-w-full my-sub-title">
-        Stay informed with the latest insights and updates in real estate
+      <p class="ml-3.5 text-xl leading-loose text-center text-zinc-900 max-md:max-w-full my-sub-title">
+          Stay informed with the latest insights and updates in real estate
       </p>
   
-      <!-- Carousel Container -->
-      <div class="news-carousel-container relative mt-10 w-full max-w-full overflow-hidden">
-          <!-- Left Button -->
-          <button id="news-prev" class="news-carousel-button absolute left-0 top-1/2 transform -translate-y-1/2  text-white p-2 rounded-full" style="background-color: var(--primary-color);width: 40px;height: 40px; z-index: 99;">
-              &#10094;
-          </button>
-  
-          <div class="news-carousel-inner flex transition-transform duration-300 ease-in-out ">
-            <!-- Repeat article cards here -->
-            <article class="news-carousel-card flex flex-col w-full sm:w-1/2 md:min-w-[500px] md:w-1/3 p-4">
-                <div class="flex flex-col items-center text-center bg-white rounded-2xl border border-gray-200 p-5">
-                    <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/69ee73ddb1bfe9a85c27df720a49ec1d3c8cba95e5b6ba462140ffb01fe941e3?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c" alt="Housing market changes illustration" class="object-contain w-full h-60 rounded-lg">
-                    <div class="flex gap-6 mt-5 text-neutral-700">
-                        <a href="#" class="hover:underline">Apartment</a>
-                        <time datetime="2024-03-19" class="grow shrink w-[88px]">March 19, 2024</time>
-                    </div>
-                    <h3 class="mt-4 text-lg">Housing Markets That Changed the Most This Week</h3>
-                    <a href="#" class="flex items-center mt-4 hover:underline text-blue-600">
-                        <span>Read More</span>
-                    </a>
-                </div>
-            </article>
-        
-            <article class="news-carousel-card flex flex-col w-full sm:w-1/2 md:min-w-[500px] md:w-1/3 p-4">
-                <div class="flex flex-col items-center text-center bg-white rounded-2xl border border-gray-200 p-5">
-                    <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/69ee73ddb1bfe9a85c27df720a49ec1d3c8cba95e5b6ba462140ffb01fe941e3?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c" alt="Housing market changes illustration" class="object-contain w-full h-60 rounded-lg">
-                    <div class="flex gap-6 mt-5 text-neutral-700">
-                        <a href="#" class="hover:underline">Apartment</a>
-                        <time datetime="2024-03-19" class="grow shrink w-[88px]">March 19, 2024</time>
-                    </div>
-                    <h3 class="mt-4 text-lg">Housing Markets That Changed the Most This Week</h3>
-                    <a href="#" class="flex items-center mt-4 hover:underline text-blue-600">
-                        <span>Read More</span>
-                    </a>
-                </div>
-            </article>
-        
-            <article class="news-carousel-card flex flex-col w-full sm:w-1/2 md:min-w-[500px] md:w-1/3 p-4">
-                <div class="flex flex-col items-center text-center bg-white rounded-2xl border border-gray-200 p-5">
-                    <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/69ee73ddb1bfe9a85c27df720a49ec1d3c8cba95e5b6ba462140ffb01fe941e3?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c" alt="Housing market changes illustration" class="object-contain w-full h-60 rounded-lg">
-                    <div class="flex gap-6 mt-5 text-neutral-700">
-                        <a href="#" class="hover:underline">Apartment</a>
-                        <time datetime="2024-03-19" class="grow shrink w-[88px]">March 19, 2024</time>
-                    </div>
-                    <h3 class="mt-4 text-lg">Housing Markets That Changed the Most This Week</h3>
-                    <a href="#" class="flex items-center mt-4 hover:underline text-blue-600">
-                        <span>Read More</span>
-                    </a>
-                </div>
-            </article>
-
-            <article class="news-carousel-card flex flex-col w-full sm:w-1/2 md:min-w-[500px] md:w-1/3 p-4">
+      <div class="news-carousel-container relative mt-10 w-full max-w-full owl-carousel">
+          <article class="news-carousel-card flex flex-col p-4 w-full">
               <div class="flex flex-col items-center text-center bg-white rounded-2xl border border-gray-200 p-5">
-                  <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/69ee73ddb1bfe9a85c27df720a49ec1d3c8cba95e5b6ba462140ffb01fe941e3?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c" alt="Housing market changes illustration" class="object-contain w-full h-60 rounded-lg">
+                  <img loading="lazy" src="./Asset/news-1.webp" alt="Housing market changes illustration" class="object-contain w-full h-60 rounded-lg">
                   <div class="flex gap-6 mt-5 text-neutral-700">
                       <a href="#" class="hover:underline">Apartment</a>
                       <time datetime="2024-03-19" class="grow shrink w-[88px]">March 19, 2024</time>
@@ -1137,10 +1296,10 @@
                   </a>
               </div>
           </article>
-      
-          <article class="news-carousel-card flex flex-col w-full sm:w-1/2 md:min-w-[500px] md:w-1/3 p-4">
+          <!-- Repeat the article elements as needed -->
+          <article class="news-carousel-card flex flex-col p-4 w-full">
               <div class="flex flex-col items-center text-center bg-white rounded-2xl border border-gray-200 p-5">
-                  <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/69ee73ddb1bfe9a85c27df720a49ec1d3c8cba95e5b6ba462140ffb01fe941e3?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c" alt="Housing market changes illustration" class="object-contain w-full h-60 rounded-lg">
+                  <img loading="lazy" src="./Asset/news-1.webp" alt="Housing market changes illustration" class="object-contain w-full h-60 rounded-lg">
                   <div class="flex gap-6 mt-5 text-neutral-700">
                       <a href="#" class="hover:underline">Apartment</a>
                       <time datetime="2024-03-19" class="grow shrink w-[88px]">March 19, 2024</time>
@@ -1151,59 +1310,103 @@
                   </a>
               </div>
           </article>
-      
-          <article class="news-carousel-card flex flex-col w-full sm:w-1/2 md:min-w-[500px] md:w-1/3 p-4">
-              <div class="flex flex-col items-center text-center bg-white rounded-2xl border border-gray-200 p-5">
-                  <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/69ee73ddb1bfe9a85c27df720a49ec1d3c8cba95e5b6ba462140ffb01fe941e3?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c" alt="Housing market changes illustration" class="object-contain w-full h-60 rounded-lg">
-                  <div class="flex gap-6 mt-5 text-neutral-700">
-                      <a href="#" class="hover:underline">Apartment</a>
-                      <time datetime="2024-03-19" class="grow shrink w-[88px]">March 19, 2024</time>
-                  </div>
-                  <h3 class="mt-4 text-lg">Housing Markets That Changed the Most This Week</h3>
-                  <a href="#" class="flex items-center mt-4 hover:underline text-blue-600">
-                      <span>Read More</span>
-                  </a>
+          <article class="news-carousel-card flex flex-col p-4 w-full">
+            <div class="flex flex-col items-center text-center bg-white rounded-2xl border border-gray-200 p-5">
+                <img loading="lazy" src="./Asset/news-1.webp" alt="Housing market changes illustration" class="object-contain w-full h-60 rounded-lg">
+                <div class="flex gap-6 mt-5 text-neutral-700">
+                    <a href="#" class="hover:underline">Apartment</a>
+                    <time datetime="2024-03-19" class="grow shrink w-[88px]">March 19, 2024</time>
+                </div>
+                <h3 class="mt-4 text-lg">Housing Markets That Changed the Most This Week</h3>
+                <a href="#" class="flex items-center mt-4 hover:underline text-blue-600">
+                    <span>Read More</span>
+                </a>
+            </div>
+        </article>
+        <!-- Repeat the article elements as needed -->
+        <article class="news-carousel-card flex flex-col p-4 w-full">
+            <div class="flex flex-col items-center text-center bg-white rounded-2xl border border-gray-200 p-5">
+                <img loading="lazy" src="./Asset/news-1.webp" alt="Housing market changes illustration" class="object-contain w-full h-60 rounded-lg">
+                <div class="flex gap-6 mt-5 text-neutral-700">
+                    <a href="#" class="hover:underline">Apartment</a>
+                    <time datetime="2024-03-19" class="grow shrink w-[88px]">March 19, 2024</time>
+                </div>
+                <h3 class="mt-4 text-lg">Housing Markets That Changed the Most This Week</h3>
+                <a href="#" class="flex items-center mt-4 hover:underline text-blue-600">
+                    <span>Read More</span>
+                </a>
+            </div>
+        </article>
+        <article class="news-carousel-card flex flex-col p-4 w-full">
+          <div class="flex flex-col items-center text-center bg-white rounded-2xl border border-gray-200 p-5">
+              <img loading="lazy" src="./Asset/news-1.webp" alt="Housing market changes illustration" class="object-contain w-full h-60 rounded-lg">
+              <div class="flex gap-6 mt-5 text-neutral-700">
+                  <a href="#" class="hover:underline">Apartment</a>
+                  <time datetime="2024-03-19" class="grow shrink w-[88px]">March 19, 2024</time>
               </div>
-          </article>
-        
-            <!-- Add more articles as needed -->
-        
-        </div>
-        
-        
-  
-          <!-- Right Button -->
-          <button id="news-next" class="news-carousel-button absolute right-0 top-1/2 transform -translate-y-1/2 text-white p-2 rounded-full" style="background-color: var(--primary-color);width: 40px;height: 40px; z-index: 99;">
-              &#10095;
-          </button>
+              <h3 class="mt-4 text-lg">Housing Markets That Changed the Most This Week</h3>
+              <a href="#" class="flex items-center mt-4 hover:underline text-blue-600">
+                  <span>Read More</span>
+              </a>
+          </div>
+      </article>
+      <!-- Repeat the article elements as needed -->
+      <article class="news-carousel-card flex flex-col p-4 w-full">
+          <div class="flex flex-col items-center text-center bg-white rounded-2xl border border-gray-200 p-5">
+              <img loading="lazy" src="./Asset/news-1.webp" alt="Housing market changes illustration" class="object-contain w-full h-60 rounded-lg">
+              <div class="flex gap-6 mt-5 text-neutral-700">
+                  <a href="#" class="hover:underline">Apartment</a>
+                  <time datetime="2024-03-19" class="grow shrink w-[88px]">March 19, 2024</time>
+              </div>
+              <h3 class="mt-4 text-lg">Housing Markets That Changed the Most This Week</h3>
+              <a href="#" class="flex items-center mt-4 hover:underline text-blue-600">
+                  <span>Read More</span>
+              </a>
+          </div>
+      </article>
+          <!-- Add more articles similarly -->
       </div>
+  
+      <!-- Navigation Buttons -->
+      <!-- <div class="absolute inset-y-0 flex justify-between w-full top-1/2 transform -translate-y-1/2 z-10">
+        <button class="owl-prev bg-blue-500 text-white rounded-full w-10 h-10 flex items-center justify-center hover:bg-blue-600 transition duration-300" aria-label="Previous">
+            &#10094;
+        </button>
+        <button class="owl-next bg-blue-500 text-white rounded-full w-10 h-10 flex items-center justify-center hover:bg-blue-600 transition duration-300" aria-label="Next">
+            &#10095;
+        </button>
+    </div> -->
   </section>
+  
+  
+  
   
 
     <!-- Have more questions -->
     <section
       class="flex flex-col text-zinc-900 max-w-full md:px-20 lg:px-32 my-container"
-    >
-    <h2 class="text-5xl font-semibold leading-none text-center text-zinc-900 max-md:max-w-full max-md:text-4xl my-title">
-      Have more question  </h2>
-  <p class="mt-8 ml-3.5 text-xl leading-loose text-center text-zinc-900 max-md:max-w-full my-sub-title">
-      Stay informed with the latest insights and updates in real estate
-  </p>
+      data-aos="fade-up">
+      <h2
+        class="text-5xl font-semibold leading-none text-center text-zinc-900 max-md:max-w-full max-md:text-4xl my-title">
+        Have more question
+      </h2>
+      <p
+        class="mt-8 ml-3.5 text-xl leading-loose text-center text-zinc-900 max-md:max-w-full my-sub-title">
+        Quick Answers to Guide Your Journey
+      </p>
 
       <!-- Accordion Item -->
       <article class="flex flex-col mt-4 w-full rounded">
         <button
           class="flex justify-between items-center px-5 md:px-10 pt-11 pb-1 text-lg md:text-xl font-medium leading-none bg-stone-50 w-full text-left accordion-btn"
-          aria-expanded="false"
-        >
+          aria-expanded="false">
           <span class="w-11/12">How can I schedule a consultation?</span>
           <span class="accordion-icon w-1/12 text-right">+</span>
         </button>
         <div
           role="region"
           aria-label="Consultation scheduling information"
-          class="px-5 md:px-10 pt-7 pb-12 text-base md:text-lg leading-7 bg-stone-50 accordion-content hidden"
-        >
+          class="px-5 md:px-10 pt-7 pb-12 text-base md:text-lg leading-7 bg-stone-50 accordion-content hidden">
           You can schedule a consultation by visiting our website and filling
           out the contact form, or by calling our office directly. Our team will
           get in touch with you to set up a convenient time for your
@@ -1215,8 +1418,7 @@
       <article class="flex flex-col mt-4 w-full rounded">
         <button
           class="flex justify-between items-center px-5 md:px-10 pt-10 pb-1 text-lg md:text-xl font-medium leading-none bg-stone-50 w-full text-left accordion-btn"
-          aria-expanded="false"
-        >
+          aria-expanded="false">
           <span class="w-11/12"
             >What types of properties do you specialize in?</span
           >
@@ -1225,8 +1427,7 @@
         <div
           role="region"
           aria-label="Property specialization information"
-          class="px-5 md:px-10 pt-7 pb-12 text-base md:text-lg leading-7 bg-stone-50 accordion-content hidden"
-        >
+          class="px-5 md:px-10 pt-7 pb-12 text-base md:text-lg leading-7 bg-stone-50 accordion-content hidden">
           We specialize in residential, commercial, and industrial properties,
           helping clients buy, sell, and invest across a variety of real estate
           sectors.
@@ -1237,8 +1438,7 @@
       <article class="flex flex-col mt-4 w-full rounded">
         <button
           class="flex justify-between items-center px-5 md:px-10 pt-10 pb-1 text-lg md:text-xl font-medium leading-none bg-stone-50 w-full text-left accordion-btn"
-          aria-expanded="false"
-        >
+          aria-expanded="false">
           <span class="w-11/12"
             >How do I know if a property is a good investment?</span
           >
@@ -1247,8 +1447,7 @@
         <div
           role="region"
           aria-label="Investment information"
-          class="px-5 md:px-10 pt-7 pb-12 text-base md:text-lg leading-7 bg-stone-50 accordion-content hidden"
-        >
+          class="px-5 md:px-10 pt-7 pb-12 text-base md:text-lg leading-7 bg-stone-50 accordion-content hidden">
           We provide market analysis and due diligence reports to help you
           assess the value and potential of any property you're interested in.
         </div>
@@ -1258,8 +1457,7 @@
       <article class="flex flex-col mt-4 w-full rounded">
         <button
           class="flex justify-between items-center px-5 md:px-10 pt-10 pb-1 text-lg md:text-xl font-medium leading-none bg-stone-50 w-full text-left accordion-btn"
-          aria-expanded="false"
-        >
+          aria-expanded="false">
           <span class="w-11/12"
             >Can you help with property financing options?</span
           >
@@ -1268,8 +1466,7 @@
         <div
           role="region"
           aria-label="Financing options information"
-          class="px-5 md:px-10 pt-7 pb-12 text-base md:text-lg leading-7 bg-stone-50 accordion-content hidden"
-        >
+          class="px-5 md:px-10 pt-7 pb-12 text-base md:text-lg leading-7 bg-stone-50 accordion-content hidden">
           Yes, we work with a network of lenders to help you find the best
           financing options for your property purchase.
         </div>
@@ -1279,16 +1476,14 @@
       <article class="flex flex-col mt-4 w-full rounded">
         <button
           class="flex justify-between items-center px-5 md:px-10 pt-10 pb-1 text-lg md:text-xl font-medium leading-none bg-stone-50 w-full text-left accordion-btn"
-          aria-expanded="false"
-        >
+          aria-expanded="false">
           <span class="w-11/12">What services does PropGrow offer?</span>
           <span class="accordion-icon w-1/12 text-right">+</span>
         </button>
         <div
           role="region"
           aria-label="PropGrow services information"
-          class="px-5 md:px-10 pt-7 pb-12 text-base md:text-lg leading-7 bg-stone-50 accordion-content hidden"
-        >
+          class="px-5 md:px-10 pt-7 pb-12 text-base md:text-lg leading-7 bg-stone-50 accordion-content hidden">
           We offer a range of services including property management, real
           estate consulting, and investment analysis, tailored to meet your
           needs.
@@ -1296,103 +1491,144 @@
       </article>
     </section>
 
-        <footer class="flex flex-col items-center mt-10 px-10 py-8 rounded-t-3xl bg-slate-900 max-md:px-4 w-full ">
-          <!-- Top Section: Logo and Social Links -->
-          <section class="flex flex-wrap gap-4 justify-between w-full text-sm text-white mb-6">
-              <!-- Logo -->
-              <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/8cae640201dce524739941c095d8fa4abe11c996201ec72e722d7e70f7010997?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c" alt="PropGrow Logo" class="w-36 max-w-full object-contain shrink-0" />
-      
-              <!-- Social Media Links -->
-              <nav class="flex gap-3 items-center">
-                  <h2 class="text-base font-medium">Follow Us</h2>
-                  <a href="#" class="text-center" aria-label="Facebook">FB</a>
-                  <a href="#" class="text-center" aria-label="Twitter">TW</a>
-                  <a href="#" class="text-center" aria-label="Instagram">IG</a>
-                  <a href="#" class="text-center" aria-label="LinkedIn">IN</a>
-              </nav>
-          </section>
-      
-          <!-- Divider -->
-          <hr class="w-full h-px bg-white bg-opacity-10 my-6" />
-      
-          <!-- Main Content Section -->
-          <section class="flex flex-wrap gap-4 justify-between w-full text-white text-xs">
-              <!-- Subscribe Section -->
-              <section class="flex flex-col">
-                  <h2 class="text-base font-medium text-white text-opacity-50">Subscribe</h2>
-                  <form class="flex gap-3 mt-3 border-b border-white border-opacity-10">
-                      <input type="email" placeholder="Your e-mail" class="bg-transparent text-white placeholder-white focus:outline-none" />
-                      <button type="submit" class="px-3 py-1 bg-white bg-opacity-10 rounded-full">Send</button>
-                  </form>
-                  <p class="mt-3 text-xs">Subscribe to our newsletter to receive our weekly feed.</p>
-              </section>
-      
-              <!-- Discover Section -->
-              <nav class="flex flex-col">
-                  <h2 class="text-base font-medium text-white text-opacity-50">Discover</h2>
-                  <a href="#" class="mt-2">Golf Course Road</a>
-                  <a href="#" class="mt-2">Dwarka Expressway</a>
-                  <a href="#" class="mt-2">SPR Chowk</a>
-                  <a href="#" class="mt-2">Vatika Chowk</a>
-                  <a href="#" class="mt-2">Los Angeles</a>
-                  <a href="#" class="mt-2">San Diego</a>
-              </nav>
-      
-              <!-- Quick Links Section -->
-              <nav class="flex flex-col">
-                  <h2 class="text-base font-medium text-white text-opacity-50">Quick Links</h2>
-                  <a href="#" class="mt-2">About</a>
-                  <a href="#" class="mt-2">Contact</a>
-                  <a href="#" class="mt-2">FAQ's</a>
-                  <a href="#" class="mt-2">Blog</a>
-                  <a href="#" class="mt-2">Pricing Plans</a>
-                  <a href="#" class="mt-2">Privacy Policy</a>
-                  <a href="#" class="mt-2">Terms & Conditions</a>
-              </nav>
-      
-              <!-- Contact Us Section -->
-              <section class="flex flex-col">
-                  <h2 class="text-base font-medium text-white text-opacity-50">Contact Us</h2>
-                  <address class="mt-3 not-italic">
-                      <a href="mailto:hi@justhome.com">hi@justhome.com</a><br />
-                      <a href="tel:+1234567890">(123) 456-7890</a>
-                  </address>
-              </section>
-      
-              <!-- Address Section -->
-              <section class="flex flex-col">
-                  <h2 class="text-base font-medium text-white text-opacity-50">Our Address</h2>
-                  <p class="mt-3">99 Fifth Avenue, 3rd Floor<br />San Francisco, CA 1980</p>
-              </section>
-          </section>
-      
-          <!-- Divider -->
-          <hr class="w-full h-px bg-white bg-opacity-10 my-6" />
-      
-          <!-- Bottom Section: Copyright and Links -->
-          <section class="flex justify-between w-full text-xs text-stone-300">
-              <p>© 2024 PropGrow All Rights Reserved.</p>
-              <nav class="flex gap-3">
-                  <a href="#">Privacy Policy</a>
-                  <a href="#">Terms & Conditions</a>
-              </nav>
-          </section>
-      </footer>
-      
+    <footer
+      class="flex flex-col items-center mt-10 px-10 py-8 rounded-t-3xl bg-slate-900 max-md:px-4 w-full">
+      <!-- Top Section: Logo and Social Links -->
+      <section
+        class="flex flex-wrap gap-4 justify-between w-full text-sm text-white mb-6">
+        <!-- Logo -->
+        <img
+          src="https://cdn.builder.io/api/v1/image/assets/TEMP/8cae640201dce524739941c095d8fa4abe11c996201ec72e722d7e70f7010997?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c"
+          alt="PropGrow Logo"
+          class="w-36 max-w-full object-contain shrink-0" />
+
+        <!-- Social Media Links -->
+        <nav class="flex gap-3 items-center">
+          <h2 class="text-base font-medium">Follow Us</h2>
+          <a href="#" class="text-center" aria-label="Facebook">FB</a>
+          <a href="#" class="text-center" aria-label="Twitter">TW</a>
+          <a href="#" class="text-center" aria-label="Instagram">IG</a>
+          <a href="#" class="text-center" aria-label="LinkedIn">IN</a>
+        </nav>
+      </section>
+
+      <!-- Divider -->
+      <hr class="w-full h-px bg-white bg-opacity-10 my-6" />
+
+      <!-- Main Content Section -->
+      <section
+        class="flex flex-wrap gap-4 justify-between w-full text-white text-xs">
+        <!-- Subscribe Section -->
+        <section class="flex flex-col">
+          <h2 class="text-base font-medium text-white text-opacity-50">
+            Subscribe
+          </h2>
+          <form
+            class="flex justify-between mt-3 border-b border-white border-opacity-10">
+            <input
+              type="email"
+              placeholder="Your e-mail"
+              class="bg-transparent text-white placeholder-white focus:outline-none" />
+            <button
+              type="submit"
+              class="px-3 py-1 bg-white bg-opacity-10 rounded-full">
+              Send
+            </button>
+          </form>
+          <p class="mt-3 text-xs">
+            Subscribe to our newsletter to receive our weekly feed.
+          </p>
+        </section>
+
+        <!-- Discover Section -->
+        <nav class="flex flex-col">
+          <h2 class="text-base font-medium text-white text-opacity-50">
+            Discover
+          </h2>
+          <a href="#" class="mt-2">Golf Course Road</a>
+          <a href="#" class="mt-2">Dwarka Expressway</a>
+          <a href="#" class="mt-2">SPR Chowk</a>
+          <a href="#" class="mt-2">Vatika Chowk</a>
+          <a href="#" class="mt-2">Los Angeles</a>
+          <a href="#" class="mt-2">San Diego</a>
+        </nav>
+
+        <!-- Quick Links Section -->
+        <nav class="flex flex-col">
+          <h2 class="text-base font-medium text-white text-opacity-50">
+            Quick Links
+          </h2>
+          <a href="#" class="mt-2">About</a>
+          <a href="#" class="mt-2">Contact</a>
+          <a href="#" class="mt-2">FAQ's</a>
+          <a href="#" class="mt-2">Blog</a>
+          <a href="#" class="mt-2">Pricing Plans</a>
+          <a href="#" class="mt-2">Privacy Policy</a>
+          <a href="#" class="mt-2">Terms & Conditions</a>
+        </nav>
+
+        <!-- Contact Us Section -->
+        <section class="flex flex-col">
+          <h2 class="text-base font-medium text-white text-opacity-50">
+            Contact Us
+          </h2>
+          <address class="mt-3 not-italic">
+            <a href="mailto:hi@justhome.com">hi@justhome.com</a><br />
+            <a href="tel:+1234567890">(123) 456-7890</a>
+          </address>
+        </section>
+
+        <!-- Address Section -->
+        <section class="flex flex-col">
+          <h2 class="text-base font-medium text-white text-opacity-50">
+            Our Address
+          </h2>
+          <p class="mt-3">
+            99 Fifth Avenue, 3rd Floor<br />San Francisco, CA 1980
+          </p>
+        </section>
+      </section>
+
+      <!-- Divider -->
+      <hr class="w-full h-px bg-white bg-opacity-10 my-6" />
+
+      <!-- Bottom Section: Copyright and Links -->
+      <section class="flex justify-between w-full text-xs text-stone-300">
+        <p>© 2024 PropGrow All Rights Reserved.</p>
+        <nav class="flex gap-3">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms & Conditions</a>
+        </nav>
+      </section>
+    </footer>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+    <script>
+      AOS.init({
+        offset: 300,
+        duration: 800,
+      });
+    </script>
+
+    <!-- Owl Carousel JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
     <script>
       // -------------------------------------------------------------
       const menuBtn = document.getElementById("menu-btn");
-const mobileMenu = document.getElementById("mobile-menu");
-const hamburgerIcon = document.getElementById("hamburger-icon");
-const closeIcon = document.getElementById("close-icon");
+      const mobileMenu = document.getElementById("mobile-menu");
+      const hamburgerIcon = document.getElementById("hamburger-icon");
+      const closeIcon = document.getElementById("close-icon");
 
-menuBtn.addEventListener("click", () => {
-  mobileMenu.classList.toggle("hidden");
+      menuBtn.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
 
-  // Toggle between hamburger and close icon
-  hamburgerIcon.classList.toggle("hidden");
-  closeIcon.classList.toggle("hidden");
-});
+        // Toggle between hamburger and close icon
+        hamburgerIcon.classList.toggle("hidden");
+        closeIcon.classList.toggle("hidden");
+      });
 
       // Acoordian section -------------------------------------------------
       document.querySelectorAll(".accordion-btn").forEach((button) => {
@@ -1417,99 +1653,82 @@ menuBtn.addEventListener("click", () => {
       });
       // ---------------------------------------------------------------------------------
       //   latest launch
-      document.addEventListener("DOMContentLoaded", function () {
-  const carousel = document.querySelector(".property-carousel");
-  const items = document.querySelectorAll(".property-carousel-item");
-  const totalItems = items.length;
-  const itemWidth = items[0].clientWidth + 16; // Width plus margin
-  let propcurrentIndex = 0;
+      $(document).ready(function () {
+        const owl = $(".property-carousel");
 
-  // Move to the next item
-  function showNext() {
-    propcurrentIndex = (propcurrentIndex + 1) % totalItems;
-    updatelatestCarousel();
-  }
+        // Initialize Owl Carousel
+        owl.owlCarousel({
+          items: 4, // Number of items to show at once
+          loop: true,
+          margin: 16,
+          autoplay: true,
+          autoplayTimeout: 3000,
+          autoplayHoverPause: true,
+          nav: false,
+          responsive: {
+            0: { items: 1 },
+            640: { items: 2 },
+            768: { items: 3 },
+            1024: { items: 4 },
+          },
+        });
 
-  // Move to the previous item
-  function showPrev() {
-    propcurrentIndex = (propcurrentIndex - 1 + totalItems) % totalItems;
-    updatelatestCarousel();
-  }
+        // Custom navigation buttons
+        $("#property-next").click(function () {
+          owl.trigger("next.owl.carousel");
+        });
 
-  // Update carousel position based on currentIndex
-  function updatelatestCarousel() {
-    if (propcurrentIndex === 0) {
-      carousel.style.transition = "none"; // Remove transition on reset
-    } else {
-      carousel.style.transition = "transform 0.5s ease"; // Smooth transition
-    }
-    carousel.style.transform = `translateX(-${itemWidth * propcurrentIndex}px)`;
-  }
-
-  // Automatic slide change every 3 seconds
-  let interval = setInterval(showNext, 3000);
-
-  // Event listeners for arrows
-  document.getElementById("property-next").addEventListener("click", function () {
-    clearInterval(interval); // Stop auto slide when clicked
-    showNext();
-    interval = setInterval(showNext, 3000); // Resume auto slide
-  });
-
-  document.getElementById("property-prev").addEventListener("click", function () {
-    clearInterval(interval);
-    showPrev();
-    interval = setInterval(showNext, 3000);
-  });
-});
+        $("#property-prev").click(function () {
+          owl.trigger("prev.owl.carousel");
+        });
+      });
 
       // --------------------------------------------------------------------team
       document.addEventListener("DOMContentLoaded", () => {
-  const cardsContainer = document.getElementById("testimonial-cards");
-  const viewMoreBtn = document.getElementById("view-more-btn");
-  const cardElements = Array.from(cardsContainer.children);
-  let isExpanded = false;
+        const cardsContainer = document.getElementById("testimonial-cards");
+        const viewMoreBtn = document.getElementById("view-more-btn");
+        const cardElements = Array.from(cardsContainer.children);
+        let isExpanded = false;
 
-  const setVisibility = () => {
-    const screenWidth = window.innerWidth;
+        const setVisibility = () => {
+          const screenWidth = window.innerWidth;
 
-    // Clear existing styles
-    cardElements.forEach(card => {
-      card.style.display = ""; // Reset display property
-    });
-    cardsContainer.classList.remove("grid-cols-2", "grid-cols-5");
+          // Clear existing styles
+          cardElements.forEach((card) => {
+            card.style.display = ""; // Reset display property
+          });
+          cardsContainer.classList.remove("grid-cols-2", "grid-cols-5");
 
-    if (screenWidth > 640) {
-      // For screens larger than 640px, show all articles
-      cardElements.forEach(card => (card.style.display = "block"));
-      cardsContainer.classList.add("grid-cols-5"); // Use 5 columns
-      viewMoreBtn.style.display = "none"; // Hide button
-    } else {
-      // For screens 640px or smaller, show only two articles initially
-      const visibleCount = isExpanded ? cardElements.length : 2;
-      cardElements.forEach((card, index) => {
-        card.style.display = index < visibleCount ? "block" : "none";
+          if (screenWidth > 640) {
+            // For screens larger than 640px, show all articles
+            cardElements.forEach((card) => (card.style.display = "block"));
+            cardsContainer.classList.add("grid-cols-5"); // Use 5 columns
+            viewMoreBtn.style.display = "none"; // Hide button
+          } else {
+            // For screens 640px or smaller, show only two articles initially
+            const visibleCount = isExpanded ? cardElements.length : 2;
+            cardElements.forEach((card, index) => {
+              card.style.display = index < visibleCount ? "block" : "none";
+            });
+            cardsContainer.classList.add("grid-cols-2"); // Use 2 columns
+            viewMoreBtn.style.display = "block"; // Show button
+            viewMoreBtn.textContent = isExpanded ? "View Less" : "View More"; // Update button text
+          }
+        };
+
+        // Toggle visibility of extra cards
+        viewMoreBtn.addEventListener("click", () => {
+          isExpanded = !isExpanded; // Toggle the expansion state
+          setVisibility(); // Update visibility based on the new state
+        });
+
+        // Adjust visibility on window resize
+        window.addEventListener("resize", setVisibility);
+
+        // Initial setup
+        setVisibility(); // Call the function to set the initial visibility state
       });
-      cardsContainer.classList.add("grid-cols-2"); // Use 2 columns
-      viewMoreBtn.style.display = "block"; // Show button
-      viewMoreBtn.textContent = isExpanded ? "View Less" : "View More"; // Update button text
-    }
-  };
 
-  // Toggle visibility of extra cards
-  viewMoreBtn.addEventListener("click", () => {
-    isExpanded = !isExpanded; // Toggle the expansion state
-    setVisibility(); // Update visibility based on the new state
-  });
-
-  // Adjust visibility on window resize
-  window.addEventListener("resize", setVisibility);
-
-  // Initial setup
-  setVisibility(); // Call the function to set the initial visibility state
-});
-   
-      
       // -----------------------rating
       document.addEventListener("DOMContentLoaded", () => {
         const carousel = document.querySelector(".review-carousel");
@@ -1574,88 +1793,66 @@ menuBtn.addEventListener("click", () => {
           });
         });
       });
-    //   --------------------------------------------------------------news
-    document.addEventListener('DOMContentLoaded', () => {
-      const carouselInner = document.querySelector('.news-carousel-inner');
-const nextButton = document.getElementById('news-next');
-const prevButton = document.getElementById('news-prev');
+      //   --------------------------------------------------------------news
+      $(document).ready(function(){
+    const owl = $('.owl-carousel');
 
-let newscurrentIndex = 0;
-let visibleItems = getVisibleItems();
-let itemWidth = carouselInner.firstElementChild.offsetWidth;
-const totalItems = carouselInner.children.length;
+    owl.owlCarousel({
+        loop: true,
+        margin: 10,
+        nav: false, // Set to false, since we are using custom buttons
+        autoplay: true,
+        autoplayTimeout: 3000, // Adjust time for autoplay
+        responsive: {
+            0: {
+                items: 1
+            },
+            640: {
+                items: 2
+            },
+            768: {
+                items: 3
+            },
+            1024: {
+                items: 4
+            }
+        }
+    });
 
-function getVisibleItems() {
-    const screenWidth = window.innerWidth;
-    if (screenWidth <= 500) return 1;
-    if (screenWidth <= 900) return 2;
-    return 3;
-}
+    // Custom navigation button events
+    $('.owl-prev').click(function() {
+        owl.trigger('prev.owl.carousel');
+    });
 
-function updateCarousel() {
-    itemWidth = carouselInner.firstElementChild.offsetWidth;
-    carouselInner.style.transform = `translateX(-${newscurrentIndex * itemWidth}px)`;
-}
-
-function slideNext() {
-    newscurrentIndex++;
-    
-    if (newscurrentIndex >= totalItems) {
-        newscurrentIndex = 0; // Loop back to the first item
-    }
-    
-    updateCarousel();
-}
-
-function slidePrev() {
-    newscurrentIndex--;
-
-    if (newscurrentIndex < 0) {
-        newscurrentIndex = totalItems - 1; // Loop back to the last item
-    }
-
-    updateCarousel();
-}
-
-function handleResize() {
-    visibleItems = getVisibleItems();
-    newscurrentIndex = 0; // Reset index on resize to start from the beginning
-    updateCarousel();
-}
-
-nextButton.addEventListener('click', slideNext);
-prevButton.addEventListener('click', slidePrev);
-window.addEventListener('resize', handleResize);
-
-document.addEventListener('DOMContentLoaded', () => {
-    handleResize();
-});
-
+    $('.owl-next').click(function() {
+        owl.trigger('next.owl.carousel');
+    });
 });
 
 
-//  --------------------------------------------------------------------invest
 
-let investcurrentIndex = 0;
-    const totalSlides = 3; // Adjust according to the number of articles
-    const carouselItems = document.querySelector('.invest-carousel-items');
+      //  --------------------------------------------------------------------invest
 
-    function updateCarousel() {
+      let investcurrentIndex = 0;
+      const totalSlides = 3; // Adjust according to the number of articles
+      const carouselItems = document.querySelector(".invest-carousel-items");
+
+      function updateCarousel() {
         // Update the transform property to show the current slide
         const offset = investcurrentIndex * -100;
         carouselItems.style.transform = `translateX(${offset}%)`;
-    }
+      }
 
-    function nextSlide() {
-      investcurrentIndex = (investcurrentIndex + 1) % totalSlides;
+      function nextSlide() {
+        investcurrentIndex = (investcurrentIndex + 1) % totalSlides;
         updateCarousel();
-    }
+      }
 
-    function prevSlide() {
-      investcurrentIndex = (investcurrentIndex - 1 + totalSlides) % totalSlides;
+      function prevSlide() {
+        investcurrentIndex =
+          (investcurrentIndex - 1 + totalSlides) % totalSlides;
         updateCarousel();
-    }
-
+      }
     </script>
   </body>
 </html>
