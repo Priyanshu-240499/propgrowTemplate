@@ -23,7 +23,7 @@
         margin: 0;
         padding: 0;
         font-family: "Roboto Flex", sans-serif;
-        /* border: 1px solid black !important; */
+        /* border: 1px solid black !important;  */
       }
       builder-component {
         max-width: none !important;
@@ -52,6 +52,26 @@
         }
       }
 
+
+      /* navbar */
+      #sidebar {
+  width: 80%; /* Set width to 80% */
+}
+
+#sidebar .nav-link {
+  padding: 15px; /* Adjust padding for sidebar links */
+  font-size: 1.5rem; /* Larger font size for easier reading */
+}
+
+/* Optionally add shadow for sidebar */
+#sidebar {
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3);
+}
+
+
+      /* navbar end */
+
+
       /* Logo styling */
       .partner-logo {
         object-contain: contain;
@@ -69,37 +89,36 @@
         padding: 0 5% !important;
       }
       .my-title {
-        margin: 80px 0px 0px 0px !important;
+        margin: 120px 0px 0px 0px !important;
       }
       .my-sub-title {
-        margin: 30px 0 0px 0px;
+        margin: 50px 0 0px 0px;
       }
 
       /* for latest launch */
       .property-container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 16px;
-      }
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 16px;
+}
 
-      /* Remove min-width and let Owl Carousel manage item width */
-      .property-carousel-item {
-        padding: 8px; /* Add padding if needed around each item */
-      }
+/* Remove min-width and let Owl Carousel manage item width */
+.property-carousel-item {
+  padding: 8px; /* Add padding if needed around each item */
+}
 
-      /* Style for the navigation arrows */
-      #property-prev,
-      #property-next {
-        cursor: pointer;
-        z-index: 5;
-        background-color: rgba(1, 1, 1, 0.5);
-        width: 40px;
-        height: 40px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 50%;
-      }
+/* Style for the navigation arrows */
+#property-prev, #property-next {
+  cursor: pointer;
+  z-index: 5;
+  background-color: rgba(1, 1, 1, 0.5);
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
 
       /* end latest launch */
 
@@ -204,8 +223,7 @@
   </head>
   <body>
     <!-- navbar -->
-    <header
-      class="nav-container bg-white shadow-md p-4 sticky top-0 z-10 transition-transform duration-300 ease-in-out">
+    <header class="nav-container bg-white shadow-md p-4 sticky top-0 z-10">
       <nav class="nav-wrapper flex justify-between items-center">
         <!-- Logo -->
         <img
@@ -213,7 +231,7 @@
           src="./Asset/PropGrow (1).png"
           alt="Company Logo"
           class="logo w-36" />
-
+    
         <!-- Hamburger Menu Button -->
         <div class="block md:hidden">
           <button id="menu-btn" class="text-gray-600 focus:outline-none">
@@ -247,69 +265,63 @@
             </svg>
           </button>
         </div>
-
+    
         <!-- Navigation Links (hidden on mobile) -->
         <div id="menu" class="nav-links hidden md:flex space-x-6">
-          <a href="#home" class="nav-link text-gray-600 hover:text-blue-500"
-            >Home</a
-          >
-          <a href="#about" class="nav-link text-gray-600 hover:text-blue-500"
-            >About</a
-          >
-          <a
-            href="#properties"
-            class="nav-link text-gray-600 hover:text-blue-500"
-            >Properties</a
-          >
-          <a href="#blogs" class="nav-link text-gray-600 hover:text-blue-500"
-            >Blogs</a
-          >
-          <a href="#contact" class="nav-link text-gray-600 hover:text-blue-500"
-            >Contact Us</a
-          >
+          <a href="#home" class="nav-link text-gray-600 hover:text-blue-500">Home</a>
+          <a href="#about" class="nav-link text-gray-600 hover:text-blue-500">About</a>
+          <a href="#properties" class="nav-link text-gray-600 hover:text-blue-500">Properties</a>
+          <a href="#blogs" class="nav-link text-gray-600 hover:text-blue-500">Blogs</a>
+          <a href="#contact" class="nav-link text-gray-600 hover:text-blue-500">Contact Us</a>
         </div>
-
+    
         <!-- Contact Button (hidden on mobile) -->
-        <button
-          class="contact-button hidden md:block text-white px-4 py-2 rounded"
-          style="background-color: var(--primary-color) !important">
+        <button class="contact-button hidden md:block text-white px-4 py-2 rounded" style="background-color: var(--primary-color) !important">
           Custom
         </button>
       </nav>
-
-      <!-- Mobile Menu (for screens 768px or less) -->
+    
+      <!-- Mobile Sidebar Menu -->
       <div
-        id="mobile-menu"
-        class="hidden flex flex-col items-center mt-4 space-y-2 w-3/5 mx-auto transition-all duration-300 ease-in-out"
-        style="width: 70%">
-        <a href="#home" class="nav-link text-gray-600 hover:text-blue-500"
-          >Home</a
-        >
-        <a href="#about" class="nav-link text-gray-600 hover:text-blue-500"
-          >About</a
-        >
-        <a href="#properties" class="nav-link text-gray-600 hover:text-blue-500"
-          >Properties</a
-        >
-        <a href="#blogs" class="nav-link text-gray-600 hover:text-blue-500"
-          >Blogs</a
-        >
-        <a href="#contact" class="nav-link text-gray-600 hover:text-blue-500"
-          >Contact Us</a
-        >
+        id="sidebar"
+        class="fixed inset-0 bg-slate-700 transform -translate-x-full transition-transform duration-300 ease-in-out shadow-lg z-20">
+        <div class="flex flex-col items-center mt-20 space-y-4">
+          <button id="close-sidebar" class="text-neutral-100 self-end px-4 py-2">
+            <svg
+              id="close-icon-sidebar"
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+          </button>
+          <a href="#home" class="nav-link w-48 text-right text-neutral-100 hover:text-blue-500 " style="border-bottom: 1px dotted white;">Home ></a>
+          <a href="#about" class="nav-link w-48 text-right text-neutral-100 hover:text-blue-500" style="border-bottom: 1px dotted white;">About ></a>
+          <a href="#properties" class="nav-link w-48 text-right text-neutral-100 hover:text-blue-500" style="border-bottom: 1px dotted white;">Properties ></a>
+          <a href="#blogs" class="nav-link w-48 text-right text-neutral-100 hover:text-blue-500" style="border-bottom: 1px dotted white;">Blogs ></a>
+          <a href="#contact" class="nav-link w-48 text-right text-neutral-100 hover:text-blue-500" style="border-bottom: 1px dotted white;">Contact Us ></a>
+        </div>
       </div>
     </header>
+    
+    
 
     <!-- banner -->
-    <section class="relative w-full">
+    <section class="relative w-full" data-aos="zoom-in">
       <img
         loading="lazy"
         src="https://cdn.builder.io/api/v1/image/assets/TEMP/145e78cbd69d8a97d92bd82b0f3dba324108e9951e88890815bd2ece18a30bb4?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c"
         alt="Hero section background"
         class="object-contain w-full aspect-[1.78] shadow-[0px_4px_4px_rgba(0,0,0,0.25)]" />
-      <h3
-        class="absolute inset-0 flex flex-col items-center justify-center text-white text-center text-5xl font-semibold">
-        Turning Property investments Into Growth
+        
+      <h3 class="overflow-hidden absolute inset-0 flex flex-col items-center justify-center text-white text-center font-semibold text-3xl sm:text-4xl md:text-5xl lg:text-6xl">
+        <span id="typewriter" class="whitespace-pre-wrap"></span>
         <div class="mt-2 flex flex-col items-center gap-2 my-container w-full">
           <span class="block w-72 h-[2px] bg-white"></span>
           <span class="block w-64 h-[1px] bg-white"></span>
@@ -317,13 +329,15 @@
         </div>
       </h3>
     </section>
+    
+    
 
     <!-- companies -->
 
     <section
       class="flex flex-col items-center justify-center overflow-hidden my-container">
       <h2
-        class="text-5xl font-semibold leading-none text-zinc-900 max-md:max-w-full max-md:text-4xl my-title">
+        class="text-5xl text-center font-semibold leading-none text-zinc-900 max-md:max-w-full max-md:text-4xl my-title">
         We Are Authorized Channel Partners
       </h2>
       <p
@@ -373,126 +387,7 @@
               src="https://cdn.builder.io/api/v1/image/assets/TEMP/c9e6139c6823f2b2176d00e49200453800fb2e21cddec2c9e3abeb5bd2a6482d?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c"
               alt="Partner Logo 8"
               class="object-contain w-24 filter grayscale hover:grayscale-0 transition duration-300 ease-in-out" />
-            <img
-              loading="lazy"
-              src="https://cdn.builder.io/api/v1/image/assets/TEMP/df3ef12cc2568608d3d078b5a9d11bf706babff51e9f6fbe1d63cb628503a692?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c"
-              alt="Partner Logo 1"
-              class="object-contain w-24 filter grayscale hover:grayscale-0 transition duration-300 ease-in-out" />
-            <img
-              loading="lazy"
-              src="https://cdn.builder.io/api/v1/image/assets/TEMP/1ee2d705111fe56f31fcaf5dd6587933a5119d8ddd3a51404ef05fc79319979a?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c"
-              alt="Partner Logo 2"
-              class="object-contain w-24 filter grayscale hover:grayscale-0 transition duration-300 ease-in-out" />
-            <img
-              loading="lazy"
-              src="https://cdn.builder.io/api/v1/image/assets/TEMP/77ebfdec09b88b63d09b125820b3e4d48e9ae231d833c6506223c776c177a5ef?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c"
-              alt="Partner Logo 3"
-              class="object-contain w-24 filter grayscale hover:grayscale-0 transition duration-300 ease-in-out" />
-            <img
-              loading="lazy"
-              src="https://cdn.builder.io/api/v1/image/assets/TEMP/08559cbd88deb5850ee3424c943f7cffc4176f96cafc58427b3a7a100584c331?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c"
-              alt="Partner Logo 4"
-              class="object-contain w-24 filter grayscale hover:grayscale-0 transition duration-300 ease-in-out" />
-            <img
-              loading="lazy"
-              src="https://cdn.builder.io/api/v1/image/assets/TEMP/c322c3936e0379a5bb373f9f30c0107c4d64eeb51604297f2df62925c4b110ef?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c"
-              alt="Partner Logo 5"
-              class="object-contain w-24 filter grayscale hover:grayscale-0 transition duration-300 ease-in-out" />
-            <img
-              loading="lazy"
-              src="https://cdn.builder.io/api/v1/image/assets/TEMP/46332db8102ca93cfc6bedd2f4fbc9301b3ec79dd949dac3ac4aa2c01d61263e?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c"
-              alt="Partner Logo 6"
-              class="object-contain w-24 filter grayscale hover:grayscale-0 transition duration-300 ease-in-out" />
-            <img
-              loading="lazy"
-              src="https://cdn.builder.io/api/v1/image/assets/TEMP/59a0dff400c9b65fd480266934b7a209485f3946647a6fd2a46867a97b6f1349?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c"
-              alt="Partner Logo 7"
-              class="object-contain w-24 filter grayscale hover:grayscale-0 transition duration-300 ease-in-out" />
-            <img
-              loading="lazy"
-              src="https://cdn.builder.io/api/v1/image/assets/TEMP/c9e6139c6823f2b2176d00e49200453800fb2e21cddec2c9e3abeb5bd2a6482d?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c"
-              alt="Partner Logo 8"
-              class="object-contain w-24 filter grayscale hover:grayscale-0 transition duration-300 ease-in-out" />
-            <img
-              loading="lazy"
-              src="https://cdn.builder.io/api/v1/image/assets/TEMP/df3ef12cc2568608d3d078b5a9d11bf706babff51e9f6fbe1d63cb628503a692?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c"
-              alt="Partner Logo 1"
-              class="object-contain w-24 filter grayscale hover:grayscale-0 transition duration-300 ease-in-out" />
-            <img
-              loading="lazy"
-              src="https://cdn.builder.io/api/v1/image/assets/TEMP/1ee2d705111fe56f31fcaf5dd6587933a5119d8ddd3a51404ef05fc79319979a?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c"
-              alt="Partner Logo 2"
-              class="object-contain w-24 filter grayscale hover:grayscale-0 transition duration-300 ease-in-out" />
-            <img
-              loading="lazy"
-              src="https://cdn.builder.io/api/v1/image/assets/TEMP/77ebfdec09b88b63d09b125820b3e4d48e9ae231d833c6506223c776c177a5ef?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c"
-              alt="Partner Logo 3"
-              class="object-contain w-24 filter grayscale hover:grayscale-0 transition duration-300 ease-in-out" />
-            <img
-              loading="lazy"
-              src="https://cdn.builder.io/api/v1/image/assets/TEMP/08559cbd88deb5850ee3424c943f7cffc4176f96cafc58427b3a7a100584c331?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c"
-              alt="Partner Logo 4"
-              class="object-contain w-24 filter grayscale hover:grayscale-0 transition duration-300 ease-in-out" />
-            <img
-              loading="lazy"
-              src="https://cdn.builder.io/api/v1/image/assets/TEMP/c322c3936e0379a5bb373f9f30c0107c4d64eeb51604297f2df62925c4b110ef?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c"
-              alt="Partner Logo 5"
-              class="object-contain w-24 filter grayscale hover:grayscale-0 transition duration-300 ease-in-out" />
-            <img
-              loading="lazy"
-              src="https://cdn.builder.io/api/v1/image/assets/TEMP/46332db8102ca93cfc6bedd2f4fbc9301b3ec79dd949dac3ac4aa2c01d61263e?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c"
-              alt="Partner Logo 6"
-              class="object-contain w-24 filter grayscale hover:grayscale-0 transition duration-300 ease-in-out" />
-            <img
-              loading="lazy"
-              src="https://cdn.builder.io/api/v1/image/assets/TEMP/59a0dff400c9b65fd480266934b7a209485f3946647a6fd2a46867a97b6f1349?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c"
-              alt="Partner Logo 7"
-              class="object-contain w-24 filter grayscale hover:grayscale-0 transition duration-300 ease-in-out" />
-            <img
-              loading="lazy"
-              src="https://cdn.builder.io/api/v1/image/assets/TEMP/c9e6139c6823f2b2176d00e49200453800fb2e21cddec2c9e3abeb5bd2a6482d?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c"
-              alt="Partner Logo 8"
-              class="object-contain w-24 filter grayscale hover:grayscale-0 transition duration-300 ease-in-out" />
-            <img
-              loading="lazy"
-              src="https://cdn.builder.io/api/v1/image/assets/TEMP/df3ef12cc2568608d3d078b5a9d11bf706babff51e9f6fbe1d63cb628503a692?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c"
-              alt="Partner Logo 1"
-              class="object-contain w-24 filter grayscale hover:grayscale-0 transition duration-300 ease-in-out" />
-            <img
-              loading="lazy"
-              src="https://cdn.builder.io/api/v1/image/assets/TEMP/1ee2d705111fe56f31fcaf5dd6587933a5119d8ddd3a51404ef05fc79319979a?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c"
-              alt="Partner Logo 2"
-              class="object-contain w-24 filter grayscale hover:grayscale-0 transition duration-300 ease-in-out" />
-            <img
-              loading="lazy"
-              src="https://cdn.builder.io/api/v1/image/assets/TEMP/77ebfdec09b88b63d09b125820b3e4d48e9ae231d833c6506223c776c177a5ef?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c"
-              alt="Partner Logo 3"
-              class="object-contain w-24 filter grayscale hover:grayscale-0 transition duration-300 ease-in-out" />
-            <img
-              loading="lazy"
-              src="https://cdn.builder.io/api/v1/image/assets/TEMP/08559cbd88deb5850ee3424c943f7cffc4176f96cafc58427b3a7a100584c331?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c"
-              alt="Partner Logo 4"
-              class="object-contain w-24 filter grayscale hover:grayscale-0 transition duration-300 ease-in-out" />
-            <img
-              loading="lazy"
-              src="https://cdn.builder.io/api/v1/image/assets/TEMP/c322c3936e0379a5bb373f9f30c0107c4d64eeb51604297f2df62925c4b110ef?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c"
-              alt="Partner Logo 5"
-              class="object-contain w-24 filter grayscale hover:grayscale-0 transition duration-300 ease-in-out" />
-            <img
-              loading="lazy"
-              src="https://cdn.builder.io/api/v1/image/assets/TEMP/46332db8102ca93cfc6bedd2f4fbc9301b3ec79dd949dac3ac4aa2c01d61263e?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c"
-              alt="Partner Logo 6"
-              class="object-contain w-24 filter grayscale hover:grayscale-0 transition duration-300 ease-in-out" />
-            <img
-              loading="lazy"
-              src="https://cdn.builder.io/api/v1/image/assets/TEMP/59a0dff400c9b65fd480266934b7a209485f3946647a6fd2a46867a97b6f1349?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c"
-              alt="Partner Logo 7"
-              class="object-contain w-24 filter grayscale hover:grayscale-0 transition duration-300 ease-in-out" />
-            <img
-              loading="lazy"
-              src="https://cdn.builder.io/api/v1/image/assets/TEMP/c9e6139c6823f2b2176d00e49200453800fb2e21cddec2c9e3abeb5bd2a6482d?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c"
-              alt="Partner Logo 8"
-              class="object-contain w-24 filter grayscale hover:grayscale-0 transition duration-300 ease-in-out" />
+  
           </div>
         </div>
       </article>
@@ -506,7 +401,7 @@
       </h2>
 
       <div
-        class="flex flex-col-reverse md:flex-row gap-5 max-md:flex-col-reverse my-sub-title">
+        class="flex flex-col-reverse md:flex-row gap-8 max-md:flex-col-reverse my-sub-title">
         <article class="flex flex-col w-full md:w-6/12">
           <div
             class="flex flex-col justify-center items-center w-full px-2 max-md:mt-10">
@@ -569,207 +464,124 @@
 
         <aside class="flex flex-col w-full md:w-6/12 max-md:mt-0">
           <figure
-            class="flex overflow-hidden flex-col self-stretch my-auto w-full rounded-xl"
-            data-aos="zoom-in"
-            data-aos-delay="100">
+            class="flex flex-col w-full rounded-xl my-0 overflow-hidden" 
+            data-aos="zoom-in" 
+            data-aos-delay="100"
+          >
             <img
               loading="lazy"
               src="https://cdn.builder.io/api/v1/image/assets/TEMP/ef058ec0353daae1a52e48cb587d93232e47db4395734a71f10dd9d5a6afe6a8?placeholderIfAbsent=true&apiKey=c74d53e8e48f4def813c75fd6c86997c"
               alt="PropGrow real estate showcase"
-              class="object-cover w-full rounded-xl aspect-[1.75]" />
+              class="object-cover w-full rounded-xl aspect-[1.75] hover:scale-105"
+            />
           </figure>
         </aside>
+        
       </div>
     </section>
 
     <!-- latest launch -->
-
     <section class="my-container" data-aos="fade-up">
       <h2
         class="text-5xl font-semibold leading-none text-center text-zinc-900 max-md:max-w-full max-md:text-4xl my-title">
-        Latest launch properties
+        Latest Launch Properties
       </h2>
       <p
         class="text-xl leading-loose text-center text-zinc-900 max-md:max-w-full">
         Invest in exceptional living spaces for your future
       </p>
 
-      <div class="relative max-w-full my-sub-title">
-        <!-- Left Arrow Button -->
-        <button
-          id="property-prev"
-          class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-700 text-white p-2 rounded-full">
-          ❮
-        </button>
-
-        <!-- Right Arrow Button -->
-        <button
-          id="property-next"
-          class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-700 text-white p-2 rounded-full">
-          ❯
-        </button>
-
-        <!-- Carousel Container with Owl Carousel class -->
-        <div class="property-carousel owl-carousel">
-          <!-- Carousel Items -->
-          <article
-            class="property-carousel-item flex flex-col bg-white rounded-lg shadow-lg overflow-hidden w-full">
-            <img
-              src="./Asset/launch-1.webp"
-              alt="Building Image"
-              class="w-full object-cover rounded-lg"
-              style="height: 280px" />
-            <div class="flex flex-col p-4">
-              <h3 class="text-lg md:text-xl font-semibold text-gray-800 mb-2">
-                DLF Privana South
-              </h3>
-              <p class="text-sm md:text-base text-gray-600">
-                Sector 77, Gurgaon
-              </p>
-              <div class="flex justify-between items-center mt-4 w-full">
-                <p class="text-base font-bold text-gray-700">Gurugram</p>
-                <button
-                  class="text-white font-semibold py-2 px-4 rounded-md"
-                  style="background-color: var(--primary-color)">
-                  View Details
-                </button>
-              </div>
+    <div class="relative max-w-full my-container ">
+      <!-- Left Arrow Button -->
+      <button id="property-prev" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-700 text-white p-2 rounded-full">❮</button>
+    
+      <!-- Right Arrow Button -->
+      <button id="property-next" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-700 text-white p-2 rounded-full">❯</button>
+    
+      <!-- Carousel Container with Owl Carousel class -->
+      <div class="property-carousel owl-carousel ">
+        <!-- Carousel Items -->
+        <article class="property-carousel-item flex flex-col bg-white mb-2  rounded-lg shadow-lg overflow-hidden w-full">
+          <img src="./Asset/launch-1.webp" alt="Building Image" class="w-full object-cover rounded-lg" style="height: 280px" />
+          <div class="flex flex-col p-4">
+            <h3 class="text-lg md:text-xl font-semibold text-gray-800 mb-2">DLF Privana South</h3>
+            <p class="text-sm md:text-base text-gray-600">Sector 77, Gurgaon</p>
+            <div class="flex justify-between items-center mt-4 w-full">
+              <p class="text-base font-bold text-gray-700">Gurugram</p>
+              <button class="text-white font-semibold py-2 px-4 rounded-md" style="background-color:var(--primary-color);">View Details</button>
             </div>
-          </article>
-          <!-- Repeat similar structure for other items -->
-          <article
-            class="property-carousel-item flex flex-col bg-white rounded-lg shadow-lg overflow-hidden w-full">
-            <img
-              src="./Asset/launch-2.jpg"
-              alt="Building Image"
-              class="w-full object-cover rounded-lg"
-              style="height: 280px" />
-            <div class="flex flex-col p-4">
-              <h3 class="text-lg md:text-xl font-semibold text-gray-800 mb-2">
-                DLF Privana South
-              </h3>
-              <p class="text-sm md:text-base text-gray-600">
-                Sector 77, Gurgaon
-              </p>
-              <div class="flex justify-between items-center mt-4 w-full">
-                <p class="text-base font-bold text-gray-700">Gurugram</p>
-                <button
-                  class="text-white font-semibold py-2 px-4 rounded-md"
-                  style="background-color: var(--primary-color)">
-                  View Details
-                </button>
-              </div>
+          </div>
+        </article>
+        <article class="property-carousel-item flex flex-col bg-white mb-2  rounded-lg shadow-lg overflow-hidden w-full">
+          <img src="./Asset/launch-1.webp" alt="Building Image" class="w-full object-cover rounded-lg" style="height: 280px" />
+          <div class="flex flex-col p-4">
+            <h3 class="text-lg md:text-xl font-semibold text-gray-800 mb-2">DLF Privana South</h3>
+            <p class="text-sm md:text-base text-gray-600">Sector 77, Gurgaon</p>
+            <div class="flex justify-between items-center mt-4 w-full">
+              <p class="text-base font-bold text-gray-700">Gurugram</p>
+              <button class="text-white font-semibold py-2 px-4 rounded-md" style="background-color:var(--primary-color);">View Details</button>
             </div>
-          </article>
-          <article
-            class="property-carousel-item flex flex-col bg-white rounded-lg shadow-lg overflow-hidden w-full">
-            <img
-              src="./Asset/launch-3.jpg"
-              alt="Building Image"
-              class="w-full object-cover rounded-lg"
-              style="height: 280px" />
-            <div class="flex flex-col p-4">
-              <h3 class="text-lg md:text-xl font-semibold text-gray-800 mb-2">
-                DLF Privana South
-              </h3>
-              <p class="text-sm md:text-base text-gray-600">
-                Sector 77, Gurgaon
-              </p>
-              <div class="flex justify-between items-center mt-4 w-full">
-                <p class="text-base font-bold text-gray-700">Gurugram</p>
-                <button
-                  class="text-white font-semibold py-2 px-4 rounded-md"
-                  style="background-color: var(--primary-color)">
-                  View Details
-                </button>
-              </div>
+          </div>
+        </article>
+        <article class="property-carousel-item flex flex-col bg-white mb-2  rounded-lg shadow-lg overflow-hidden w-full">
+          <img src="./Asset/launch-1.webp" alt="Building Image" class="w-full object-cover rounded-lg" style="height: 280px" />
+          <div class="flex flex-col p-4">
+            <h3 class="text-lg md:text-xl font-semibold text-gray-800 mb-2">DLF Privana South</h3>
+            <p class="text-sm md:text-base text-gray-600">Sector 77, Gurgaon</p>
+            <div class="flex justify-between items-center mt-4 w-full">
+              <p class="text-base font-bold text-gray-700">Gurugram</p>
+              <button class="text-white font-semibold py-2 px-4 rounded-md" style="background-color:var(--primary-color);">View Details</button>
             </div>
-          </article>
-          <article
-            class="property-carousel-item flex flex-col bg-white rounded-lg shadow-lg overflow-hidden w-full">
-            <img
-              src="./Asset/launch-4.jpg"
-              alt="Building Image"
-              class="w-full object-cover rounded-lg"
-              style="height: 280px" />
-            <div class="flex flex-col p-4">
-              <h3 class="text-lg md:text-xl font-semibold text-gray-800 mb-2">
-                DLF Privana South
-              </h3>
-              <p class="text-sm md:text-base text-gray-600">
-                Sector 77, Gurgaon
-              </p>
-              <div class="flex justify-between items-center mt-4 w-full">
-                <p class="text-base font-bold text-gray-700">Gurugram</p>
-                <button
-                  class="text-white font-semibold py-2 px-4 rounded-md"
-                  style="background-color: var(--primary-color)">
-                  View Details
-                </button>
-              </div>
+          </div>
+        </article>
+        <article class="property-carousel-item flex flex-col bg-white mb-2  rounded-lg shadow-lg overflow-hidden w-full">
+          <img src="./Asset/launch-1.webp" alt="Building Image" class="w-full object-cover rounded-lg" style="height: 280px" />
+          <div class="flex flex-col p-4">
+            <h3 class="text-lg md:text-xl font-semibold text-gray-800 mb-2">DLF Privana South</h3>
+            <p class="text-sm md:text-base text-gray-600">Sector 77, Gurgaon</p>
+            <div class="flex justify-between items-center mt-4 w-full">
+              <p class="text-base font-bold text-gray-700">Gurugram</p>
+              <button class="text-white font-semibold py-2 px-4 rounded-md" style="background-color:var(--primary-color);">View Details</button>
             </div>
-          </article>
-          <article
-            class="property-carousel-item flex flex-col bg-white rounded-lg shadow-lg overflow-hidden w-full">
-            <img
-              src="./Asset/launch-5.jpg"
-              alt="Building Image"
-              class="w-full object-cover rounded-lg"
-              style="height: 280px" />
-            <div class="flex flex-col p-4">
-              <h3 class="text-lg md:text-xl font-semibold text-gray-800 mb-2">
-                DLF Privana South
-              </h3>
-              <p class="text-sm md:text-base text-gray-600">
-                Sector 77, Gurgaon
-              </p>
-              <div class="flex justify-between items-center mt-4 w-full">
-                <p class="text-base font-bold text-gray-700">Gurugram</p>
-                <button
-                  class="text-white font-semibold py-2 px-4 rounded-md"
-                  style="background-color: var(--primary-color)">
-                  View Details
-                </button>
-              </div>
+          </div>
+        </article>
+        <article class="property-carousel-item flex flex-col bg-white mb-2  rounded-lg shadow-lg overflow-hidden w-full">
+          <img src="./Asset/launch-1.webp" alt="Building Image" class="w-full object-cover rounded-lg" style="height: 280px" />
+          <div class="flex flex-col p-4">
+            <h3 class="text-lg md:text-xl font-semibold text-gray-800 mb-2">DLF Privana South</h3>
+            <p class="text-sm md:text-base text-gray-600">Sector 77, Gurgaon</p>
+            <div class="flex justify-between items-center mt-4 w-full">
+              <p class="text-base font-bold text-gray-700">Gurugram</p>
+              <button class="text-white font-semibold py-2 px-4 rounded-md" style="background-color:var(--primary-color);">View Details</button>
             </div>
-          </article>
-          <article
-            class="property-carousel-item flex flex-col bg-white rounded-lg shadow-lg overflow-hidden w-full">
-            <img
-              src="./Asset/launch-6.jpg"
-              alt="Building Image"
-              class="w-full object-cover rounded-lg"
-              style="height: 280px" />
-            <div class="flex flex-col p-4">
-              <h3 class="text-lg md:text-xl font-semibold text-gray-800 mb-2">
-                DLF Privana South
-              </h3>
-              <p class="text-sm md:text-base text-gray-600">
-                Sector 77, Gurgaon
-              </p>
-              <div class="flex justify-between items-center mt-4 w-full">
-                <p class="text-base font-bold text-gray-700">Gurugram</p>
-                <button
-                  class="text-white font-semibold py-2 px-4 rounded-md"
-                  style="background-color: var(--primary-color)">
-                  View Details
-                </button>
-              </div>
+          </div>
+        </article>
+        <article class="property-carousel-item flex flex-col bg-white mb-2  rounded-lg shadow-lg overflow-hidden w-full">
+          <img src="./Asset/launch-1.webp" alt="Building Image" class="w-full object-cover rounded-lg" style="height: 280px" />
+          <div class="flex flex-col p-4">
+            <h3 class="text-lg md:text-xl font-semibold text-gray-800 mb-2">DLF Privana South</h3>
+            <p class="text-sm md:text-base text-gray-600">Sector 77, Gurgaon</p>
+            <div class="flex justify-between items-center mt-4 w-full">
+              <p class="text-base font-bold text-gray-700">Gurugram</p>
+              <button class="text-white font-semibold py-2 px-4 rounded-md" style="background-color:var(--primary-color);">View Details</button>
             </div>
-          </article>
-          <!-- ... -->
-        </div>
+          </div>
+        </article>
+        <!-- Repeat similar structure for other items -->
+        <!-- ... -->
       </div>
+    </div>
     </section>
+    
 
     <!-- investment -->
 
     <section
-      class="cities-section max-md:mt-10 my-container text-center"
+      class="cities-section my-container text-center my-container"
       data-aos="fade-up">
       <h2
         class="text-5xl font-semibold text-center leading-none text-zinc-900 max-md:max-w-full max-md:text-4xl my-title">
-        Find investnment gems in these cities
+        Find Investnment Gems in these Cities
       </h2>
       <p
         class="text-xl leading-loose text-center text-zinc-900 max-md:max-w-full">
@@ -784,7 +596,7 @@
           onclick="prevSlide()"
           class="invest-carousel-button prev-button hidden max-md:block absolute left-0 top-1/2 transform -translate-y-1/2 z-10 text-white px-4 py-2 rounded-full"
           style="
-            background-color: var(--primary-color);
+            background-color: rgba(1, 1, 1, 0.5);
             height: 40px;
             width: 40px;
           ">
@@ -860,7 +672,7 @@
           onclick="nextSlide()"
           class="invest-carousel-button next-button hidden max-md:block absolute right-0 top-1/2 transform -translate-y-1/2 z-10 text-white px-4 py-2 rounded-full"
           style="
-            background-color: var(--primary-color);
+            background-color: rgba(1, 1, 1, 0.5);
             height: 40px;
             width: 40px;
           ">
@@ -869,23 +681,155 @@
       </div>
     </section>
 
+    <!-- team -->
+    <div data-aos="fade-up">
+      <h2
+        class="text-5xl font-semibold text-center leading-none text-zinc-900 max-md:max-w-full max-md:text-4xl my-title">
+        A team you can trust on
+      </h2>
+      <p
+        class="text-xl leading-loose text-center text-zinc-900 max-md:max-w-full">
+        Invest in Exceptional Living Spaces for Your Future
+      </p>
+      <section
+        id="testimonial-cards"
+        class="grid grid-cols-2 gap-4 sm:grid-cols-5 w-full my-container my-sub-title">
+        <!-- Card items go here (1-5 as examples) -->
+
+        <article class="flex flex-col gap-2 p-1 bg-white rounded-lg shadow-md">
+          <div
+            class="relative flex justify-center items-center rounded-md overflow-hidden">
+            <!-- Main Profile Image -->
+            <img
+              src="./Asset/member-1.png"
+              alt="Profile"
+              class="object-cover w-[180px] h-[180px] sm:w-[240px] sm:h-[240px] rounded-md" />
+
+            <!-- Small Positioned Image -->
+            <img
+              src="./Asset/Link.png"
+              alt="Small Icon"
+              class="absolute top-[7px] right-[14px] w-[30px] h-[30px]" />
+          </div>
+
+          <header class="flex flex-col justify-center items-center">
+            <h2 class="text-sm mt-2  font-bold">Name 1</h2>
+            <p class="text-xs mt-2 mb-2 text-gray-500">Position 1</p>
+          </header>
+        </article>
+        <article class="flex flex-col gap-2 p-1 bg-white rounded-lg shadow-md">
+          <div
+            class="relative flex justify-center items-center rounded-md overflow-hidden">
+            <!-- Main Profile Image -->
+            <img
+              src="./Asset/member-2.png"
+              alt="Profile"
+              class="object-cover w-[180px] h-[180px] sm:w-[240px] sm:h-[240px] rounded-md" />
+
+            <!-- Small Positioned Image -->
+            <img
+              src="./Asset/Link.png"
+              alt="Small Icon"
+              class="absolute top-[7px] right-[14px] w-[30px] h-[30px]" />
+          </div>
+
+          <header class="flex flex-col justify-center items-center">
+            <h2 class="text-sm mt-2  font-bold">Name 1</h2>
+            <p class="text-xs mt-2 mb-2 text-gray-500">Position 1</p>
+          </header>
+        </article>
+        <article class="flex flex-col gap-2 p-1 bg-white rounded-lg shadow-md">
+          <div
+            class="relative flex justify-center items-center rounded-md overflow-hidden">
+            <!-- Main Profile Image -->
+            <img
+              src="./Asset/member-3.png"
+              alt="Profile"
+              class="object-cover w-[180px] h-[180px] sm:w-[240px] sm:h-[240px] rounded-md" />
+
+            <!-- Small Positioned Image -->
+            <img
+              src="./Asset/Link.png"
+              alt="Small Icon"
+              class="absolute top-[7px] right-[14px] w-[30px] h-[30px]" />
+          </div>
+
+          <header class="flex flex-col justify-center items-center">
+            <h2 class="text-sm mt-2 font-bold">Name 1</h2>
+            <p class="text-xs mt-2 mb-2 text-gray-500">Position 1</p>
+          </header>
+        </article>
+        <article class="flex flex-col gap-2 p-1 bg-white rounded-lg shadow-md">
+          <div
+            class="relative flex justify-center items-center rounded-md overflow-hidden">
+            <!-- Main Profile Image -->
+            <img
+              src="./Asset/member-4.png"
+              alt="Profile"
+              class="object-cover w-[180px] h-[180px] sm:w-[240px] sm:h-[240px] rounded-md" />
+
+            <!-- Small Positioned Image -->
+            <img
+              src="./Asset/Link.png"
+              alt="Small Icon"
+              class="absolute top-[7px] right-[14px] w-[30px] h-[30px]" />
+          </div>
+
+          <header class="flex flex-col justify-center items-center">
+            <h2 class="text-sm mt-2  font-bold">Name 1</h2>
+            <p class="text-xs mt-2 mb-2 text-gray-500">Position 1</p>
+          </header>
+        </article>
+        <article class="flex flex-col gap-2 p-1 bg-white rounded-lg shadow-md">
+          <div
+            class="relative flex justify-center items-center rounded-md overflow-hidden">
+            <!-- Main Profile Image -->
+            <img
+              src="./Asset/member-5.png"
+              alt="Profile"
+              class="object-cover w-[180px] h-[180px] sm:w-[240px] sm:h-[240px] rounded-md" />
+
+            <!-- Small Positioned Image -->
+            <img
+              src="./Asset/Link.png"
+              alt="Small Icon"
+              class="absolute top-[7px] right-[14px] w-[30px] h-[30px]" />
+          </div>
+
+          <header class="flex flex-col justify-center items-center">
+            <h2 class="text-sm mt-2  font-bold">Name 1</h2>
+            <p class="text-xs mt-2 mb-2 text-gray-500">Position 1</p>
+          </header>
+        </article>
+      </section>
+    </div>
+
+    <!-- Button for "View More" -->
+    <div class="flex justify-center mt-4" data-aos="fade-up">
+      <button
+        id="view-more-btn"
+        class="bg-green-500 text-white py-2 px-4 rounded-md hidden">
+        View More
+      </button>
+    </div>
+
     <!-- customer review -->
     <section
-      class="flex flex-col items-center my-container my-title"
+      class="flex flex-col items-center my-container "
       data-aos="fade-up">
       <header
-        class="flex flex-col flex-wrap gap-5 mb-3 justify-between text-center w-full max-w-[1341px] text-zinc-900">
+        class="flex flex-col flex-wrap gap-5 mb-3 justify-between text-center w-full max-w-[1341px] text-zinc-900 my-title">
         <h2
           data-layername="findPropertiesInTheseCities"
           class="text-5xl font-semibold leading-none text-zinc-900 max-md:max-w-full max-md:text-4xl">
-          What our customers are saying?
+          What Our Customers Are Saying?
         </h2>
         <div class="flex gap-10 self-center">
           <article class="flex flex-col self-start mt-1">
             <h3 class="self-start text-2xl font-medium leading-tight">5K+</h3>
             <p class="mt-5 text-base leading-3">Happy people</p>
           </article>
-          <article class="flex flex-col">
+          <article class="flex flex-col ">
             <h3 class="self-start text-2xl font-medium leading-tight">4.9</h3>
             <p class="mt-5 text-base leading-3">Overall rating</p>
             <img
@@ -898,7 +842,7 @@
       </header>
 
       <!-- Carousel Container for Small Screens -->
-      <div class="review-carousel-container max-md:hidden" style="width: 100%">
+      <div class="review-carousel-container max-md:hidden my-sub-title" style="width: 100%">
         <div class="review-carousel">
           <div class="review-carousel-item">
             <!-- Article 1 -->
@@ -953,8 +897,7 @@
                 </div>
               </header>
               <p class="mt-10 text-lg leading-8">
-                Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                accusantium doloremque laudantium.
+                As a first-time real estate investor, I was nervous about navigating the complexities of the market. The team at PropGrow was there every step of the way, offering detailed property evaluations, financial guidance, and unwavering support. Their professionalism and dedication made the entire process smooth and rewarding.
               </p>
             </div>
           </div>
@@ -979,8 +922,7 @@
                 </div>
               </header>
               <p class="mt-10 text-lg leading-8">
-                Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit
-                aut fugit.
+                I’ve worked with PropGrow on multiple properties, and I’m always impressed by their level of transparency and commitment to my goals. They truly care about helping clients succeed, and their deep market knowledge has been a tremendous asset. I highly recommend them to anyone serious about real estate investing.
               </p>
             </div>
           </div>
@@ -1018,9 +960,7 @@
                 </div>
               </header>
               <p class="mt-10 text-lg leading-8">
-                Searches for multiplexes, property comparisons, and the loan
-                estimator. Works great. Lorem ipsum dolor sit amet, consectetur
-                adipiscing elit.
+                Working with PropGrow has been a game-changer for my investment portfolio. Their team provided invaluable insights into market trends and helped me identify properties with strong growth potential. My returns have exceeded expectations, and I feel confident about every decision thanks to their expertise
               </p>
             </div>
           </article>
@@ -1046,8 +986,7 @@
                 </div>
               </header>
               <p class="mt-10 text-lg leading-8">
-                Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                accusantium doloremque laudantium.
+                As a first-time real estate investor, I was nervous about navigating the complexities of the market. The team at PropGrow was there every step of the way, offering detailed property evaluations, financial guidance, and unwavering support. Their professionalism and dedication made the entire process smooth and rewarding.
               </p>
             </div>
           </article>
@@ -1071,8 +1010,7 @@
                 </div>
               </header>
               <p class="mt-10 text-lg leading-8">
-                Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit
-                aut fugit.
+                I’ve worked with PropGrow on multiple properties, and I’m always impressed by their level of transparency and commitment to my goals. They truly care about helping clients succeed, and their deep market knowledge has been a tremendous asset. I highly recommend them to anyone serious about real estate investing.
               </p>
             </div>
           </article>
@@ -1080,137 +1018,7 @@
       </section>
     </section>
 
-    <!-- team -->
-    <div data-aos="fade-up">
-      <h2
-        class="text-5xl font-semibold text-center leading-none text-zinc-900 max-md:max-w-full max-md:text-4xl my-title">
-        A team you can trust on
-      </h2>
-      <p
-        class="text-xl leading-loose text-center text-zinc-900 max-md:max-w-full">
-        Invest in exceptional living spaces for your future
-      </p>
-      <section
-        id="testimonial-cards"
-        class="grid grid-cols-2 gap-4 sm:grid-cols-5 w-full my-container my-sub-title">
-        <!-- Card items go here (1-5 as examples) -->
-
-        <article class="flex flex-col gap-2 p-1 bg-white rounded-lg shadow-md">
-          <div
-            class="relative flex justify-center items-center rounded-md overflow-hidden">
-            <!-- Main Profile Image -->
-            <img
-              src="./Asset/member-1.png"
-              alt="Profile"
-              class="object-cover w-[180px] h-[180px] sm:w-[240px] sm:h-[240px] rounded-md" />
-
-            <!-- Small Positioned Image -->
-            <img
-              src="./Asset/Link.png"
-              alt="Small Icon"
-              class="absolute top-[7px] right-[14px] w-[30px] h-[30px]" />
-          </div>
-
-          <header class="flex flex-col justify-center items-center">
-            <h2 class="text-sm font-bold">Name 1</h2>
-            <p class="text-xs text-gray-500">Position 1</p>
-          </header>
-        </article>
-        <article class="flex flex-col gap-2 p-1 bg-white rounded-lg shadow-md">
-          <div
-            class="relative flex justify-center items-center rounded-md overflow-hidden">
-            <!-- Main Profile Image -->
-            <img
-              src="./Asset/member-2.png"
-              alt="Profile"
-              class="object-cover w-[180px] h-[180px] sm:w-[240px] sm:h-[240px] rounded-md" />
-
-            <!-- Small Positioned Image -->
-            <img
-              src="./Asset/Link.png"
-              alt="Small Icon"
-              class="absolute top-[7px] right-[14px] w-[30px] h-[30px]" />
-          </div>
-
-          <header class="flex flex-col justify-center items-center">
-            <h2 class="text-sm font-bold">Name 1</h2>
-            <p class="text-xs text-gray-500">Position 1</p>
-          </header>
-        </article>
-        <article class="flex flex-col gap-2 p-1 bg-white rounded-lg shadow-md">
-          <div
-            class="relative flex justify-center items-center rounded-md overflow-hidden">
-            <!-- Main Profile Image -->
-            <img
-              src="./Asset/member-3.png"
-              alt="Profile"
-              class="object-cover w-[180px] h-[180px] sm:w-[240px] sm:h-[240px] rounded-md" />
-
-            <!-- Small Positioned Image -->
-            <img
-              src="./Asset/Link.png"
-              alt="Small Icon"
-              class="absolute top-[7px] right-[14px] w-[30px] h-[30px]" />
-          </div>
-
-          <header class="flex flex-col justify-center items-center">
-            <h2 class="text-sm font-bold">Name 1</h2>
-            <p class="text-xs text-gray-500">Position 1</p>
-          </header>
-        </article>
-        <article class="flex flex-col gap-2 p-1 bg-white rounded-lg shadow-md">
-          <div
-            class="relative flex justify-center items-center rounded-md overflow-hidden">
-            <!-- Main Profile Image -->
-            <img
-              src="./Asset/member-4.png"
-              alt="Profile"
-              class="object-cover w-[180px] h-[180px] sm:w-[240px] sm:h-[240px] rounded-md" />
-
-            <!-- Small Positioned Image -->
-            <img
-              src="./Asset/Link.png"
-              alt="Small Icon"
-              class="absolute top-[7px] right-[14px] w-[30px] h-[30px]" />
-          </div>
-
-          <header class="flex flex-col justify-center items-center">
-            <h2 class="text-sm font-bold">Name 1</h2>
-            <p class="text-xs text-gray-500">Position 1</p>
-          </header>
-        </article>
-        <article class="flex flex-col gap-2 p-1 bg-white rounded-lg shadow-md">
-          <div
-            class="relative flex justify-center items-center rounded-md overflow-hidden">
-            <!-- Main Profile Image -->
-            <img
-              src="./Asset/member-5.png"
-              alt="Profile"
-              class="object-cover w-[180px] h-[180px] sm:w-[240px] sm:h-[240px] rounded-md" />
-
-            <!-- Small Positioned Image -->
-            <img
-              src="./Asset/Link.png"
-              alt="Small Icon"
-              class="absolute top-[7px] right-[14px] w-[30px] h-[30px]" />
-          </div>
-
-          <header class="flex flex-col justify-center items-center">
-            <h2 class="text-sm font-bold">Name 1</h2>
-            <p class="text-xs text-gray-500">Position 1</p>
-          </header>
-        </article>
-      </section>
-    </div>
-
-    <!-- Button for "View More" -->
-    <div class="flex justify-center mt-4" data-aos="fade-up">
-      <button
-        id="view-more-btn"
-        class="bg-green-500 text-white py-2 px-4 rounded-md hidden">
-        View More
-      </button>
-    </div>
+    
 
     <!-- Popular searched in gurgaon -->
     <section
@@ -1396,10 +1204,10 @@
       </p>
 
       <!-- Accordion Item -->
-      <article class="flex flex-col mt-4 w-full rounded">
+      <article class="flex flex-col mt-4 w-full rounded" >
         <button
-          class="flex justify-between items-center px-5 md:px-10 pt-11 pb-1 text-lg md:text-xl font-medium leading-none bg-stone-50 w-full text-left accordion-btn"
-          aria-expanded="false">
+          class="flex justify-between items-center px-5 md:px-10  pt-5 pb-5 text-lg md:text-xl font-medium leading-none bg-stone-50 w-full text-left accordion-btn"
+          aria-expanded="false" >
           <span class="w-11/12">How can I schedule a consultation?</span>
           <span class="accordion-icon w-1/12 text-right">+</span>
         </button>
@@ -1417,7 +1225,7 @@
       <!-- Accordion Item -->
       <article class="flex flex-col mt-4 w-full rounded">
         <button
-          class="flex justify-between items-center px-5 md:px-10 pt-10 pb-1 text-lg md:text-xl font-medium leading-none bg-stone-50 w-full text-left accordion-btn"
+          class="flex justify-between items-center px-5 md:px-10 pt-5 pb-5 text-lg md:text-xl font-medium leading-none bg-stone-50 w-full text-left accordion-btn"
           aria-expanded="false">
           <span class="w-11/12"
             >What types of properties do you specialize in?</span
@@ -1437,7 +1245,7 @@
       <!-- Accordion Item -->
       <article class="flex flex-col mt-4 w-full rounded">
         <button
-          class="flex justify-between items-center px-5 md:px-10 pt-10 pb-1 text-lg md:text-xl font-medium leading-none bg-stone-50 w-full text-left accordion-btn"
+          class="flex justify-between items-center px-5 md:px-10 pt-5 pb-5 text-lg md:text-xl font-medium leading-none bg-stone-50 w-full text-left accordion-btn"
           aria-expanded="false">
           <span class="w-11/12"
             >How do I know if a property is a good investment?</span
@@ -1456,7 +1264,7 @@
       <!-- Accordion Item -->
       <article class="flex flex-col mt-4 w-full rounded">
         <button
-          class="flex justify-between items-center px-5 md:px-10 pt-10 pb-1 text-lg md:text-xl font-medium leading-none bg-stone-50 w-full text-left accordion-btn"
+          class="flex justify-between items-center px-5 md:px-10 pt-5 pb-5 text-lg md:text-xl font-medium leading-none bg-stone-50 w-full text-left accordion-btn"
           aria-expanded="false">
           <span class="w-11/12"
             >Can you help with property financing options?</span
@@ -1475,7 +1283,7 @@
       <!-- Accordion Item -->
       <article class="flex flex-col mt-4 w-full rounded">
         <button
-          class="flex justify-between items-center px-5 md:px-10 pt-10 pb-1 text-lg md:text-xl font-medium leading-none bg-stone-50 w-full text-left accordion-btn"
+          class="flex justify-between items-center px-5 md:px-10 pt-5 pb-5 text-lg md:text-xl font-medium leading-none bg-stone-50 w-full text-left accordion-btn"
           aria-expanded="false">
           <span class="w-11/12">What services does PropGrow offer?</span>
           <span class="accordion-icon w-1/12 text-right">+</span>
@@ -1505,10 +1313,10 @@
         <!-- Social Media Links -->
         <nav class="flex gap-3 items-center">
           <h2 class="text-base font-medium">Follow Us</h2>
-          <a href="#" class="text-center" aria-label="Facebook">FB</a>
-          <a href="#" class="text-center" aria-label="Twitter">TW</a>
-          <a href="#" class="text-center" aria-label="Instagram">IG</a>
-          <a href="#" class="text-center" aria-label="LinkedIn">IN</a>
+          <a href="#" class="text-center" aria-label="Facebook"><img src="./Asset/fb.png" alt="facebook"></a>
+          <a href="#" class="text-center" aria-label="Twitter"><img src="./Asset/twitter.png" alt="twitter"></a>
+          <a href="#" class="text-center" aria-label="Instagram"><img src="./Asset/insta.png" alt="insta"></a>
+          <a href="#" class="text-center" aria-label="LinkedIn"><img src="./Asset/linkedin.png" alt="linkedin"></a>
         </nav>
       </section>
 
@@ -1524,7 +1332,7 @@
             Subscribe
           </h2>
           <form
-            class="flex justify-between mt-3 border-b border-white border-opacity-10">
+            class="flex justify-between mt-3 p-2 border-b border-white border-opacity-10">
             <input
               type="email"
               placeholder="Your e-mail"
@@ -1618,17 +1426,23 @@
     <script>
       // -------------------------------------------------------------
       const menuBtn = document.getElementById("menu-btn");
-      const mobileMenu = document.getElementById("mobile-menu");
-      const hamburgerIcon = document.getElementById("hamburger-icon");
-      const closeIcon = document.getElementById("close-icon");
+const sidebar = document.getElementById("sidebar");
+const closeSidebarBtn = document.getElementById("close-sidebar");
+const hamburgerIcon = document.getElementById("hamburger-icon");
+const closeIcon = document.getElementById("close-icon");
 
-      menuBtn.addEventListener("click", () => {
-        mobileMenu.classList.toggle("hidden");
+menuBtn.addEventListener("click", () => {
+  sidebar.classList.remove("-translate-x-full"); // Show sidebar
+  hamburgerIcon.classList.add("hidden");
+  closeIcon.classList.remove("hidden");
+});
 
-        // Toggle between hamburger and close icon
-        hamburgerIcon.classList.toggle("hidden");
-        closeIcon.classList.toggle("hidden");
-      });
+closeSidebarBtn.addEventListener("click", () => {
+  sidebar.classList.add("-translate-x-full"); // Hide sidebar
+  hamburgerIcon.classList.remove("hidden");
+  closeIcon.classList.add("hidden");
+});
+
 
       // Acoordian section -------------------------------------------------
       document.querySelectorAll(".accordion-btn").forEach((button) => {
@@ -1651,37 +1465,74 @@
           }
         });
       });
-      // ---------------------------------------------------------------------------------
-      //   latest launch
+
+      // -----------------------------------------------typwriter ffect
+      document.addEventListener('DOMContentLoaded', () => {
+  const text = "Turning Property investments\nInto Growth";
+  const typewriterElement = document.getElementById('typewriter');
+  let index = 0;
+  const speed = 100; // Speed of typing in milliseconds
+  const pause = 1500; // Pause before starting to delete
+  const deleteSpeed = 50; // Speed of deleting in milliseconds
+
+  function typeWriter() {
+    if (index < text.length) {
+      typewriterElement.innerText += text.charAt(index);
+      index++;
+      setTimeout(typeWriter, speed);
+    } else {
+      // Pause after typing and then start deleting
+      setTimeout(deleteWriter, pause);
+    }
+  }
+
+  function deleteWriter() {
+    if (index > 0) {
+      typewriterElement.innerText = typewriterElement.innerText.slice(0, -1);
+      index--;
+      setTimeout(deleteWriter, deleteSpeed);
+    } else {
+      // Restart the typing effect after deleting
+      setTimeout(typeWriter, speed);
+    }
+  }
+
+  typeWriter(); // Start the typewriter effect
+});
+
+
+      // --------------------------------------------------------------------------------- launch
       $(document).ready(function () {
-        const owl = $(".property-carousel");
+  const owl = $(".property-carousel");
 
-        // Initialize Owl Carousel
-        owl.owlCarousel({
-          items: 4, // Number of items to show at once
-          loop: true,
-          margin: 16,
-          autoplay: true,
-          autoplayTimeout: 3000,
-          autoplayHoverPause: true,
-          nav: false,
-          responsive: {
-            0: { items: 1 },
-            640: { items: 2 },
-            768: { items: 3 },
-            1024: { items: 4 },
-          },
-        });
+  // Initialize Owl Carousel
+  owl.owlCarousel({
+    items: 4, // Number of items to show at once
+    loop: true,
+    margin: 16,
+    autoplay: true,
+    autoplayTimeout: 3000,
+    autoplayHoverPause: true,
+    nav: false,
+    responsive: {
+      0: { items: 1 },
+      640: { items: 2 },
+      768: { items: 3 },
+      1024: { items: 4 },
+    }
+  });
 
-        // Custom navigation buttons
-        $("#property-next").click(function () {
-          owl.trigger("next.owl.carousel");
-        });
+  // Custom navigation buttons
+  $("#property-next").click(function () {
+    owl.trigger("next.owl.carousel");
+  });
 
-        $("#property-prev").click(function () {
-          owl.trigger("prev.owl.carousel");
-        });
-      });
+  $("#property-prev").click(function () {
+    owl.trigger("prev.owl.carousel");
+  });
+});
+
+   
 
       // --------------------------------------------------------------------team
       document.addEventListener("DOMContentLoaded", () => {
