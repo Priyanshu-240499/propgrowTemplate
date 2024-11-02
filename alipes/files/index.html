@@ -882,7 +882,8 @@ async function submitForm(event, formId) {
       form.reset();
       closeModal(formId); // Close modal after submission
     } else {
-      alert("Failed to submit form. Please try again.");
+    //   alert("Failed to submit form. Please try again.");
+      closeModal(formId);
     }
   } catch (error) {
     alert("Error: " + error.message);
