@@ -129,6 +129,16 @@ input[type="text"]:focus {
     }
     
 }
+@media (max-width: 991px){
+    .big-logo {
+         display: none !important;
+        }
+}
+@media (min-width: 991px){
+    .small-logo {
+         display: none !important;
+        }
+}
 
 
 
@@ -156,16 +166,22 @@ input[type="text"]:focus {
                         
                         <nav class="main-menu navbar-expand-lg">
                             
-                            <div class="navbar-header">
+                            <div class="navbar-header" style="display: flex;">
+                               
                                 <!-- Toggle Button -->      
                                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                                 <span class="icon-bar"></span>
                                 <span class="icon-bar"></span>
                                 <span class="icon-bar"></span>
+                                
                                 </button>
+                                <figure class="logo-box small-logo">
+                                    <a href="index.html"><img src="./NewAssets/Images/logo.png" alt="" ></a>
+                                </figure>
+                                
                             </div>
                             <div class="navbar-collapse collapse clearfix">
-                                <figure class="logo-box">
+                                <figure class="logo-box big-logo">
                                     <a href="index.html"><img src="./NewAssets/Images/logo.png" alt=""></a>
                                 </figure>
                                 <ul class="navigation clearfix">
