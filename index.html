@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Popup Form</title>
+<style>
+  /* Basic styling */
+  body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+  }
+
+  /* Button styling */
+  .open-form-btn {
+    background-color: rgb(205, 156, 23);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+
+  /* Popup form container styling */
+  .form-popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Form styling */
+  .form-container {
+    background-color: white;
+    padding: 20px;
+    width: 300px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  }
+
+  .form-container h2 {
+    margin-top: 0;
+    text-align: center;
+  }
+
+  .form-container input[type="text"],
+  .form-container input[type="email"],
+  .form-container input[type="tel"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  .form-container button {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    background-color: rgb(205, 156, 23);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .form-container .close-btn {
+    background-color: #ccc;
+  }
+</style>
+</head>
+<body>
+
+<button class="open-form-btn" onclick="openForm()">Open Form</button>
+
+<div class="form-popup" id="formPopup">
+  <div class="form-container">
+    <h2>Contact Us</h2>
+    <form id="contactForm" onsubmit="submitForm(event)">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <input type="tel" name="phone" placeholder="Your Phone Number" required>
+      <button type="submit">Submit</button>
+      <button type="button" class="close-btn" onclick="closeForm()">Close</button>
+    </form>
+  </div>
+</div>
+
+<script>
+  function openForm() {
+    document.getElementById("formPopup").style.display = "flex";
+  }
+
+  function closeForm() {
+    document.getElementById("formPopup").style.display = "none";
+  }
+
+  async function submitForm(event) {
+    event.preventDefault();
+    const form = document.getElementById("contactForm");
+
+    const formData = {
+      date: new Date().toISOString(),
+      name: form.name.value,
+      email: form.email.value,
+      phone: form.phone.value
+    };
+
+    try {
+      const response = await fetch('https://script.google.com/macros/s/AKfycbzJBtKyiXqSQNBTxJhHBHMj15P0TneElcFQ67dod94u5IeiyL2KRFzxGNxxXv8jaIpu/exec', {
+        method: 'POST',
+        mode: 'cors',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+      });
+
+      if (response.ok) {
+        alert("Form submitted successfully!");
+        form.reset();
+        closeForm();
+      } else {
+        alert("Failed to submit form. Please try again.");
+      }
+    } catch (error) {
+      alert("Error: " + error.message);
+    }
+  }
+</script>
+
+</body>
+</html>
