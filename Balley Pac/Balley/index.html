@@ -13,6 +13,7 @@
 <link rel="icon" href="images/favicon.ico" type="image/x-icon">
 <style>
     /* The Modal (background) */
+   
 .modal {
     display: none; /* Hidden by default */
     position: fixed; 
@@ -193,8 +194,8 @@ input[type="text"]:focus {
 
         <!--Sticky Header-->
         <div class="sticky-header">
-            <div class="row">
-                <div class="col-lg-12 col-md-12 col-sm-12 menu-column">
+            <div class="row" style="max-width: 100vw;">
+                <div class="col-lg-12 col-md-12 col-sm-12 menu-column" >
                     <div class="menu-area">
                         <nav class="main-menu navbar-expand-lg">
                             <div class="navbar-header">
@@ -207,7 +208,7 @@ input[type="text"]:focus {
                             </div>
                             <div class="navbar-collapse collapse clearfix">
                                 <ul class="navigation clearfix">
-                                    <li class="current dropdown"><a href="#Home">Home</a>
+                                    <li class=" dropdown"><a href="#Home">Home</a>
                                     </li>
                                     <li class="dropdown"><a href="#Overview">Overview</a>
                                        
@@ -488,48 +489,51 @@ input[type="text"]:focus {
 
 
     <!-- Pricing section-section -->
-    <section id="Price" class="features-section">
+    <section id="Price" class="features-section py-5">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12 col-md-12 col-sm-12">
-                    <div class="features-content">
-                        <h2 style="text-align: center;margin-bottom: 30px;">Pricing</h2>
-                        <table class="table table-hover border" style="text-align: center;">
-                            <thead class="thead-dark">
-                              <tr>
-                                <th scope="col">2BHK</th>
-                                <th scope="col">3BHK</th>
-                                <th scope="col">4BHK</th>
-                                <th scope="col">5BHK</th>
-                              </tr>
-                            </thead>
-                            <tbody>
-                              <tr>
-                                <td>Servant</td>
-                                <td>Servant</td>
-                                <td>Servant</td>
-                                <td>Servant-2</td>
-                              </tr>
-                              <tr>
-                                <td>1600Sq.Ft.</td>
-                                <td>2400Sq.Ft.</td>
-                                <td>2800Sq.Ft.</td>
-                                <td>2800Sq.Ft.-2</td>
-                              </tr>
-                              <tr>
-                                <td>2.50 Cr.*</td>
-                                <td style="color: #71b100;" onclick="openModal()">On Request</td>
-                                <td style="color: #71b100;" onclick="openModal()">On Request</td>
-                                <td style="color: #71b100;" onclick="openModal()">On Request-3</td>
-                              </tr>
-                            </tbody>
-                          </table>
+                <div class="col-12">
+                    <div class="features-content text-center">
+                        <h2 class="mb-4">Pricing</h2>
+                        <div class="table-responsive">
+                            <table class="table table-hover table-bordered text-center">
+                                <thead class="thead-dark">
+                                    <tr>
+                                        <th scope="col">2BHK</th>
+                                        <th scope="col">3BHK</th>
+                                        <th scope="col">4BHK</th>
+                                        <th scope="col">5BHK</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Servant</td>
+                                        <td>Servant</td>
+                                        <td>Servant</td>
+                                        <td>Servant-2</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1600 Sq.Ft.</td>
+                                        <td>2400 Sq.Ft.</td>
+                                        <td>2800 Sq.Ft.</td>
+                                        <td>2800 Sq.Ft.-2</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2.50 Cr.*</td>
+                                        <td style="color: #71b100; cursor: pointer;" onclick="openModal()">On Request</td>
+                                        <td style="color: #71b100; cursor: pointer;" onclick="openModal()">On Request</td>
+                                        <td style="color: #71b100; cursor: pointer;" onclick="openModal()">On Request-3</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <!-- pricing-section end -->
+    
+    
 
    
 
