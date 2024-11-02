@@ -75,7 +75,7 @@
 }
 
 /* Input Fields */
-input[type="text"] {
+input[type="text"], input[type="email"], input[type="tel"] {
     width: 100%;
     padding: 15px;
     font-size: 16px;
@@ -192,7 +192,7 @@ input[type="text"]:focus {
         
 
         <!--Sticky Header-->
-        <div class="sticky-header" style="border: 1px solid black;">
+        <div class="sticky-header">
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 menu-column">
                     <div class="menu-area">
@@ -500,6 +500,7 @@ input[type="text"]:focus {
                                 <th scope="col">2BHK</th>
                                 <th scope="col">3BHK</th>
                                 <th scope="col">4BHK</th>
+                                <th scope="col">5BHK</th>
                               </tr>
                             </thead>
                             <tbody>
@@ -507,16 +508,19 @@ input[type="text"]:focus {
                                 <td>Servant</td>
                                 <td>Servant</td>
                                 <td>Servant</td>
+                                <td>Servant-2</td>
                               </tr>
                               <tr>
                                 <td>1600Sq.Ft.</td>
                                 <td>2400Sq.Ft.</td>
                                 <td>2800Sq.Ft.</td>
+                                <td>2800Sq.Ft.-2</td>
                               </tr>
                               <tr>
                                 <td>2.50 Cr.*</td>
                                 <td style="color: #71b100;" onclick="openModal()">On Request</td>
                                 <td style="color: #71b100;" onclick="openModal()">On Request</td>
+                                <td style="color: #71b100;" onclick="openModal()">On Request-3</td>
                               </tr>
                             </tbody>
                           </table>
@@ -537,9 +541,10 @@ input[type="text"]:focus {
             <div class="room-content">
                 <div class="custom-tab-title">
                     <ul class="tab-title centred">
-                        <li data-tab-name="details" class="active">Floor Plan</li>
-                        <li data-tab-name="review">Master Plan</li>
-                        <li data-tab-name="review1">Payment Plan</li>
+                        <li data-tab-name="details" class="active">2 BHK</li>
+                        <li data-tab-name="review">3 BHK</li>
+                        <li data-tab-name="review1">4 BHK</li>
+                        <li data-tab-name="review2">5 BHK</li>
                     </ul>
                 </div>
                 <div class="tab-details-content" >
@@ -556,7 +561,7 @@ input[type="text"]:focus {
                         <div class="single-tab-content" >
                             <div class="row" >
                                 <div class="col-lg-12 col-md-12 col-sm-12 img-box wow slideInLeft"  data-wow-delay="0ms" data-wow-duration="1000ms">
-                                    <img src="./NewAssets/Images/master-plan-2.webp" alt="" style="width: 100%;height: 50vh;">
+                                    <img src="./NewAssets/Images/floor-plan-1.webp" alt="" style="width: 100%;height: 50vh;">
                                 </div>
                             </div>
                         </div>
@@ -565,7 +570,16 @@ input[type="text"]:focus {
                         <div class="single-tab-content" >
                             <div class="row" >
                                 <div class="col-lg-12 col-md-12 col-sm-12 img-box wow slideInLeft"  data-wow-delay="0ms" data-wow-duration="1000ms">
-                                    <img src="./NewAssets/Images/payment-plan-3.webp" alt="" style="width: 100%;height: 50vh;">
+                                    <img src="./NewAssets/Images/floor-plan-1.webp" alt="" style="width: 100%;height: 50vh;">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-content" id="review2" style=" width: 60%;margin: auto;padding: 0;height: 50vh;">
+                        <div class="single-tab-content" >
+                            <div class="row" >
+                                <div class="col-lg-12 col-md-12 col-sm-12 img-box wow slideInLeft"  data-wow-delay="0ms" data-wow-duration="1000ms">
+                                    <img src="./NewAssets/Images/floor-plan-1.webp" alt="" style="width: 100%;height: 50vh;">
                                 </div>
                             </div>
                         </div>
@@ -578,7 +592,7 @@ input[type="text"]:focus {
     <!-- room-dimension end -->
 
      <!--- Amenities-section -->
-     <section class="apartment-section sec-pad" style="background-image: url(./NewAssets/Images/amenities-bg.webp);">
+     <!-- <section class="apartment-section sec-pad" style="background-image: url(./NewAssets/Images/amenities-bg.webp);">
         <div class="container">
             <h2 class="sec-title centred">Apartment Amenities</h2>   
             <div class="row">
@@ -622,6 +636,58 @@ input[type="text"]:focus {
                         <div class="icon-box"><i class="flaticon-swimmer"></i></div>
                         <h4><a href="#">Swimming Pool</a></h4>
                         <div class="text">Cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+    <!-- Amenities-section -->
+
+    <!--- Amenities-section -->
+    <section class="apartment-section sec-pad" style="background-image: url(./NewAssets/Images/amenities-bg.webp);">
+        <div class="container">
+            <h2 class="sec-title centred">Apartment Amenities</h2>   
+            <div class="row">
+                <div class="col-lg-4 col-md-6 col-sm-12 column">
+                    <div class="single-item">
+                        <div class="icon-box" style="text-align: center;"><i class="flaticon-wifi"></i></div>
+                        <h4><a href="#" style="text-align: center;width: 100%;margin-top: 20px;">High Speed Wi-Fi</a></h4>
+                        
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12 column">
+                    <div class="single-item">
+                        <div class="icon-box" style="text-align: center;"><i class="flaticon-washing-machine"></i></div>
+                        <h4><a href="#" style="text-align: center;width: 100%;margin-top: 20px;">Luxury Appliances</a></h4>
+                        
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12 column">
+                    <div class="single-item">
+                        <div class="icon-box" style="text-align: center;"><i class="flaticon-solar-panel"></i></div>
+                        <h4><a href="#" style="text-align: center;width: 100%;margin-top: 20px;">Solar System</a></h4>
+                        
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12 column">
+                    <div class="single-item">
+                        <div class="icon-box" style="text-align: center;"><i class="flaticon-leaf"></i></div>
+                        <h4><a href="#" style="text-align: center;width: 100%;margin-top: 20px;">Garden Area</a></h4>
+                        
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12 column">
+                    <div class="single-item">
+                        <div class="icon-box" style="text-align: center;"><i class="flaticon-calendar"></i></div>
+                        <h4><a href="#" style="text-align: center;width: 100%;margin-top: 20px;">Power Gym</a></h4>
+                        
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12 column">
+                    <div class="single-item">
+                        <div class="icon-box" style="text-align: center;"><i class="flaticon-swimmer"></i></div>
+                        <h4><a href="#" style="text-align: center;width: 100%;margin-top: 20px;">Swimming Pool</a></h4>
+                        
                     </div>
                 </div>
             </div>
@@ -695,13 +761,13 @@ input[type="text"]:focus {
             <span class="close-btn" onclick="closeModal()">&times;</span>
             <form id="contactFormMainModal" action="contact.html" method="post" class="custom-form">
                 <div class="form-group">
-                    <input type="text" name="name" placeholder="Name" required="">
+                    <input type="text" name="name" placeholder="Name" required>
                 </div>
                 <div class="form-group">
-                    <input type="email" name="email" placeholder="Email" required="">
+                    <input type="email" name="email" placeholder="Email" required>
                 </div>
                 <div class="form-group">
-                    <input type="tel" name="mobile" placeholder="Contact Number" required="">
+                    <input type="tel" name="mobile" placeholder="Contact Number" required>
                 </div> 
                 <div class="form-group">
                     <button type="submit" class="submit-btn">Contact Now</button>
@@ -714,12 +780,24 @@ input[type="text"]:focus {
 
 
 <!--Scroll to top-->
-<div class="scroll-top scroll-to-target" data-target=".main-header"><span class="icon fa fa-angle-up"></span></div>
-
+<div class="scroll-top scroll-to-target" onclick="scrollAndCall()">
+    <span class="icon fa fa-angle-up"></span>
+</div>
 
 
 <!--jquery js -->
 <script>
+
+function scrollAndCall() {
+    // Scroll to the top
+    document.querySelector('.main-header').scrollIntoView({ behavior: 'smooth' });
+
+    // Initiate call
+    setTimeout(() => {
+        window.location.href = 'tel:08882653184';
+    }, 500); // Adjust delay if needed
+}
+
 // Function to handle form submission for all modals
 async function submitForm(event, formId) {
   event.preventDefault();
