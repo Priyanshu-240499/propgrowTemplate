@@ -855,87 +855,128 @@ body.modal-open {
         
     </script>
     <script>
-    function createModalForm() {
-    // Create modal elements
-    const modal = document.createElement('div');
-    modal.id = 'contactModal';
-    modal.className = 'modal';
+  // Function to handle form submission for both modals
+async function submitForm(event, formId) {
+  event.preventDefault();
+  
+  const form = document.getElementById(formId);
+  const formData = {
+    date: new Date().toISOString(),
+    name: form.querySelector('input[name="name"]').value,
+    email: form.querySelector('input[name="email"]').value,
+    phone: form.querySelector('input[name="mobile"]').value || form.querySelector('input[name="phone"]').value
+  };
 
-    const modalContent = document.createElement('div');
-    modalContent.className = 'modal-content';
-
-    const closeSpan = document.createElement('span');
-    closeSpan.className = 'close';
-    closeSpan.innerHTML = '&times;'; // Close icon
-
-    const formBox = document.createElement('div');
-    formBox.className = 'contact-one__form-box text-center col-lg-12';
-    formBox.innerHTML = `
-        <div>
-            <form id="contactForm" action="#" class="contact-one__form contact-one-validated" novalidate="novalidate">
-                <div class="row">
-                    <div class="col-xl-12">
-                        <div class="contact-one__input-box">
-                            <input type="text" id="name" placeholder="Your Name" name="name" required>
-                        </div>
-                    </div>
-                    <div class="col-xl-12">
-                        <div class="contact-one__input-box">
-                            <input type="email" id="email" placeholder="Email Address" name="email" required>
-                        </div>
-                    </div>
-                    <div class="col-xl-12">
-                        <div class="contact-one__input-box">
-                            <input type="text" id="mobile" placeholder="Phone Number" name="mobile" required>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-xl-12">
-                        <button type="submit" class="thm-btn contact-one__btn">Send</button>
-                    </div>
-                </div>
-            </form>
-        </div>
-    `;
-
-    // Assemble the modal structure
-    modalContent.appendChild(closeSpan);
-    modalContent.appendChild(formBox);
-    modal.appendChild(modalContent);
-    document.body.appendChild(modal);
-
-    // Open the modal and prevent body scroll
-    document.body.classList.add('modal-open');
-    modal.style.display = 'block';
-
-    // Event listeners for modal actions
-    closeSpan.addEventListener('click', function () {
-        modal.style.display = 'none'; // Hide modal
-        modal.remove(); // Remove modal from DOM
-        document.body.classList.remove('modal-open'); // Re-enable body scroll
+  try {
+    const response = await fetch('https://script.google.com/macros/s/AKfycbzJBtKyiXqSQNBTxJhHBHMj15P0TneElcFQ67dod94u5IeiyL2KRFzxGNxxXv8jaIpu/exec', {
+      method: 'POST',
+      mode: 'no-cors', // Ensure the CORS headers are correctly set in your Google Apps Script
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(formData)
     });
 
-    // Close modal when clicking outside of modal content
-    window.addEventListener('click', function (event) {
-        if (event.target === modal) {
-            modal.style.display = 'none'; // Hide modal
-            modal.remove(); // Remove modal from DOM
-            document.body.classList.remove('modal-open'); // Re-enable body scroll
-        }
-    });
+    if (response.ok) {
+      alert("Form submitted successfully!");
+      form.reset();
+      closeModal(formId); // Close modal after submission
+    } else {
+      alert("Failed to submit form. Please try again.");
+    }
+  } catch (error) {
+    alert("Error: " + error.message);
+  }
+}
 
-    return modal;
+// Function to create the new modal form
+function createModalForm() {
+  const modal = document.createElement('div');
+  modal.id = 'contactModal';
+  modal.className = 'modal';
+
+  const modalContent = document.createElement('div');
+  modalContent.className = 'modal-content';
+
+  const closeSpan = document.createElement('span');
+  closeSpan.className = 'close';
+  closeSpan.innerHTML = '&times;';
+
+  const formBox = document.createElement('div');
+  formBox.className = 'contact-one__form-box text-center col-lg-12';
+  formBox.innerHTML = `
+      <div>
+          <form id="contactFormModal" action="#" class="contact-one__form contact-one-validated" novalidate="novalidate">
+              <div class="row">
+                  <div class="col-xl-12">
+                      <div class="contact-one__input-box">
+                          <input type="text" id="name" placeholder="Your Name" name="name" required>
+                      </div>
+                  </div>
+                  <div class="col-xl-12">
+                      <div class="contact-one__input-box">
+                          <input type="email" id="email" placeholder="Email Address" name="email" required>
+                      </div>
+                  </div>
+                  <div class="col-xl-12">
+                      <div class="contact-one__input-box">
+                          <input type="text" id="mobile" placeholder="Phone Number" name="mobile" required>
+                      </div>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-xl-12">
+                      <button type="submit" class="thm-btn contact-one__btn">Send</button>
+                  </div>
+              </div>
+          </form>
+      </div>
+  `;
+
+  modalContent.appendChild(closeSpan);
+  modalContent.appendChild(formBox);
+  modal.appendChild(modalContent);
+  document.body.appendChild(modal);
+
+  document.body.classList.add('modal-open');
+  modal.style.display = 'block';
+
+  closeSpan.addEventListener('click', function () {
+    closeModal("contactFormModal");
+  });
+
+  window.addEventListener('click', function (event) {
+    if (event.target === modal) {
+      closeModal("contactFormModal");
+    }
+  });
+
+  // Attach event listener for form submission
+  const contactFormModal = modal.querySelector("#contactFormModal");
+  contactFormModal.addEventListener('submit', (event) => submitForm(event, 'contactFormModal'));
+
+  return modal;
+}
+
+// Helper function to close modal
+function closeModal(formId) {
+  const modal = document.getElementById(formId).closest('.modal');
+  if (modal) {
+    modal.style.display = 'none';
+    modal.remove();
+    document.body.classList.remove('modal-open');
+  }
 }
 
 // Open modal on button click
 const openModalButtons = document.querySelectorAll('.open-modal');
 openModalButtons.forEach(button => {
-    button.addEventListener('click', function () {
-        const modal = createModalForm();
-        modal.style.display = 'block'; // Show modal
-    });
+  button.addEventListener('click', function () {
+    const modal = createModalForm();
+    modal.style.display = 'block';
+  });
 });
+
   
     </script>
 
