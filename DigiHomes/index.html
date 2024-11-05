@@ -17,6 +17,51 @@
 <link rel="preload" href="assets/fonts/inter-v2-latin-100.woff2" as="font" crossorigin="anonymous">
 <link rel="preload" href="assets/fonts/inter-v2-latin-regular.woff2" as="font" crossorigin="anonymous">
 <link rel="preload" href="assets/fonts/inter-v2-latin-700.woff2" as="font" crossorigin="anonymous">
+<style>
+   /* sticky footer bottom */
+   .sticky-enquire {
+    display: none !important;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgb(16, 96, 16);
+    color: #fff;
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+    font-size: 16px;
+    /* font-weight: bold; */
+    font-family: sans-serif;
+}
+
+.enquire-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    text-align: center;
+}
+
+.enquire-item:not(:last-child) {
+    border-right: 1px solid #fff;
+}
+
+.icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+}
+
+@media (max-width: 560px) {
+    .sticky-enquire {
+        display: flex !important;
+    }
+}
+
+
+/* --------------------------------------- */
+</style>
 </head>
 
 <body>
@@ -195,6 +240,30 @@
     </div>
   </form>
 </div>
+
+
+
+
+<!-- Sticky footer  -->
+
+<div class="sticky-enquire">
+  <div class="enquire-item" onclick="scrollAndCall()">
+      <img src="https://img.icons8.com/ios-filled/50/ffffff/phone.png" alt="Call Icon" class="icon">
+      <span>Call</span>
+  </div>
+  <div class="enquire-item" >
+      <img src="https://img.icons8.com/ios-filled/50/ffffff/email.png" alt="Mail Icon" class="icon">
+      <span>Enquire</span>
+  </div>
+  <div class="enquire-item" onclick="sendWhatsAppMessage()">
+      <img src="https://img.icons8.com/ios-filled/50/ffffff/whatsapp.png" alt="WhatsApp Icon" class="icon">
+      <span>WhatsApp</span>
+  </div>
+</div>
+
+<!-- Sticky footer end -->
+
+
 <link href="assets/lightgallery.css" rel="stylesheet">
 <script src="assets/js/jquery.min.js"></script> 
 <script src="assets/js/bootstrap.min.js" crossorigin="anonymous"></script> 
@@ -213,6 +282,30 @@
 
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Event","name":"Emaar Digi Homes 2","description":"Emaar Digi Homes Phase - 2 is a luxury Residential project in Sector 62 Gurgaon by Emaar India Group","startDate":"2023-08-13","endDate":"2023-12-22","url":"https://www.digihomes2gurgaon.com/","image":"https://www.digihomes2gurgaon.com/assets/images/gallery/banner.webp","location":{"name":"Sector 62 Gurgaon","@type":"Place","address":{"@type":"PostalAddress","name":"Sector 62 Gurgaon"}}}</script>
 <script>
+
+function scrollAndCall() {
+    // Scroll to the top
+    document.querySelector('.main-header').scrollIntoView({ behavior: 'smooth' });
+
+    // Initiate call
+    setTimeout(() => {
+        window.location.href = 'tel:08882653184';
+    }, 500); // Adjust delay if needed
+}
+
+
+function sendWhatsAppMessage() {
+            // Define the phone number in international format (without spaces or special characters)
+            const phoneNumber = "918882653184"; // Replace with the correct number
+            
+            // Define the message to be pre-filled in WhatsApp
+            const message = "Hi, I am interested in this property. Please share the details.";
+
+            // Open WhatsApp with the pre-filled message and dynamic phone number
+            window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank');
+        }
+
+
   function submitForm(event) {
     event.preventDefault();  // Ensure the form doesn't submit
     const formData = new FormData(event.target); // `event.target` refers to the form element

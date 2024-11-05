@@ -425,8 +425,9 @@ figure{
 }
 .main-header .menu-area{
   position: relative;
-  background: rgba(0, 0, 0, 0.60);
+  background: rgba(255, 255, 255, 0.70);
   border-bottom: 3px solid #71b100;
+  
   /* margin-top: 63px; */
 }
 .sticky-header{
@@ -508,7 +509,7 @@ figure{
   display:block;
   font-size:18px;
   font-family: 'Montserrat', sans-serif;
-  color:#ffffff;
+  color:black;
   line-height:30px;
   font-weight:500;
   opacity:1;

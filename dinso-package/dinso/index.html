@@ -1084,10 +1084,50 @@
 </div>
 <!--End pagewrapper-->
 
+<div class="sticky-enquire">
+    <div class="enquire-item" onclick="scrollAndCall()">
+        <img src="https://img.icons8.com/ios-filled/50/ffffff/phone.png" alt="Call Icon" class="icon">
+        <span>Call</span>
+    </div>
+    <div class="enquire-item" >
+        <img src="https://img.icons8.com/ios-filled/50/ffffff/email.png" alt="Mail Icon" class="icon">
+        <span>Enquire</span>
+    </div>
+    <div class="enquire-item" onclick="sendWhatsAppMessage()">
+        <img src="https://img.icons8.com/ios-filled/50/ffffff/whatsapp.png" alt="WhatsApp Icon" class="icon">
+        <span>WhatsApp</span>
+    </div>
+</div>
+
 <!--Scroll to top-->
 <div class="scroll-to-top scroll-to-target" data-target="html"><span class="fa fa-angle-up"></span></div>
 <!--Scroll to top-->
+<script>
+    function scrollAndCall() {
+    // Scroll to the top
+    document.querySelector('.main-header').scrollIntoView({ behavior: 'smooth' });
 
+    // Initiate call
+    setTimeout(() => {
+        window.location.href = 'tel:08882653184';
+    }, 500); // Adjust delay if needed
+}
+
+
+function sendWhatsAppMessage() {
+            // Define the phone number in international format (without spaces or special characters)
+            const phoneNumber = "918882653184"; // Replace with the correct number
+            
+            // Define the message to be pre-filled in WhatsApp
+            const message = "Hi, I am interested in this property. Please share the details.";
+
+            // Open WhatsApp with the pre-filled message and dynamic phone number
+            window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank');
+        }
+
+
+
+</script>
 <script src="js/jquery.js"></script>
 <script src="js/popper.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
