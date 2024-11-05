@@ -13,15 +13,161 @@
 <link rel="preload" href="assets/fonts/cinzel-v10-latin-600.woff2" as="font" crossorigin="anonymous">
 <meta name="p:domain_verify" content="fa7c0d0107b8cfa17b124273f7e0bfb8">
 <meta name="google-site-verification" content="oNdSRDE8TpYb--8EekgtJQIOsjt21M91uuO9NMSvmiM">
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-LYML5E86XK"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+<style>
+  /* sticky footer bottom */
+  .sticky-enquire {
+   display: none !important;
+   position: fixed;
+   bottom: 0;
+   left: 0;
+   width: 100%;
+   background-color: rgb(16, 96, 16);
+   color: #fff;
+   display: flex;
+   justify-content: space-around;
+   padding: 10px 0;
+   font-size: 16px;
+   /* font-weight: bold; */
+   font-family: sans-serif;
+}
 
-  gtag('config', 'G-LYML5E86XK');
-</script>
+.form-section2>input{
+ color: black !important;
+}
+
+
+.enquire-item {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   flex: 1;
+   text-align: center;
+}
+
+.enquire-item:not(:last-child) {
+   border-right: 1px solid #fff;
+}
+
+.icon {
+   width: 20px;
+   height: 20px;
+   margin-right: 5px;
+   
+}
+
+@media (max-width: 560px) {
+   .sticky-enquire {
+       display: flex !important;
+   }
+}
+
+
+/* --------------------------------------- */
+
+/* form modal */
+/* Form Section Styling */
+.form-section2 {
+   position: relative;
+   display: flex;
+   align-items: center;
+   margin-bottom: 15px;
+}
+
+.form-section2 i {
+   position: absolute;
+   left: 10px;
+   color: #666;
+   font-size: 18px;
+}
+
+.inputxt {
+   width: 100%;
+   padding: 5px 5px 5px 40px ; /* Left padding for icon space */
+   border: 1px solid #ddd;
+   border-radius: 4px;
+   font-size: 14px;
+   box-sizing: border-box;
+}
+
+/* Submit Button */
+.btn-submit {
+   width: 100%;
+   padding: 8px;
+   background-color: #28a745;
+   color: #fff;
+   border: none;
+   border-radius: 4px;
+   cursor: pointer;
+   font-size: 16px;
+}
+
+/* Close Button Styling */
+.closeit {
+   position: absolute;
+   top: 10px;
+   right: 15px;
+   font-size: 20px;
+   cursor: pointer;
+   color: #333;
+}
+
+/* Center the modal */
+.modal-overlay {
+   display: none; /* Initially hidden */
+   justify-content: center;
+   align-items: center;
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   background: rgba(0, 0, 0, 0.7);
+   z-index: 1000;
+}
+
+.enquiry {
+   width: 90%;
+   max-width: 400px;
+   padding: 25px;
+   background: #fff;
+   border-radius: 8px;
+   box-shadow: 0 5px 37px rgba(0, 0, 0, 0.4);
+   position: relative;
+}
+
+.formtitle {
+   font-size: 18px;
+   font-weight: bold;
+   text-align: center;
+   margin-bottom: 20px;
+   color: #333;
+}
+
+::placeholder{
+ color: grey !important;
+}
+
+/* fixed CTA */
+.fixed-cta{
+ display: block;
+}
+@media (max-width: 560px) {
+ .fixed-cta{
+ display: none;
+}
+}
+
+/* fixed CTA end */
+@media (max-width:560px){
+ .con-number, .icon-phone{
+   font-weight: 600;
+   font-size:15px;
+ }
+}
+
+/* form modal */
+</style>
+
 </head>
 <body>
 <header class="topheader">
@@ -597,26 +743,58 @@
 </div>
 <!-----Address & Social icons end-----> 
 
+
 <!-- popup form -->
-<div class="enquiry bg-gold">
-  <div class="enquire-button bg-green shake white calign"><img src="assets/icon/envelope.png" alt="X" width="25" class="center"></div>
-  <span class="closeit black"><i class="icon-close"></i></span>
-  <div class="formtitle black calign">Get Instant Callback</div>
-  <form name="callback" onsubmit="submitForm(event)" >
-    <div class="form-section2 left"> <i class="icon-user black"></i>
-      <input name="name" type="text" placeholder="Your Name" class="inputxt" required="">
-    </div>
-    <div class="form-section2 left"> <i class="icon-call black"></i>
-      <input name="phone" type="text" minlength="10" maxlength="10"  placeholder="Mobile No" class="inputxt" required="">
-    </div>
-    <div class="form-section2 left"> <i class="icon-call black"></i>
-      <input name="email" type="text" placeholder="Your Email Id" class="inputxt" required="">
-    </div>
-   
-    <div class="form-section2 left">
-      <input id="send" type="submit" value="Submit" name="send" class="btn-submit">
-    </div>
-  </form>
+<div class="modal-overlay" id="modalOverlay" >
+  <div class="enquiry" >
+      <span class="closeit" id="cross" onclick="closeModal()" style="font-size: x-large;">×</span>
+     
+      <h6 style="margin-bottom:25px;">Request Callback For Best Offers</h6>      
+      <form name="callback"  onsubmit="submitForm(event)">
+          <div class="form-section2 left">
+              <i class="icon-user" style="margin-left: 2px;"></i>
+              <input name="name" type="text" placeholder="Name" class="inputxt" required="" >
+          </div>
+          <div class="form-section2 left">
+              <i class="icon-call" style="margin-left: 2px;"></i>
+              <input name="phone" type="tel" minlength="10" maxlength="10px" placeholder="Mobile No." class="inputxt" required="">
+          </div>
+          <div class="form-section2 left">
+              <i class="icon-email" style="margin-left: 2px;"></i>
+              <input name="email" type="text" placeholder="Email Id" class="inputxt" required="">
+          </div>
+         
+          <div class="form-section2 left">
+              <input id="send" type="submit" value="Submit" name="send" class="btn-submit" style="color: white !important;padding: 0px;">
+          </div>
+      </form>
+  </div>
+</div>
+
+<!-- Scroll to top -->
+ <div class="fixed-cta" onclick="showModal()" style="position: fixed; top: 30% ;right: 0;background-color: #28a745; border-radius: 5px 0px 0px 5px;">
+    <span style="padding: 15px; color: white;font-weight: 600;font-size: x-large; ">Enquire Now</span>
+</div>
+
+<!-- Sticky footer  -->
+
+<div class="sticky-enquire">
+  <div class="enquire-item" onclick="scrollAndCall()">
+      <img src="https://img.icons8.com/ios-filled/50/ffffff/phone.png" alt="Call Icon" class="icon">
+      <span>Call</span>
+  </div>
+  <div class="enquire-item" onclick="showModal()">
+      <img src="https://img.icons8.com/ios-filled/50/ffffff/email.png" alt="Mail Icon" class="icon">
+      <span>Enquire</span>
+  </div>
+  <div class="enquire-item" onclick="sendWhatsAppMessage()">
+      <img src="https://img.icons8.com/ios-filled/50/ffffff/whatsapp.png" alt="WhatsApp Icon" class="icon">
+      <span>WhatsApp</span>
+  </div>
+</div>
+
+<!-- Sticky footer end -->
+
 </div>
 <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,700" rel="stylesheet">
 <link href="assets/lightgallery.css" rel="stylesheet">
@@ -637,8 +815,63 @@
 <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,700" rel="stylesheet">
 <script>
 
-  
- function submitForm(event) {
+  // Function to show the modal
+function showModal() {
+    document.getElementById("modalOverlay").style.display = "flex";
+    document.getElementById("cross").style.display = "block";
+}
+
+// Function to close the modal
+function closeModal() {
+    document.getElementById("modalOverlay").style.display = "none";
+}
+
+// Automatically show the modal with a 3-second delay
+window.onload = function() {
+    setTimeout(showModal, 10000);
+};
+
+// Optional: Function to trigger the modal with a button click
+document.getElementById("openModalButton").addEventListener("click", showModal);
+
+
+function scrollAndCall() {
+   
+
+    // Initiate call
+    setTimeout(() => {
+        window.location.href = 'tel:8882653184';
+    }, 500); // Adjust delay if needed
+}
+
+window.onload = function() {
+            openModal();
+        };
+
+        // Function to open the modal
+        function openModal() {
+            document.getElementById("modalOverlay").style.display = "flex";
+        }
+
+        // Function to close the modal
+        function closeModal() {
+            document.getElementById("modalOverlay").style.display = "none";
+        }
+
+
+function sendWhatsAppMessage() {
+            // Define the phone number in international format (without spaces or special characters)
+            const phoneNumber = "918882653184"; // Replace with the correct number
+            
+            // Define the message to be pre-filled in WhatsApp
+            const message = "Hi, I am interested in this property. Please share the details.";
+
+            // Open WhatsApp with the pre-filled message and dynamic phone number
+            window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank');
+        }
+
+
+  function submitForm(event) {
     event.preventDefault();  // Ensure the form doesn't submit
     const formData = new FormData(event.target); // `event.target` refers to the form element
     const data = {};
