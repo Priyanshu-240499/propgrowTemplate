@@ -158,7 +158,7 @@ ul.breadcrumb li a:hover{color:#999 !important;text-decoration:underline}
 /* portfolio */
 .work{position: relative; padding: 0!important; margin:75px 0 !important; max-height: 400px; overflow: hidden; -webkit-box-shadow: 0 2px 25px rgba(0,0,0,.2); box-shadow: 0 2px 25px rgba(0,0,0,.2)}
 .work2{position:relative;padding:0!important;margin:25px 0 !important; max-height: 500px; overflow: hidden;}
-.logo-background{position:absolute;width:100%;text-align:center; background-color:rgba(255,255,255,1); font-size: 1.2em; transition:all .25s ease-in-out;bottom:0;color:#1b1b1b; height:50px}
+.logo-background{position:absolute;width:100%;text-align:center; background-color:rgba(255,255,255,1); font-size: 1.2em; transition:all .25s ease-in-out;top:0;color:#1b1b1b; height:50px}
 .logo-background:before{content:'';display:inline-block;height:100%;vertical-align:middle}
 .work>img{display:block;width:100%;}
 .work2>img{display:block;width:100%;}
