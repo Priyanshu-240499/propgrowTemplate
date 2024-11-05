@@ -170,7 +170,8 @@
 /* fixed CTA end */
 @media (max-width:560px){
   .con-number{
-    font-weight: 300;
+    font-weight: 600;
+    font-size:15px;
   }
 }
 
@@ -187,9 +188,9 @@
         <div class="right"><a class="relative block" href="tel:+9108882653184">
           <p class="show number white"> 
           <span class="icon-phone white">
-          </span></p><p class="con-number white"> 08882653184</p>
+          </span></p><p class="con-number white"> 8882653184</p>
           
-          <p></p>
+         
           </a></div>
       </li>
     </ul>
@@ -337,18 +338,19 @@
   <div class="enquiry" onclick="event.stopPropagation()">
       <span class="closeit" onclick="closeModal()">×</span>
       <div class="formtitle"><h5>Click to call <span onclick="scrollAndCall"></span>08882653184</h5> <span>OR</span> <p> click to continue </p></div>
+      <h6 style="margin-bottom:10px;">Request Callback For Best Offers</h6>      
       <form name="callback" id="quichForm"  onsubmit="submitForm(event)">
           <div class="form-section2 left">
               <i class="icon-user"></i>
-              <input name="name" type="text" placeholder="Your Name" class="inputxt" required="" >
+              <input name="name" type="text" placeholder="Name" class="inputxt" required="" >
           </div>
           <div class="form-section2 left">
               <i class="icon-call"></i>
-              <input name="phone" type="tel" pattern="[789][0-9]{9}" placeholder="Mobile No" class="inputxt" required="">
+              <input name="phone" type="tel" pattern="[789][0-9]{9}" placeholder="Mobile No." class="inputxt" required="">
           </div>
           <div class="form-section2 left">
               <i class="icon-email"></i>
-              <input name="email" type="email" placeholder="Your Email Id" class="inputxt" required="">
+              <input name="email" type="email" placeholder="Email Id" class="inputxt" required="">
           </div>
           <input name="email" id="email" type="hidden" value="">
           <input name="project" type="hidden" value="Emaar Digi Homes 2">
@@ -418,7 +420,7 @@ function closeModal() {
 
 // Automatically show the modal with a 3-second delay
 window.onload = function() {
-    setTimeout(showModal, 15000);
+    setTimeout(showModal, 10000);
 };
 
 // Optional: Function to trigger the modal with a button click
