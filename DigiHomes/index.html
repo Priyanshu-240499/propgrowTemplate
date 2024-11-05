@@ -37,14 +37,8 @@
 
 .form-section2>input{
   color: black !important;
+}
 
-}
-.form-section2>i{
- 
-  top: 15%;
-  
-  
-}
 
 .enquire-item {
     display: flex;
@@ -92,7 +86,7 @@
 
 .inputxt {
     width: 100%;
-    padding: 10px 10px 10px 35px; /* Left padding for icon space */
+    padding: 5px 5px 5px 40px ; /* Left padding for icon space */
     border: 1px solid #ddd;
     border-radius: 4px;
     font-size: 14px;
@@ -335,27 +329,27 @@
 
 <!-- popup form -->
 <div class="modal-overlay" id="modalOverlay" onclick="closeModal()">
-  <div class="enquiry" onclick="event.stopPropagation()">
-      <span class="closeit" onclick="closeModal()">×</span>
-      <div class="formtitle"><h5>Click to call <span onclick="scrollAndCall"></span>08882653184</h5> <span>OR</span> <p> click to continue </p></div>
-      <h6 style="margin-bottom:10px;">Request Callback For Best Offers</h6>      
-      <form name="callback" id="quichForm"  onsubmit="submitForm(event)">
+  <div class="enquiry" >
+      <span class="closeit" onclick="closeModal()" style="font-size: x-large;">×</span>
+     
+      <h6 style="margin-bottom:25px;">Request Callback For Best Offers</h6>      
+      <form name="callback"   onsubmit="submitForm(event)">
           <div class="form-section2 left">
-              <i class="icon-user"></i>
+              <i class="icon-user" style="margin-left: 2px;"></i>
               <input name="name" type="text" placeholder="Name" class="inputxt" required="" >
           </div>
           <div class="form-section2 left">
-              <i class="icon-call"></i>
-              <input name="phone" type="tel" pattern="[789][0-9]{9}" placeholder="Mobile No." class="inputxt" required="">
+              <i class="icon-call" style="margin-left: 2px;"></i>
+              <input name="phone" type="tel" minlength="10" maxlength="10px" placeholder="Mobile No." class="inputxt" required="">
           </div>
           <div class="form-section2 left">
-              <i class="icon-email"></i>
+              <i class="icon-email" style="margin-left: 2px;"></i>
               <input name="email" type="email" placeholder="Email Id" class="inputxt" required="">
           </div>
           <input name="email" id="email" type="hidden" value="">
           <input name="project" type="hidden" value="Emaar Digi Homes 2">
           <div class="form-section2 left">
-              <input id="send" type="submit" value="Submit" name="send" class="btn-submit" style="color: white !important;">
+              <input id="send" type="submit" value="Submit" name="send" class="btn-submit" style="color: white !important;padding: 0px;">
           </div>
       </form>
   </div>
