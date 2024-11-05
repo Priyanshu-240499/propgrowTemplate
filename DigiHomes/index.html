@@ -168,7 +168,11 @@
  }
 
 /* fixed CTA end */
-
+@media (max-width:560px){
+  .con-number{
+    font-weight: 300;
+  }
+}
 
 /* form modal */
 </style>
@@ -332,7 +336,7 @@
 <div class="modal-overlay" id="modalOverlay" onclick="closeModal()">
   <div class="enquiry" onclick="event.stopPropagation()">
       <span class="closeit" onclick="closeModal()">×</span>
-      <div class="formtitle"><h5 onclick="scrollAndCall()">Click to call </h5> <span>OR</span> <p>Send Email</p></div>
+      <div class="formtitle"><h5>Click to call <span onclick="scrollAndCall"></span>08882653184</h5> <span>OR</span> <p> click to continue </p></div>
       <form name="callback" id="quichForm"  onsubmit="submitForm(event)">
           <div class="form-section2 left">
               <i class="icon-user"></i>
@@ -414,7 +418,7 @@ function closeModal() {
 
 // Automatically show the modal with a 3-second delay
 window.onload = function() {
-    setTimeout(showModal, 3000);
+    setTimeout(showModal, 15000);
 };
 
 // Optional: Function to trigger the modal with a button click
@@ -422,8 +426,7 @@ document.getElementById("openModalButton").addEventListener("click", showModal);
 
 
 function scrollAndCall() {
-    // Scroll to the top
-    document.querySelector('.main-header').scrollIntoView({ behavior: 'smooth' });
+   
 
     // Initiate call
     setTimeout(() => {
