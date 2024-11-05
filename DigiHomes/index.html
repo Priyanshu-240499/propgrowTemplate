@@ -35,6 +35,17 @@
     font-family: sans-serif;
 }
 
+.form-section2>input{
+  color: black !important;
+
+}
+.form-section2>i{
+ 
+  top: 15%;
+  
+  
+}
+
 .enquire-item {
     display: flex;
     align-items: center;
@@ -51,6 +62,7 @@
     width: 20px;
     height: 20px;
     margin-right: 5px;
+    
 }
 
 @media (max-width: 560px) {
@@ -144,6 +156,18 @@
 ::placeholder{
   color: grey !important;
 }
+
+/* fixed CTA */
+ .fixed-cta{
+  display: block;
+ }
+ @media (max-width: 560px) {
+  .fixed-cta{
+  display: none;
+ }
+ }
+
+/* fixed CTA end */
 
 
 /* form modal */
@@ -308,30 +332,33 @@
 <div class="modal-overlay" id="modalOverlay" onclick="closeModal()">
   <div class="enquiry" onclick="event.stopPropagation()">
       <span class="closeit" onclick="closeModal()">×</span>
-      <div class="formtitle">Get Instant Callback</div>
-      <form name="callback" id="quichForm" method="post" action="form.php">
+      <div class="formtitle"><h5 onclick="scrollAndCall()">Click to call </h5> <span>OR</span> <p>Send Email</p></div>
+      <form name="callback" id="quichForm"  onsubmit="submitForm(event)">
           <div class="form-section2 left">
               <i class="icon-user"></i>
               <input name="name" type="text" placeholder="Your Name" class="inputxt" required="" >
           </div>
           <div class="form-section2 left">
               <i class="icon-call"></i>
-              <input name="mobile" type="tel" pattern="[789][0-9]{9}" placeholder="Mobile No" class="inputxt" required="">
+              <input name="phone" type="tel" pattern="[789][0-9]{9}" placeholder="Mobile No" class="inputxt" required="">
           </div>
           <div class="form-section2 left">
               <i class="icon-email"></i>
               <input name="email" type="email" placeholder="Your Email Id" class="inputxt" required="">
           </div>
-          <input name="email" id="email" type="hidden" value="seo@100acress.com">
+          <input name="email" id="email" type="hidden" value="">
           <input name="project" type="hidden" value="Emaar Digi Homes 2">
           <div class="form-section2 left">
-              <input id="send" type="submit" value="Submit" name="send" class="btn-submit">
+              <input id="send" type="submit" value="Submit" name="send" class="btn-submit" style="color: white !important;">
           </div>
       </form>
   </div>
 </div>
 
-
+<!-- Scroll to top -->
+ <div class="fixed-cta" onclick="showModal()" style="position: fixed; top: 30% ;right: 0;background-color: #28a745; border-radius: 5px 0px 0px 5px;">
+    <span style="padding: 15px; color: white;font-weight: 600;font-size: x-large; ">Enquire Now</span>
+</div>
 
 
 
@@ -343,7 +370,7 @@
       <img src="https://img.icons8.com/ios-filled/50/ffffff/phone.png" alt="Call Icon" class="icon">
       <span>Call</span>
   </div>
-  <div class="enquire-item" >
+  <div class="enquire-item" onclick="showModal()">
       <img src="https://img.icons8.com/ios-filled/50/ffffff/email.png" alt="Mail Icon" class="icon">
       <span>Enquire</span>
   </div>
