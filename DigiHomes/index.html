@@ -271,9 +271,17 @@
 <div id="floorplans" class="bg-plan lightgallery plan_img">
   <div class="bg-plan-content pcontent">
     <h2 class="h4 text-center title white"><strong>Emaar Digi Homes 2 Floor Plans</strong></h2>
-    <div class="floorplans slider"> </div>
+    <div class="" style=" height: 100%; width: 100%;display: flex;justify-content: center;align-items: center;">
+      <img src="./assets/images/gallery/floor-plan-1.webp" alt="" height="50%" width="50%">
+    </div>
+    <div style="text-align: center; margin-top: 25px;" onclick="showModal()">
+      <button class="btn-submit" style="color: white !important;padding: 0px;width: 15%;" >
+        View Floor Plans
+      </button>
+    </div>
   </div>
 </div>
+
 <div class="clear bg-white lightgallery pcontent">
   <h5 class="title h4 text-center gold"><strong>Emaar Digi Homes 2 Location Map</strong></h5>
   <div class="container-fluid">
@@ -301,10 +309,7 @@
 <strong><a class="relative block" href="tel:+8882653184">8882653184</a></strong></h5>
 </section>
 
-<div class="siteplan bg-gray">
-  <h3 class="title h4 text-center gold"><strong>Emaar Digi Homes 2 Master Plan</strong></h3>
-  &nbsp;
-  </div>
+
   
 <div class="col-sm-12 text-center pcontent">
   <h6 class="h4"><strong>About Emaar India</strong></h6>
@@ -328,7 +333,7 @@
 <!-----Address & Social icons end-----> 
 
 <!-- popup form -->
-<div class="modal-overlay" id="modalOverlay" onclick="closeModal()">
+<div class="modal-overlay" id="modalOverlay" >
   <div class="enquiry" >
       <span class="closeit" id="cross" onclick="closeModal()" style="font-size: x-large;">×</span>
      
@@ -344,10 +349,10 @@
           </div>
           <div class="form-section2 left">
               <i class="icon-email" style="margin-left: 2px;"></i>
-              <input name="email" type="email" placeholder="Email Id" class="inputxt" required="">
+              <input name="email" type="text" placeholder="Email Id" class="inputxt" required="">
           </div>
-          <input name="email" id="email" type="hidden" value="">
-          <input name="project" type="hidden" value="Emaar Digi Homes 2">
+          <!-- <input name="email" id="email" type="hidden" value="">
+          <input name="project" type="hidden" value="Emaar Digi Homes 2"> -->
           <div class="form-section2 left">
               <input id="send" type="submit" value="Submit" name="send" class="btn-submit" style="color: white !important;padding: 0px;">
           </div>
