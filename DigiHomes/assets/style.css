@@ -80,7 +80,7 @@ p{font-family:'inter',sans-serif;line-height:1.75; font-size: 1em; letter-spacin
 .inr{font-family: sans-serif; font-style:normal}
 .gradient {background-color: #000; background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#003333), to(#339966)); background: -webkit-linear-gradient(top, #339966, #003333); background: -moz-linear-gradient(top, #339966, #003333); background: -ms-linear-gradient(top, #339966, #003333); background: -o-linear-gradient(top, #339966, #003333)}
 .tradient {background-color: #000; background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgba(0,0,0,1)), to(rgba(0,0,0,0))); background: -webkit-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,1)); background: -moz-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,1));  background: -ms-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,1)); background: -o-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,1))}
-.yradient{background: linear-gradient(to right, rgba(242,150,32,1) , rgba(0,0,0,0));  -webkit-linear-gradient(to right, rgba(242,150,32,1) , rgba(0,0,0,0));} 
+.yradient{background: linear-gradient(to right, rgba(242,150,32,1) , rgba(0,0,0,0));  -webkit-linear-gradient:(to right, rgba(242,150,32,1) , rgba(0,0,0,0));} 
 .buttons{cursor: pointer !important;
     position: relative !important;
     display: inline-block !important;
@@ -106,7 +106,7 @@ p{font-family:'inter',sans-serif;line-height:1.75; font-size: 1em; letter-spacin
 .topheader{position: fixed; top: 0; left: 0; right: 0; height: 70px; z-index: 9; background:#000; border-bottom: 1px solid #666666}
 .topheader .main-logo{float: left; padding:0px;}
 .topheader .main-logo img{height:70px; width: auto; display: block; padding:5px;}
-.topheader .topnav .nav-item a{color: #444 !important; margin: text-decoration: none; line-height:1 !important; text-decoration:none}
+.topheader .topnav .nav-item a{color: #444 !important; margin:0; text-decoration: none; line-height:1 !important; text-decoration:none}
 .topheader .topnav .nav-item{line-height:24px; margin-top:10px; padding-top:10px; }
 .topheader .topnav .nav-item{line-height:24px; margin-top:10px; padding-top:10px; }
 .number{font-size: 1.3em; display: inline-block}
@@ -289,18 +289,7 @@ footer .form-control{border-radius: 0; font-size: 12px; margin-bottom: 10px}
 
 
 /* query */
-.enquiry {
-	position: fixed;
-	z-index: 11;
-	width: 90%;
-	max-width: 250px;
-	padding: 25px;
-	right: 20px;
-	bottom: 0;
-	display: none;
-	box-shadow: 0 5px 37px rgba(0,0,0,.4);
-	-webkit-box-shadow: 0 1px 37px rgba(0,0,0,.4)
-}
+
 .formtitle {
 	font-size: 1em;
 	line-height: 1;

@@ -1,12 +1,12 @@
 //Popup
-$(window).scroll(function() {    
-    var scroll = $(window).scrollTop();
-    if (scroll >= 400) {
-		$('.enquiry').fadeIn();
-    } else {
-		$('.enquiry').fadeOut();
-    }
-});
+// $(window).scroll(function() {    
+//     var scroll = $(window).scrollTop();
+//     if (scroll >= 400) {
+// 		$('.enquiry').fadeIn();
+//     } else {
+// 		$('.enquiry').fadeOut();
+//     }
+// });
 
 $(".closeit").click(function(){
 	$("#quichForm").hide();
