@@ -274,11 +274,11 @@ footer .form-control{border-radius: 0; font-size: 12px; margin-bottom: 10px}
 .enquiry {
 	position: fixed;
 	z-index: 11;
-	width: 90%;
+	width: 90% !important;
 	max-width: 250px;
 	padding: 25px;
-	right: 20px;
-	bottom: 0;
+	/* right:50%; */
+	/* bottom: ; */
 	display: none;
 	box-shadow: 0 5px 37px rgba(0,0,0,.4);
 	-webkit-box-shadow: 0 1px 37px rgba(0,0,0,.4)
