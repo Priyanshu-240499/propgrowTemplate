@@ -169,6 +169,12 @@
   }
 }
 
+@media (max-width: 768px){
+  .btn-submit{
+    width: 40% !important;
+  }
+}
+
 /* form modal */
 </style>
 </head>
@@ -203,7 +209,7 @@
       <p class="small white">5354 User reviews</p>
     </div>
     <div class="mright text-right">
-      <p class="h6 yellow"><i class="inr">₹</i> Call for Price</p>
+      <p class="h6 yellow"onclick="showModal()"><i class="inr">₹</i>Call for Pricing</p>
       <p class="white small">Residential Flats</p>
     </div>
   </div>
@@ -230,7 +236,15 @@
     </div>
     <div class="col-lg-6"><img class="max_wh" loading="lazy" src="assets/images/gallery/main-highlights.webp" alt="Emaar Digi Homes 2 Highlights"></div>
   </div>
+  <div style="text-align: center; margin-top: 25px;" onclick="showModal()">
+    <button class="btn-submit" style="color: white !important;padding: 0px;width: 20%; background-color: #5a8e00;" >
+      Download Brochure
+    </button>
+  </div>
 </div>
+
+
+<!-- Over here -->
 <div id="gallery" class="text-justify lightgallery">
   <h4 class="title text-center gold"><strong>Emaar Digi Homes 2 Gallery</strong></h4>
   <div class="slider-gallery slider">
@@ -251,12 +265,12 @@
           <div class="configuration clear">
             <div class="colls">3 BHK</div>
             <div class="colls">2400 SQ.FT</div>
-            <div class="colls">Call for Price</div>
+            <div class="colls" onclick="showModal()">On Request</div>
           </div>
           <div class="configuration clear">
             <div class="colls">4 BHK</div>
             <div class="colls">3100 SQ.FT</div>
-            <div class="colls">Call for Price</div>
+            <div class="colls" onclick="showModal()">On Request</div>
           </div>
           <div class="configuration clear">
             <div class="colls"></div>
@@ -275,7 +289,7 @@
       <img src="./assets/images/gallery/floor-plan-1.webp" alt="" height="50%" width="50%">
     </div>
     <div style="text-align: center; margin-top: 25px;" onclick="showModal()">
-      <button class="btn-submit" style="color: white !important;padding: 0px;width: 15%; background-color: #5a8e00;" >
+      <button class="btn-submit" style="color: white !important;padding: 0px;width: 20%; background-color: #5a8e00;" >
         View Floor Plans
       </button>
     </div>
@@ -290,7 +304,7 @@
         <div class="pictures" data-src="assets/images/plans/location-map.webp"><img width="100%" src="assets/images/plans/location-map.webp" alt="Emaar Digi Homes 2 Location Map"></div>
       </div>
       <div class="col-lg-6">
-        <h6 class="h4">Leading Connectivity</h6>
+        <h6 class="h4 mt-4">Leading Connectivity</h6>
         <ul class="list">
           <li>Prime location in Sector 62, Gurgaon</li>
           <li>Only 20 minutes away from MG Road and major shopping malls.</li>
@@ -313,7 +327,7 @@
   
 <div class="col-sm-12 text-center pcontent">
   <h6 class="h4"><strong>About Emaar India</strong></h6>
-  <p class="text-justify">One of the most valuable and admired Real Estate group worldwide, <a href="https://www.emaarsco.in/" target="_blank">EMAAR</a> stands synonymous with thoughtful architecture, excellent engineering and impeccable execution. With proven competencies across a myriad of portfolios – Commercial, Residential, Retail, Hospitality and Leisure, EMAAR is a well-recognised name, known for its iconic assets in Dubai and other International Markets. Emaar India carries its global legacy with a formidable portfolio of remarkable residential and commercial spaces across the country viz. Delhi/NCR, Mohali, Indore, Jaipur and Lucknow.</p>
+  <p class="text-justify">One of the most valuable and admired Real Estate group worldwide, EMAAR  stands synonymous with thoughtful architecture, excellent engineering and impeccable execution. With proven competencies across a myriad of portfolios – Commercial, Residential, Retail, Hospitality and Leisure, EMAAR is a well-recognised name, known for its iconic assets in Dubai and other International Markets. Emaar India carries its global legacy with a formidable portfolio of remarkable residential and commercial spaces across the country viz. Delhi/NCR, Mohali, Indore, Jaipur and Lucknow.</p>
 </div>
 <div class="footpad bg-black row nomar">
  
