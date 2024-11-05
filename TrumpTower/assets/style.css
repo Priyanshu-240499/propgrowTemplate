@@ -73,7 +73,7 @@ body{-webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale}
 .inr{font-family: sans-serif; font-style:normal}
 .gradient {background-color: #000; background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#003333), to(#339966)); background: -webkit-linear-gradient(top, #339966, #003333); background: -moz-linear-gradient(top, #339966, #003333); background: -ms-linear-gradient(top, #339966, #003333); background: -o-linear-gradient(top, #339966, #003333)}
 .tradient {background-color: #000; background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgba(0,0,0,1)), to(rgba(0,0,0,0))); background: -webkit-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,1)); background: -moz-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,1));  background: -ms-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,1)); background: -o-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,1))}
-.yradient{background: linear-gradient(to right, rgba(242,150,32,1) , rgba(0,0,0,0));  -webkit-linear-gradient(to right, rgba(242,150,32,1) , rgba(0,0,0,0));} 
+.yradient{background: linear-gradient(to right, rgba(242,150,32,1) , rgba(0,0,0,0));  -webkit-linear-gradient:(to right, rgba(242,150,32,1) , rgba(0,0,0,0));} 
 .buttons{cursor: pointer !important;
     position: relative !important;
     display: inline-block !important;
@@ -100,7 +100,7 @@ h1,h2,h3,h4,h5,h6,strong {font-family: Cinzel, serif !important;}
 .topheader{position: fixed; top: 0; left: 0; right: 0; height: 70px; z-index: 9; background:#1b1b1c;}
 .topheader .pxpo-logo{float: left; padding:0px 10px;}
 .topheader .pxpo-logo img{height:70px; width: auto; display: block; padding:5px;}
-.topheader .topnav .nav-item a{color: #f4bd3f !important; margin: text-decoration: none; line-height:1 !important; text-decoration:none}
+.topheader .topnav .nav-item a{color: #f4bd3f !important; margin:0; text-decoration: none ; line-height:1 !important;}
 .topheader .topnav .nav-item{line-height:24px; margin-top:10px; padding-top:10px; }
 .number{font-size: 1.3em; display: inline-block; }
 .con-number{display:inline-block; letter-spacing: 2px; font-size: 1.5em; padding-left:5px; font-weight: bold}
@@ -164,7 +164,7 @@ ul.breadcrumb li a:hover{color:#999 !important;text-decoration:underline}
 .work2>img{display:block;width:100%;}
 .logo-background img{height:30px; width: auto;vertical-align:middle}
 .work-description{position:absolute; bottom:115px; left:30px; top:30px; right:30px; z-index:7}
-.work-description ul{display: block; list-style: none; color:#fff; line-height: 3 !important}
+.work-description ul{display: block; list-style: none; color:#fff; line-height: 1.9 !important}
 .work-description ul li{font-size:1em; display:block; border-bottom: 1px solid rgba(255,255,255,.2); }
 .work-description ul li span{font-weight: 700; margin-right: 7px; display: inline-block}
 .work:hover .work-description ul li{color:#fff; border-bottom: 1px solid rgba(255,255,255,.3); overflow:visible; white-space:pre-wrap}
@@ -419,7 +419,7 @@ color: #322B2B
 	/* Features */
 	.work{position: relative; padding:0!important; margin:25px 0 !important; height: 600px; overflow: hidden; -webkit-box-shadow: 0 2px 25px rgba(0,0,0,.2); box-shadow: 0 2px 25px rgba(0,0,0,.2)}
 	.work>img{display:block;width:100%; height:100%;}
-	.work-description ul{display: block; list-style: none; color:#fff; line-height: 2.5 !important}
+	.work-description ul{display: block; list-style: none; color:#fff; line-height: 2 !important}
 	.work-description ul li{font-size:.9em; display:block; border-bottom: 1px solid rgba(255,255,255,.2); }
 	/* Image Gallery */
 	.deskshow{display:none;}
