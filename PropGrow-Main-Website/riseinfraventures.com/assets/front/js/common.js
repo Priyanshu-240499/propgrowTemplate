@@ -446,84 +446,10 @@ $(document).ready(function() {
     $(document).on('click', '.headerFormSubmit', function() {
         $('#header-search').submit()
     })
-    
-    // $(document).click('EnqPhone', function() {
-    //     $('#inquiry').addClass('OpnPopCntct')
-    // })
+  
 
-    $(document).on('click', '.quick-inquiry', function() {
-        let forms = $(this).parents('.inquiry').find("input");
-        for (var i = 0; i < forms.length; i++) {
-            if(forms[i].value.length == 0) {
-                forms[i].style.borderBottom = '2px solid red'
-                // $.toast({
-                //     heading: 'Error',
-                //     text: res.message,
-                //     icon: res.status,
-                //     loader: true,
-                //     loaderBg: '#000000',
-                //     position: 'top-right'
-                // })
-                return;
-            }else{
-                forms[i].style.borderBottom = '1px solid #6b6b6b'
-            }
-        }
-
-        // let formData = $('#inquiry').serializeArray()
-        // console.log(formData, 'formDataformDataformData')
-        let formData = $(this).parents('.inquiry').serializeArray()
-        let data = new FormData();
-        data.append("data", JSON.stringify(formData));
-        $.ajax({
-            data: data,
-            type: "POST",
-            dataType: 'JSON',
-            url: baseURL + "ajax/sendMail",
-            cache: false,
-            contentType: false,
-            processData: false,
-            success: function(res) {
-                let icon;
-                if($('#inquiry').hasClass('OpnPopCntct')) {
-                    $('#inquiry').removeClass('OpnPopCntct')
-                }
-
-                if(res.status == 'success') {
-                    $('.inquiry').trigger('reset')
-                    $.toast({
-                        heading: 'Success',
-                        text: res.message,
-                        icon: res.status,
-                        loader: true,
-                        loaderBg: '#000000',
-                        position: 'top-right'
-                    })
-                }else{
-                    $.toast({
-                        heading: 'Error',
-                        text: res.message,
-                        icon: res.status,
-                        loader: true,
-                        loaderBg: '#000000',
-                        position: 'top-right'
-                    })
-                }
-            },
-            error: function(error) {
-                $.toast('Error!')
-            }
-        });
-    })
-
-    // $(document).click('.dwnldbrchue', function() {
-    //     loadPopup()
-    // })
     
 
-    // setTimeout(() => {
-    //   loadPopup()
-    // }, 3000)
     
     $(".dropdown").hover(
         function(e){ 
