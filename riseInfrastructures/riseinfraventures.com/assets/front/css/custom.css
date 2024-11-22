@@ -1,0 +1,43 @@
+header nav .clmd8 .Strymnvr ul.sub-menu-city, 
+header nav .clmd8 .Strymnvr ul.sub-menu, 
+header nav .clmd8 .Strymnvr ul.sub-menu-about {
+  display: none;
+  position: absolute;
+  background: rgba(0,0,0,0.5);
+  min-width: 150px;
+}
+.footer-address p, .footer-address span{
+  color: #ffffff !important;
+}
+.pb-50 {
+  padding-bottom: 50px;
+}
+.w-100 {
+  width: 100%;
+}
+.text-center {
+  text-align: center;
+}
+.footer-top, .copyright{
+  margin-left: 200px;
+}
+@media screen and (max-width: 767px) {
+  .footer-top, .copyright {
+    margin-left: inherit;   
+  }
+  .copyright {
+    margin-top: 16px;   
+  }
+  .rise-text-center {
+    text-align: center;
+  }
+  header nav .clmd8 .Strymnvr ul.sub-menu {
+    position: inherit;
+    /*background: #fff;
+    z-index: 9;
+    min-width: 200px;*/
+  }
+  /*header nav .clmd8 .Strymnvr ul li a {
+    color: #000;
+  }*/
+}
