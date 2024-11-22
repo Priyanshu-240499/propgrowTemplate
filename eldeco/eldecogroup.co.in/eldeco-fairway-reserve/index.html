@@ -90,7 +90,7 @@
                 <div class="header-right">
                     <div class="calling-content">
                        <button type="button" class="header_button pulse-button">
-                            <img src="images/icon/telephone14.png"><a href="tel: 8882653184" style="color:#fff">  8882653184</a></button>
+                            <img src="images/icon/telephone14.png"><a href="tel: 08882653184" style="color:#fff">  08882653184</a></button>
                     </div>
                 </div>
             </div>
@@ -98,7 +98,7 @@
     <!-- header section end here -->
 
     <!-- Banner Section start here -->
-    <div id="carouselExampleCaptions" class="carousel slide banner_section" data-ride="carousel">
+    <div id="carouselExampleCaptions" class="carousel slide banner_section" style="position: relative;" >
         <div class="carousel-inner">
            
             <div class="carousel-item active">
@@ -107,11 +107,12 @@
                 <img class="banner-img" src="./images/banner-1.webp" alt="...">
 				 </picture>
             </div>
-			 
-         
-         
-
         </div>
+
+        <div style="position: absolute;top:20px ;right: 0; background-color:#14693c;padding: 8px 32px;color: white;border-radius: 10px 0px 0px 10px; font-size: 15px; font-family: sans-serif;font-weight: bolder;" data-toggle="modal" data-target="#exampleModal1">RERA-Approved</div>
+
+        
+        
 
 
         <div class="banner_content">
@@ -162,6 +163,8 @@
                             </p>
                         </div>
                     </div>
+
+                    
                 </div>
             </div>
         </div>
@@ -170,7 +173,7 @@
             <div class=" form_sec">
                 <h2 class="form_title">Book A Site Visit !</h2>
                 <div class="form_section">
-				 <form method="post" action="">
+				 <form method="post" action="" onsubmit="submitForm(event)">
                     <div class="form-group">
                         <input type="text" class="form-control" placeholder="Enter Name" name="name" id="">
                     </div>
@@ -179,17 +182,15 @@
                         <input type="email" class="form-control" placeholder="Enter Email" name="email" id="">
                     </div>
                     <div class="form-group">
-                        <input class="form-control" placeholder="Enter Mobile No." name="mobile" id="">
+                        <input class="form-control" placeholder="Enter Mobile No." name="phone" id="">
                     </div>
                    <div class="form-group">			
-	<input type="hidden" name="utm_source" value="">
-                                <input type="hidden" name="utm_medium" value="">
-                                <input type="hidden" name="utm_campaign" value="">
-								 <input type="hidden" id="ip" name="ip" value="62.133.61.131">				   
+	
+                               				   
                         <button class="btn main_button" type="submit" name="Submit" value="Submit">Submit Now</button>                        
                     </div>
 				</form>
-				<span style="width:120px; float:right;margin-top:10px;"> <img src="images/secure.gif" alt="" class="img-fluid"></span>
+				
                 </div>
             </div>
         </div>
@@ -214,11 +215,15 @@
                             <h4 class="pro_title">Overview</h4>
                             <h3 class="title">Eldeco Fairway Reserve</h3>
                         </div>
-						 <p>Eldeco Fairway Reserve in Gurugram renders an unmatched way of living for the selected few. It is a low-density residential development with only 40 apartments per acre. The picturesque views and manicured greens, make it one of the top residential projects in Gurugram. </p>
- <p>The mini urban forest, Central greens with iconic water features, and tree groves, make freshness contagious here. Also, the unmatched Clubhouse amenities like a leisure deck, cards room, and aqua pool distinguish the project in the millennial city. </p>
- <p>Boredom remains unidentified here as the multiple activities excite residents. The sports plaza, forest alcove and the senior citizen gazebo make families spend quality time and create memories for a lifetime. </p>
- <p>With minimum vehicular movement on the ground floor and L-shaped private balconies of 4BHK apartments, life is impeccable at Eldeco Fairway Reserve in Gurugram. The well-positioned residential project by Eldeco group offers easy accessibility to Cyber City, Dwarka Expressway, and Delhi Public School. </p>
- <p>The RERA-approved Eldeco Fairway Reserve in Gurugram welcomes aristocrats to a charismatic lifestyle. </p>
+						 <p>Eldeco Fairway Reserve in Gurugram offers an unparalleled lifestyle for a select few. This low-density residential development, located in Sector 80 Gurgaon, features only 40 apartments per acre. Surrounded by picturesque views and meticulously landscaped greens, it stands out as one of the top residential projects in Gurugram.
+                        </p>
+ <p>As part of the Eldeco new project lineup, the development boasts unique features such as a mini urban forest, central greens with iconic water features, and tree groves, creating a refreshing and serene environment. Additionally, the exceptional clubhouse amenities, including a leisure deck, cards room, and aqua pool, make this Eldeco new launch a distinguished offering in the millennial city.
+</p>
+ <p>Residents of Eldeco Fairway can enjoy a vibrant lifestyle with activities suited for all age groups. The sports plaza, forest alcove, and senior citizen gazebo encourage families to spend quality time together and create lasting memories.
+</p>
+ <p>Designed for modern living, the 4BHK apartments feature L-shaped private balconies and minimal vehicular movement on the ground level, ensuring a peaceful and luxurious experience. This well-positioned residential project by the Eldeco Group offers excellent connectivity to Cyber City, Dwarka Expressway, and Delhi Public School, making it an ideal choice for those seeking a premium home in Eldeco Sector 80 Gurgaon.
+</p>
+ <p>As part of Eldeco's upcoming projects, this RERA-approved development in Gurugram invites discerning individuals to embrace a charismatic and luxurious lifestyle. Whether you’re exploring Eldeco new projects Gurgaon or seeking a standout residence, Eldeco Fairway Reserve is a perfect choice.</p>
 
 
 
@@ -689,7 +694,7 @@
                     <div class=" form_sec">
                         <h2 class="form_title">Keep In Touch</h2>
                         <div class="form_section">
-						 <form method="post" action="">
+						 <form method="post" action="" onsubmit="submitForm(event)">
                             <div class="form-group">
                                 <input type="text" class="form-control" placeholder="Enter Name" name="name" id="">
                             </div>
@@ -698,14 +703,14 @@
                                 <input type="email" class="form-control" placeholder="Enter Email" name="email" id="">
                             </div>
                             <div class="form-group">
-                                <input class="form-control" placeholder="Enter Phone No." name="mobile" id="">
+                                <input class="tel" placeholder="Enter Phone No." name="phone" id="">
                             </div>
                         
                             <div class="form-group">
-								<input type="hidden" name="utm_source" value="">
+								<!-- <input type="hidden" name="utm_source" value="">
                                 <input type="hidden" name="utm_medium" value="">
                                 <input type="hidden" name="utm_campaign" value="">
-								 <input type="hidden" id="ip" name="ip" value="62.133.61.131">
+								 <input type="hidden" id="ip" name="ip" value="62.133.61.131"> -->
                                 <button class="btn main_button" type="submit" name="Submit" value="Submit">Submit Now </button>
                             </div>
                           </form>
@@ -717,7 +722,7 @@
     </div>
 
     <div class="footer-enquiryBtn d-flex d-sm-none">
-        <a class="monCall text-uppercase" id="mobPhone" href="tel: 8882653184"><strong><i class="fa-solid fa-phone"></i> Call</strong></a>
+        <a class="monCall text-uppercase" id="mobPhone" href="tel: 08882653184"><strong><i class="fa-solid fa-phone"></i> Call</strong></a>
         <a id="mobEnquiry" class=" text-uppercase" href="#exampleModal1" data-toggle="modal"><strong><i class="fa fa-envelope"></i> Enquire</strong></a>
         <a class="whatsCall" href="https://api.whatsapp.com/send?phone=+917088470884&amp;text=Hi I am interested in Eldeco Fairway Reserve, Please share the details." target="_blank"><strong><i class="fab fa-whatsapp"></i> WhatsApp</strong></a>
     </div>
@@ -755,7 +760,7 @@
                 </div>
                 <div class="modal-body">
                     <div class="form_section">
-					<form method="post" action="">
+					<form method="post" action="" onsubmit="submitForm(event)">
                         <div class="form-group">
                             <input type="text" class="form-control" placeholder="Enter Name" name="name" id="">
                         </div>
@@ -767,10 +772,7 @@
                         <div class="form-group">
                             <input class="form-control" placeholder="Enter Number" name="mobile" id="">
                         </div>	
-	<input type="hidden" name="utm_source" value="">
-                                <input type="hidden" name="utm_medium" value="">
-                                <input type="hidden" name="utm_campaign" value="">
-								 <input type="hidden" id="ip" name="ip" value="62.133.61.131">						
+						
                         <button class="btn dark_btn rounded submit_btn main_button" type="submit" name="Submit" value="Submit">Submit Now
                         </button>
 						</form>
@@ -834,6 +836,56 @@
             });
         });
 
+    </script>
+
+    <script>
+         function submitForm(event) {
+    event.preventDefault();  // Ensure the form doesn't submit
+    const formData = new FormData(event.target); // `event.target` refers to the form element
+    const data = {};
+    
+    // Add form fields to data object
+    formData.forEach((value, key) => {
+        data[key] = value;
+    });
+    
+    // Add the current date and time to the data
+    const currentDate = new Date();
+    data['submissionDate'] = currentDate.toISOString();  // Use ISO format for date
+    console.log(data);
+    // Add current URL
+    data['url'] = window.location.href;
+    
+    // Example structure of email data based on your EmailJS template
+    const emailData = {
+        name: data.name, // Assuming 'name' field exists in your form
+        email: data.email, // Assuming 'email' field exists in your form
+        phone: data.phone,
+        url: data.url
+    };
+
+    // First, send data to the Pabbly webhook
+    fetch('https://connect.pabbly.com/workflow/sendwebhookdata/IjU3NjYwNTZjMDYzNjA0M2Q1MjZhNTUzMTUxMzUi_pc', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+    .then(response => {
+        if (response.ok) {
+            console.log("Webhook data submitted successfully", JSON.stringify(data));
+            window.location.href = './thankYou.html'; // Redirect to thank you page
+            
+            // Now, send the email using EmailJS
+            return emailjs.send('service_sobt4w4', 'template_t19t7pd', emailData); // Replace with your actual Service ID and Template ID
+        } else {
+            alert('There was an error submitting the form to the webhook.');
+            throw new Error('Webhook submission failed');
+        }
+    })
+   
+}
     </script>
 
 
