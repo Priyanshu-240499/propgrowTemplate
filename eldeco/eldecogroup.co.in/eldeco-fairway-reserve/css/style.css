@@ -350,7 +350,7 @@ header ul li.nav-item.call_btn {
 @media (max-width:768px){
     #sidetag{
         top: 80% !important;
-        z-index: 100;
+        z-index: 90;
     }
 }
 
