@@ -109,7 +109,7 @@ button.btn.main_button{background:transparent;border-radius:9px;border:1px solid
 
 /* amenities section start here */
 .amenities_section::after{content:attr(data-name);font-size:80px;position:absolute;line-height:100px;color:#6d6d6d;font-weight:600;opacity:.1;text-transform:uppercase;right:25px;/* writing-mode:tb-rl; */top: 3%;/* transform:translateY(-50%); *//* height:100%; */text-align:center;}
-.amenities_section{background-color: #cecabf;position: relative;}
+.amenities_section{background-color: rgba(206, 202, 191,0.2);position: relative;}
 .amenities_section .amenities_wrapper{display:flex;align-items:normal;justify-content:center;padding-top:50px;position:relative;left:-11%}
 .amenities_section .wrap{display:flex}
 .amenities_section .amenities_wrapper .title{
@@ -138,7 +138,7 @@ ul.slick-dots li.slick-active button:before{font-size:14px;opacity:.75;color:#00
 /* amenities section ends here */
 
 /* price section start here */
-.price_section .item_wrap{padding:30px 15px;color:#000;box-shadow:rgba(0,0,0,0.25) 0 25px 50px -12px;text-align:center;border-radius:14px;background-color:#cecabf}
+.price_section .item_wrap{padding:30px 15px;color:#000;box-shadow:rgba(0,0,0,0.25) 0 25px 50px -12px;text-align:center;border-radius:14px;background-color:rgba(206, 202, 191,0.2)}
 .price_section .item_wrap .title h3{font-size:26px;font-family:var(--primary-font);padding:10px;margin-bottom:0px}
 .price_section .item_wrap .price{border-bottom:1px dashed var(--primary-color);margin-bottom:20px;padding-bottom:10px}
 .price_section .item_wrap .size p{font-size:22px;font-weight:500}
@@ -171,7 +171,7 @@ ul.slick-dots li.slick-active button:before{font-size:14px;opacity:.75;color:#00
 .location_section .card-header h5{margin-bottom:0;font-weight:600;text-transform:capitalize;font-size:16px;cursor: pointer;}
 .location_section .card-body{padding:10px 0}
 .location_section .title_section{padding-bottom:5px}
-.location_section{position:relative;background-color: #cecabf;}
+.location_section{position:relative;background-color: rgba(206, 202, 191,0.2);}
 .location_section .card-body p{display:flex;justify-content:space-between;background-color:#e5ddc8;color:#fff;padding:8px 10px;align-items:center;margin-bottom:0;font-weight:500}
 .location_section .row{align-items:center}
 .location_section .content_wrap{padding:0 90px 0 40px}
@@ -198,7 +198,7 @@ footer .inner-footer-bottom p {
 }
 /* form css */
  .right_form{position:absolute;bottom:0;right:0;/* width:22%; */border:8px solid var(--primary-color);height:auto;z-index:9}
- .form_sec{padding:30px 15px;background:#cecabf;/* opacity:.95; */}
+ .form_sec{padding:30px 15px;background:rgba(206, 202, 191,0.2);/* opacity:.95; */}
  h2.form_title{font-size:29px;color:#fff;margin-bottom:15px}
 .right_form .form-control.right_form .form-control {
   border-radius: 0;
@@ -320,23 +320,38 @@ footer .inner-footer-bottom p a {
       display: block;
       padding: 7px 5px;
       font-size: 14px;
-      background:linear-gradient(45deg, #14693c, #7cc3a3);
+      /* background:linear-gradient(45deg, #14693c, #7cc3a3); */
       width: calc(100% / 3);
-  
+      height: 100%;
+      display: flex;
+      align-items: center;
+      text-align: center;
+      justify-content: center;
+      border-right: 1px solid #fff;
   }
+ 
   .footer-enquiryBtn a.whatsCall {
-      background: linear-gradient(45deg, #14693c, #288f58);
+      /* background: linear-gradient(45deg, #14693c, #288f58); */
       border: 0;
       color: #fff;
   }
 @media (min-width:768px){
 .mobile-trigger{
     display: none;
+
 }
+
 
 header ul li.nav-item.call_btn {
     display: none;
 }
+}
+
+@media (max-width:768px){
+    #sidetag{
+        top: 80% !important;
+        z-index: 100;
+    }
 }
 
 
@@ -491,7 +506,7 @@ header ul li.nav-item.call_btn {
 .statsBox{margin:3px;}
 .statsBox .in{
   height: 100%;
-  background-color: #cecabf;
+  background-color: rgba(206, 202, 191,0.2);
   border-radius: 10px;
   padding: 8px;
   color:#221e1e;
