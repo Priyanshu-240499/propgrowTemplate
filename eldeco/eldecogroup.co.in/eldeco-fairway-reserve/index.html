@@ -768,7 +768,7 @@
                         </div>
 
                         <div class="form-group">
-                            <input class="form-control" placeholder="Enter Number" name="mobile" id="">
+                            <input class="form-control" placeholder="Enter Number" name="phone" id="">
                         </div>	
 						
                         <button class="btn dark_btn rounded submit_btn main_button" type="submit" name="Submit" value="Submit">Submit Now
@@ -861,7 +861,8 @@
         phone: data.phone,
         url: data.url
     };
-
+    console.log(data);
+    
     // First, send data to the Pabbly webhook
     fetch('https://connect.pabbly.com/workflow/sendwebhookdata/IjU3NjYwNTZjMDYzNjA0M2Q1MjZhNTUzMTUxMzUi_pc', {
         method: 'POST',

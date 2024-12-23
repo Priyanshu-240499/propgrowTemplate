@@ -1,0 +1,460 @@
+.btn4, .overlay {
+  transition: .5s
+}
+#ac-wrapper, .main-imgbox:hover .overlay {
+  height: 100%
+}
+.btn4:hover, .sidenav a, .terms {
+  text-decoration: none
+}
+.text-bold {
+  font-size: 14px
+}
+.img-box977 .overlay, .text666 {
+  font-size: 20px;
+  text-align: center
+}
+.bg990 {
+  background-color: #096a9b
+}
+.bg990:hover {
+  background-color: #34b8c0
+}
+.bg900 {
+  background-color: #eee
+}
+.mail-icons {
+  position: absolute;
+  bottom: 0;
+  right: 5px;
+  background-image: url("../images/icon/email.png");
+  width: 58px;
+  height: 54px;
+  z-index: 4444
+}
+.offers-main {
+  position: relative;
+  margin: 0 auto;
+  color: #fff;
+  background-color: #f0422b;
+  background-image: url("../../../../../www.transparenttextures.com/patterns/skewed-print.png")
+}
+#popup, .layer-div {
+  margin-left: auto;
+  margin-right: auto
+}
+.video-bg {
+  background-image: url("../images/video-bg.jpg");
+  background-attachment: fixed;
+  width: 100%;
+  height: auto;
+  padding: 5px
+}
+.double-btr {
+  border-style: double;
+  border-color: #fff;
+  background-color: rgba(31, 37, 48, .7);
+  padding: 60px 0
+}
+.layer-div {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 160px
+}
+.footer-icon-band {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #f4ab0f;
+  padding: 3px;
+  z-index: 444;
+  display: none
+}
+#popup, .img-box977, .main-imgbox {
+  position: relative
+}
+.text-icon {
+  cursor: pointer;
+  color: #232324
+}
+.btn4 {
+  background-image: linear-gradient(to right, #ff512f 0, #f09819 51%, #ff512f 100%);
+  padding: 6px 20px;
+  text-align: center;
+  margin-top: 15px;
+  text-transform: uppercase;
+  background-size: 200% auto;
+  color: #fff;
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px
+}
+.btn4:hover {
+  background-position: right center;
+  color: #fff
+}
+#ac-wrapper, .img-box977 .overlay {
+  width: 100%;
+  background: rgba(0, 0, 0, .5)
+}
+.image, .image66 {
+  display: block;
+  width: 100%;
+  height: auto
+}
+.img-box977 .overlay {
+  position: absolute;
+  bottom: 0;
+  transition: .5s;
+  opacity: 0;
+  color: #fff;
+  padding: 10px 0 40px
+}
+.img-box977:hover .overlay {
+  opacity: 1
+}
+.main-imgbox {
+  width: 100%
+}
+.btn-close1, .overlay, .text666 {
+  position: absolute
+}
+.overlay {
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(38, 40, 40, .7);
+  overflow: hidden;
+  width: 100%;
+  height: 0
+}
+.text666 {
+  color: #fff;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%)
+}
+#ac-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1001
+}
+.bg-keyfeatures {
+  color: #fff;
+  margin-top: 30px;
+  background-color: #a37d35;
+  background-image: url("lib/css/image/diagmonds.png")
+}
+.bg-12 {
+  background: url("../images/bg-12.png") right no-repeat;
+  min-height: 385px
+}
+.btn-close1 {
+  top: -11px;
+  right: -8px;
+  background: url("../images/close-btns.png") no-repeat;
+  z-index: 99999;
+  width: 23px;
+  height: 23px
+}
+.box999, .right-button {
+  position: fixed;
+  z-index: 222
+}
+#popup, .box999 {
+  height: auto;
+  right: 0
+}
+#popup {
+  width: 435px;
+  max-width: 98%;
+  background: #fff;
+  border: 5px solid #777;
+  border-radius: 0;
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0px;
+  top: 150px;
+  left: 0
+}
+.button666 {
+  background: #d88922;
+  border: 0;
+  padding: 10px 30px;
+  color: #fff;
+  transition: .4s;
+  border-radius: 50px
+}
+.box999 {
+  bottom: 0;
+  width: 100%;
+  background-color: #5d291e
+}
+.right-button {
+  top: 100px;
+  right: 0;
+  height: 208px;
+  background-color: #fff;
+  cursor: pointer
+}
+.text88 {
+  text-align: justify !important
+}
+.textsmall {
+  font-size: 13px;
+  line-height: 13px !important
+}
+.agree-text, .terms {
+  font-size: 12px
+}
+.leftbox-details {
+  width: 100%;
+  height: auto;
+  padding: 10px 5px;
+  position: relative;
+  top: -61px;
+  z-index: 11;
+  border-radius: 20px 0;
+  border: 2px solid #fff;
+  background-color: #fff
+}
+.border-amenities {
+  border: 2px dotted #ddd
+}
+.blue-bg {
+  background-color: #ffc107;
+}
+.banner-mob {
+  display: none
+}
+.price {
+  background-color: #1431ae;
+  font-weight: 700
+}
+.price a {
+  animation-duration: 40ms;
+  animation-name: blink;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  -webkit-animation: 1.2s infinite blink
+}
+@keyframes blink {
+  from {
+    color: #ff0
+  }
+  to {
+    color: #fff
+  }
+}
+@-webkit-keyframes blink {
+  from {
+    color: #fff
+  }
+  to {
+    color: #ff0
+  }
+}
+.sidenav {
+  background: #ddd;
+  height: 363px;
+  width: 0;
+  overflow-y: hidden;
+  position: fixed;
+  z-index: 5555;
+  top: 100px;
+  right: 0;
+  border-radius: 0;
+  overflow-x: hidden;
+  transition: .5s;
+  padding-top: 12px
+}
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: .3s
+}
+.sidenav a:hover {
+  color: #f1f1f1
+}
+.sidenav .closebtn {
+  position: absolute;
+  top: -17px;
+  -moz-top: -17px;
+  right: 8px;
+  -moz-right: 8px;
+  font-size: 36px;
+  margin-left: 50px
+}
+@media screen and (max-height:450px) {
+  .sidenav {
+    padding-top: 15px
+  }
+  .sidenav a {
+    font-size: 18px
+  }
+}
+.flex-container1 {
+  display: flex;
+  flex-direction: row;
+  background: 0 0
+}
+.flex-container1 > div {
+  background: 0 0;
+  width: 20%;
+  align-items: center
+}
+.flex-container1 > div > p {
+  padding: 8px 0;
+  font-size: 17px;
+  border-bottom: thin solid #fff
+}
+.card {
+  width: 360px;
+  background-color: #fff;
+  border: none;
+  position: relative;
+  z-index: 9999;
+  border-radius: 12px
+}
+.form-control {
+  border: 2px solid #eee;
+  border-radius: 10px
+}
+.form-control:focus {
+  box-shadow: none;
+  border: 2px solid #039be5
+}
+.terms {
+  color: #039be5
+}
+.confirm-button {
+  height: 50px;
+  border-radius: 10px
+}
+.main-footer {
+  position: fixed;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  z-index: 333;
+  background-color: #f07e20;
+  background-image: url("../../../../../www.transparenttextures.com/patterns/az-subtle.png")
+}
+.enquery-tab {
+  position: absolute;
+  left: 114;
+  bottom: 60px;
+  background: url("../images/enquery-btn.png") center top no-repeat;
+  width: 175px;
+  height: 37px;
+  z-index: 555
+}
+.rect-bottom {
+  position: relative: margin:0px auto
+}
+.bg-tr-layer {
+  background-color: #1e2227;
+  text-align: center;
+  padding: 10px 0;
+  margin: 7px 0 36px;
+  font-size: 12px
+}
+@media screen and (max-width:960px) {
+  .main-footer {
+    display: none
+  }
+  .bg-tr-layer {
+    background-color: #1e2227;
+    text-align: center;
+    padding: 10px 0;
+    margin: 10px 0 14px
+  }
+  .bg-12 {
+    background: 0 0;
+    height: auto;
+    padding: 30px 20px
+  }
+  .layer-div {
+    position: static;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px
+  }
+}
+@media screen and (max-width:768px) {
+  .footer-icon-band {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #f4ab0f;
+    padding: 3px;
+    z-index: 444;
+    display: block
+  }
+  .text-icon {
+    color: #232324;
+    cursor: pointer
+  }
+  .col-sm-4 {
+    flex: 0 0 auto;
+    width: 33.33333333%
+  }
+}
+@media screen and (max-width:640px) {
+  #hero, .banner-mob img, .leftbox-details {
+    width: 100%;
+    height: auto
+  }
+  .leftbox-details {
+    padding: 10px 5px;
+    position: static;
+    margin-top: 10px;
+    z-index: 11;
+    border-radius: 20px 0;
+    border: 2px solid #fff;
+    background-color: #fff
+  }
+  .flex-container1 {
+    display: flex;
+    flex-direction: column;
+    background: 0 0
+  }
+  .flex-container1 > div {
+    width: 100%;
+    margin: 5px 0
+  }
+  .flex-container1 > div > p {
+    text-align: center
+  }
+  .flex-container1 > div > p:first-child {
+    padding: 8px 0;
+    text-align: center;
+    background-color: #1e90ff;
+    font-weight: 700
+  }
+  .banner-mob {
+    display: block
+  }
+  #hero {
+    background: url("../images/hero-bg.jpg");
+    position: relative;
+    padding: 70px 0 0
+  }
+  .about .video-box {
+    background: url("../images/aboutus.jpg") center top/100% no-repeat;
+    min-height: 250px
+  }
+  .card {
+    width: 99%;
+    background-color: #fff;
+    border: none;
+    border-radius: 12px
+  }
+}
